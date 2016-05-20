@@ -10,6 +10,10 @@ Interested integrators as well as those already operating satellites in orbit ar
 <br />  
 <br />  
 PRE-REQUISITES
+Hardware:
+- 3+ GHz Intel® Processor (4+ cores)
+- 1 TB HD
+Software:
 - Microsoft® Windows® 10 Professional or Microsoft® Server® 2016 (Version 1511, OS Build 10586 or later)
 - Microosft® SQL Server® 2016
 - Microsoft® Visual Studio® 2015 (Update 2)
