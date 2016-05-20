@@ -9,11 +9,11 @@ Satview™ bases on Microsoft® Windows® 10 (Version 1511, OS Build 10586 and a
 Interested integrators as well as those already operating satellites in orbit are most welcome to join this project and to help migrating SatView™ to many more projects.
 <br />  
 <br />  
-PRE-REQUISITES
-Hardware:
+PRE-REQUISITES<br />
+Hardware:<br />
 - 3+ GHz Intel® Processor (4+ cores)
-- 1 TB HD
-Software:
+- 1 TB HD<br />
+Software:<br />
 - Microsoft® Windows® 10 Professional or Microsoft® Server® 2016 (Version 1511, OS Build 10586 or later)
 - Microosft® SQL Server® 2016
 - Microsoft® Visual Studio® 2015 (Update 2)
