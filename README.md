@@ -19,7 +19,7 @@ Hardware:
 
 Software:
 - Microsoft® Windows® 10 Professional or Microsoft® Server® 2016 (Version 1511, OS Build 10586 or later)
-- Microosft® SQL Server® 2016
+- Microsoft® SQL Server® 2016
 - Microsoft® Visual Studio® 2015 (Update 2)
 
 Contact BINARY SPACE for further information.
