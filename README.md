@@ -12,8 +12,8 @@ Interested integrators as well as those already operating satellites in orbit ar
 PRE-REQUISITES<br />
 Hardware:
 - 3+ GHz Intel® Processor (4+ cores)
-- 1920x1280 Monitor(s)
-- 1+ TB HD
+- 1920x1280 (or higher) resolution Monitor(s)
+- 1+ TB Hard disk
 - 5+ Mbps Internet
 
 Software:
