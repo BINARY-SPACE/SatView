@@ -8,7 +8,6 @@ Currently, Satview™ bases on Microsoft® Windows® 10 (Version 1511, OS Build 
 
 Interested integrators as well as those already operating satellites in orbit are most welcome to join this project and to help migrating SatView™ to many more projects.
 <br />  
-<br />  
 PRE-REQUISITES<br />
 Hardware:
 - 3+ GHz Intel® Processor (4+ cores)
