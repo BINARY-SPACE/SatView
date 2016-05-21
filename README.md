@@ -6,6 +6,7 @@ It is compliant with the CCSDS Packet Telemetry/Telecommand Standard (CCSDS 102.
 
 Currently, Satview™ bases on Microsoft® Windows® 10 (Version 1511, OS Build 10586 and above) and was designed to depend solely on Microsoft® software. This ensures a fast and seamless upgrade process. As a consequence of this, it runs on any commercially available hardware hosting the above mentioned OS.
 ![Alt text](/Images/SatView™%20Desktop.jpg?raw=true "SatView™ Desktop")
+![Alt text](/Images/SatView™%20Editor.jpg?raw=true "SatView™ Editor")
 
 Interested hardware integrators as well as those already operating satellites in orbit are most welcome to join this project and to help migrating SatView™ to many more projects.
 <br />  
