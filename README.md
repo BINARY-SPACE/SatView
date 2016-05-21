@@ -13,10 +13,10 @@ Interested hardware integrators as well as those already operating satellites in
 <br />  
 PRE-REQUISITES<br />
 Hardware:
-- 3+ GHz Intel® Processor (4+ cores)</li>
-- 1920x1280 (or higher) resolution Monitor(s)</li>
-- 1+ TB Hard disk</li>
-- 5+ Mbps Internet</li>
+- 3+ GHz Intel® Processor (4+ Cores)
+- 1920x1280 (or higher) resolution Monitor(s)
+- 1+ TB Hard disk
+- 5+ Mbps Internet
 
 Software:
 - Microsoft® Windows® 10 Professional or Microsoft® Server® 2016 (Version 1511, OS Build 10586 or later)
