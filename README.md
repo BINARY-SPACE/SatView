@@ -29,6 +29,6 @@ Interested hardware integrators as well as those already operating satellites in
 #### Installation<br />
 <br />  
 #### License<br />
-The source code in this repository is governed by the '**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International**' license. Read the [copyright notice]().
+The source code in this repository is governed by the '**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International**' license. Read the corresponding [copyright notice](/Copyright/Copyright Notice.md).
 <br />  
 Contact BINARY SPACE for further information.
