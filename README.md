@@ -29,5 +29,6 @@ Interested hardware integrators as well as those already operating satellites in
 #### Installation<br />
 <br />  
 #### License<br />
+The source code in this repository is governed by the CRYENGINE license agreement, which is contained in LICENSE.md, adjacent to this file.
 <br />  
 Contact BINARY SPACE for further information.
