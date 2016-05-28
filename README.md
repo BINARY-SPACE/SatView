@@ -13,7 +13,7 @@ Interested hardware integrators as well as those already operating satellites in
 <br />  
 #### Overview<br />
 SatView™ is designed to allow fast adoption to different ground segments as well as to various satellites. This is achieved by a kernel-based approach where the invariant code is encapsulated and separated from the remaining code.<br />
-Read more about that design [here](/Documents/Overview.md).
+Read the [SatView™ Brochure](/Brochures/SatView Brochure.pdf) to learn more about its design and what components the product consists of.
 <br />  
 #### Pre-Requisites<br />
 ###### Hardware:
