@@ -15,7 +15,6 @@ Interested hardware integrators as well as those already operating satellites in
 SatView™ is designed to allow fast adoption to different ground segments as well as to various satellites. This is achieved by a kernel-based approach where the invariant code is encapsulated and separated from the remaining code.
 Read more about that design [here](/Documents/Overview.md).
 <br />  
-<br />  
 #### Pre-Requisites<br />
 ###### Hardware:
 - 3+ GHz Intel® Processor (4+ Cores)
@@ -28,7 +27,6 @@ Read more about that design [here](/Documents/Overview.md).
 - Microsoft® SQL Server® 2016
 - Microsoft® Visual Studio® 2015 (Update 2)
 
-<br />
 #### Installation<br />
 <br />  
 #### License<br />
