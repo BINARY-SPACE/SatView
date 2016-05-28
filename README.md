@@ -23,7 +23,7 @@ Read the [SatView™ Brochure](/Brochures/SatView™ Brochure.pdf) to learn more
 - 5+ Mbps Internet
 
 ###### Software:
-- Microsoft® Windows® 10 Professional or Microsoft® Server® 2016 (Version 1511, OS Build 10586 or later)
+- Microsoft® Windows® 10 Professional/Enterprise or Microsoft® Server® 2016 (Version 1511, OS Build 10586 or later)
 - Microsoft® SQL Server® 2016
 - Microsoft® Visual Studio® 2015 (Update 2)
 
