@@ -28,6 +28,7 @@ Read more about that design [here](/Documents/Overview.md).
 - Microsoft® Visual Studio® 2015 (Update 2)
 
 #### Installation<br />
+Follow this [installation guide](/Documents/Installation.md) in order to get the development environment downloaded and set-up.
 <br />  
 #### License<br />
 The source code in this repository is governed by the '**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International**' license. Read the corresponding [copyright notice](/Copyright/Copyright Notice.md).
