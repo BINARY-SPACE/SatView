@@ -5,10 +5,12 @@ In most cases, there are three major areas which need customization:
 - Data I/O
 - Automation<br />
 <p align="center">
-  <img src="../Images/SatView™%20Interfaces.png"/>
+  <img src="../Images/SatView™%20Interfaces.png" />
 </p>
 
 #####1. Database
+Currently, SatView™ supports two database standards: SCOS-2000 (ESA) and ALTEL (L3 Communications).
+<br />  
 #####2. Data I/O
 #####3. Automation
 
