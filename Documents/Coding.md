@@ -4,7 +4,13 @@ In most cases, there are three major areas which need customization:
 - Database
 - Data I/O
 - Automation<br />
-[SatView™ Interfaces](../Images/SatView™ Interfaces.png)
+<p align="center">
+  <img src="../Images/SatView™%20Interfaces.png"/>
+</p>
+
+#####1. Database
+#####2. Data I/O
+#####3. Automation
 
 
 To be completed soon.
