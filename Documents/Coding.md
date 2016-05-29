@@ -13,7 +13,8 @@ Currently, SatView™ supports two database standards: SCOS-2000 (ESA) and ALTEL
 The document [SatView™ Database Standards](../Documents/SatView™ Database Standards.pdf) describes these standards in more detail and helps to evaluate which one fits the mission's needs best.<br />
 Depending on the chosen database standard the associated software projects need to be included in the solution:<br />
 **SCOS-2000** & **Satellite (SCOS-2000)** or **ALTEL** & **Satellite (ALTEL)**.
-Obviously, the projects **Satellite (SCOS-2000)** or **Satellite (ALTEL)** need to be renamed to the mission's satellite name and the unused projects can be excluded from the solution.
+Obviously, the projects **Satellite (SCOS-2000)** or **Satellite (ALTEL)** need to be renamed to the mission's satellite name and the unused projects can be excluded from the solution.<br />
+The projects **SCOS-2000** and **ALTEL** define the generic behavior of all satellites using that database standard whereas the associated **Satellite (XXX)** projects contain any code deviating from the standard.
 
 <br />  
 #####2. Data I/O
