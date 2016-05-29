@@ -14,7 +14,7 @@ The document [SatView™ Database Standards](../Documents/SatView™ Database St
 Depending on the chosen database standard, the associated software projects need to be included in the solution:<br />
 **SCOS-2000** & **Satellite (SCOS-2000)** or **ALTEL** & **Satellite (ALTEL)**.
 Obviously, the projects **Satellite (SCOS-2000)** or **Satellite (ALTEL)** need to be renamed to the mission's satellite name and the unused projects can be excluded from the solution.<br />
-Whereas the projects **SCOS-2000** and **ALTEL** define the generic behavior of all satellites using that database standard, the associated **Satellite (XXX)** projects contain any code deviating from that standard.
+Whereas the projects **SCOS-2000** and **ALTEL** define the generic behavior of all satellites using that database standard, the associated **Satellite (XXX)** projects contain any deviating code.
 
 <br />  
 #####2. Data I/O
