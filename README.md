@@ -30,6 +30,9 @@ Read the [SatView™ Brochure](/Brochures/SatView™ Brochure.pdf) to learn more
 #### Installation<br />
 Follow this [installation guide](/Documents/Installation.md) in order to get the development environment downloaded and set-up.
 <br />  
+#### Coding<br />
+Consult these [coding guidelines](/Documents/Coding.md) to start adapting the code to the ground segment and the satellite.
+<br />  
 #### License<br />
 The source code in this repository is governed by the '**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International**' license. Read the corresponding [copyright notice](/Copyright/Copyright Notice.md).
 <br />  
