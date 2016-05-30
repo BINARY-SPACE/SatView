@@ -18,7 +18,7 @@ Whereas the projects **SCOS-2000** & **ALTEL** define the generic behavior of al
 In a nutshell, such a database driver is made-up of these classes:<br />
 **CDatabaseEngine**:<br />
 Handles the database loading/parsing and rendering.<br />
-Consult the document [SatView™ Database Interfaces](../Documents/SatView™ Database Interfaces.pdf) for a detailed description of this class.<br />
+Consult the document [SatView™ Database Interface](../Documents/SatView™ Database Interface.pdf) for a detailed description of this class.<br />
 For both database standards, this class needs only few changes.
 
 **CMemoryDumpsServiceEngine**:<br />
