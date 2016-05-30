@@ -32,6 +32,7 @@ Read the document ['Definition of the Packet Front-End Link Protocol'](../Docume
 Implements the telemetry processor.<br />
 **CTCProcessEngine**:<br />
 Implements the telecommand processor.<br />
+Note: SatView™'s telecommand sub-system has never been used in one of the past missions and hence requires extensive testing.
 
 The above principle is illustrated with the **CDatabaseEngine** class:
 <p align="center">
@@ -44,6 +45,4 @@ SatView™ incorporates a generic interface for telemetry/telecommand data excha
 Consult the document ['SatView™ Data I/O Device Driver Development'](../Documents/SatView™ Data IO Interface.pdf) to learn about how to implement such a data I/O driver. An implementation sample is available for the ENERTEC TT&C 3801 device (see the '**ENERTEC**' project).<br />
 <br />
 #####3. Automation
-
-<br />  
-To be completed soon.
+Remote control of SatView™ might be important in some missions.
