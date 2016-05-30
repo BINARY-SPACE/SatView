@@ -29,7 +29,7 @@ Read the document ['Definition of the Telemetry Parameter Exchange Protocol'](..
 Defines the interface for the *Packet Front-End Protocol* (PFLP).<br />
 Read the document ['Definition of the Packet Front-End Link Protocol'](../Documents/SatView™ Packet Front-End Link Protocol (PFLP).pdf) to learn more about PFLP.<br />
 **CTMProcessEngine**:<br />
-Implements the telemetry processor.
+Implements the telemetry processor.<br />
 **CTCProcessEngine**:<br />
 Implements the telecommand processor.
 
