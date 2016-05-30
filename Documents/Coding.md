@@ -23,6 +23,7 @@ For both database standards, this class needs only few changes.<br />
 **CMemoryDumpsServiceEngine**:<br />
 Implements the code to handle memory dumps.<br />
 **CTPEPServiceEngine**:<br />
+Defines the interface for the Telemetry Parameter Exchange Protocol (TPEP).
 **CPFLPServiceEngine**:<br />
 **CTMProcessEngine**:<br />
 **CTCProcessEngine**:<br />
