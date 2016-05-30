@@ -41,7 +41,7 @@ The above principle is illustrated with the **CDatabaseEngine** class:
 #####2. Data I/O
 Another area requiring customization is related to the integration into the ground segment i.e. data input/output.<br />
 SatView™ incorporates a generic interface for telemetry/telecommand data exchange that can handle raw data, telemetry packets and transfer frames. Getting compatible with the corresponding ground segment device means to write an intermediate driver in form of a *Dynamic Link Library* (DLL).<br />
-Consult the document ['SatView™ Data I/O Device Driver Development'](../Documents/SatView™ Data IO Interface.pdf) to learn about how to implement such an data I/O driver. An implementation sample is available for the ENERTEC TT&C 3801 device (see 'ENERTEC' project).<br />
+Consult the document ['SatView™ Data I/O Device Driver Development'](../Documents/SatView™ Data IO Interface.pdf) to learn about how to implement such a data I/O driver. An implementation sample is available for the ENERTEC TT&C 3801 device (see the 'ENERTEC' project).<br />
 <br />
 #####3. Automation
 
