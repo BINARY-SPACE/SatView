@@ -27,11 +27,11 @@ Defines the interface for the *Telemetry Parameter Exchange Protocol* (TPEP).<br
 Read the document ['Definition of the Telemetry Parameter Exchange Protocol'](../Documents/SatView™ Telemetry Parameter Exchange Protocol (TPEP).pdf) to learn more about TPEP.<br />
 **CPFLPServiceEngine**:<br />
 Defines the interface for the *Packet Front-End Protocol* (PFLP).<br />
-Read the document ['Definition of the Packet Front-End Link Protocol'](../Documents/SatView™ Front-End Link Protocol (PFLP).pdf) to learn more about PFLP.<br />
+Read the document ['Definition of the Packet Front-End Link Protocol'](../Documents/SatView™ Packet Front-End Link Protocol (PFLP).pdf) to learn more about PFLP.<br />
 **CTMProcessEngine**:<br />
 Implements the telemetry processor.
 **CTCProcessEngine**:<br />
-
+Implements the telecommand processor.
 
 <br />  
 #####2. Data I/O
