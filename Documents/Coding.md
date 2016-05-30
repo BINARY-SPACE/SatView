@@ -39,6 +39,8 @@ The above principle is illustrated with the **CDatabaseEngine** class:
 </p>
 <br />  
 #####2. Data I/O
+Another area requiring customization is related to the integration into the ground segment i.e. data input/output.<br />
+
 #####3. Automation
 
 <br />  
