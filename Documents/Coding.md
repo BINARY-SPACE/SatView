@@ -19,9 +19,9 @@ In a nutshell, such a database driver is made-up of these classes:<br />
 **CDatabaseEngine**:<br />
 Handles the database loading/parsing and table rendering.<br />
 Consult the document [SatView™ Database Interface](../Documents/SatView™ Database Interface.pdf) for a detailed description of this class.<br />
-For both database standards, this class needs only few changes.
+For both database standards, this class needs only few changes.<br />
 **CMemoryDumpsServiceEngine**:<br />
-Implements the code to handle memory dumps.
+Implements the code to handle memory dumps.<br />
 **CTPEPServiceEngine**:<br />
 **CPFLPServiceEngine**:<br />
 **CTMProcessEngine**:<br />
