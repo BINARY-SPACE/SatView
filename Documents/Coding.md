@@ -40,7 +40,9 @@ The above principle is illustrated with the **CDatabaseEngine** class:
 <br />  
 #####2. Data I/O
 Another area requiring customization is related to the integration into the ground segment i.e. data input/output.<br />
-
+SatView™ incorporates a generic interface for telemetry/telecommand data exchange that can handle raw data, telemetry packets and transfer frames. Getting compatible with the corresponding ground segment device means to write an intermediate driver in form of a *Dynamic Link Library* (DLL).<br />
+Consult the document []() to learn about how to implement
+<br />
 #####3. Automation
 
 <br />  
