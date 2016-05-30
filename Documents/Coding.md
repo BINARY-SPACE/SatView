@@ -31,8 +31,12 @@ Read the document ['Definition of the Packet Front-End Link Protocol'](../Docume
 **CTMProcessEngine**:<br />
 Implements the telemetry processor.<br />
 **CTCProcessEngine**:<br />
-Implements the telecommand processor.
+Implements the telecommand processor.<br />
 
+The above principle is illustrated with the **CDatabaseEngine** class:
+<p align="center">
+  <img src="../Images/SatView™%20Software%20Architecture.png" />
+</p>
 <br />  
 #####2. Data I/O
 #####3. Automation
