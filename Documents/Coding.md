@@ -21,9 +21,10 @@ Handles the database loading/parsing and table rendering.<br />
 Consult the document [SatView™ Database Interface](../Documents/SatView™ Database Interface.pdf) for a detailed description of this class.<br />
 For both database standards, this class needs only few changes.<br />
 **CMemoryDumpsServiceEngine**:<br />
-Implements the code to handle memory dumps.<br />
+Implements the interface to handle memory dumps.<br />
 **CTPEPServiceEngine**:<br />
-Defines the interface for the Telemetry Parameter Exchange Protocol (TPEP).
+Defines the interface for the *Telemetry Parameter Exchange Protocol* (TPEP).<br />
+Read the document []() to learn more about TPEP.<br />
 **CPFLPServiceEngine**:<br />
 **CTMProcessEngine**:<br />
 **CTCProcessEngine**:<br />
