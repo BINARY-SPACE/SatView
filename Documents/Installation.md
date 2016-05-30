@@ -6,7 +6,7 @@
 - Download the '**SatView**' GitHub repository as 'zip' file, extract the '**Source**' directory, rename it to '**SatView**' and move it into the '**Documents**' folder
 - Open the Microsoft® Visual Studio® 2015 under the 'Administrator' account (right-click and select 'Run as administrator')
 - Open the project solution called 'SatView (GitHub)'
-- Exclude either the projects '**SCOS-2000**' & '**Satellite (SCOS-2000)**' or '**ALTEL**' & '**Satellite (ALTEL)**' from the solution  depending on the database standard selected
+- Exclude either the projects '**SCOS-2000**' & '**Satellite (SCOS-2000)**' or '**ALTEL**' & '**Satellite (ALTEL)**' from the solution  depending on the database standard selected (read [coding guidelines](coding.md)]
 
 <br />  
 To be completed soon.
