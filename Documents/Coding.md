@@ -24,7 +24,7 @@ For both database standards, this class needs only few changes.<br />
 Implements the interface to handle memory dumps.<br />
 **CTPEPServiceEngine**:<br />
 Defines the interface for the *Telemetry Parameter Exchange Protocol* (TPEP).<br />
-Read the document []() to learn more about TPEP.<br />
+Read the document ['Telemetry Parameter Exchange Protocol'](../Documents/SatView™ Telemetry Parameter Exchange Protocol (TPEP).pdf) to learn more about TPEP.<br />
 **CPFLPServiceEngine**:<br />
 **CTMProcessEngine**:<br />
 **CTCProcessEngine**:<br />
