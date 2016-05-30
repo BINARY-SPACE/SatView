@@ -10,6 +10,6 @@
 - Rename the project '**Satellite (SCOS-2000)**' or '**Satellite (ALTEL)**' (including the resulting output file) to the name of the satellite to be supported
 - Complete the coding for the projects '**SCOS-2000**' & '**Satellite (SCOS-2000)**' or '**ALTEL**' & '**Satellite (ALTEL)**'
 
- 
-IMPORTANT
+<br />   
+**IMPORTANT**<br />
 In order to guarantee a corrent event reporting, the '**resourceFileName**' and '**messageFileName**' entries in the 'messages.man' event manifest (inside the '**Library**' project must point to the location of the dynamic link library called 'SatView.dll'.
