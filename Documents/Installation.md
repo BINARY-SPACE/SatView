@@ -8,8 +8,8 @@
 - Open the project solution called 'SatView (GitHub)'
 - Exclude either the projects '**SCOS-2000**' & '**Satellite (SCOS-2000)**' or '**ALTEL**' & '**Satellite (ALTEL)**' from the solution  depending on the database standard selected (read the [coding guidelines](Coding.md))
 - Rename the project '**Satellite (SCOS-2000)**' or '**Satellite (ALTEL)**' (including the resulting output file) to the name of the satellite to be supported
-- Complete the coding for the projects '**SCOS-2000**' or '**ALTEL**' and the associated satellite project
-- Launch the '**SatView™ Editor**' for the first time, register the satellite name and enter the password for the 'Administrator' account
+- Complete the coding for the projects '**SCOS-2000**' or '**ALTEL**' and the associated (renamed) satellite project
+- Launch the '**SatView™ Editor**' for the first time, register the satellite name and enter the password for the 'Administrator' account (i.e. the password for the 'Administrator' account of SatView™ must be identical to the one for the OS)
 - Start building the database
 
 <br />  
