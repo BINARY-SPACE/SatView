@@ -24,8 +24,10 @@ For both database standards, this class needs only few changes.<br />
 Implements the interface to handle memory dumps.<br />
 **CTPEPServiceEngine**:<br />
 Defines the interface for the *Telemetry Parameter Exchange Protocol* (TPEP).<br />
-Read the document ['Telemetry Parameter Exchange Protocol'](../Documents/SatView™ Telemetry Parameter Exchange Protocol (TPEP).pdf) to learn more about TPEP.<br />
+Read the document ['Definition of the Telemetry Parameter Exchange Protocol'](../Documents/SatView™ Telemetry Parameter Exchange Protocol (TPEP).pdf) to learn more about TPEP.<br />
 **CPFLPServiceEngine**:<br />
+Defines the interface for the *Packet Front-End Protocol* (PFLP).<br />
+Read the document ['Definition of the Packet Front-End Link Protocol'](../Documents/SatView™ Font-End Link Protocol (PFLP).pdf) to learn more about PFLP.<br />
 **CTMProcessEngine**:<br />
 **CTCProcessEngine**:<br />
 
