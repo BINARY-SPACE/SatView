@@ -8,4 +8,7 @@ You may not use any part of this project except in compliance with the License o
 A copy of the License is available at: [Creative Commons License](http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) ([Deed](Copyright%20Deed%20(CC%20BY-NC-SA%204.0).png))
 <br />  
 Note:<br />
-The above copyright notice overwrites the corresponding headers of the project files.
+The above copyright notice overwrites the corresponding headers of the project files.<br />
+<br />  
+<br />  
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
