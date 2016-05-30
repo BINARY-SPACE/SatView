@@ -17,7 +17,7 @@ Obviously, the projects **Satellite (SCOS-2000)** or **Satellite (ALTEL)** need 
 Whereas the projects **SCOS-2000** & **ALTEL** define the generic behavior of all satellites using that database standard, the associated **Satellite (SCOS-2000)** & **Satellite (ALTEL)** projects contain any deviating code. With other words, the latter ones contain derived classes that implement a satellite specific behavior via virtual functions.<br />
 In a nutshell, such a database driver is made-up of these classes:<br />
 **CDatabaseEngine**:<br />
-Handles the database loading/parsing and rendering.<br />
+Handles the database loading/parsing and table rendering.<br />
 Consult the document [SatView™ Database Interface](../Documents/SatView™ Database Interface.pdf) for a detailed description of this class.<br />
 For both database standards, this class needs only few changes.
 
