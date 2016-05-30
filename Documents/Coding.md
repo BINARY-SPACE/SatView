@@ -45,5 +45,5 @@ SatView™ incorporates a generic interface for telemetry/telecommand data excha
 Consult the document ['SatView™ Data I/O Device Driver Development'](../Documents/SatView™ Data IO Interface.pdf) to learn about how to implement such a data I/O driver. An implementation sample is available for the ENERTEC TT&C 3801 device (see the '**ENERTEC**' project).<br />
 <br />
 #####3. Automation
-Remote control of SatView™ might be important in some missions. Currently, SatView™ supports a simple (but extensible) set of commands that can be executed remotely.
+Remote control of SatView™ might be important in some missions. Currently, SatView™ supports a simple (but extensible) set of commands that can be executed remotely.<br />
 Consult the document ['SatView™ Automation Interface'](../Documents/SatView™ Automation Interface.pdf) to learn about the implemented automation interface.
