@@ -10,5 +10,4 @@ A copy of the License is available at: [Creative Commons License](http://creativ
 Note:<br />
 The above copyright notice overwrites the corresponding headers of the project files.<br />
 <br />  
-<br />  
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
