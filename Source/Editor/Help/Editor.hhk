@@ -1,0 +1,1434 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Precision Helper 2.0.1">
+<!-- Sitemap 1.0 -->
+</HEAD>
+<BODY>
+    <OBJECT type="text/site properties">
+      <param name="FrameName" value="right">
+    </OBJECT>
+    <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Action-Object Step">
+          <param name="Name" value="Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="Set-Arguments Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_SetArguments_Dialog_Box.htm">
+          <param name="Name" value="Set-Variables Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_SetVariables_Dialog_Box.htm">
+          <param name="Name" value="Set-Parameters Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_SetParameters_Dialog_Box.htm">
+          <param name="Name" value="Set-Synchronization Object Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_SetSynchronizationObject_Dialog_Box.htm">
+          <param name="Name" value="Inject-Alert Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_InjectAlert_Dialog_Box.htm">
+          <param name="Name" value="Call-Procedure Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_CallProcedure_Dialog_Box.htm">
+          <param name="Name" value="Start-Procedure Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_StartProcedure_Dialog_Box.htm">
+          <param name="Name" value="Control-Procedure Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_ControlProcedure_Dialog_Box.htm">
+          <param name="Name" value="Control-Thread Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_ControlThread_Dialog_Box.htm">
+          <param name="Name" value="Wait-Time Interval Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_WaitTimeInterval_Dialog_Box.htm">
+          <param name="Name" value="Wait-Synchronization Object Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_WaitSynchronizationObject_Dialog_Box.htm">
+          <param name="Name" value="Send-TC Function Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_SendTCFunction_Dialog_Box.htm">
+          <param name="Name" value="Send-TC Sequence Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_SendTCSequence_Dialog_Box.htm">
+          <param name="Name" value="Log-Message Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_LogMessage_Dialog_Box.htm">
+          <param name="Name" value="User-Interaction Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_UserInteraction_Dialog_Box.htm">
+          <param name="Name" value="TPL Step Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Alphanumeric Display">
+          <param name="Name" value="Database Standards">
+          <param name="Local" value="SatView_Editor_Help_Papers_Databases.htm">
+          <param name="Name" value="AND Save Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_AND_Save_Dialog_Box.htm">
+          <param name="Name" value="AND Find Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_AND_Find_Dialog_Box.htm">
+          <param name="Name" value="AND Goto Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_AND_GoTo_Dialog_Box.htm">
+          <param name="Name" value="AND Replace Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_AND_Replace_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="AND">
+          <param name="Name" value="Database Standards">
+          <param name="Local" value="SatView_Editor_Help_Papers_Databases.htm">
+          <param name="Name" value="AND Save Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_AND_Save_Dialog_Box.htm">
+          <param name="Name" value="AND Find Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_AND_Find_Dialog_Box.htm">
+          <param name="Name" value="AND Goto Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_AND_GoTo_Dialog_Box.htm">
+          <param name="Name" value="AND Replace Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_AND_Replace_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Arc Object">
+          <param name="Name" value="Arc Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Arc_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Arrow Object">
+          <param name="Name" value="Line Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Line_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Automation">
+          <param name="Name" value="Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Automation Script">
+          <param name="Name" value="Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+          <param name="Name" value="Automation Script (Script)">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Creating a new Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Script Open Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_Open_Dialog_Box.htm">
+          <param name="Name" value="Configuring the Properties of an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Script Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_Properties_Dialog_Box.htm">
+          <param name="Name" value="Designing & Editing an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Script Save Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_Save_Dialog_Box.htm">
+          <param name="Name" value="Compiling & Testing an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Script Test Parameters Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_PropertiesParameters_Dialog_Box.htm">
+          <param name="Name" value="Script Test Parameter Details Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_PropertiesParameterDetails_Dialog_Box.htm">
+          <param name="Name" value="Printing an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Importing Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Scripts Import Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_Import_Dialog_Box.htm">
+          <param name="Name" value="Exporting Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Scripts Export Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_Export_Dialog_Box.htm">
+          <param name="Name" value="Deleting an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Branch Step">
+          <param name="Name" value="Branch Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_Branch_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Breakpoint">
+          <param name="Name" value="Compiling & Testing a Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Bulk Copy">
+          <param name="Name" value="Specifying the DBMS Settings">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="DBMS Settings Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_DBMS_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="C++">
+          <param name="Name" value="Derived Parameter Language (DPL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="Mimics Description Language (MDL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="Telecommand Procedure Language (TPL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Call-Procedure Step">
+          <param name="Name" value="Call-Procedure Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_CallProcedure_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Chord Object">
+          <param name="Name" value="Arc Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Arc_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Circle Object">
+          <param name="Name" value="Circle Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Circle_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Clipboard">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Designing & Editing a Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Compile Batches">
+          <param name="Name" value="Compilers Basics">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+          <param name="Name" value="Compile Batches">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+          <param name="Name" value="Compile Batches Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Compile_Batches_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Compile Directives">
+          <param name="Name" value="Compilers Basics">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+          <param name="Name" value="Compile Directives">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+          <param name="Name" value="Compile Directives Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Compile_Directives_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Compile Options">
+          <param name="Name" value="Compilers Basics">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+          <param name="Name" value="Compile Options">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+          <param name="Name" value="Compile Options Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Compile_Options_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Compiler">
+          <param name="Name" value="Compilers">
+          <param name="Local" value="SatView_Editor_Help_Compilers.htm">
+          <param name="Name" value="Compilers Basics">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Control-Procedure Step">
+          <param name="Name" value="Control-Procedure Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_ControlProcedure_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Control-Thread Step">
+          <param name="Name" value="Control-Thread Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_ControlThread_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Crossing Object">
+          <param name="Name" value="Line Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Line_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Ctrl Key">
+          <param name="Name" value="Update a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Table Forms">
+          <param name="Local" value="SatView_Editor_Help_Editors_Table_Forms.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Data Quality">
+          <param name="Name" value="DPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="MDL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="Compiling & Testing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Test Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Test_Dialog_Box.htm">
+          <param name="Name" value="TPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Database">
+          <param name="Name" value="Databases">
+          <param name="Local" value="SatView_Editor_Help_Databases.htm">
+          <param name="Name" value="New Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_New_Dialog_Box.htm">
+          <param name="Name" value="Creating a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Specifying the DBMS Settings">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="DBMS Settings Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_DBMS_Dialog_Box.htm">
+          <param name="Name" value="Specifying the Database Validity">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Database Validity Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Validity_Dialog_Box.htm">
+          <param name="Name" value="Opening a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Database Open Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Open_Dialog_Box.htm">
+          <param name="Name" value="Updating a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Searching a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Importing Databases">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Exporting Databases">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Database Import Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Import_Dialog_Box.htm">
+          <param name="Name" value="Database Export Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Export_Dialog_Box.htm">
+          <param name="Name" value="Deleting a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Database Delete Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Delete_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Database Component">
+          <param name="Name" value="Databases">
+          <param name="Local" value="SatView_Editor_Help_Databases.htm">
+          <param name="Name" value="New Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_New_Dialog_Box.htm">
+          <param name="Name" value="Creating a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Updating a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Searching a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Importing Databases">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Exporting Databases">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Database Import Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Import_Dialog_Box.htm">
+          <param name="Name" value="Database Export Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Export_Dialog_Box.htm">
+          <param name="Name" value="Deleting a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Database Delete Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Delete_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Database Logs">
+          <param name="Name" value="Tools Options">
+          <param name="Local" value="SatView_Editor_Help_Tools_Options.htm">
+          <param name="Name" value="Specifying Database Logging Options">
+          <param name="Local" value="SatView_Editor_Help_Tools_Options.htm">
+          <param name="Name" value="Tools Options Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Tools_Options_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Database Management System">
+          <param name="Name" value="Creating a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Specifying the DBMS Settings">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="DBMS Settings Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_DBMS_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Database Tables">
+          <param name="Name" value="Specifying the DBMS Settings">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="DBMS Settings Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_DBMS_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Database User">
+          <param name="Name" value="Creating a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Importing Databases">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Database Import Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Import_Dialog_Box.htm">
+          <param name="Name" value="User Accounts">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+          <param name="Name" value="User Accounts Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts_Dialog_Box.htm">
+          <param name="Name" value="Creating a User Account">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+          <param name="Name" value="Modifying a User Account">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+          <param name="Name" value="Deleting a User Account">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Database Validity">
+          <param name="Name" value="Creating a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Specifying the Database Validity">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Database Validity Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Validity_Dialog_Box.htm">
+          <param name="Name" value="Importing Databases">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Database Import Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Import_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Database Versioning">
+          <param name="Name" value="Creating a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Using Database Versioning">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Database Versioning Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Versioning_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="DBMS">
+          <param name="Name" value="Creating a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Specifying the DBMS Settings">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="DBMS Settings Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_DBMS_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Debugging">
+          <param name="Name" value="Compiling & Testing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Compiling & Testing a Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="Compiling & Testing an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Derivation Procedure">
+          <param name="Name" value="Derived Parameter Language (DPL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Library">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Samples">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="Compilers">
+          <param name="Local" value="SatView_Editor_Help_Compilers.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Derived Parameter Language">
+          <param name="Name" value="Derived Parameter Language (DPL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Library">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Samples">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="Compilers">
+          <param name="Local" value="SatView_Editor_Help_Compilers.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Derived Parameters">
+          <param name="Name" value="Derived Parameter Language (DPL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Library">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Samples">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="Compilers">
+          <param name="Local" value="SatView_Editor_Help_Compilers.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="DPL">
+          <param name="Name" value="Derived Parameter Language (DPL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Library">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Samples">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="Compilers">
+          <param name="Local" value="SatView_Editor_Help_Compilers.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Do-Loop Step">
+          <param name="Name" value="Do-Loop Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_DoLoop_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Double Arrow Object">
+          <param name="Name" value="Line Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Line_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="EBNF">
+          <param name="Name" value="DPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="MDL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="TPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Ellipse Object">
+          <param name="Name" value="Circle Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Circle_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Error Messages">
+          <param name="Name" value="Compilers Basics">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Escape Key">
+          <param name="Name" value="Update a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Table Forms">
+          <param name="Local" value="SatView_Editor_Help_Editors_Table_Forms.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Extended Backus Naur Formalism">
+          <param name="Name" value="DPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="MDL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="TPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Floating Menu">
+          <param name="Name" value="Updating a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Editing a Database Item">
+          <param name="Local" value="SatView_Editor_Help_Editors_Table_Forms.htm">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Designing & Editing a Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="Designing & Editing an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Flow-Control Step">
+          <param name="Name" value="Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="Branch Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_Branch_Dialog_Box.htm">
+          <param name="Name" value="Switch Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_Switch_Dialog_Box.htm">
+          <param name="Name" value="For-Loop Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_ForLoop_Dialog_Box.htm">
+          <param name="Name" value="While-Loop Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_WhileLoop_Dialog_Box.htm">
+          <param name="Name" value="Do-Loop Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_DoLoop_Dialog_Box.htm">
+          <param name="Name" value="Goto Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_Goto_Dialog_Box.htm">
+          <param name="Name" value="Label Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_Label_Dialog_Box.htm">
+          <param name="Name" value="TPL Step Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Flowchart">
+          <param name="Name" value="Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="For-Loop Step">
+          <param name="Name" value="For-Loop Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_ForLoop_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Goto Step">
+          <param name="Name" value="Goto Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_Goto_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Graphic Display">
+          <param name="Name" value="Database Standards">
+          <param name="Local" value="SatView_Editor_Help_Papers_Databases.htm">
+          <param name="Name" value="GRD Save Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_GRD_Save_Dialog_Box.htm">
+          <param name="Name" value="GRD Find Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_GRD_Find_Dialog_Box.htm">
+          <param name="Name" value="GRD Goto Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_GRD_GoTo_Dialog_Box.htm">
+          <param name="Name" value="GRD Replace Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_GRD_Replace_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="GRD">
+          <param name="Name" value="Database Standards">
+          <param name="Local" value="SatView_Editor_Help_Papers_Databases.htm">
+          <param name="Name" value="GRD Save Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_GRD_Save_Dialog_Box.htm">
+          <param name="Name" value="GRD Find Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_GRD_Find_Dialog_Box.htm">
+          <param name="Name" value="GRD Goto Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_GRD_GoTo_Dialog_Box.htm">
+          <param name="Name" value="GRD Replace Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_GRD_Replace_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="GRD Save Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_GRD_Save_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Ground Segment">
+          <param name="Name" value="DPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="MDL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="TPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Hot Spot">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Image Background">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Properties_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Image">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Properties_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Image Grid">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Properties_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Image Margin">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Properties_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Image Object">
+          <param name="Name" value="Image Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Image_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Image Size">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Properties_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Inject-Alert Step">
+          <param name="Name" value="Inject-Alert Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_InjectAlert_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="JScript">
+          <param name="Name" value="Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Label Step">
+          <param name="Name" value="Label Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_Label_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Line Object">
+          <param name="Name" value="Line Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Line_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Linker">
+          <param name="Name" value="Compilers Basics">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+          <param name="Name" value="Compile Options">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+          <param name="Name" value="Compile Options Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Compile_Options_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Log-in">
+          <param name="Name" value="Log-in Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Login_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Log-Message Step">
+          <param name="Name" value="Log-Message Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_LogMessage_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="MDL">
+          <param name="Name" value="Mimics Description Language (MDL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Library">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Samples">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Object Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="Mimics Displays">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Compilers">
+          <param name="Local" value="SatView_Editor_Help_Compilers.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Mimics Description Language">
+          <param name="Name" value="Mimics Description Language (MDL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Library">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Samples">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Object Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="Mimics Displays">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Compilers">
+          <param name="Local" value="SatView_Editor_Help_Compilers.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Mimics Display">
+          <param name="Name" value="Mimics Displays">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Creating a new Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Open Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Open_Dialog_Box.htm">
+          <param name="Name" value="Configuring the Properties of a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Properties_Dialog_Box.htm">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Save Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Save_Dialog_Box.htm">
+          <param name="Name" value="Compiling & Testing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Test Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Test_Dialog_Box.htm">
+          <param name="Name" value="Printing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Importing MMDs">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMDs Import Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Import_Dialog_Box.htm">
+          <param name="Name" value="Exporting MMDs">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMDs Export Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Export_Dialog_Box.htm">
+          <param name="Name" value="Deleting a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Mimics Description Language (MDL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Mimics Group">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="New Mimics Group Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Group_New_Dialog_Box.htm">
+          <param name="Name" value="Insert Mimics Group Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Group_Insert_Dialog_Box.htm">
+          <param name="Name" value="Mimics Group Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Group_Dialog_Box.htm">
+          <param name="Name" value="Import Mimics Group Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Group_Import_Dialog_Box.htm">
+          <param name="Name" value="Export Mimics Group Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Group_Export_Dialog_Box.htm">
+          <param name="Name" value="Delete Mimics Group Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Group_Delete_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Mimics Object">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Mimics Object Procedure">
+          <param name="Name" value="Mimics Description Language (MDL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Library">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Samples">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Object Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="Compilers">
+          <param name="Local" value="SatView_Editor_Help_Compilers.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Mimics Toolbar">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="MMD">
+          <param name="Name" value="Mimics Displays">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Creating a new Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Open Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Open_Dialog_Box.htm">
+          <param name="Name" value="Configuring the Properties of a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Properties_Dialog_Box.htm">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Save Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Save_Dialog_Box.htm">
+          <param name="Name" value="Compiling & Testing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Test Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Test_Dialog_Box.htm">
+          <param name="Name" value="Printing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Importing MMDs">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMDs Import Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Import_Dialog_Box.htm">
+          <param name="Name" value="Exporting MMDs">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMDs Export Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Export_Dialog_Box.htm">
+          <param name="Name" value="Deleting a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Mimics Description Language (MDL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="OBRT">
+          <param name="Name" value="DPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="MDL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="TPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Offline">
+          <param name="Name" value="Compiling & Testing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Test Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Test_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="On-Board Processor">
+          <param name="Name" value="Database Standards">
+          <param name="Local" value="SatView_Editor_Help_Papers_Databases.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="On-Board Reference Time">
+          <param name="Name" value="DPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="MDL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="TPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Optimization Flags">
+          <param name="Name" value="Compilers Basics">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+          <param name="Name" value="Compile Options">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+          <param name="Name" value="Compile Options Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Compile_Options_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Out-of-Limit Condition">
+          <param name="Name" value="Compiling & Testing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Test Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Test_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Packet Telemetry Standard">
+          <param name="Name" value="DPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="MDL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="TPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Parameter">
+          <param name="Name" value="DPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="DPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="MDL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="MDL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="TPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="TPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="Automation Script Coding Guidelines">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+          <param name="Name" value="Automation Script Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+          <param name="Name" value="Compiling & Testing an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Parameter Observation Display">
+          <param name="Name" value="Database Standards">
+          <param name="Local" value="SatView_Editor_Help_Papers_Databases.htm">
+          <param name="Name" value="POD Save Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_POD_Save_Dialog_Box.htm">
+          <param name="Name" value="POD Find Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_POD_Find_Dialog_Box.htm">
+          <param name="Name" value="POD Goto Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_POD_GoTo_Dialog_Box.htm">
+          <param name="Name" value="POD Replace Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_POD_Replace_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Password">
+          <param name="Name" value="Welcome Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Welcome_Dialog_Box.htm">
+          <param name="Name" value="Log-in Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Login_Dialog_Box.htm">
+          <param name="Name" value="Creating a User Account">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+          <param name="Name" value="Modifying a User Account">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+          <param name="Name" value="Changing the Password of a User">
+          <param name="Local" value="SatView_Editor_Help_User_Privileges.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Pie Object">
+          <param name="Name" value="Arc Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Arc_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="POD">
+          <param name="Name" value="Database Standards">
+          <param name="Local" value="SatView_Editor_Help_Papers_Databases.htm">
+          <param name="Name" value="POD Save Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_POD_Save_Dialog_Box.htm">
+          <param name="Name" value="POD Find Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_POD_Find_Dialog_Box.htm">
+          <param name="Name" value="POD Goto Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_POD_GoTo_Dialog_Box.htm">
+          <param name="Name" value="POD Replace Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_POD_Replace_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Polygon Object">
+          <param name="Name" value="Triangle Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Triangle_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Printing">
+          <param name="Name" value="Printing a Database Item">
+          <param name="Local" value="SatView_Editor_Help_Editors_Table_Forms.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Procedure">
+          <param name="Name" value="DPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="MDL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="TPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Profiles">
+          <param name="Name" value="Compiling & Testing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Test Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Test_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="QAT">
+          <param name="Name" value="Adding commands to the QAT">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Ribbonbar.htm">
+          <param name="Name" value="Removing commands from the QAT">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Ribbonbar.htm">
+          <param name="Name" value="Changing the command sequence order on the QAT">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Ribbonbar.htm">
+          <param name="Name" value="Changing the position of the QAT">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Ribbonbar.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Quick Access Toolbar">
+          <param name="Name" value="Adding commands to the QAT">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Ribbonbar.htm">
+          <param name="Name" value="Removing commands from the QAT">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Ribbonbar.htm">
+          <param name="Name" value="Changing the command sequence order on the QAT">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Ribbonbar.htm">
+          <param name="Name" value="Changing the position of the QAT">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Ribbonbar.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Rectangle Object">
+          <param name="Name" value="Rectangle Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Rectangle_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Ribbon Bar">
+          <param name="Name" value="Adding commands to the QAT">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Ribbonbar.htm">
+          <param name="Name" value="Removing commands from the QAT">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Ribbonbar.htm">
+          <param name="Name" value="Changing the command sequence order on the QAT">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Ribbonbar.htm">
+          <param name="Name" value="Changing the position of the QAT">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Ribbonbar.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Script">
+          <param name="Name" value="Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+          <param name="Name" value="Automation Script (Script)">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Creating a new Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Script Open Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_Open_Dialog_Box.htm">
+          <param name="Name" value="Configuring the Properties of an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Script Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_Properties_Dialog_Box.htm">
+          <param name="Name" value="Designing & Editing an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Script Save Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_Save_Dialog_Box.htm">
+          <param name="Name" value="Compiling & Testing an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Script Test Parameters Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_PropertiesParameters_Dialog_Box.htm">
+          <param name="Name" value="Script Test Parameter Details Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_PropertiesParameterDetails_Dialog_Box.htm">
+          <param name="Name" value="Printing an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Importing Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Scripts Import Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_Import_Dialog_Box.htm">
+          <param name="Name" value="Exporting Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Scripts Export Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Script_Export_Dialog_Box.htm">
+          <param name="Name" value="Deleting an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Scripting">
+          <param name="Name" value="Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+          <param name="Name" value="Compiling & Testing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="MMD Test Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_MMD_Test_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Send-TC Function Step">
+          <param name="Name" value="Send-TC Function Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_SendTCFunction_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Send-TC Sequence Step">
+          <param name="Name" value="Send-TC Sequence Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_SendTCSequence_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Set-Arguments Step">
+          <param name="Name" value="Set-Arguments Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_SetArguments_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Set-Variables Step">
+          <param name="Name" value="Set-Variables Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_SetVariables_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Set-Parameters Step">
+          <param name="Name" value="Set-Parameters Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_SetParameters_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Set-Synchronization Object Step">
+          <param name="Name" value="Set-Synchronization Object Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_SetSynchronizationObject_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Shift Key">
+          <param name="Name" value="Update a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Table Forms">
+          <param name="Local" value="SatView_Editor_Help_Editors_Table_Forms.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Shortcut Key">
+          <param name="Name" value="Associating a command with a shortcut key">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Keyboard.htm">
+          <param name="Name" value="Removing a shortcut key">
+          <param name="Local" value="SatView_Editor_Help_User_Interface_Keyboard.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Source Code">
+          <param name="Name" value="Mimics Display Coding Guidelines">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Printing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Telecommand Procedure Coding Guidelines">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="Designing & Editing a Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="Printing a Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="Automation Script Coding Guidelines">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+          <param name="Name" value="Designing & Editing an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+          <param name="Name" value="Printing an Automation Script">
+          <param name="Local" value="SatView_Editor_Help_Editors_Automation_Scripts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Square Object">
+          <param name="Name" value="Rectangle Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Rectangle_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Start-Procedure Step">
+          <param name="Name" value="Start-Procedure Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_StartProcedure_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Switch Step">
+          <param name="Name" value="Switch Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_Switch_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="System Alert">
+          <param name="Name" value="Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Switch Object">
+          <param name="Name" value="Switch Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Switch_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="TAB Key">
+          <param name="Name" value="Update a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Table Forms">
+          <param name="Local" value="SatView_Editor_Help_Editors_Table_Forms.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Table Forms">
+          <param name="Name" value="Table Forms">
+          <param name="Local" value="SatView_Editor_Help_Editors_Table_Forms.htm">
+          <param name="Name" value="Update a Database">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Task Scheduler">
+          <param name="Name" value="Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telecommand Function">
+          <param name="Name" value="Database Standards">
+          <param name="Local" value="SatView_Editor_Help_Papers_Databases.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telecommand Parameter">
+          <param name="Name" value="Database Standards">
+          <param name="Local" value="SatView_Editor_Help_Papers_Databases.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telecommand Procedure">
+          <param name="Name" value="Creating a new Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="TC Procedure Open Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Open_Dialog_Box.htm">
+          <param name="Name" value="Configuring the Properties of a Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="Designing & Editing a Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="TC Procedure Save Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Save_Dialog_Box.htm">
+          <param name="Name" value="Compiling & Testing a Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="Printing a Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="Importing Telecommand Procedures">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="TC Procedures Import Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Import_Dialog_Box.htm">
+          <param name="Name" value="Exporting Telecommand Procedures">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="TC Procedures Export Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Export_Dialog_Box.htm">
+          <param name="Name" value="Deleting a Telecommand Procedure">
+          <param name="Local" value="SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+          <param name="Name" value="Telecommand Procedure Language (TPL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telecommand Procedure Language">
+          <param name="Name" value="Telecommand Procedure Language (TPL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="TPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="TPL Library">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="TPL Step Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="TPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="TPL Samples">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telecommand Sequence">
+          <param name="Name" value="Database Standards">
+          <param name="Local" value="SatView_Editor_Help_Papers_Databases.htm">
+          <param name="Name" value="TC Save Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCSequence_Save_Dialog_Box.htm">
+          <param name="Name" value="TC Find Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCSequence_Find_Dialog_Box.htm">
+          <param name="Name" value="TC Goto Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCSequence_GoTo_Dialog_Box.htm">
+          <param name="Name" value="TC Replace Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCSequence_Replace_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telemetry Data">
+          <param name="Name" value="DPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="MDL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="TPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="Automation Script Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telemetry Data Extraction">
+          <param name="Name" value="Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telemetry Data Interface">
+          <param name="Name" value="DPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="MDL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="TPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="Automation Script Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telemetry Event">
+          <param name="Name" value="Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+          <param name="Name" value="Inject-Alert Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_InjectAlert_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telemetry Packet">
+          <param name="Name" value="Database Standards">
+          <param name="Local" value="SatView_Editor_Help_Papers_Databases.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telemetry Parameter">
+          <param name="Name" value="Database Standards">
+          <param name="Local" value="SatView_Editor_Help_Papers_Databases.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telemetry Report">
+          <param name="Name" value="Automation Scripts">
+          <param name="Local" value="SatView_Editor_Help_Papers_Automation_Scripts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telemetry Unit">
+          <param name="Name" value="Database Standards">
+          <param name="Local" value="SatView_Editor_Help_Papers_Databases.htm">
+          <param name="Name" value="DPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_DPL.htm">
+          <param name="Name" value="MDL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_MDL.htm">
+          <param name="Name" value="TPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Text Object">
+          <param name="Name" value="Text Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Text_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Tooltip">
+          <param name="Name" value="Mimics Displays">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+          <param name="Name" value="Arc Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Arc_Dialog_Box.htm">
+          <param name="Name" value="Circle Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Circle_Dialog_Box.htm">
+          <param name="Name" value="Group Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Group_Dialog_Box.htm">
+          <param name="Name" value="Image Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Image_Dialog_Box.htm">
+          <param name="Name" value="Line Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Line_Dialog_Box.htm">
+          <param name="Name" value="Rectangle Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Rectangle_Dialog_Box.htm">
+          <param name="Name" value="Switch Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Switch_Dialog_Box.htm">
+          <param name="Name" value="Text Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Text_Dialog_Box.htm">
+          <param name="Name" value="Triangle Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Triangle_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="TPL">
+          <param name="Name" value="Telecommand Procedure Language (TPL)">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="TPL Syntax">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="TPL Library">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="TPL Step Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="TPL Telemetry Functions">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+          <param name="Name" value="TPL Samples">
+          <param name="Local" value="SatView_Editor_Help_Papers_Languages_TPL.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Triangle Object">
+          <param name="Name" value="Triangle Properties Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Mimics_Object_Triangle_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="UNC">
+          <param name="Name" value="Importing Databases">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Database Import Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Import_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Universal Naming Conventions">
+          <param name="Name" value="Importing Databases">
+          <param name="Local" value="SatView_Editor_Help_Database_Basics.htm">
+          <param name="Name" value="Database Import Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Database_Import_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="User-Interaction Step">
+          <param name="Name" value="User-Interaction Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_UserInteraction_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="User Account">
+          <param name="Name" value="User Accounts">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+          <param name="Name" value="User Accounts Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts_Dialog_Box.htm">
+          <param name="Name" value="Creating a User Account">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+          <param name="Name" value="Modifying a User Account">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+          <param name="Name" value="Deleting a User Account">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+          <param name="Name" value="User Privileges">
+          <param name="Local" value="SatView_Editor_Help_User_Privileges.htm">
+          <param name="Name" value="User Privileges Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_User_Privileges_Dialog_Box.htm">
+          <param name="Name" value="Granting Permissions to a User">
+          <param name="Local" value="SatView_Editor_Help_User_Privileges.htm">
+          <param name="Name" value="Denying Permissions of a User">
+          <param name="Local" value="SatView_Editor_Help_User_Privileges.htm">
+          <param name="Name" value="User Privileges Summary">
+          <param name="Local" value="SatView_Editor_Help_User_Privileges_Summary.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="User Privilege">
+          <param name="Name" value="User Privileges">
+          <param name="Local" value="SatView_Editor_Help_User_Privileges.htm">
+          <param name="Name" value="User Privileges Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_User_Privileges_Dialog_Box.htm">
+          <param name="Name" value="Granting Permissions to a User">
+          <param name="Local" value="SatView_Editor_Help_User_Privileges.htm">
+          <param name="Name" value="Denying Permissions of a User">
+          <param name="Local" value="SatView_Editor_Help_User_Privileges.htm">
+          <param name="Name" value="User Privileges Summary">
+          <param name="Local" value="SatView_Editor_Help_User_Privileges_Summary.htm">
+          <param name="Name" value="User Accounts">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+          <param name="Name" value="User Accounts Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts_Dialog_Box.htm">
+          <param name="Name" value="Creating a User Account">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+          <param name="Name" value="Modifying a User Account">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+          <param name="Name" value="Deleting a User Account">
+          <param name="Local" value="SatView_Editor_Help_User_Accounts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Wait-Synchronization Object Step">
+          <param name="Name" value="Wait-Synchronization Object Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_WaitSynchronizationObject_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Wait-Time Interval Step">
+          <param name="Name" value="Wait-Time Interval Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_WaitTimeInterval_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Warning Level">
+          <param name="Name" value="Compilers Basics">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+          <param name="Name" value="Compile Options">
+          <param name="Local" value="SatView_Editor_Help_Compilers_Basics.htm">
+          <param name="Name" value="Compile Options Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_Compile_Options_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="While-Loop Step">
+          <param name="Name" value="While-Loop Step Dialog Box">
+          <param name="Local" value="SatView_Editor_Help_TCProcedure_Properties_WhileLoop_Dialog_Box.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Zoom Factor">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Zoom Window">
+          <param name="Name" value="Designing & Editing a Mimics Display">
+          <param name="Local" value="SatView_Editor_Help_Editors_Mimics_Displays.htm">
+        </OBJECT>
+    </UL>
+</BODY>
+</HTML>

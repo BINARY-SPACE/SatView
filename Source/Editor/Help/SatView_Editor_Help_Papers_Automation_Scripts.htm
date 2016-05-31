@@ -1,0 +1,689 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Automation Scripts</title>
+<link rel="stylesheet" type="text/css" href="resources/styles.css">
+<![if lte IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/iefix.css">
+<![endif]>
+<![if gt IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/ie.css">
+<![endif]>
+<script src="resources/behaviors.js" type="text/javascript"></script>
+</head>
+
+<body style="margin: 0 0 0 0;" background="images/background.jpg" onload="FP_callJS('onRecalcLayout()')">
+<img id="PageTemplate" src="images/template.png" alt="" style="position: absolute; left: 0px; top: 0px; width: 880px; height: 660px; border: none; outline: none;">
+<img id="PageFloater" src="images/templatebackground.png" alt="" style="position: absolute; left: 39px; top: 659px; width: 803px; height: auto; background-image: url('images/templatebackground.png'); background-repeat: repeat-y; display: none;">
+<img id="PageApplication" src="images/application.png" alt="" style="position: absolute; left: 50px; top: 90px; border: none; outline: none;">
+<div id="PageTitle" style="position: absolute; left: 295px; top: 84px; width: 545px; height: 22px;">
+	<span class="StandardTitleTextStyle" style="width: 545px;">Automation Scripts</span>
+</div>
+<div id="PageContents" style="position: absolute; left: 40px; top: 114px; width: 800px; height: auto; z-index: 1;">
+	<div id="PageHeader" style="position: relative; left: 0px; top: 0px; width: 550px; height: auto; float: right;">
+		<p class="StandardSummaryTitleStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-top: 10px; margin-bottom: 0px; text-indent: 0px; float: left;">SUMMARY</p>
+		<div id="PageVersionSection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; float: right;">
+			<span class="StandardVersionTextStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-right: 10px; float: right;">
+			<!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%A, %B %d, %Y" startspan -->Saturday, October 10, 2015<!--webbot bot="Timestamp" endspan i-checksum="670" --><br>Version 1.0</span>
+		</div>
+		<div id="PageSummarySection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-top: 2px; float: left;">
+			<div id="PageSummaryBox" style="position: relative; left: 0px; top: 0px; width: 538px; height: auto; border: 1px solid #FFFF00; background: #FFFFDD; margin-right: 5px; float: left;">
+				<p class="StandardSummaryTextStyle" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 0px; padding-top: 2px; padding-bottom: 2px; float: left;">SatView™ supports the concept of <i>Automation</i> by which the services and features of third-party software can be directly used without visibly launching those applications.</p>
+			</div>
+		</div>
+	</div>
+	<div id="PageText" style="position: relative; left: 0px; top: 0px; width: 800px; height: auto; margin-bottom: 10px; float: left;">
+		<div id="HowDoISection" style="margin-left: 20px; margin-top: 20px; margin-right: 5px; display: none;">
+			<p class="StandardListTitleTextStyle">How do I...</p>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 10px; margin-top: 4px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListExpandableItemTextStyle" style="margin-top: 2px; cursor: pointer;" onclick="onClickListItem(event)"></p>
+						<div style="margin-bottom: 10px; display: block;">
+							<img src="images/collapsebutton.png" alt="">
+							<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; border: 1px solid #9BAFDE; background: #D9E9FE; z-index: 2;">
+								<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+								</ol>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 20px; margin-bottom: 2px;">Contents</p>
+		<ul class="StandardListTitleTextStyle" style="list-style-type: none; margin-left: 20px; margin-top: 2px; margin-right: 5px; margin-bottom: 20px; padding-left: 0px; font-size: 14px;">
+			<li>1. <a href="#Introduction" style="color: #072C61;">Introduction</a></li>
+			<li>2. <a href="#Coding Guidelines" style="color: #072C61;">Coding Guidelines</a></li>
+			<li>3. <a href="#Arguments" style="color: #072C61;">Arguments</a></li>
+			<li>4. <a href="#Libraries" style="color: #072C61;">Libraries</a></li>
+			<li>5. <a href="#Interfaces" style="color: #072C61;">Interfaces</a><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>5.1. Task Scheduler Functions</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>5.2. Telemetry Data Functions</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>5.3. Satellite Tracking, Pass &amp; Interlink Functions</b></span></li>
+			<li>6. <a href="#Samples" style="color: #072C61;">Samples</a></li>
+		</ul>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Document Change Log</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 20px;">
+			<tr>
+				<td width="50" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Issue</font></b></p></td>
+				<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Revision</font></b></p></td>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Date</font></b></p></td>
+				<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Affected</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Reason</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-5</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">October 2005</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">All</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">New document</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">6</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">September 2009</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 5</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Added task scheduler interface and telemetry data functions</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">7</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">May 2011</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 5</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">New telemetry data functions '<b>GetPastValueTime</b>', '<b>Lock</b>' and '<b>Unlock</b>'</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">January 2016</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 5</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Added satellite tracking interface, location pass as well as interlink prediction support</p></td>
+			</tr>
+		</table>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Table of Figures</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 20px;">
+			<tr>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Figure</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1.-1</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Automation Script Example</p></td>
+			</tr>
+		</table>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Legend</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 40px;">
+			<tr>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Mnemonic</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+			</tr>
+		</table>
+		<ul class="StandardListTitleTextStyle" style="list-style-type: none; margin-left: 20px; margin-top: 20px; margin-bottom: 2px; margin-right: 5px; padding-left: 0px; font-size: 14px;">
+			<li>
+				<p style="margin-bottom: 2px;">1. <a name="Introduction">Introduction</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">Automation scripts can be a useful tool to help automating some processes in particular in the area of telemetry data visualization, analyzing or reporting. These scripts are written in the programming language JScript .NET® and require a compilation before they can be used. It is also possible to test them offline first in order to guarantee a correct functioning.<br>The execution of automation scripts can be triggered by a time schedule, <i>System Alerts</i>, <i>Telemetry Events</i> or by changes inside monitored directories. The following figure shows an example how automation scripts can be used within SatView™:</p>
+				<img src="images/automationscripts.png" alt="Automation Script Example" style="width: 500px; margin-left: 125px;">
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 2px; text-align: center;">Figure 1.-1  Automation Script Example</p>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">2. <a name="Coding Guidelines">Coding Guidelines</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 0px;">The following points must be considered when writing an automation script:</p>
+				<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; padding-left: 0px;">
+					<li>Good knowledge about coding practices with JScript .NET®.</li>
+					<li style="margin-top: -3px;">Always use a <b>try</b>/<b>catch</b> exception handler in order to handle any faults:<br><b>try</b><br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;<i>JScript .NET® code</i><br>}<br><b>catch</b> (exception)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;<i>Cleanup code</i><br>}<br>Multiple <b>try</b>/<b>catch</b> blocks are allowed but must be nested in a way that only one remains at the outermost level.</li>
+					<li style="margin-top: -3px;">Add the following code segment at the beginning of the last (outermost) catch block:<br><b>catch</b> (exception)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Provide an error reason</span><br>&nbsp;&nbsp;&nbsp;&nbsp;Error.Insert(0,exception.message);<br>&nbsp;&nbsp;&nbsp;&nbsp;<i>Cleanup code</i><br>&nbsp;&nbsp;&nbsp;&nbsp;return Exit(false);<span style="color: green;"> // A trailing return statement is optional but can be used to indicate a failure when false is provided as an argument to the <b>Exit</b> function</span><br>}<br>This code returns an error reason and hence simplifies the code debugging.</li>
+					<li style="margin-top: -3px;">Close all open items (like files, workbooks etc.) in the <b>catch</b> block.</li>
+					<li style="margin-top: -3px;">It is advisable to prevent any required user interaction while an automation script is executing.<br>For automating Microsoft® Excel®, for example, check for an existing copy of the output file first before saving it:<br><span style="color: green;">&nbsp;&nbsp;&nbsp;&nbsp;// Sample for Microsoft® Excel®</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>if</b> (File.Exists(OutputFile.ToString())) Book.Save();<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>else</b> Book.SaveAs(OutputFile.ToString());<br>This prevents any undesired input prompt asking if the file should be overwritten.</li>
+				</ul>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">3. <a name="Arguments">Arguments</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;">When an automation script is called, several arguments are passed to it that can be used within the automation script.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 10px;">
+					<tr>
+						<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Argument</font></b></p></td>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Type</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+						<td width="200" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Calling Context</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>Name</b></p></td>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">String<br>&lt;<i>in</i>&gt;</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Contains the name of the calling telemetry parameter extraction or of the telemetry report.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>While debugging an automation script an empty string is supplied (manual execution).</p></td>
+						<td width="200" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Parameter Extractions<br>Telemetry Reports</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>Script</b></p></td>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">String<br>&lt;<i>in</i>&gt;</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Supplies the name and title of the automation script in the format: <b><i>Name</i></b>&lt;<i>Tabulator</i>&gt;<b><i>Title</i></b></p></td>
+						<td width="200" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Parameter Extractions<br>Telemetry Reports</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>InputFile</b></p></td>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">String<br>&lt;<i>in</i>&gt;</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Contains a file path supplied by the telemetry report profile that should be processed as input.</p></td>
+						<td width="200" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Reports</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>OutputFile</b></p></td>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">String<br>&lt;<i>in</i>&gt;</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Contains a file path supplied by the telemetry report profile that should be used for the resulting output.</p></td>
+						<td width="200" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Reports</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>Alert</b></p></td>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">String<br>&lt;<i>in</i>&gt;</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Contains the name of the <i>System Alert</i> that caused the automation script to be executed.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This string is empty if a telemetry event triggered the automation script, if the execution was scheduled or started by a file trigger.</p></td>
+						<td width="200" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Reports</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>Event</b></p></td>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">String<br>&lt;<i>in</i>&gt;</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Contains the name of the <i>Telemetry Event</i> that triggered the execution of the automation script.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This string is empty if a system alert triggered the automation script, if the execution was scheduled or started by a file trigger.</p></td>
+						<td width="200" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Reports</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>Message</b></p></td>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">String<br>&lt;<i>in</i>&gt;</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Contains a message specific to the situation.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This variable is empty if neither a system alert nor a telemetry event triggered the automation script.</p></td>
+						<td width="200" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Reports</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>ExtraInfo</b></p></td>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">String<br>&lt;<i>in</i>&gt;</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top">
+							<p style="margin: 1 4">Contains additional information related to the message. Whenever a system alert is triggered the automation script it may contain one of these strings:</p>
+							<table class="StandardTableStyle" border="2" bordercolor="#9BAFDE" cellpadding="0" cellspacing="0" style="margin-left: 3px; margin-top: 0px; margin-right: 3px; margin-bottom: 2px;">
+								<tr>
+									<td width="200" bgcolor="#D7E7FE" class="StandardTableTitleTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 2 4"><b><font color="#072C61">System Alert</font></b></p></td>
+									<td bgcolor="#D7E7FE" class="StandardTableTitleTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 2 4"><b><font color="#072C61">ExtraInfo</font></b></p></td>
+								</tr>
+								<tr>
+									<td width="200" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Completion of history file backups<br>Failures during history file backups</p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">The path name of the history file that was backup (not the resulting file).</p></td>
+								</tr>
+								<tr>
+									<td width="200" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Completion of history file extractions<br>Failures during history file extractions</p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">The path name of the extracted history file.</p></td>
+								</tr>
+								<tr>
+									<td width="200" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Completion of memory dumps<br>Failures during the processing of memory dumps</p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">The path name of all dump files that were generated by the memory dump.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>Multiple file names are separated by a semicolon.</p></td>
+								</tr>
+								<tr>
+									<td width="200" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Completion of telemetry data extractions<br>Failures during telemetry data extractions</p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">The path name of the file that was generated by the telemetry data extraction.</p></td>
+								</tr>
+								<tr>
+									<td width="200" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Failures during telemetry data archiving</p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">The path name of the history file that could not be updated.</p></td>
+								</tr>
+								<tr>
+									<td width="200" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Successful log-in of a PFLP client<br>Log-out of a PFLP client<br>Refused log-in of a PFLP client</p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">The name and IP address of the client separated by a <i>Tabulator</i>.</p></td>
+								</tr>
+								<tr>
+									<td width="200" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Successful log-in of a TPEP client<br>Log-out of a TPEP client<br>Refused log-in of a TPEP client</p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">The name and IP address of the client separated by a <i>Tabulator</i>.</p></td>
+								</tr>
+							</table>
+						</td>
+						<td width="200" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Reports</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>ReportTime</b></p></td>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">String<br>&lt;<i>in</i>&gt;</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Contains the time when the trigger that initiated the execution of the automation script occurred. The time is expressed in seconds since January 1, 1970.</p></td>
+						<td width="200" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Parameter Extractions<br>Telemetry Reports</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>EventLog</b></p></td>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">String<br>&lt;<i>out</i>&gt;</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">In contrast to the previous arguments this one is used to return information back which is then displayed as an event in the <i>Global Eventbox</i>.This can be achieved by assigning the appropriate text to the <b>EventLog</b> (StringBuilder) variable like, for example:</p><p style="font-family: 'Courier New', Courier, monospace; font-size: 11px; margin-left: 16px; margin-top: 2px; margin-right: 4px; margin-bottom: 2px;"><b>EventLog.Insert(0,"Show this text inside the global eventbox.");</b></p><p style="margin: 1 4"><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The supplied text will be shown only if the automation script executed successfully.</p><p style="margin-left: 4px; margin-top: 4px; margin-right: 4px; margin-bottom: 2px;">There are additional flags allowing a more complete control over how the text is displayed in the eventbox:</p>
+							<table class="StandardTableStyle" border="2" bordercolor="#9BAFDE" cellpadding="0" cellspacing="0" style="margin-left: 3px; margin-top: 0px; margin-right: 3px; margin-bottom: 2px;">
+								<tr>
+									<td width="125" bgcolor="#D7E7FE" class="StandardTableTitleTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 2 4"><b><font color="#072C61">Flag</font></b></p></td>
+									<td bgcolor="#D7E7FE" class="StandardTableTitleTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 2 4"><b><font color="#072C61">Description</font></b></p></td>
+								</tr>
+								<tr>
+									<td width="125" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4"><b>/CATEGORY</b></p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Specifies the category to which the message belongs:<br>'<b>System</b>', '<b>Spacecraft</b>' or '<b>User</b>'</p></td>
+								</tr>
+								<tr>
+									<td width="125" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4"><b>/TYPE</b></p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Specifies the type of the message. Predefined values are:<br>'<b>Success</b>', '<b>Informational</b>', '<b>Warning</b>', '<b>Error</b>' or '<b>Scheduled</b>'.<br>Other custom types are also possible.</p></td>
+								</tr>
+								<tr>
+									<td width="125" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4"><b>/SUBTYPE</b></p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Specifies the subtype of the message. This flag can be used together with the type to perform filtering.</p></td>
+								</tr>
+								<tr>
+									<td width="125" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4"><b>/MESSAGE</b></p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Specifies the message text.</p></td>
+								</tr>
+								<tr>
+									<td width="125" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4"><b>/COMMENT</b></p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Specifies any comment associated with the message.</p></td>
+								</tr>
+								<tr>
+									<td width="125" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4"><b>/AUDITION</b></p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Specifies the name of an existing <i>Audition Profile</i> to be used when the message is displayed.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This option only works with the <i>Global Eventbox</i>. It is ignored for other Eventbox display windows.</p></td>
+								</tr>
+								<tr>
+									<td width="125" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4"><b>/NOTIFICATION</b></p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Specifies the name of an existing <i>Notification Profile</i> to be used when the message is displayed.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This option only works with the <i>Global Eventbox</i>. It is ignored for other Eventbox display windows.</p></td>
+								</tr>
+								<tr>
+									<td width="125" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4"><b>/COLOR</b></p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Specifies the color of the message text.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The color is expressed as a 24-bit value: <i>RGB(red,green,blue).</i></p></td>
+								</tr>
+								<tr>
+									<td width="125" class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4"><b>/BLINK</b></p></td>
+									<td class="StandardTableItemTextStyle" bordercolor="#9BAFDE" valign="top"><p style="margin: 1 4">Indicates if the message should blink.</p></td>
+								</tr>
+							</table>
+							<p class="StandardTableItemTextStyle" style="margin: 2 4 1 4;"><u>Examples</u>:</p>
+							<p class="StandardTableItemTextStyle" style="margin: 1 4 4 4;"><span style="font-family: 'Courier New', Courier, monospace; font-size: 11px;">EventLog.Insert(0,"Show this text inside the global eventbox.");</span><br>is identical with:<br><span style="font-family: 'Courier New', Courier, monospace; font-size: 11px;">EventLog.Insert(0,"/CATEGORY:'System'<br>/TYPE:'Informational' /MESSAGE:'Show this text inside the global eventbox.'");</span></p>
+							<p class="StandardTableItemTextStyle" style="margin-left: 4px; margin-top: 5px; margin-right: 4px; margin-bottom: 0px;">Adding the /BLINK flag makes it blinking:</p>
+							<p class="StandardTableItemTextStyle" style="margin: 1 4 4 4;"><span style="font-family: 'Courier New', Courier, monospace; font-size: 11px;">EventLog.Insert(0,"/CATEGORY:'System'<br>/TYPE:'Informational' /MESSAGE:'Show this text inside the global eventbox.' /BLINK");</span></p>
+							<p class="StandardTableItemTextStyle" style="margin-left: 4px; margin-top: 5px; margin-right: 4px; margin-bottom: 0px;">Displaying the message in red color is achieved by adding the /COLOR flag:</p>
+							<p class="StandardTableItemTextStyle" style="margin: 1 4 4 4;"><span style="font-family: 'Courier New', Courier, monospace; font-size: 11px;">EventLog.Insert(0,"/CATEGORY:'System'<br>/TYPE:'Informational' /MESSAGE:'Show this text inside the global eventbox.' /BLINK /COLOR:255");</span></p>
+							<p class="StandardTableItemTextStyle" style="margin-left: 4px; margin-top: 5px; margin-right: 4px; margin-bottom: 0px;">Specifying a subtype can be useful to perform filtering:</p>
+							<p class="StandardTableItemTextStyle" style="margin: 1 4 4 4;"><span style="font-family: 'Courier New', Courier, monospace; font-size: 11px;">EventLog.Insert(0,"/CATEGORY:'System'<br>/TYPE:'Informational' /SUBTYPE:'Script100' /MESSAGE:'Show this text inside the global eventbox.'");</span></p>
+							<p class="StandardTableItemTextStyle" style="margin: 4 4 4 4;"><img src="images/note.gif" alt="">Note:<br>All text values must always be enclosed with single quotes.</p>
+						</td>
+						<td width="200" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Parameter Extractions<br>Telemetry Reports</p></td>
+					</tr>
+				</table>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">4. <a name="Libraries">Libraries</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 1px;">In order to minimize the code size for automation scripts it is possible to create script libraries. Such libraries consist of one or more functions that can be called from other automation scripts.<br>The following procedure call must be performed to call functions located within different automation scripts:</p>
+				<p class="StandardTableItemTextStyle" style="margin: 1 4 4 8;"><span style="font-family: 'Courier New', Courier, monospace; font-size: 11px;">function <b>LoadAndExecute(</b><i>Module</i> : String,<i>Function</i> : String,<i>pArguments</i> : Object[]<b>)</b> : Object</span></p>
+				<table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 8px;">
+					<tr>
+						<td style="width: 100px;"><b>Argument</b></td>
+						<td><b>Description</b></td>
+					</tr>
+					<tr>
+						<td><i>Module</i></td>
+						<td>Specifies the path name of the automation script that contains the function to be called.</td>
+					</tr>
+					<tr>
+						<td><i>Function</i></td>
+						<td>Specifies the name of the function to be called.</td>
+					</tr>
+					<tr>
+						<td><i>pArguments</i></td>
+						<td>Specifies an array of arguments to be supplied to the function.</td>
+					</tr>
+				</table>
+				<p class="StandardTableItemTextStyle" style="margin: 8 4 4 4;"><img src="images/note.gif" alt="">Note:<br>Automation scripts consisting of exportable functions only (no global variables) can be marked as libraries by adding the keyword<br>'<b>EXPORTS LIBRARY</b>' at the beginning of the code (not mandatory).</p>
+				<p class="StandardTableItemTextStyle" style="margin: 2 4 1 4;"><u>Examples</u>:<br><b>var</b> index : UInt32 = 0;<br><b>var</b> pArguments : Object[] = <b>new</b> Object[3];  <span style="color: green;">// Preparing the arguments to be passed to the function in the library</span><br>pArguments[0] = <b>String(</b>Service<b>)</b>;<br>pArguments[1] = <b>String(</b>Temps2<b>)</b>;<br>pArguments[2] = <b>String(</b>"NEXT_ODR"<b>)</b>;<br>index = <b>LoadAndExecute(</b>"SCR10000.DLL","Return_SR",pArguments<b>)</b>;  <span style="color: green;">// Calling the automation script '10000'</span></p>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">5. <a name="Interfaces">Interfaces</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 0px;">Automation scripts provide access to an internal task scheduler and to the telemetry data through a set of dedicated functions.</p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 4px; margin-bottom: 0px;"><b>5.1. Task Scheduler Functions</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">Automation scripts offer access to a task scheduler for telemetry reports and telemetry data extractions. This gives automation scripts the capability to schedule them programmatically.<br>The following table summarizes all functions related to the scheduling of automation scripts:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Function</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>EnumTelemetryReports(</b><i>Names</i> : ArrayList,<br>&nbsp;&nbsp;<i>IDs</i> : ArrayList,<i>StartTimes</i> : ArrayList,<i>Intervals</i> : ArrayList,<br>&nbsp;&nbsp;<i>StopTimes</i> : ArrayList<b>)</b> : int</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Enumerates and returns the count of telemetry reports currently scheduled.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This function enumerates only those telemetry reports that were scheduled with the function below.</p><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>Names</i></td><td valign="top">String &lt;out&gt;</td><td valign="top">The name of the telemetry reports.</td></tr><tr><td valign="top"><i>IDs</i></td><td valign="top">uint &lt;out&gt;</td><td valign="top">The identifier of the telemetry reports.</td></tr><tr><td valign="top"><i>StartTimes</i></td><td valign="top">DateTime &lt;out&gt;</td><td valign="top">The time when the telemetry reports are executed for the first time.</td></tr><tr><td valign="top"><i>Intervals</i></td><td valign="top">TimeSpan &lt;out&gt;</td><td valign="top">The interval in 100ns ticks between the times when the telemetry reports are executed.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>Is 0 when the telemetry reports run only once.</td></tr><tr><td valign="top"><i>StopTimes</i></td><td valign="top">DateTime &lt;out&gt;</td><td valign="top">The time when the telemetry reports run for the last time.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>Is 0 when the telemetry reports run only once.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>AddTelemetryReport(</b><i>Name</i> : String,<br>&nbsp;&nbsp;<i>StartTime</i> : DateTime,<i>Interval</i> : TimeSpan,<br>&nbsp;&nbsp;<i>StopTime</i> : DateTime<b>)</b> : uint</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Adds a telemetry report to the schedule and returns its associated identifier.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The name of the telemetry report to be scheduled must exist as a profile. The enumerated scheduled telemetry reports support a precision of 1s only.</p><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>Name</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of the telemetry report.</td></tr><tr><td valign="top"><i>StartTime</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">The time when the telemetry report should be executed for the first time.</td></tr><tr><td valign="top"><i>Interval</i></td><td valign="top">TimeSpan &lt;in&gt;</td><td valign="top">The interval in 100ns ticks between the times when the telemetry report is executed.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>Must be 0 when the telemetry report should run only once.</td></tr><tr><td valign="top"><i>StopTime</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">The time when the telemetry report should run for the last time.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>Must be 0 when the telemetry report should run only once.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>DeleteTelemetryReport(</b><i>ID</i> : uint<b>)</b> : boolean</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Deletes a telemetry report from the schedule.</p><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>ID</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">Identifier of the telemetry report to remove from the schedule.</td></tr></table><p style="margin: 4 4 2 4;"><img src="images/note.gif" alt="" style="margin-right: 4px;">Note:<br>Whenever a scheduled telemetry report expires (&gt; <i>StopTime</i>), it is automatically removed from the schedule.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>EnumTelemetryDataExtractions(</b><i>Names</i> : ArrayList,<br>&nbsp;&nbsp;<i>IDs</i> : ArrayList,<i>ScheduleTimes</i> : ArrayList,<br>&nbsp;&nbsp;<i>StartTimes</i> : ArrayList,<i>StopTimes</i> : ArrayList<b>)</b> : int</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Enumerates and returns the count of telemetry data extractions currently scheduled.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This function enumerates only those telemetry data extractions that were scheduled with the function below.</p><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>Names</i></td><td valign="top">String &lt;out&gt;</td><td valign="top">The name of the telemetry data extractions.</td></tr><tr><td valign="top"><i>IDs</i></td><td valign="top">uint &lt;out&gt;</td><td valign="top">The identifier of the telemetry data extractions.</td></tr><tr><td valign="top"><i>ScheduleTimes</i></td><td valign="top">TimeSpan &lt;out&gt;</td><td valign="top">The time when the telemetry data extractions execute.</td></tr><tr><td valign="top"><i>StartTimes</i></td><td valign="top">DateTime &lt;out&gt;</td><td valign="top">The start time of the telemetry data extractions range.</td></tr><tr><td valign="top"><i>StopTimes</i></td><td valign="top">DateTime &lt;out&gt;</td><td valign="top">The stop time of the telemetry data extractions range.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>AddTelemetryDataExtraction(</b><i>Name</i> : String,<br>&nbsp;&nbsp;<i>ScheduleTime</i> : DateTime,<i>StartTime</i> : DateTime,<br>&nbsp;&nbsp;<i>StopTime</i> : DateTime<b>)</b> : uint</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Adds a telemetry data extraction to the schedule and returns its associated identifier.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The name of the telemetry data extraction to be scheduled must exist as a profile. The enumerated scheduled telemetry data extractions support a precision of 1s only.</p><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>Name</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of the telemetry data extraction.</td></tr><tr><td valign="top"><i>ScheduleTime</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">The time when the telemetry data extraction should start.</td></tr><tr><td valign="top"><i>StartTime</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">The start time of the telemetry data extraction range.</td></tr><tr><td valign="top"><i>StopTime</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">The stop time of the telemetry data extraction range.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>DeleteTelemetryDataExtraction(</b><i>ID</i> : uint<b>)</b> : boolean</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Deletes a telemetry data extraction from the schedule.</p><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>ID</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">Identifier of the telemetry data extraction to remove from the schedule.</td></tr></table></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 8px;"><img src="images/note.gif" alt="" style="margin-right: 4px;">Note:<br>When testing an automation script that manipulates the task scheduler, a list of all scheduled tasks is shown in the '<b>Debug</b>' pane (at the bottom) after the script has terminated. The tasks, however, are only listed but not executed at the indicated schedule time.</p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;"><b>5.2. Telemetry Data Functions</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">Automation scripts support an interface to the telemetry data which gives them the capability to take decisions depending on the current telemetry data.<br>The following table summarizes all functions related to the telemetry data interface:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Function</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>GetValue(</b><i>szTag</i> : String,<i>nSample</i> : int<b>)</b> : Object</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the current (calibrated) value of telemetry parameter <i>szTag</i> at occurrence <i>nSample</i> (&ge; 0).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If an illegal occurrence number is specified the function returns an empty object.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>GetRawValue(</b><i>szTag</i> : String,<i>nSample</i> : int<b>)</b> : Object</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the current raw value of telemetry parameter <i>szTag</i> at the occurrence specified by <i>nSample</i> (&ge; 0).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If an illegal occurrence number is specified the function returns an empty object.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>GetValueTime(</b><i>szTag</i> : String,<i>nSample</i> : int<b>)</b> : DateTime</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time associated with the value of telemetry parameter <i>szTag</i> at the occurrence specified by <i>nSample</i> (&ge; 0).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If an illegal occurrence number is specified the function returns an empty object.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>GetPastValue(</b><i>szTag</i> : String,<i>nSample</i> : int<b>)</b> : Object</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns a past (calibrated) value of telemetry parameter <i>szTag</i>. The variable <i>nSample</i> specifies how many samples in the past the value should be from.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If a parameter occurs more than once within a telemetry unit, each occurrence is counted as a sample.<br>Use the function <b>SetPastValueSamples</b> in order to specify the number of samples to keep.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>GetPastRawValue(</b><i>szTag</i> : String,<i>nSample</i> : int<b>)</b> : Object</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns a past raw value of telemetry parameter <i>szTag</i>. The variable <i>nSample</i> specifies how many samples in the past the value should be from.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If a parameter occurs more than once within a telemetry unit, each occurrence is counted as a sample.<br>Use the function <b>SetPastValueSamples</b> in order to specify the number of samples to keep.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>GetPastValueTime(</b><i>szTag</i> : String,<i>nSample</i> : int<b>)</b> : DateTime</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time associated with a past value of telemetry parameter <i>szTag</i>. The variable <i>nSample</i> specifies how many samples in the past the value should be from.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If a parameter occurs more than once within a telemetry unit, each occurrence is counted as a sample.<br>Use the function <b>SetPastValueSamples</b> in order to specify the number of samples to keep.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>SetPastValueSamples(</b><i>szTag</i> : String,<i>wSamples</i> : ushort<b>)</b> : bool</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Specifies the number of samples <i>wSamples</i> to keep for the specified telemetry parameter <i>szTag</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This function needs to be called once only per telemetry parameter (e.g. during initialization) if the number of samples to keep remains constant.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>GetPastValueSamples(</b><i>szTag</i> : String<b>)</b> : ushort</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the number of samples kept for the specified telemetry parameter <i>szTag</i>.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>GetLastUpdateTime(</b><i>szTag</i> : String<b>)</b> : DateTime</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time when the telemetry parameter <i>szTag</i> was updated the last time.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>GetLastChangeTime(</b><i>szTag</i> : String<b>)</b> : DateTime</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time when the telemetry parameter <i>szTag</i> changed its value the last time.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>GetStatus(</b><i>szTag</i> : String,<i>nSample</i> : int<b>)</b> : uint</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the status of the telemetry parameter <i>szTag</i> which may be a combination of the following values:<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>TMPARAMETER_STATUS_GOOD</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>TMPARAMETER_STATUS_BAD</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>TMPARAMETER_STATUS_NOLIMIT</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>TMPARAMETER_STATUS_SOFTLIMIT</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>TMPARAMETER_STATUS_HARDLIMIT</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>TMPARAMETER_STATUS_DELTALIMIT</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>TMPARAMETER_STATUS_VALID</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>TMPARAMETER_STATUS_INVALID</b><br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The value <b>TMPARAMETER_STATUS_NONE</b> is returned if the telemetry parameter has no value.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>Lock()</b> : boolean</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Locks the complete telemetry interface and prevents other threads from updating any telemetry parameter. Returns a non-zero value if the function succeeded, zero if not.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>Use this function with extreme care only as the telemetry data processing is blocked until <b>Unlock</b> is called.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>Unlock()</b> : boolean</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Unlocks the complete telemetry interface and allows the continuation of the telemetry data processing. Returns a non-zero value if the function succeeded, zero if not.</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 8px;"><img src="images/note.gif" alt="" style="margin-right: 4px;">Note:<br>In order to test an automation script that requires access to the telemetry data use the feature described as simulating telemetry data conditions.</p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;"><b>5.3. Satellite Tracking, Pass &amp; Interlink Functions</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">Access to satellite tracking services, location pass or satellite interlink predictions is supported by the automation scripts as well.<br>The following table summarizes all functions related to the satellites interface:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Function</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>CalculateSpacecraftOrbitLongitude(</b><i>Spacecraft</i> :<br>&nbsp;&nbsp;String,<i>NORADID</i> : uint,<i>Time</i> : DateTime) : double</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the longitude of the specified spacecraft &lt;<i>Spacecraft</i>,<i>NORADID</i>&gt; at the time <i>Time</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>Time</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned longitude will be between 0...360 degrees</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-top: 0px; margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>Spacecraft</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>NORADID</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>Time</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">The time for which the longitude should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>CalculateSpacecraftOrbitLatitude(</b><i>Spacecraft</i> :<br>&nbsp;&nbsp;String,<i>NORADID</i> : uint,<i>Time</i> : DateTime) : double</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the latitude of the specified spacecraft &lt;<i>Spacecraft</i>,<i>NORADID</i>&gt; at the time <i>Time</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>Time</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned latitude will be between -90...90 degrees</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>Spacecraft</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>NORADID</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>Time</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">The time for which the latitude should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>CalculateSpacecraftOrbitAltitude(</b><i>Spacecraft</i> :<br>&nbsp;&nbsp;String,<i>NORADID</i> : uint,<i>Time</i> : DateTime) : double</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the altitude of the specified spacecraft &lt;<i>Spacecraft</i>,<i>NORADID</i>&gt; at the time <i>Time</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>Time</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned altitude will be &gt; 0 km</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>Spacecraft</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>NORADID</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>Time</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">The time for which the altitude should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>CalculateSpacecraftOrbitVelocity(</b><i>Spacecraft</i> :<br>&nbsp;&nbsp;String,<i>NORADID</i> : uint,<i>Time</i> : DateTime) : double</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the velocity of the specified spacecraft &lt;<i>Spacecraft</i>,<i>NORADID</i>&gt; at the time <i>Time</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>Time</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned velocity will be &gt; 0 km/s</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>Spacecraft</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>NORADID</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>Time</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">The time for which the velocity should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>CalculateSpacecraftPosition(</b><i>Spacecraft</i> :<br>&nbsp;&nbsp;String,<i>NORADID</i> : uint,<i>Time</i> : DateTime) : CSatellitePosition</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the position (relative to the Sun) of the specified spacecraft &lt;<i>Spacecraft</i>,<i>NORADID</i>&gt; at the time <i>Time</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>For Earth-centric spacecraft (<i>NORADID</i> &lt;&gt; 0) the parameter <i>Time</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned position will be returned in form of the class 'CSpacecraftPosition'; its members '<i>x</i>', '<i>y</i>', '<i>z</i>' contain the position coordinates in km</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>Spacecraft</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>NORADID</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>Time</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">The time for which the position (relative to the Sun) should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>CalculateSpacecraftVelocity(</b><i>Spacecraft</i> :<br>&nbsp;&nbsp;String,<i>NORADID</i> : uint,<i>Time</i> : DateTime) : CSatelliteVelocity</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the velocity (relative to the Sun) of the specified spacecraft &lt;<i>Spacecraft</i>,<i>NORADID</i>&gt; at the time <i>Time</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>For Earth-centric spacecraft (<i>NORADID</i> &lt;&gt; 0) the parameter <i>Time</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned velocity will be returned in form of the class 'CSpacecraftVelocity'; its members '<i>x</i>', '<i>y</i>', '<i>z</i>' contain the velocity coordinates in km/s</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>Spacecraft</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>NORADID</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>Time</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">The time for which the velocity (relative to the Sun) should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>CalculateSpacecraftPassStartTime(</b><i>Spacecraft</i> :<br>&nbsp;&nbsp;String,<i>NORADID</i> : uint,<i>Location</i> : String,<i>LocationLongitude</i> :<br>&nbsp;&nbsp;double,<i>LocationLatitude</i> : double,<i>LocationAltitude</i> :<br>&nbsp;&nbsp;double,<i>StartTime</i> : DateTime,<i>TimeInterval</i> : TimeSpan) : DateTime</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the begin of the next pass over the location &lt;<i>Location</i>,<i>LocationLongitude</i>,<i>LocationLatitude</i>,<i>LocationAltitude</i>&gt; of the specified spacecraft &lt;<i>Spacecraft</i>,<i>NORADID</i>&gt; after the time <i>StartTime</i> and within the subsequent <i>TimeInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>StartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>Spacecraft</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>NORADID</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>Location</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of pass-over location.</td></tr><tr><td valign="top"><i>LocationLongitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The longitude (deg) of the pass-over location.</td></tr><tr><td valign="top"><i>LocationLatitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The latitude (deg) of the pass-over location.</td></tr><tr><td valign="top"><i>LocationAltitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The altitude (km) of the pass-over location.</td></tr><tr><td valign="top"><i>StartTime</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next pass over the specified location.</td></tr><tr><td valign="top"><i>TimeInterval</i></td><td valign="top">TimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next pass over the specified location.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>CalculateSpacecraftPassStopTime(</b><i>Spacecraft</i> :<br>&nbsp;&nbsp;String,<i>NORADID</i> : uint,<i>Location</i> : String,<i>LocationLongitude</i> :<br>&nbsp;&nbsp;double,<i>LocationLatitude</i> : double,<i>LocationAltitude</i> :<br>&nbsp;&nbsp;double,<i>StartTime</i> : DateTime,<i>TimeInterval</i> : TimeSpan) : DateTime</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the end of the next pass over the location &lt;<i>Location</i>,<i>LocationLongitude</i>,<i>LocationLatitude</i>,<i>LocationAltitude</i>&gt; of the specified spacecraft &lt;<i>Spacecraft</i>,<i>NORADID</i>&gt; after the time <i>StartTime</i> and within the subsequent <i>TimeInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>StartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>Spacecraft</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>NORADID</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>Location</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of pass-over location.</td></tr><tr><td valign="top"><i>LocationLongitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The longitude (deg) of the pass-over location.</td></tr><tr><td valign="top"><i>LocationLatitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The latitude (deg) of the pass-over location.</td></tr><tr><td valign="top"><i>LocationAltitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The altitude (km) of the pass-over location.</td></tr><tr><td valign="top"><i>StartTime</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next pass over the specified location.</td></tr><tr><td valign="top"><i>TimeInterval</i></td><td valign="top">TimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next pass over the specified location.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>CalculateSpacecraftInterlinkStartTime(</b><br>&nbsp;&nbsp;<i>SpacecraftA</i> : String,<i>NORADIDA</i> : uint,<i>SpacecraftB</i> : String,<br>&nbsp;&nbsp;<i>NORADIDB</i> : uint,<i>StartTime</i> : DateTime,<i>TimeInterval</i> :<br>&nbsp;&nbsp;TimeSpan) : DateTime</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the begin of the next interlink session between the spacecraft &lt;<i>SpacecraftA</i>,<i>NORADIDA</i>&gt; and &lt;<i>SpacecraftB</i>,<i>NORADIDB</i>&gt; after the time <i>StartTime</i> and within the subsequent <i>TimeInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>StartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>SpacecraftA</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of first spacecraft.</td></tr><tr><td valign="top"><i>NORADIDA</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the first spacecraft.</td></tr><tr><td valign="top"><i>SpacecraftB</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of second spacecraft.</td></tr><tr><td valign="top"><i>NORADIDB</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the second spacecraft.</td></tr><tr><td valign="top"><i>StartTime</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next interlink session.</td></tr><tr><td valign="top"><i>TimeInterval</i></td><td valign="top">TimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next interlink session.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>CalculateSpacecraftInterlinkStopTime(</b><br>&nbsp;&nbsp;<i>SpacecraftA</i> : String,<i>NORADIDA</i> : uint,<i>SpacecraftB</i> : String,<br>&nbsp;&nbsp;<i>NORADIDB</i> : uint,<i>StartTime</i> : DateTime,<i>TimeInterval</i> :<br>&nbsp;&nbsp;TimeSpan) : DateTime</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the end of the next interlink session between the spacecraft &lt;<i>SpacecraftA</i>,<i>NORADIDA</i>&gt; and &lt;<i>SpacecraftB</i>,<i>NORADIDB</i>&gt; after the time <i>StartTime</i> and within the subsequent <i>TimeInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>StartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>SpacecraftA</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of first spacecraft.</td></tr><tr><td valign="top"><i>NORADIDA</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the first spacecraft.</td></tr><tr><td valign="top"><i>SpacecraftB</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of second spacecraft.</td></tr><tr><td valign="top"><i>NORADIDB</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the second spacecraft.</td></tr><tr><td valign="top"><i>StartTime</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next interlink session.</td></tr><tr><td valign="top"><i>TimeInterval</i></td><td valign="top">TimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next interlink session.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>CalculateSpacecraftInterlinkStartTime(</b><br>&nbsp;&nbsp;<i>SpacecraftA</i> : String,<i>NORADIDA</i> : uint,<i>SpacecraftVia</i> :<br>&nbsp;&nbsp;String,<i>NORADIDVia</i> : uint,<i>SpacecraftB</i> : String,<i>NORADIDB</i> :<br>&nbsp;&nbsp;uint,<i>StartTime</i> : DateTime,<i>TimeInterval</i> : TimeSpan) :<br>DateTime</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the begin of the next interlink session between the spacecraft &lt;<i>SpacecraftA</i>,<i>NORADIDA</i>&gt; and &lt;<i>SpacecraftB</i>,<i>NORADIDB</i>&gt; via the relais &lt;<i>SpacecraftVia</i>,<i>NORADIDVia</i>&gt; after the time <i>StartTime</i> and within the subsequent <i>TimeInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>StartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>SpacecraftA</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of first spacecraft.</td></tr><tr><td valign="top"><i>NORADIDA</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the first spacecraft.</td></tr><tr><td valign="top"><i>SpacecraftVia</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of relais spacecraft.</td></tr><tr><td valign="top"><i>NORADIDVia</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the relais spacecraft.</td></tr><tr><td valign="top"><i>SpacecraftB</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of second spacecraft.</td></tr><tr><td valign="top"><i>NORADIDB</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the second spacecraft.</td></tr><tr><td valign="top"><i>StartTime</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next interlink session.</td></tr><tr><td valign="top"><i>TimeInterval</i></td><td valign="top">TimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next interlink session.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">function <b>CalculateSpacecraftInterlinkStopTime(</b><br>&nbsp;&nbsp;<i>SpacecraftA</i> : String,<i>NORADIDA</i> : uint,<i>SpacecraftVia</i> :<br>&nbsp;&nbsp;String,<i>NORADIDVia</i> : uint,<i>SpacecraftB</i> : String,<i>NORADIDB</i> :<br>&nbsp;&nbsp;uint,<i>StartTime</i> : DateTime,<i>TimeInterval</i> : TimeSpan) :<br>DateTime</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the end of the next interlink session between the spacecraft &lt;<i>SpacecraftA</i>,<i>NORADIDA</i>&gt; and &lt;<i>SpacecraftB</i>,<i>NORADIDB</i>&gt; via the relais &lt;<i>SpacecraftVia</i>,<i>NORADIDVia</i>&gt; after the time <i>StartTime</i> and within the subsequent <i>TimeInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>StartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>SpacecraftA</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of first spacecraft.</td></tr><tr><td valign="top"><i>NORADIDA</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the first spacecraft.</td></tr><tr><td valign="top"><i>SpacecraftVia</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of relais spacecraft.</td></tr><tr><td valign="top"><i>NORADIDVia</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the relais spacecraft.</td></tr><tr><td valign="top"><i>SpacecraftB</i></td><td valign="top">String &lt;in&gt;</td><td valign="top">The name of second spacecraft.</td></tr><tr><td valign="top"><i>NORADIDB</i></td><td valign="top">uint &lt;in&gt;</td><td valign="top">The NORAD identifier of the second spacecraft.</td></tr><tr><td valign="top"><i>StartTime</i></td><td valign="top">DateTime &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next interlink session.</td></tr><tr><td valign="top"><i>TimeInterval</i></td><td valign="top">TimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next interlink session.</td></tr></table></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 8px;"><img src="images/note.gif" alt="" style="margin-right: 4px;">Note:<br>All satellite tracking, pass &amp; interlink functions cannot be tested within the SatView™ Editor; they all return 'NAN' (for 'double' data types) and '0' (for 'DateTime' data types). When executed within the SatView™ Desktop, the satellite tracking sub-system must be enabled for these functions to return valid results. Furthermore, it must be ensured that access to the Internet is guaranteed.</p>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">6. <a name="Samples">Samples</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The following sample illustrates how Microsoft® Excel® can be automated:</p>
+				<div class="StandardTableItemTextStyle" style="padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border: 1px solid #9BAFDE; background: #D7E7FE; font-family: 'Courier New', Courier, monospace; font-size: 11px;">
+					<span style="color: green;">// Declare the variables</span><br>
+					<b>var</b> Excel, Book, Sheet;<br><br>
+					<span style="color: green;">// Create the Excel application object</span><br>
+					Excel = <b>new</b> ActiveXObject("Excel.Application");<br><br>
+					<span style="color: green;">// Hide the application</span><br>
+					Excel.Visible = false;<br><br>
+					<span style="color: green;">// Hide the assistant</span><br>
+					Excel.Assistant.Visible = false;<br><br>
+					<span style="color: green;">// Create a new work book</span><br>
+					Book = Excel.Workbooks.Add();<br><br>
+					<b>try</b><br>
+					<b>{</b>
+					&nbsp;&nbsp;<span style="color: green;">// Configure the workbook</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Sheet = Book.WorkSheets(1);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Sheet.Activate();<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Sheet.Name = "Pulscount Times";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Book.WorkSheets("Sheet2").Delete();<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Book.WorkSheets("Sheet3").Delete();<br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Format the rows and columns</span><br>
+    					&nbsp;&nbsp;&nbsp;&nbsp;Sheet.Columns(1).NumberFormat = "hh:mm:ss";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Sheet.Columns(1).Interior.ColorIndex = 22;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Sheet.Rows(1).NumberFormat = "General";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Sheet.Rows(1).Font.Bold = true;<br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Read the source data</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b>var</b> Pos : int;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b>var</b> Col : int;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b>var</b> Row : int;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b>var</b> Index : int;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b>var</b> Source : String;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b>var</b> Stream : StreamReader;<br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Stream = File.OpenText(InputFile);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b>for</b> (Row = 1; true; Row = Row+1)<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;<b>if</b> ((Source = Stream.ReadLine()) != null)<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;<b>for</b> (Col = 1,Index = 0; Index &lt; Source.Length; Col = Col+1)<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;<b>if</b> ((Pos = Source.Substring(Index).IndexOf(",")) &ge; 0)<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;Sheet.Cells(Row,Col).Value = Source.Substring(Index,Pos);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Index = Index+Pos+1;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>continue</b>;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sheet.Cells(Row,Col).Value = Source.Substring(Index);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>break</b>;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>continue</b>;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>break</b>;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Stream.Close();<br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Add a embedded charts</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b>var</b> Graph1, Graph2, Graph3;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Graph1 = Sheet.ChartObjects().Add(200,20,500,250);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Graph2 = Sheet.ChartObjects().Add(200,290,500,250);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Graph3 = Sheet.ChartObjects().Add(200,560,500,250);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b>with</b> (Graph1.Chart)<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;SeriesCollection.Add(Sheet.Range("A2",Sheet.Range("B2").End(4)));<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SeriesCollection(1).Name = "V191";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartArea.Interior.Color = 14606046;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HasTitle = true;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartTitle.Text = "RW1 Pulscount Time";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartTitle.Font.Bold = true;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartTitle.Font.Size = 12;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).HasTitle = true;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).AxisTitle.Caption = "TIME";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).AxisTitle.Font.Bold = false;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).TickMarkSpacing = Row/15;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).TickLabelSpacing = Row/15;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).TickLabels.Font.Size = 8;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartType = 1;&nbsp;&nbsp;<span style="color: green;">// Area</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b>with</b> (Graph2.Chart)<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;<b>var</b> DataRange2 : String;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataRange2 = "A2:A"+Row+",C2:C"+Row;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SeriesCollection.Add(Sheet.Range(DataRange2));<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SeriesCollection(1).Name = "V193";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SeriesCollection(1).Border.Weight = 3;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SeriesCollection(1).Border.Color = 16711680;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartArea.Interior.Color = 14606046;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HasTitle = true;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartTitle.Text = "RW2 Pulscount Time";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartTitle.Font.Bold = true;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartTitle.Font.Size = 12;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).HasTitle = true;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).AxisTitle.Caption = "TIME";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).AxisTitle.Font.Bold = false;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).TickMarkSpacing = Row/15;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).TickLabelSpacing = Row/15;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).TickLabels.Font.Size = 8;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartType = 4;&nbsp;&nbsp;<span style="color: green;">// Line</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b>with</b> (Graph3.Chart)<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;<b>var</b> DataRange3 : String;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>var</b> DataRange4 : String;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataRange3 = "A2:A"+Row+",C2:C"+Row;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataRange4 = "B2:B"+Row;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SeriesCollection.Add(Sheet.Range(DataRange3));<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SeriesCollection.Add(Sheet.Range(DataRange4));<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SeriesCollection(1).Name = "V193";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SeriesCollection(2).Name = "V191";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartArea.Interior.Color = 14606046;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HasTitle = true;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartTitle.Text = "RW1+2 Pulscount Times";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartTitle.Font.Bold = true;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartTitle.Font.Size = 12;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).HasTitle = true;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).AxisTitle.Caption = "TIME";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).AxisTitle.Font.Bold = false;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).TickMarkSpacing = Row/15;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).TickLabelSpacing = Row/15;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(1).TickLabels.Font.Size = 8;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(2).MinimumScale = 0.107;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axes(2).MaximumScale = 0.125;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChartType = 1;&nbsp;&nbsp;<span style="color: green;">// Area</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Save the work book</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<b>var</b> Ext : int;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;if ((Ext = InputFile.LastIndexOf(".")) &ge; 0)<br>
+ 					&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;OutputFile.Remove(0,OutputFile.Length);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OutputFile.Insert(0,InputFile.Substring(0,Ext)+".xls");&nbsp;&nbsp;<span style="color: green;">// Name of the generated output file</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File.Delete(OutputFile.ToString());&nbsp;&nbsp;<span style="color: green;">// Prevent prompting for an override</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book.SaveAs(OutputFile.ToString());&nbsp;&nbsp;<span style="color: green;">// Save the generated file</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Close the current work book</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Book.Close(false);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Close all other work books</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Excel.Workbooks.Close();<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Close the Excel object</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Excel.Application.Quit();<br>
+					<b>}</b><br>
+					<b>catch</b> (exception)<br>
+					<b>{</b><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Provide an error reason</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Error.Insert(0,exception.message);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Close the current work book</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Book.Close(false);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Close all other work books</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Excel.Workbooks.Close();<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Close the Excel object</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Excel.Application.Quit();<br>
+					<b>}</b>
+				</div>
+				<p class="StandardTableItemTextStyle" style="margin-top: 10px; margin-bottom: 2px;">This additional sample illustrates how to schedule a telemetry report:</p>
+				<div class="StandardTableItemTextStyle" style="padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border: 1px solid #9BAFDE; background: #D7E7FE; font-family: 'Courier New', Courier, monospace; font-size: 11px;">
+					<span style="color: green;">// Declare the variables</span><br>
+					<b>var</b> ID : uint;<br>
+					<b>var</b> Time : Date = <b>new</b> Date();<br>
+					<b>var</b> StartTime : DateTime = <b>new</b> DateTime(Time.getFullYear(),Time.getMonth()+1,Time.getDate());<br>
+					<b>var</b> StopTime : DateTime = <b>new</b> DateTime(Time.getFullYear(),Time.getMonth()+1,Time.getDate());<br>
+					<b>var</b> Interval : TimeSpan = <b>new</b> TimeSpan(1,0,0);<br><br>
+					<b>try</b><br>
+					<b>{</b><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Executes the telemetry report for one day at an interval of one hour</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// The name 'Optical Report' must exist as a telemetry report profile</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;ID = <b>AddTelemetryReport(</b>"Optical Report",StartTime.AddHours(1),Interval,StopTime.AddHours(24)<b>)</b>;<br>
+					<b>}</b><br>
+					<b>catch</b> (exception)<br>
+					<b>{</b><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Provide an error reason</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Error.Insert(0,exception.message);<br>
+					<b>}</b>
+				</div>
+				<p class="StandardTableItemTextStyle" style="margin-top: 10px; margin-bottom: 2px;">The following sample shows how to use the satellite tracking, pass &amp; interlink functions:</p>
+				<div class="StandardTableItemTextStyle" style="padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border: 1px solid #9BAFDE; background: #D7E7FE; font-family: 'Courier New', Courier, monospace; font-size: 11px;">
+					<b>var</b> f : StreamWriter = <b>new</b> StreamWriter(OutputFile, true);<br><br>
+					<b>var</b> fLongitude : double;<br>
+					<b>var</b> fLatitude : double;<br>
+					<b>var</b> fAltitude : double;<br>
+					<b>var</b> fVelocity : double;<br>
+					<b>var</b> t : DateTime;<br>
+					<b>var</b> tPassStartTime : DateTime;<br>
+					<b>var</b> tPassStopTime : DateTime;<br>
+					<b>var</b> tInterlinkStartTime : DateTime;<br>
+					<b>var</b> tInterlinkStopTime : DateTime;<br><br>
+					<b>var</b> cPosition : CSatellitePosition;<br>
+					<b>var</b> cVelocity : CSatelliteVelocity;<br><br>
+					<b>try</b><br>
+					<b>{</b><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;fLongitude = <b>CalculateSpacecraftOrbitLongitude(</b>"ISS (ZAYRA)", 25544, (t = DateTime.UtcNow).ToUniversalTime()<b>)</b>;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;fLatitude = <b>CalculateSpacecraftOrbitLatitude(</b>"ISS (ZAYRA)", 25544, t.ToUniversalTime()<b>)</b>;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;fAltitude = <b>CalculateSpacecraftOrbitAltitude(</b>"ISS (ZAYRA)", 25544, t.ToUniversalTime()<b>)</b>;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;fVelocity = <b>CalculateSpacecraftOrbitVelocity(</b>"ISS (ZAYRA)", 25544, t.ToUniversalTime()<b>)</b>;<br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;cPosition = <b>CalculateSpacecraftPosition(</b>"ISS (ZAYRA)", 25544, t.ToUniversalTime()<b>)</b>;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;cVelocity = <b>CalculateSpacecraftVelocity(</b>"ISS (ZAYRA)", 25544, t.ToUniversalTime()<b>)</b>;<br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;tPassStartTime = <b>CalculateSpacecraftPassStartTime(</b>"ISS (ZAYRA)", 25544, "Zurich", 8.5500025, 47.367347, 0.425, t.ToUniversalTime(), TimeSpan.FromTicks(86400 * 10 * 1000000)<b>)</b>;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;tPassStopTime = <b>CalculateSpacecraftPassStopTime(</b>"ISS (ZAYRA)", 25544, "Zurich", 8.5500025, 47.367347, 0.425, t.ToUniversalTime(), TimeSpan.FromTicks(86400 * 10 * 1000000)<b>)</b>;<br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;tInterlinkStartTime = <b>CalculateSpacecraftInterlinkStartTime(</b>"ISS (ZAYRA)", 25544, "ARTEMIS", 26863,"Hubble", 20580, t.ToUniversalTime(), TimeSpan.FromTicks(86400 * 10 * 1000000)<b>)</b>;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;tInterlinkStopTime = <b>CalculateSpacecraftInterlinkStopTime(</b>"ISS (ZAYRA)", 25544, "ARTEMIS", 26863,"Hubble", 20580, t.ToUniversalTime(), TimeSpan.FromTicks(86400 * 10 * 1000000)<b>)</b>;<br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;f.AutoFlush = <b>true</b>;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;f.WriteLine("ISS (ZAYRA) - Orbit Data at " + t.ToLongDateString() + " " + t.ToLongTimeString());<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;f.WriteLine("Longitude: " + fLongitude + " deg" + ", Latitude: " + fLatitude + " deg"  + ", Altitude: " + fAltitude + " km"  + ", Velocity: " + fVelocity  + " km/s" );<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;f.WriteLine("Sun distance: " + cPosition.Distance() + " km, Sun velocity: " + cVelocity.Speed() + " km/s");<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;f.WriteLine("Next pass over Zurich: " + tPassStartTime.ToLongDateString() + " " + tPassStartTime.ToLongTimeString() + " to " + tPassStopTime.ToLongDateString() + " " + tPassStopTime.ToLongTimeString());<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;f.WriteLine("Next interlink between ISS-ARTEMIS-Hubble: " + tInterlinkStartTime.ToLongDateString() + " " + tInterlinkStartTime.ToLongTimeString() + " to " + tInterlinkStopTime.ToLongDateString() + " " + tInterlinkStopTime.ToLongTimeString());<br>
+					<b>}</b><br>
+					<b>catch</b> (exception)<br>
+					<b>{</b><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Provide an error reason</span><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Error.Insert(0,exception.message);<br>
+					<b>}</b>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<img id="PageFooter" src="images/templatebottom.png" alt="" style="position: relative; left: -1px; top: 0px;">
+</div>
+</body>
+
+</html>

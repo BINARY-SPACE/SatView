@@ -1,0 +1,991 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Telemetry Parameter Exchange Protocol (TPEP)</title>
+<link rel="stylesheet" type="text/css" href="resources/styles.css">
+<![if lte IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/iefix.css">
+<![endif]>
+<![if gt IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/ie.css">
+<![endif]>
+<script src="resources/behaviors.js" type="text/javascript"></script>
+</head>
+
+<body style="margin: 0 0 0 0;" background="images/background.jpg" onload="FP_callJS('onRecalcLayout()')">
+<img id="PageTemplate" src="images/template.png" alt="" style="position: absolute; left: 0px; top: 0px; width: 880px; height: 660px; border: none; outline: none;">
+<img id="PageFloater" src="images/templatebackground.png" alt="" style="position: absolute; left: 39px; top: 659px; width: 803px; height: auto; background-image: url('images/templatebackground.png'); background-repeat: repeat-y; display: none;">
+<img id="PageApplication" src="images/application.png" alt="" style="position: absolute; left: 50px; top: 90px; border: none; outline: none;">
+<div id="PageTitle" style="position: absolute; left: 295px; top: 84px; width: 545px; height: 22px;">
+	<span class="StandardTitleTextStyle" style="width: 545px;">Telemetry Parameter Exchange Protocol (TPEP)</span>
+</div>
+<div id="PageContents" style="position: absolute; left: 40px; top: 114px; width: 800px; height: auto; z-index: 1;">
+	<div id="PageHeader" style="position: relative; left: 0px; top: 0px; width: 550px; height: auto; float: right;">
+		<p class="StandardSummaryTitleStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-top: 10px; margin-bottom: 0px; text-indent: 0px; float: left;">SUMMARY</p>
+		<div id="PageVersionSection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; float: right;">
+			<span class="StandardVersionTextStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-right: 10px; float: right;">
+			<!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%A, %B %d, %Y" startspan -->Saturday, October 10, 2015<!--webbot bot="Timestamp" endspan i-checksum="670" --><br>Version 1.0</span>
+		</div>
+		<div id="PageSummarySection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-top: 2px; float: left;">
+			<div id="PageSummaryBox" style="position: relative; left: 0px; top: 0px; width: 538px; height: auto; border: 1px solid #FFFF00; background: #FFFFDD; margin-right: 5px; float: left;">
+				<p class="StandardSummaryTextStyle" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 0px; padding-top: 2px; padding-bottom: 2px; float: left;">SatView™ incorporates a custom protocol supporting the distribution of selected telemetry parameters, source packets or formats. It allows to request real-time, historical or random (for testing purposes) telemetry data in various formats.</p>
+			</div>
+		</div>
+	</div>
+	<div id="PageText" style="position: relative; left: 0px; top: 0px; width: 800px; height: auto; margin-bottom: 10px; float: left;">
+		<div id="HowDoISection" style="margin-left: 20px; margin-top: 20px; margin-right: 5px; display: none;">
+			<p class="StandardListTitleTextStyle">How do I...</p>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 10px; margin-top: 4px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListExpandableItemTextStyle" style="margin-top: 2px; cursor: pointer;" onclick="onClickListItem(event)"></p>
+						<div style="margin-bottom: 10px; display: block;">
+							<img src="images/collapsebutton.png" alt="">
+							<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; border: 1px solid #9BAFDE; background: #D9E9FE; z-index: 2;">
+								<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+								</ol>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 20px; margin-bottom: 2px;">Contents</p>
+		<ul class="StandardListTitleTextStyle" style="list-style-type: none; margin-left: 20px; margin-top: 2px; margin-right: 5px; margin-bottom: 20px; padding-left: 0px; font-size: 14px;">
+			<li>1. <a href="#Introduction" style="color: #072C61;">Introduction</a></li>
+			<li>2. <a href="#Conventions" style="color: #072C61;">Conventions</a><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>2.1. Client/Server Definition</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>2.2. Sessions</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>2.3. Endianity</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>2.4. Future Extensions</b></span></li>
+			<li>3. <a href="#Telemetry Parameter Exchange Protocol (TPEP)" style="color: #072C61;">Telemetry Parameter Exchange Protocol</a> (TPEP)<br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>3.1. Protocol Phases</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>3.2. Basic Message Structure</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>3.3. Messages</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>3.4. Parameter Information Entities</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>3.5. Error Codes</b></span></li>
+			<li><br>Appendix<br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>A.1. Lower Level Communication Layers</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>A.2. Implementation Issues</b></span></li>
+		</ul>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Document Change Log</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 20px;">
+			<tr>
+				<td width="50" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Issue</font></b></p></td>
+				<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Revision</font></b></p></td>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Date</font></b></p></td>
+				<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Affected</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Reason</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-5</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">August 1996</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">All</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">New document</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">6</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">July 1998</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">All</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Support for ARTEMIS</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">7</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">December 1998</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">All</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol extensions</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">August 1999</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 3</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Changed time key format and parameter status codes</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">October 1999</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 3</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Time key description</p></td>
+			</tr>
+		</table>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Table of Figures</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 20px;">
+			<tr>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Figure</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">3.1.-1</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TPEP Protocol Phases &amp; Messages</p></td>
+			</tr>
+			<tr>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">3.2.-1</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TPEP Basic Message Structure</p></td>
+			</tr>
+		</table>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Legend</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 40px;">
+			<tr>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Mnemonic</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+			</tr>
+		</table>
+		<ul class="StandardListTitleTextStyle" style="list-style-type: none; margin-left: 20px; margin-top: 20px; margin-bottom: 2px; margin-right: 5px; padding-left: 0px; font-size: 14px;">
+			<li>
+				<p style="margin-bottom: 2px;">1. <a name="Introduction">Introduction</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 0px;">This document provides a description of the <i>Telemetry Parameter Exchange Protocol</i> (TPEP) that <span class="CompanyNameTextStyle">Binary Space</span> uses with its products in order to distribute preprocessed telemetry data and related information within a (heterogeneous) network.<br>It operates on top of the TCP/IP protocol suite, a de-facto standard for this kind of communication.</p>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">2. <a name="Conventions">Conventions</a></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px;">The following conventions are used throughout this document:</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>2.1. Client/Server Definition</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">By following the convention, the provider of telemetry data and other related services is always called the 'server'. The 'client', on the other hand, requests and consumes the supplied information.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>2.2. Sessions</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The time period between a successful initial connection (on the transport protocol level) and termination of such between a client and server is called a session.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>2.3. Endianity</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">Since the information quantities exchanged within the TPEP are all based on characters there is no need for special action to be taken due to a possibly different endian. This implies that even integer or floating-point numbers are expressed as an array of characters.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>2.4. Future Extensions</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">Some parts of the TPEP specification are subject to future extensions.</p>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">3. <a name="Telemetry Parameter Exchange Protocol (TPEP)">Telemetry Parameter Exchange Protocol</a> (TPEP)</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;">The subsequent contents of this paper is divided up in two parts: A description of the various possible protocol phases on one hand and a listing of all available related messages on the other one.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.1. Protocol Phases</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">A session can be grouped into three basic phases:</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.1.1. Service Start</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">Due to simplicity reasons TPEP directly relies on the TCP/IP primitives connect (on the client side) and accept (on the server side) respectively for a service initiation.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.1.2. Data Distribution</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">A successful service start is followed by the data distribution phase that is initiated through a data distribution request from the client. Two types of links between the client and server can be established by such a request described as hot (permanent) or cold connections. In the case of hot links the server continuously sends data messages (containing the requested preprocessed telemetry data) to the client without any further data distribution requests until either side terminates the service.<br>Cold links on the other side instruct the server to just return one data message. For the second type of communication link several data distribution requests may be issued during a session.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.1.3. Service End</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">A service can be terminated by either side through the TCP/IP primitive closesocket.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 0px;">The following figure illustrates the various protocol phases:</p>
+				<img src="images/tpepmessages.jpg" alt="" style="margin-left: 80px;"><p class="StandardTextStyle" style="text-align: center; margin-top: -5px; margin-bottom: 7px;">Figure 3.1.-1  TPEP Protocol Phases &amp; Messages</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 0px;">In the event of a failure on the TCP/IP level a connection must be reestablished by the lower level primitives used in the service start phase. In case of problems on the TPEP level the client must issue a new data distribution request whenever the previous one was not accepted due to syntax errors. In all other cases (e.g. system problems or errors during the distribution phase) the socket is always closed after an error occurred.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.2. Basic Message Structure</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">All TPEP data messages are built upon the same basic structure:</p>
+				<img src="images/tpepmessageheader.jpg" alt="" style="margin-left: 140px;"><p class="StandardTextStyle" style="text-align: center; margin-top: -5px; margin-bottom: 7px;">Figure 3.2.-1  TPEP Basic Message Structure</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">These parts need to be explained in more detail:</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.2.1. Header</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The header contains a number of fields that are used to identify and further interpret the message:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="100" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Size</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Variable</i> (= <b>vc</b>)</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>Message Identification</b><br>Identifies the message type.</p></td>
+					</tr>
+					<tr>
+						<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i> (= <b>sp</b>)</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>Reserved</b> (Delimiter)</p></td>
+					</tr>
+					<tr>
+						<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>vc</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>Message Sequence Count*</b><br>Allows the detection of incontinences in the message through an incremental 32-bit counter.</p></td>
+					</tr>
+					<tr>
+						<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>sp</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>Reserved*</b> (Delimiter)</p></td>
+					</tr>
+					<tr>
+						<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>vc</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>Error Code*</b><br>Indicates any occurred error as well as the quality of the enclosed data.</p></td>
+					</tr>
+					<tr>
+						<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>sp</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>Reserved*</b> (Delimiter)</p></td>
+					</tr>
+					<tr>
+						<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>vc</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>Synchronization Status*</b><br>Indicates the current synchronization status of the telemetry data provider.</p></td>
+					</tr>
+					<tr>
+						<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>sp</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>Reserved*</b> (Delimiter)</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;"><u>Remarks</u>:</p>
+				<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 16px; padding-left: 0px;">
+					<li style="margin-top: -4px;">Sizes are expressed in character positions (not bytes).</li>
+					<li style="margin-top: -5px;">Marked fields appear in header of data messages only.</li>
+				</ul>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.2.2. Data Field</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The variable length data field contains the requested telemetry data information. The formatting within this area depends on the message but in general at least one or more of the following information entities are provided:</p>
+				<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 16px; padding-left: 0px;">
+					<li style="margin-top: -4px;">Telemetry Unit Identifier</li>
+					<li style="margin-top: -5px;">Time tags identifying the correlated time</li>
+					<li style="margin-top: -5px;">Parameter Information Entities (PIEs) or raw data</li>
+				</ul>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.3. Messages</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The minimal set of message types required in order to perform the described functionality is now explained in more detail:</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.3.1. Data Distribution Requests</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">Several types of requests are allowed depending on the kind of information required.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.3.1.1. Telemetry Packets</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The following message has to be issued when requesting telemetry source packet data to be returned:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Block</font></b></p></td>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Values</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-bottom: 0px;"><p style="margin: 1 4;">Header</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>PACKETS</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-bottom: 0px;"><p style="margin: 1 4;">Data Field</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Spacecraft Identifier</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1</b> (= ARTEMIS)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Number of Telemetry Packets</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1...<i>n</i></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1<sup style="font-size: 10px;">st</sup> Telemetry Packet Identifier</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Packet-Tag</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">2<sup style="font-size: 10px;">nd</sup> Telemetry Packet Identifier</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Packet-Tag</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>n</i><sup style="font-size: 10px;">th</sup> Telemetry Packet Identifier</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Packet-Tag</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Data Mode</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1</b> (= Real time)<br><b>2</b> (= Historical)<br><b>3</b> (= Random)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Data Link</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1</b> (= Cold)<br><b>2</b> (= Hot)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Parameter Information Entity Type (PIE)</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0</b> (= Raw data)<br><b>1...<i>n</i></b> (= PIE type)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trigger Mode<br><br><br><u>Comments</u>:<br>This mode applies to real time and historical mode, hot links and PIEs &gt; 0 only.</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1</b> (= Always)<br><b>2</b> (= Parameters changed)<br><br><u>Comments</u>:<br>Data messages can be triggered by the reception of the specified telemetry packet or when at least one of the contained parameters changed its value.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sample Limit<br><br><br><u>Comments</u>:<br>This limit applies to PIEs &gt; 0 only.</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0</b> (= No limit)<br><b><i>n</i></b> (= Maximal <i>n</i> samples)<br><br><u>Comments</u>:<br>Limits the number of samples per parameter returned to <i>n</i> (with respect to a telemetry packet).</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Start Time<br><br><u>Comments</u>:<br>This field applies to historical mode only.</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Character-based <i>UTC Time</i> (or <b>0</b>)<br><br><u>Comments</u>:<br>Format: <i>YYYY/MM/DD hh:mm:ss</i>.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Stop Time<br><br><u>Comments</u>:<br>This field applies to historical mode only.</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Character-based <i>UTC Time</i> (or <b>0</b>)<br><br><u>Comments</u>:<br>Format: <i>YYYY/MM/DD hh:mm:ss</i>.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Replay Speed<br><br><u>Comments</u>:<br>This field applies to historical mode and hot links only.</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1...10</b> (or <b>0</b>)<br><br><u>Comments</u>:<br><b>1</b> (= Slow),..., <b>10</b> (= Fast).</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>LF</i> (Linefeed)</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.3.1.2. Telemetry Parameters</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The following message has to be issued when requesting telemetry parameter values to be returned:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Block</font></b></p></td>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Values</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-bottom: 0px;"><p style="margin: 1 4;">Header</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>PARAMETERS</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-bottom: 0px;"><p style="margin: 1 4;">Data Field</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Spacecraft Identifier</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1</b> (= ARTEMIS)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Number of Telemetry Parameters</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1...<i>n</i></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1<sup style="font-size: 10px;">st</sup> Telemetry Parameter Identifier</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Parameter-Tag</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">2<sup style="font-size: 10px;">nd</sup> Telemetry Parameter Identifier</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Parameter-Tag</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>n</i><sup style="font-size: 10px;">th</sup> Telemetry Parameter Identifier</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Parameter-Tag</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Data Mode</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1</b> (= Real time)<br><b>2</b> (= Historical)<br><b>3</b> (= Random)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Data Link</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1</b> (= Cold)<br><b>2</b> (= Hot)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Parameter Information Entity Type (PIE)</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1...<i>n</i></b> (= PIE type)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trigger Mode<br><br><br><u>Comments</u>:<br>This mode applies to real time and historical mode, hot links and PIEs &gt; 0 only.</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1</b> (= Parameters updated)<br><b>2</b> (= Parameters changed)<br><br><u>Comments</u>:<br>Data messages can be triggered by updated or changed parameters values.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sample Limit</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0</b> (= No limit)<br><b><i>n</i></b> (= Maximal <i>n</i> samples)<br><br><u>Comments</u>:<br>Limits the number of samples per parameter returned to <i>n</i> (with respect to a telemetry packet).</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Start Time<br><br><u>Comments</u>:<br>This field applies to historical mode only.</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Character-based <i>UTC Time</i> (or <b>0</b>)<br><br><u>Comments</u>:<br>Format: <i>YYYY/MM/DD hh:mm:ss</i>.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Stop Time<br><br><u>Comments</u>:<br>This field applies to historical mode only.</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Character-based <i>UTC Time</i> (or <b>0</b>)<br><br><u>Comments</u>:<br>Format: <i>YYYY/MM/DD hh:mm:ss</i>.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Replay Speed<br><br><u>Comments</u>:<br>This field applies to historical mode and hot links only.</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1...10</b> (or <b>0</b>)<br><br><u>Comments</u>:<br><b>1</b> (= Slow),..., <b>10</b> (= Fast).</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>LF</i> (Linefeed)</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.3.2. Data Messages</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">All data distribution requests result in a returned associated data message containing the requested information.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.3.2.1. Telemetry Packets</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The following message is returned when requesting telemetry source packet data:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Block</font></b></p></td>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Values</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-bottom: 0px;"><p style="margin: 1 4;">Header</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>PACKET_DATA</b><br><br><u>Comments</u>:<br><b>DATA</b> is returned when an identification of the data distribution request is not possible.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1...2<sup style="font-size: 10px;">32</sup>-1</b> (increased for hot links)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Error Code<br><br><u>Comments</u>:<br>See detailed error codes in a later chapter.</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0</b> (= No error)<br><b>100-199</b> (= Illegal request)<br><b>200</b> (= Bad data)<br><b>300</b> (= No more data available)<br><b>400</b> (= Service not available)<br><b>500</b> (= Service access denied)<br><b>600</b> (= Server shutdown)<br><b>700</b> (= Server failure)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Synchronization Status<br><br><u>Comments</u>:<br>This status flag is applicable for real time mode only.</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0</b> (= Good)<br><b>1</b> (= Bad)<br><b>2</b> (= N/A)<br></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i> or <i>LF</i> (Linefeed)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-bottom: 0px;"><p style="margin: 1 4;">Data Field</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Packet Identifier</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Packet-Tag</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Time Tag (Date &amp; Time)</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Character-based <i>UTC Time</i><br><br><u>Comments</u>:<br>Format: <i>YYYY/MM/DD hh:mm:ss.xxx</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">On-Board Reference Time (OBRT)</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>2<sup style="font-size: 10px;">32</sup>-1</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Parameter Information Entity Type (PIE)</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0</b> (= Raw data)<br><b>1...<i>n</i></b> (= PIE type)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Size of Raw Data or<br>Number of following PIEs</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>6...128</b> or<br><b>0...<i>n</i></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Raw Data (16-bit quantities) or<br><i>n</i> PIEs separated by <i>SPACE</i></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Hexadecimal Value</i> or<br><i>PIE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>LF</i> (Linefeed)</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.3.2.2. Telemetry Parameters</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The following message is returned when requesting telemetry parameter values:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Block</font></b></p></td>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Values</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-bottom: 0px;"><p style="margin: 1 4;">Header</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>PARAMETER_DATA</b><br><br><u>Comments</u>:<br><b>DATA</b> is returned when an identification of the data distribution request is not possible.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1...2<sup style="font-size: 10px;">32</sup>-1</b> (increased for hot links)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Error Code<br><br><u>Comments</u>:<br>See detailed error codes in a later chapter.</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0</b> (= No error)<br><b>100-199</b> (= Illegal request)<br><b>200</b> (= Bad data)<br><b>300</b> (= No more data available)<br><b>400</b> (= Service not available)<br><b>500</b> (= Service access denied)<br><b>600</b> (= Server shutdown)<br><b>700</b> (= Server failure)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Synchronization Status<br><br><u>Comments</u>:<br>This status flag is applicable for real time mode only.</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0</b> (= Good)<br><b>1</b> (= Bad)<br><b>2</b> (= N/A)<br></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i> or <i>LF</i> (Linefeed)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-bottom: 0px;"><p style="margin: 1 4;">Data Field</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Telemetry Packet Identifier</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Packet-Tag</i><br><br><u>Comments</u>:<br>Identifies the telemetry packet that caused the data message to be sent. For cold links or snapshots <b>N/A</b> is always returned.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Time Tag (Date &amp; Time)</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Character-based <i>UTC Time</i><br><br><u>Comments</u>:<br>Format: <i>YYYY/MM/DD hh:mm:ss.xxx</i><br>For cold links or snapshots <b>N/A</b> <b>N/A</b> is always returned.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">On-Board Reference Time (OBRT)</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>2<sup style="font-size: 10px;">32</sup>-1</b><br><br><u>Comments</u>:<br>For cold links or snapshots <b>N/A</b> is always returned.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Parameter Information Entity Type (PIE)</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>1...<i>n</i></b> (= PIE type)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Number of following PIEs</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0...<i>n</i></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>n</i> PIEs separated by <i>SPACE</i></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>PIE</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top" style="border-top: 0px; border-bottom: 0px;"><p style="margin: 1 4;">&nbsp;</p></td>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>LF</i> (Linefeed)</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.4. Parameter Information Entities</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The various <i>Parameter Information Entities</i> (PIEs) define a set of information related to a parameter value. Only one type of PIE can be specified within a specific data distribution request.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.4.1. Type 1</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">This type returns a minimum of information about the requested telemetry parameters.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Values</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Parameter Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Parameter-Tag</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Parameter Quality</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0</b> (= Unchanged)<br><b>1</b> (= Updated)<br><b>2</b> (= Changed)<br><b>3</b> (= Bad data)<br><b>4</b> (= No data)</p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i><br><br><u>Comments</u>:<br>A PIE may end after the parameter quality field when no data is available.</p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Parameter Value <i>(calibrated)</i></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin: 1 4;"><tr><td valign="top" style="padding-right: 10px;"><u>Data Type</u>:</td><td><u>Format</u>:</td></tr><tr><td valign="top" style="padding-right: 10px;">Floating Point</td><td>{<i>SPACE</i>}(<i>sign</i>){<i>digit</i>}(.){<i>digit</i>}( [d | D | e | E ](<i>sign</i>){<i>digit</i>})</td></tr><tr><td valign="top" style="padding-right: 10px;">(Unsigned) Integer (32-bits)</td><td>{<i>space</i>}(<i>sign</i>){<i>digit</i>}</td></tr><tr><td valign="top" style="padding-right: 10px;">String</td><td>[‘]{<i>character</i>}[‘]</td></tr></table></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.4.2. Type 2</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">This type adds out-of-limit and validity information for each returned telemetry parameter.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Values</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Parameter Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Parameter-Tag</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Parameter Quality</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0</b> (= Unchanged)<br><b>1</b> (= Updated)<br><b>2</b> (= Changed)<br><b>3</b> (= Bad data)<br><b>4</b> (= No data)</p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i><br><br><u>Comments</u>:<br>A PIE may end after the parameter quality field when no data is available.</p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Parameter Value <i>(calibrated)</i></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin: 1 4;"><tr><td valign="top" style="padding-right: 10px;"><u>Data Type</u>:</td><td><u>Format</u>:</td></tr><tr><td valign="top" style="padding-right: 10px;">Floating Point</td><td>{<i>SPACE</i>}(<i>sign</i>){<i>digit</i>}(.){<i>digit</i>}( [d | D | e | E ](<i>sign</i>){<i>digit</i>})</td></tr><tr><td valign="top" style="padding-right: 10px;">(Unsigned) Integer (32-bits)</td><td>{<i>space</i>}(<i>sign</i>){<i>digit</i>}</td></tr><tr><td valign="top" style="padding-right: 10px;">String</td><td>[‘]{<i>character</i>}[‘]</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Parameter Status Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin: 1 4;"><tr><td style="width: 155px;"><u>Out-of-limit Code</u>:</td><td><u>Validity Code</u>:</td></tr><tr><td valign="top"><b>1</b> (= No out-of-limit)<br><b>2</b> (= Soft limit)<br><b>3</b> (= Hard limit)<br><b>4</b> (= Delta limit)</td><td valign="top"><b>16</b> (= Valid)<br><b>32</b> (= Invalid)</td></tr></table><br><span style="margin-left: 4px;"><u>Comments</u>:</span><br><span style="margin-left: 4px;"><i>Code</i> = <i>Out-of-limit Code</i> + <i>Validity Code</i></span></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.4.3. Type 3</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">This type adds out-of-limit &amp; validity information and lists the telemetry packets that changed or updated each returned telemetry parameter.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Values</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Parameter Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Parameter-Tag</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Parameter Quality</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0</b> (= Unchanged)<br><b>1</b> (= Updated)<br><b>2</b> (= Changed)<br><b>3</b> (= Bad data)<br><b>4</b> (= No data)</p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i><br><br><u>Comments</u>:<br>A PIE may end after the parameter quality field when no data is available.</p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Parameter Value <i>(calibrated)</i></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin: 1 4;"><tr><td valign="top" style="padding-right: 10px;"><u>Data Type</u>:</td><td><u>Format</u>:</td></tr><tr><td valign="top" style="padding-right: 10px;">Floating Point</td><td>{<i>SPACE</i>}(<i>sign</i>){<i>digit</i>}(.){<i>digit</i>}( [d | D | e | E ](<i>sign</i>){<i>digit</i>})</td></tr><tr><td valign="top" style="padding-right: 10px;">(Unsigned) Integer (32-bits)</td><td>{<i>space</i>}(<i>sign</i>){<i>digit</i>}</td></tr><tr><td valign="top" style="padding-right: 10px;">String</td><td>[‘]{<i>character</i>}[‘]</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Parameter Status Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin: 1 4;"><tr><td style="width: 155px;"><u>Out-of-limit Code</u>:</td><td><u>Validity Code</u>:</td></tr><tr><td valign="top"><b>1</b> (= No out-of-limit)<br><b>2</b> (= Soft limit)<br><b>3</b> (= Hard limit)<br><b>4</b> (= Delta limit)</td><td valign="top"><b>16</b> (= Valid)<br><b>32</b> (= Invalid)</td></tr></table><br><span style="margin-left: 4px;"><u>Comments</u>:</span><br><span style="margin-left: 4px;"><i>Code</i> = <i>Out-of-limit Code</i> + <i>Validity Code</i></span></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Last Change Packet Tag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Packet-Tag</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Last Change Time</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Character-based <i>UTC Time</i><br><br><u>Comments</u>:<br>Format: <i>YYYY/MM/DD hh:mm:ss.xxx</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Last Update Packet Tag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Packet-Tag</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>SPACE</i></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">Last Update Time</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Character-based <i>UTC Time</i><br><br><u>Comments</u>:<br>Format: <i>YYYY/MM/DD hh:mm:ss.xxx</i></p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;">Later versions of the TPEP specification may contain further types of PIEs.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>3.5. Error Codes</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The following table lists all the possible error codes in more detail:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="300" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Code</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>0=NO ERROR</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">No Error</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>100=ILLEGAL SYNTAX</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A delimiter character is missing or the data distribution request packet has an illegal length.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>101=ILLEGAL MESSAGE ID</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A data distribution request packet cannot be identified because the message keyword is illegal or missing.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>102=ILLEGAL SPACECRAFT ID</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The supplied spacecraft identification tag is illegal.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>103=ILLEGAL NUMBER OF PACKETS</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The supplied number for the packets requested is illegal.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>104=ILLEGAL NUMBER OF PARAMETERS</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The supplied number for the parameters requested is illegal.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>105=ILLEGAL PACKET ID</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">One or more packet identification tags supplied are illegal.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>106=ILLEGAL PARAMETER ID</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">One or more parameter identification tags supplied are illegal.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>107=ILLEGAL DATA MODE</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The requested data mode is either illegal or does not apply.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>108=ILLEGAL DATA LINK</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The requested data link type is either illegal or does not apply.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>109=ILLEGAL DATA TYPE</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The requested data type is either illegal or does not apply.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>110=ILLEGAL TRIGGER MODE</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The requested trigger mode is either illegal or does not apply.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>111=ILLEGAL SAMPLE LIMIT</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The supplied number of parameter samples requested is either illegal or does not apply.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>112=ILLEGAL RETRIEVE STARTTIME<br>113=ILLEGAL RETRIEVE STOPTIME</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The supplied retrieve time is illegal or does not apply.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>114=ILLEGAL RETRIEVE SPEED</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The requested retrieve replay speed is illegal or does not apply.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>200=BAD DATA</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The data returned may be invalid.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>300=NO DATA</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">No or no more data is currently available but may become available later.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>400=SERVICE NOT AVAILABLE</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The service is currently not available.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>500=SERVICE ACCESS DENIED</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The service denies any access at all or at least at the moment.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>600=SERVER SHUTDOWN</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The server is shutdown or the service port number has changed.</p></td>
+					</tr>
+					<tr>
+						<td width="300" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><b>700=SERVER FAILURE</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">The server has an internal problem.</p></td>
+					</tr>
+				</table>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;"><a name="Appendix">Appendix</a></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px;"><b>A.1. Lower Level Communication Layers</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The TPEP relies on the TCP/IP protocol suite implemented in LAN/WAN environments that can base on several possible physical nets such as Ethernet or IEEE 802.3 and others. Streamed sockets are used for the implementation of TPEP.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>A.2. Implementation Issues</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 0px;"><b>A.2.1. Limited Services</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">All features of TPEP are now implemented.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 0px;"><b>A.2.2. Telemetry Data Links</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 0px;"><b>A.2.2.1. Cold Links</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">Cold data links are used to peek the current value of a set of telemetry parameters. A new data distribution request must be issued after the data is delivered.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 0px;"><b>A.2.2.2. Hot Links</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">Hot data links need to be established when a continued delivery of telemetry packets or parameter values is required. Whenever such a link is initiated, a snapshot (identical to the data returned by a cold data link) may be returned as first data message. No initial snapshots are generated when telemetry packets are delivered.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 0px;"><b>A.2.3. Special Telemetry Data Processing Modes</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">No special telemetry data processing modes are supported.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 0px;"><b>A.2.4. Timeouts</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">An average time delay of up to one second between a data distribution request and the receipt of the corresponding data message(s) must be allowed. When historical telemetry data is required the delay may even be more than that.</p>
+			</li>
+		</ul>
+	</div>
+	<img id="PageFooter" src="images/templatebottom.png" alt="" style="position: relative; left: -1px; top: 0px;">
+</div>
+</body>
+
+</html>

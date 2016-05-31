@@ -1,0 +1,394 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Derived Parameter Language (DPL)</title>
+<link rel="stylesheet" type="text/css" href="resources/styles.css">
+<![if lte IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/iefix.css">
+<![endif]>
+<![if gt IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/ie.css">
+<![endif]>
+<script src="resources/behaviors.js" type="text/javascript"></script>
+</head>
+
+<body style="margin: 0 0 0 0;" background="images/background.jpg" onload="FP_callJS('onRecalcLayout()')">
+<img id="PageTemplate" src="images/template.png" alt="" style="position: absolute; left: 0px; top: 0px; width: 880px; height: 660px; border: none; outline: none;">
+<img id="PageFloater" src="images/templatebackground.png" alt="" style="position: absolute; left: 39px; top: 659px; width: 803px; height: auto; background-image: url('images/templatebackground.png'); background-repeat: repeat-y; display: none;">
+<img id="PageApplication" src="images/application.png" alt="" style="position: absolute; left: 50px; top: 90px; border: none; outline: none;">
+<div id="PageTitle" style="position: absolute; left: 295px; top: 84px; width: 545px; height: 22px;">
+	<span class="StandardTitleTextStyle" style="width: 545px;">Derived Parameter Language (DPL)</span>
+</div>
+<div id="PageContents" style="position: absolute; left: 40px; top: 114px; width: 800px; height: auto; z-index: 1;">
+	<div id="PageHeader" style="position: relative; left: 0px; top: 0px; width: 550px; height: auto; float: right;">
+		<p class="StandardSummaryTitleStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-top: 10px; margin-bottom: 0px; text-indent: 0px; float: left;">SUMMARY</p>
+		<div id="PageVersionSection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; float: right;">
+			<span class="StandardVersionTextStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-right: 10px; float: right;">
+			<!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%A, %B %d, %Y" startspan -->Saturday, October 10, 2015<!--webbot bot="Timestamp" endspan i-checksum="670" --><br>Version 1.0</span>
+		</div>
+		<div id="PageSummarySection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-top: 2px; float: left;">
+			<div id="PageSummaryBox" style="position: relative; left: 0px; top: 0px; width: 538px; height: auto; border: 1px solid #FFFF00; background: #FFFFDD; margin-right: 5px; float: left;">
+				<p class="StandardSummaryTextStyle" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 0px; padding-top: 2px; padding-bottom: 2px; float: left;">The <i>Derived Parameter Language</i> (DPL) is the programming language of SatView™ developed to ease the implementation of <i>Derived Parameters</i>. It encapsulates the code for each derived parameter in a separate procedure. Special DPL keywords are available to control the computation of those parameters.<br>All information is subject to change without notice and does not represent a commitment on the part of <span class="CompanyNameTextStyle" style="font-size: 12px;">Binary Space</span>.</p>
+			</div>
+		</div>
+	</div>
+	<div id="PageText" style="position: relative; left: 0px; top: 0px; width: 800px; height: auto; margin-bottom: 10px; float: left;">
+		<div id="HowDoISection" style="margin-left: 20px; margin-top: 20px; margin-right: 5px; display: none;">
+			<p class="StandardListTitleTextStyle">How do I...</p>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 10px; margin-top: 4px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListExpandableItemTextStyle" style="margin-top: 2px; cursor: pointer;" onclick="onClickListItem(event)"></p>
+						<div style="margin-bottom: 10px; display: block;">
+							<img src="images/collapsebutton.png" alt="">
+							<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; border: 1px solid #9BAFDE; background: #D9E9FE; z-index: 2;">
+								<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+								</ol>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 20px; margin-bottom: 2px;">Contents</p>
+		<ul class="StandardListTitleTextStyle" style="list-style-type: none; margin-left: 20px; margin-top: 2px; margin-right: 5px; margin-bottom: 20px; padding-left: 0px; font-size: 14px;">
+			<li>1. <a href="#Introduction" style="color: #072C61;">Introduction</a></li>
+			<li>2. <a href="#Syntax" style="color: #072C61;">Syntax</a></li>
+			<li>3. <a href="#Library" style="color: #072C61;">Library</a></li>
+			<li>4. <a href="#Samples" style="color: #072C61;">Samples</a></li>
+		</ul>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Document Change Log</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 20px;">
+			<tr>
+				<td width="50" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Issue</font></b></p></td>
+				<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Revision</font></b></p></td>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Date</font></b></p></td>
+				<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Affected</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Reason</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">December 1999</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">All</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">New document</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">2</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">September 2001</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 2</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Introduction of the '<span class="DPLKeyword">VOLATILE</span>' keyword for non-initialized parameters</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">3</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">August 2004</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 3.1.</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Changed parameter status identifiers</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">August 2008</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 3.1.</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Added support for bandwidth measurement</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">May 2011</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 3.1.</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">New telemetry data function '<b>GetPastValueTime</b>'</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">6</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">January 2016</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 3.2.</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Added satellite tracking, pass &amp; interlink functions</p></td>
+			</tr>
+		</table>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Table of Figures</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 20px;">
+			<tr>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Figure</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+			</tr>
+		</table>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Legend</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 40px;">
+			<tr>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Mnemonic</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">&nbsp;</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+			</tr>
+		</table>
+		<ul class="StandardListTitleTextStyle" style="list-style-type: none; margin-left: 20px; margin-top: 20px; margin-bottom: 2px; margin-right: 5px; padding-left: 0px; font-size: 14px;">
+			<li>
+				<p style="margin-bottom: 2px;">1. <a name="Introduction">Introduction</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 0px;">The <i>Derived Parameter Language</i> (DPL) is the programming language of SatView™ developed to ease the implementation of derived parameters. It is an extension of the <i>Microsoft® Foundation Classes</i> (MFC) and comes with a library containing all necessary functions to access telemetry related data.</p>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">2. <a name="Syntax">Syntax</a></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px;">Code written in DPL always consists of a number of procedures, each of them containing the code necessary to calculate a derived parameter.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 4px; margin-right: 10px; margin-bottom: 2px;">The syntax looks as follows:</p>
+				<div style="padding-left: 5px; padding-top: 0px; padding-right: 5px; padding-bottom: 5px; border: 1px solid #9BAFDE; background: #D7E7FE;">
+					<table class="DPLKeyword">
+						<tr>
+							<td style="width: 190px;">
+								<p style="margin-left: 10px; margin-top: 0px; margin-bottom: 0px;"><span class="DPLKeyword">DERIVATION PROCEDURE</span> <span class="StandardListItemTextStyle" style="color: red;"><i><b>N<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></span></p>
+								<p style="margin-left: 10px; margin-top: -2px; margin-right: 10px; margin-bottom: 0px;">[<span class="DPLKeyword">PARAMETERS</span> <span class="StandardListItemTextStyle" style="color: green;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></span>...<span class="StandardListItemTextStyle" style="color: green;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">j</span></sub></b></i></span>]</p>
+								<p style="margin-left: 10px; margin-top: -2px; margin-right: 10px; margin-bottom: 0px;">[<span class="DPLKeyword">VOLATILE</span> <span class="StandardListItemTextStyle" style="color: olive;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">k</span></sub></b></i></span>...<span class="StandardListItemTextStyle" style="color: olive;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">l</span></sub></b></i></span>]</p>
+								<p style="margin-left: 10px; margin-top: -2px; margin-right: 10px; margin-bottom: 5px;"><span class="DPLKeyword">BEGIN</span></p>
+								<p style="margin-left: 20px; margin-top: -2px; margin-right: 10px; margin-bottom: 0px;"><span class="DPLCode"><i><b>DPL Code</b></i></span></p>
+								<p style="margin-left: 10px; margin-top: 3px; margin-right: 10px; margin-bottom: 0px;"><span class="DPLKeyword">END</span></p>
+							</td>
+							<td>
+								<table class="StandardTableStyle" cellpadding="0" cellspacing="0" style="margin-left: 50px; margin-top: 5px; margin-bottom: 0px;">
+									<tr>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 0 4; color: #072C61;"><u>Notation</u>:</p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 0 4 color: #072C61;"><b>&nbsp;</b></p></td>
+									</tr>
+									<tr style="margin-top: -4px;">
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 0 4; color: red;"><i><b>N<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 0 4">The name of the derivation procedure (identical to the tag of the derived parameter to be calculated in this procedure).</p></td>
+									</tr>
+									<tr>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: -2 4 0 4; color: green;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: -2 4 0 4;">The tag of a telemetry parameter.<br>A parameter declaration can be preceded by the keyword <span class="DPLKeyword">STATIC</span> which has the effect that the derived parameter is not re-calculated even if the declared parameter is updated.</p></td>
+									</tr>
+									<tr>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: -2 4 0 4;"><b>[<i>x</i>]</b></p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: -2 4 0 4;"><i><b>x</b></i> occurs zero times or once.</p></td>
+									</tr>
+									<tr>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 2 4 0 4;"><b>{<i>x</i>}</b></p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 2 4 0 4"><i><b>x</b></i> occurs zero or more times.</p></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<p class="StandardListItemTextStyle" style="margin-top: 5px; margin-bottom: 0px;">By using the <span class="DPLKeyword">VOLATILE</span> keyword the subsequently enumerated parameters are not checked whether or not they are initialized (i.e. do have a value). Each of the specified parameters must be contained in the list declared with the <span class="DPLKeyword">PARAMETERS</span> keyword and may have a random value. By default, the procedure is not executed whenever one of the parameters <span class="StandardListItemTextStyle" style="color: green; line-height: 8px;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></span>...<span class="StandardListItemTextStyle" style="color: green;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">j</span></sub></b></i></span> has no value. With the <span class="DPLKeyword">VOLATILE</span> keyword specified, the calculation in the procedure is performed although one or more of the parameters <span class="StandardListItemTextStyle" style="color: olive;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">k</span></sub></b></i></span>...<span class="StandardListItemTextStyle" style="color: olive;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">l</span></sub></b></i></span> have no (or a random) value.</p>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">3. <a name="Library">Library</a></p>
+				<p class="StandardListTitleTextStyle" style="margin-top: 4px; margin-bottom: 2px; font-size: 13px"><b>3.1. Telemetry Functions</b></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;">DPL comes with a set of functions providing full access to the telemetry data. Besides including other (derived) parameters into a calculation it also provides a programmatic interface to raw data.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 10px;">
+					<tr>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Function</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CString <b>GetTMUnitTag(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the identifier of the telemetry unit that is currently processed.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The function returns the name of the telemetry packet if the Packet Telemetry Standard (CCSDS 102.0-B-2) is supported. For a telemetry format based standard, it results in a string with the syntax: 'FORMAT: <i>n</i>' where <i>n</i> is the frame number.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeTag <b>GetTMUnitTime(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time of the telemetry packet (or format).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The time identifies the moment when the telemetry packet (or format) was received on ground including eventual corrections to compensate any delays caused by the ground segment.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">UINT <b>GetTMUnitID(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the identifier of the telemetry unit or of the format.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The function returns the On-Board Reference Time (OBRT) of the telemetry packet if the Packet Telemetry Standard (CCSDS 102.0-B-2) is supported. For a telemetry format based standard, it returns the number known as format counter.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>GetTMUnitData(</b>INT <i>nBytePos</i>,<br>&nbsp;&nbsp;BYTE <i>&amp;nValue</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the value of a byte at the specified location <i>nBytePos</i> (&ge; 0) in the variable <i>nValue</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The function returns TRUE if the specified location is valid, FALSE otherwise.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>GetTMUnitData(</b>INT <i>nBytePos</i>,<br>&nbsp;&nbsp;INT <i>nBitPos</i>,<br>&nbsp;&nbsp;INT <i>nLength</i>,<br>&nbsp;&nbsp;ULONGLONG &amp;<i>nValue</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the value of data at the specified location <i>nBytePos</i> (&ge; 0), <i>nBitPos</i> (0 &le; <i>nBitPos</i> &lt; 8), <i>nLength</i> (1 &le; nLength &le; 64) in the variable <i>nValue</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The function returns TRUE if the specified location is valid, FALSE otherwise.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">WORD <b>GetTMUnitQuality(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the data quality indication of the telemetry packet or format. It may be a combination of one or more of the following values:<br>&nbsp;&nbsp;<b>TMUNIT_DATAQUALITY_GOOD</b><br>&nbsp;&nbsp;<b>TMUNIT_DATAQUALITY_BAD</b><br>&nbsp;&nbsp;<b>TMUNIT_SEQUENCEQUALITY_GOOD</b><br>&nbsp;&nbsp;<b>TMUNIT_SEQUENCEQUALITY_BAD</b><br>&nbsp;&nbsp;<b>TMUNIT_TIMECORRELATION_GOOD</b><br>&nbsp;&nbsp;<b>TMUNIT_TIMECORRELATION_BAD</b><br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The value <b>TMUNIT_DATAQUALITY_NONE</b> is returned in case of an error.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-specifier</i> <b>GetValue(</b><i>parameter-tag</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the current (calibrated) value of the telemetry parameter <i>parameter-tag</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If the parameter occurs more than once within a telemetry packet or format, the function returns the value of the first occurrence.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-specifier</i> <b>GetValue(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nOccurrence</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the current (calibrated) value of the telemetry parameter <i>parameter-tag</i> at the occurrence specified by <i>nOccurrence</i> (&ge; 0).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If an illegal occurrence number is specified the function returns 0.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-specifier</i> <b>GetRawValue(</b><i>parameter-tag</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the current raw value of the telemetry parameter <i>parameter-tag</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If the parameter occurs more than once within a telemetry packet or format, the function returns the value of the first occurrence.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-specifier</i> <b>GetRawValue(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nOccurrence</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the current raw value of the telemetry parameter <i>parameter-tag</i> at the occurrence specified by <i>nOccurrence</i> (&ge; 0).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If an illegal occurrence number is specified the function returns 0.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeTag <b>GetValueTime(</b><i>parameter-tag</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time associated with the value of telemetry parameter <i>parameter-tag</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If the parameter occurs more than once within a telemetry packet or format, the function returns the time of the first occurrence.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeTag <b>GetValueTime(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nOccurrence</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time associated with the value of telemetry parameter <i>parameter-tag</i> at the occurrence specified by <i>nOccurrence</i> (&ge; 0).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If an illegal occurrence number is specified the function returns 0.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-specifier</i> <b>GetPastValue(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nSample</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns a past (calibrated) value of the telemetry parameter <i>parameter-tag</i>. The variable <i>nSample</i> specifies how many samples in the past the value should be from.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If a parameter occurs more than once within a telemetry packet or format, each occurrence is counted as a sample.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-specifier</i> <b>GetPastRawValue(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nSample</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns a past raw value of the telemetry parameter <i>parameter-tag</i>. The variable <i>nSample</i> specifies how many samples in the past the value should be from.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If a parameter occurs more than once within a telemetry packet or format, each occurrence is counted as a sample.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeTag <b>GetPastValueTime(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nSample</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time associated with a past value of telemetry parameter <i>parameter-tag</i>. The variable <i>nSample</i> specifies how many samples in the past the value should be from.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If a parameter occurs more than once within a telemetry unit, each occurrence is counted as a sample.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-specifier</i> <b>CalculateValueAverage(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nSamples</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the raw average value of the last <i>nSamples</i> samples of the telemetry parameter <i>parameter-tag</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If less than <i>nSamples</i> samples have been collected, the function returns a floating average of the samples already encountered.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">UINT <b>GetStatus(</b><i>parameter-tag</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the status of the telemetry parameter <i>parameter-tag</i> which may be a combination of the following values:<br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_GOOD</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_BAD</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_NOLIMIT</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_SOFTLIMIT</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_HARDLIMIT</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_DELTALIMIT</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_VALID</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_INVALID</b><br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The value <b>TMPARAMETER_STATUS_NONE</b> is returned if the parameter has no value.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">UINT <b>GetStatus(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nOccurrence</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the status of the telemetry parameter <i>parameter-tag</i> at the occurrence specified by <i>nOccurrence</i> (&ge; 0).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The value <b>TMPARAMETER_STATUS_NONE</b> is returned if the parameter has no value or an illegal occurrence number was specified.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">double <b>GetTotalTMBandwidth(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the total amount of bits per second available for the telemetry data (including the protocol overhead for the telemetry unit).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>A value of <b>NAN</b> is returned when no bandwidth information is available.<br>Use the macro BOOL <b>isnan(</b>double <i>f</i><b>)</b> to check for that result.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">double <b>GetAvailableTMBandwidth(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the currently unused bandwidth as a floating-point number between 0 and 1.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>A value of <b>NAN</b> is returned when no bandwidth information or measurement is available.<br>Use the macro BOOL <b>isnan(</b>double <i>f</i><b>)</b> to check for that result.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">double <b>GetMaxDiagnosticTMBandwidth(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the maximum of bits per second currently available for diagnostic purposes, dumps or reports.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>A value of <b>NAN</b> is returned when no bandwidth information is available.<br>Use the macro BOOL <b>isnan(</b>double <i>f</i><b>)</b> to check for that result.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">double <b>GetAvailableDiagnosticTMBandwidth(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the bandwidth currently available for diagnostic purposes, dumps or reports as a number between 0 and 1.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>A value of <b>NAN</b> is returned when no bandwidth information or measurement is available.<br>Use the macro BOOL <b>isnan(</b>double <i>f</i><b>)</b> to check for that result.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeTag <b>GetLastTMBandwidthMeasurementTime(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time of the last bandwidth measurement.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>A time equal to 0 is returned when no bandwidth information or measurement is available.</p></td>
+					</tr>
+				</table>
+				<p class="StandardListTitleTextStyle" style="margin-top: 4px; margin-bottom: 0px; font-size: 13px"><b>3.2. Satellite Tracking, Pass &amp; Interlink Functions</b></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;">An extensive interface is provided by the DPL to support satellite tracking, location pass predictions as well as satellite interlink calculations.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Function</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">double <b>CalculateSpacecraftOrbitLongitude(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,CONST CTimeKey &<i>tTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the longitude of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; at the time <i>tTime</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned longitude will be between 0...360 degrees</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-top: 0px; margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>tTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">The time for which the longitude should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">double <b>CalculateSpacecraftOrbitLatitude(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,CONST CTimeKey &<i>tTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the latitude of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; at the time <i>tTime</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned latitude will be between -90...90 degrees</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>tTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">The time for which the latitude should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">double <b>CalculateSpacecraftOrbitAltitude(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,CONST CTimeKey &<i>tTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the altitude of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; at the time <i>tTime</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned altitude will be &gt; 0 km</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>tTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">The time for which the altitude should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">double <b>CalculateSpacecraftOrbitVelocity(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,CONST CTimeKey &<i>tTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the velocity of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; at the time <i>tTime</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned velocity will be &gt; 0 km/s</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>tTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">The time for which the velocity should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CSpacecraftPosition <b>CalculateSpacecraftPosition(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,CONST CTimeKey &<i>tTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the position (relative to the Sun) of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; at the time <i>tTime</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>For Earth-centric spacecraft (<i>nNORADID</i> &lt;&gt; 0) the parameter <i>tTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned position will be returned in form of the class 'CSpacecraftPosition'; its members <i>m_x</i>, <i>m_y</i>, <i>m_z</i> contain the position coordinates in km</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>tTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">The time for which the position (relative to the Sun) should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CSpacecraftVelocity <b>CalculateSpacecraftVelocity(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,CONST CTimeKey &<i>tTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the velocity (relative to the Sun) of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; at the time <i>tTime</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>For Earth-centric spacecraft (<i>nNORADID</i> &lt;&gt; 0) the parameter <i>tTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned velocity will be returned in form of the class 'CSpacecraftVelocity'; its members <i>m_x</i>, <i>m_y</i>, <i>m_z</i> contain the velocity coordinates in km/s</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>tTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">The time for which the velocity (relative to the Sun) should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TIMETAG <b>CalculateSpacecraftPassStartTime(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,LPCTSTR <i>pszLocation</i>,double<br>&nbsp;&nbsp;<i>fLocationLongitude</i>,double <i>fLocationLatitude</i>,double<br>&nbsp;&nbsp;<i>fLocationAltitude</i>,CONST CTimeKey &<i>tStartTime</i>,CONST<br>&nbsp;&nbsp;CTimeSpan &<i>tInterval</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the begin of the next pass over the location &lt;<i>pszLocation</i>,<i>fLocationLongitude</i>,<i>fLocationLatitude</i>,<i>fLocationAltitude</i>&gt; of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; after the time <i>tStartTime</i> and within the subsequent <i>tInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tStartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>pszLocation</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of pass-over location.</td></tr><tr><td valign="top"><i>fLocationLongitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The longitude (deg) of the pass-over location.</td></tr><tr><td valign="top"><i>fLocationLatitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The latitude (deg) of the pass-over location.</td></tr><tr><td valign="top"><i>fLocationAltitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The altitude (km) of the pass-over location.</td></tr><tr><td valign="top"><i>tStartTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next pass over the specified location.</td></tr><tr><td valign="top"><i>tInterval</i></td><td valign="top">CTimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next pass over the specified location.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TIMETAG <b>CalculateSpacecraftPassStopTime(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,LPCTSTR <i>pszLocation</i>,double<br>&nbsp;&nbsp;<i>fLocationLongitude</i>,double <i>fLocationLatitude</i>,double<br>&nbsp;&nbsp;<i>fLocationAltitude</i>,CONST CTimeKey &<i>tStartTime</i>,CONST<br>&nbsp;&nbsp;CTimeSpan &<i>tInterval</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the end of the next pass over the location &lt;<i>pszLocation</i>,<i>fLocationLongitude</i>,<i>fLocationLatitude</i>,<i>fLocationAltitude</i>&gt; of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; after the time <i>tStartTime</i> and within the subsequent <i>tInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tStartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>pszLocation</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of pass-over location.</td></tr><tr><td valign="top"><i>fLocationLongitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The longitude (deg) of the pass-over location.</td></tr><tr><td valign="top"><i>fLocationLatitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The latitude (deg) of the pass-over location.</td></tr><tr><td valign="top"><i>fLocationAltitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The altitude (km) of the pass-over location.</td></tr><tr><td valign="top"><i>tStartTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next pass over the specified location.</td></tr><tr><td valign="top"><i>tInterval</i></td><td valign="top">CTimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next pass over the specified location.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TIMETAG <b>CalculateSpacecraftInterlinkStartTime(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraftA</i>,UINT <i>nNORADIDA</i>,LPCTSTR <i>pszSpacecraftB</i>,<br>&nbsp;&nbsp;UINT <i>nNORADIDB</i>,CONST CTimeKey &<i>tStartTime</i>,CONST<br>&nbsp;&nbsp;CTimeSpan &<i>tInterval</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the begin of the next interlink session between the spacecraft &lt;<i>pszSpacecraftA</i>,<i>nNORADIDA</i>&gt; and &lt;<i>pszSpacecraftB</i>,<i>nNORADIDB</i>&gt; after the time <i>tStartTime</i> and within the subsequent <i>tInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tStarTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraftA</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of first spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDA</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the first spacecraft.</td></tr><tr><td valign="top"><i>pszSpacecraftB</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of second spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDB</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the second spacecraft.</td></tr><tr><td valign="top"><i>tStartTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next interlink session.</td></tr><tr><td valign="top"><i>tInterval</i></td><td valign="top">CTimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next interlink session.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TIMETAG <b>CalculateSpacecraftInterlinkStopTime(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraftA</i>,UINT <i>nNORADIDA</i>,LPCTSTR <i>pszSpacecraftB</i>,<br>&nbsp;&nbsp;UINT <i>nNORADIDB</i>,CONST CTimeKey &<i>tStartTime</i>,CONST<br>&nbsp;&nbsp;CTimeSpan &<i>tInterval</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the end of the next interlink session between the spacecraft &lt;<i>pszSpacecraftA</i>,<i>nNORADIDA</i>&gt; and &lt;<i>pszSpacecraftB</i>,<i>nNORADIDB</i>&gt; after the time <i>tStartTime</i> and within the subsequent <i>tInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tStartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraftA</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of first spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDA</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the first spacecraft.</td></tr><tr><td valign="top"><i>pszSpacecraftB</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of second spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDB</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the second spacecraft.</td></tr><tr><td valign="top"><i>tStartTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next interlink session.</td></tr><tr><td valign="top"><i>tInterval</i></td><td valign="top">CTimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next interlink session.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TIMETAG <b>CalculateSpacecraftRelaidInterlinkStartTime(</b><br>&nbsp;&nbsp;LPCTSTR <i>pszSpacecraftA</i>,UINT <i>nNORADIDA</i>,LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraftVia</i>,UINT <i>nNORADIDVia</i>,LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraftB</i>,UINT <i>nNORADIDB</i>,CONST CTimeKey<br>&nbsp;&nbsp;&<i>tStartTime</i>,CONST CTimeSpan &<i>tInterval</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the begin of the next interlink session between the spacecraft &lt;<i>pszSpacecraftA</i>,<i>nNORADIDA</i>&gt; and &lt;<i>pszSpacecraftB</i>,<i>nNORADIDB</i>&gt; via the relais &lt;<i>pszSpacecraftVia</i>,<i>nNORADIDVia</i>&gt; after the time <i>tStartTime</i> and within the subsequent <i>tInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tStartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraftA</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of first spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDA</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the first spacecraft.</td></tr><tr><td valign="top"><i>pszSpacecraftVia</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of relais spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDVia</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the relais spacecraft.</td></tr><tr><td valign="top"><i>pszSpacecraftB</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of second spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDB</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the second spacecraft.</td></tr><tr><td valign="top"><i>tStartTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next interlink session.</td></tr><tr><td valign="top"><i>tInterval</i></td><td valign="top">CTimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next interlink session.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TIMETAG <b>CalculateSpacecraftRelaidInterlinkStopTime(</b><br>&nbsp;&nbsp;LPCTSTR <i>pszSpacecraftA</i>,UINT <i>nNORADIDA</i>,LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraftVia</i>,UINT <i>nNORADIDVia</i>,LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraftB</i>,UINT <i>nNORADIDB</i>,CONST CTimeKey<br>&nbsp;&nbsp;&<i>tStartTime</i>,CONST CTimeSpan &<i>tInterval</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the end of the next interlink session between the spacecraft &lt;<i>pszSpacecraftA</i>,<i>nNORADIDA</i>&gt; and &lt;<i>pszSpacecraftB</i>,<i>nNORADIDB</i>&gt; via the relais &lt;<i>pszSpacecraftVia</i>,<i>nNORADIDVia</i>&gt; after the time <i>tStartTime</i> and within the subsequent <i>tInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tStartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraftA</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of first spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDA</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the first spacecraft.</td></tr><tr><td valign="top"><i>pszSpacecraftVia</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of relais spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDVia</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the relais spacecraft.</td></tr><tr><td valign="top"><i>pszSpacecraftB</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of second spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDB</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the second spacecraft.</td></tr><tr><td valign="top"><i>tStartTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next interlink session.</td></tr><tr><td valign="top"><i>tInterval</i></td><td valign="top">CTimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next interlink session.</td></tr></table></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 8px;"><img src="images/note.gif" alt="" style="margin-right: 4px;">Note:<br>All satellite tracking, pass &amp; interlink functions cannot be tested within the SatView™ Editor; they all return 'NAN' (for 'double' data types) and '0' (for 'TIMETAG' data types). When executed within the SatView™ Desktop, the satellite tracking sub-system must be enabled for these functions to return valid results. Furthermore, it must be ensured that access to the Internet is guaranteed.</p>
+				<p class="StandardListTitleTextStyle" style="margin-left: 0px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Data Types:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 20px;">
+					<tr>
+						<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Identifier</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-specifier</i></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Depending on the data type of the telemetry parameter <span class="StandardListItemTextStyle" style="color: green;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></span> it is either an UINT, INT, double or CString.</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>parameter-tag</i></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Tag of the telemetry parameter <span class="StandardListItemTextStyle" style="color: green;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></span>.</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CSpacecraftPosition</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A class representing the position of a spacecraft (relative to the Sun for all non Earth-centric ones).<br>The following member properties are available:</p><div style="margin-left: 4px; margin-top: 2px; margin-right: 4px; margin-bottom: 1px">double <b>m_x</b><br>double <b>m_y</b><br>double <b>m_z</b></div></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CSpacecraftVelocity</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A class representing the velocity of a spacecraft (relative to the Sun for all non Earth-centric ones).<br>The following member properties are available:</p><div style="margin-left: 4px; margin-top: 2px; margin-right: 4px; margin-bottom: 1px">double <b>m_x</b><br>double <b>m_y</b><br>double <b>m_z</b></div></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CString</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A class representing a string.<br>Consult the <i>Microsoft® Foundation Class</i> (MFC) documentation.</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeTag<br>TIMETAG</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A class representing an absolute time in microseconds since January 1, 1970.<br>Consult the <i>Microsoft® Foundation Class</i> (MFC) documentation (see the 'CTime' class).</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeKey<br>TIMEKEY</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A class representing an absolute time in seconds since January 1, 1970.<br>Consult the <i>Microsoft® Foundation Class</i> (MFC) documentation (see the 'CTime' class).</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeSpan</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A class representing a time interval in seconds.<br>Consult the <i>Microsoft® Foundation Class</i> (MFC) documentation.</p></td>
+					</tr>
+				</table>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">4. <a name="Samples">Samples</a></p>
+				<div style="padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border: 1px solid #9BAFDE; background: #D7E7FE;">
+					<span class="DPLKeyword">DERIVATION PROCEDURE&nbsp;&nbsp;<span style="color: red;">E015</span><br>PARAMETERS&nbsp;&nbsp;<span style="color: green;">R301</span>;<br>BEGIN<br><span class="DPLCode">&nbsp;&nbsp;E015 = (R301 == TEXT("PEAM")) ? TRUE:FALSE;</span><br>END<br><br>DERIVATION PROCEDURE&nbsp;&nbsp;<span style="color: red;">E730</span><br>PARAMETERS&nbsp;&nbsp;<span style="color: green;">E722P</span>,<span style="color: green;">O372</span>,<span style="color: green;">R372</span>;<br>BEGIN<br><span class="DPLCode">&nbsp;&nbsp;E730 = (R372-E722P)/O372;</span><br>END<br><br>DERIVATION PROCEDURE&nbsp;&nbsp;<span style="color: red;">E735</span><br>PARAMETERS&nbsp;&nbsp;<span style="color: green;">E864</span>,<span style="color: green;">E865</span>,<span style="color: green;">E866</span>;<br>BEGIN<br><span class="DPLCode">&nbsp;&nbsp;E735 = -0.02163*E864+0.02163*E865+0.052*E866;</span><br>END<br><br>DERIVATION PROCEDURE&nbsp;&nbsp;<span style="color: red;">PV407</span><br>PARAMETERS&nbsp;&nbsp;<span style="color: green;">F116</span>;<br>BEGIN<br><span class="DPLCode">&nbsp;&nbsp;PV407 = (F116 == 0x73) ? TRUE:FALSE;</span><br>END<br><br><span class="DPLKeyword">DERIVATION PROCEDURE&nbsp;&nbsp;<span style="color: red;">A015</span><br>BEGIN<br><span class="DPLCode">&nbsp;&nbsp;A015 = <b>(CalculateSpacecraftOrbitAltitude(</b>TEXT("ISS (ZAYRA)"),25544,<b>GetTMUnitTime()</b>.GetTimeInSeconds()) < 250.0<b>)</b> ? TRUE:FALSE;</span><br>END</span>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<img id="PageFooter" src="images/templatebottom.png" alt="" style="position: relative; left: -1px; top: 0px;">
+</div>
+</body>
+
+</html>
