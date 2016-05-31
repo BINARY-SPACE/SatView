@@ -1,0 +1,315 @@
+#include "VALue.h"
+
+
+#define KEEP_VALUE   0
+#define UPDATE_VALUE   1
+
+
+static BOOL  m_bInitialization=FALSE;
+
+INT SETvalue(CONST CDatabaseEngine *pDatabase,CONST CTMEnvironment *pTMEnvironment,INT nProcedureParameterIndex,VALue &sValue,INT nOccurrence)
+{
+  double  fValue;
+  LONGLONG  nValue;
+  ULONGLONG  uValue;
+  ULONGLONG  nAttributes;
+  CTMParameter  *pTMParameter;
+
+  if ((pTMParameter = pTMEnvironment -> GetTMParameters() -> GetAt(nProcedureParameterIndex)))
+  { if ((sValue.isInteger() ||  sValue.isSInteger()) &&  sValue.asInteger(nValue))
+    { if ((nAttributes = pTMParameter -> GetAttributes()) & (TMPARAMETER_CODING_BITPATTERN | TMPARAMETER_CODING_INVERSEBITPATTERN | TMPARAMETER_CODING_UNSIGNEDINTEGER)) return((UpdateDerivedParameter(pTMEnvironment,nProcedureParameterIndex,(ULONGLONG) nValue,((!sValue.m_validity.isInvalid()) ? TMPARAMETER_STATUS_VALID:TMPARAMETER_STATUS_INVALID) | ((!sValue.m_validity.isUncertain()) ? TMPARAMETER_STATUS_GOOD:TMPARAMETER_STATUS_BAD),nOccurrence)) ? 0:-1);
+      if (nAttributes & (TMPARAMETER_CODING_SIGNEDINTEGER | TMPARAMETER_CODING_COMPLEMENTCOMPLEX)) return((UpdateDerivedParameter(pTMEnvironment,nProcedureParameterIndex,nValue,((!sValue.m_validity.isInvalid()) ? TMPARAMETER_STATUS_VALID:TMPARAMETER_STATUS_INVALID) | ((!sValue.m_validity.isUncertain()) ? TMPARAMETER_STATUS_GOOD:TMPARAMETER_STATUS_BAD),nOccurrence)) ? 0:-1);
+      if (nAttributes & TMPARAMETER_CODING_FLOATINGPOINT) return((UpdateDerivedParameter(pTMEnvironment,nProcedureParameterIndex,(double) nValue,((!sValue.m_validity.isInvalid()) ? TMPARAMETER_STATUS_VALID:TMPARAMETER_STATUS_INVALID) | ((!sValue.m_validity.isUncertain()) ? TMPARAMETER_STATUS_GOOD:TMPARAMETER_STATUS_BAD),nOccurrence)) ? 0:-1);
+    }
+    if (sValue.isUInteger() &&  sValue.asUInteger(uValue))
+    { if ((nAttributes = pTMParameter -> GetAttributes()) & (TMPARAMETER_CODING_BITPATTERN | TMPARAMETER_CODING_INVERSEBITPATTERN | TMPARAMETER_CODING_UNSIGNEDINTEGER)) return((UpdateDerivedParameter(pTMEnvironment,nProcedureParameterIndex,uValue,((!sValue.m_validity.isInvalid()) ? TMPARAMETER_STATUS_VALID:TMPARAMETER_STATUS_INVALID) | ((!sValue.m_validity.isUncertain()) ? TMPARAMETER_STATUS_GOOD:TMPARAMETER_STATUS_BAD),nOccurrence)) ? 0:-1);
+      if (nAttributes & (TMPARAMETER_CODING_SIGNEDINTEGER | TMPARAMETER_CODING_COMPLEMENTCOMPLEX)) return((UpdateDerivedParameter(pTMEnvironment,nProcedureParameterIndex,(LONGLONG) uValue,((!sValue.m_validity.isInvalid()) ? TMPARAMETER_STATUS_VALID:TMPARAMETER_STATUS_INVALID) | ((!sValue.m_validity.isUncertain()) ? TMPARAMETER_STATUS_GOOD:TMPARAMETER_STATUS_BAD),nOccurrence)) ? 0:-1);
+      if (nAttributes & TMPARAMETER_CODING_FLOATINGPOINT) return((UpdateDerivedParameter(pTMEnvironment,nProcedureParameterIndex,(double) uValue,((!sValue.m_validity.isInvalid()) ? TMPARAMETER_STATUS_VALID:TMPARAMETER_STATUS_INVALID) | ((!sValue.m_validity.isUncertain()) ? TMPARAMETER_STATUS_GOOD:TMPARAMETER_STATUS_BAD),nOccurrence)) ? 0:-1);
+    }
+    if (sValue.isReal() &&  sValue.asDouble(fValue))
+    { if ((nAttributes = pTMParameter -> GetAttributes()) & (TMPARAMETER_CODING_BITPATTERN | TMPARAMETER_CODING_INVERSEBITPATTERN | TMPARAMETER_CODING_UNSIGNEDINTEGER)) return((UpdateDerivedParameter(pTMEnvironment,nProcedureParameterIndex,(ULONGLONG) fValue,((!sValue.m_validity.isInvalid()) ? TMPARAMETER_STATUS_VALID:TMPARAMETER_STATUS_INVALID) | ((!sValue.m_validity.isUncertain()) ? TMPARAMETER_STATUS_GOOD:TMPARAMETER_STATUS_BAD),nOccurrence)) ? 0:-1);
+      if (nAttributes & (TMPARAMETER_CODING_SIGNEDINTEGER | TMPARAMETER_CODING_COMPLEMENTCOMPLEX)) return((UpdateDerivedParameter(pTMEnvironment,nProcedureParameterIndex,(LONGLONG) fValue,((!sValue.m_validity.isInvalid()) ? TMPARAMETER_STATUS_VALID:TMPARAMETER_STATUS_INVALID) | ((!sValue.m_validity.isUncertain()) ? TMPARAMETER_STATUS_GOOD:TMPARAMETER_STATUS_BAD),nOccurrence)) ? 0:-1);
+      if (nAttributes & TMPARAMETER_CODING_FLOATINGPOINT) return((UpdateDerivedParameter(pTMEnvironment,nProcedureParameterIndex,fValue,((!sValue.m_validity.isInvalid()) ? TMPARAMETER_STATUS_VALID:TMPARAMETER_STATUS_INVALID) | ((!sValue.m_validity.isUncertain()) ? TMPARAMETER_STATUS_GOOD:TMPARAMETER_STATUS_BAD),nOccurrence)) ? 0:-1);
+    }
+  }
+  return -1;
+}
+
+INT GETvalue(CONST CDatabaseEngine *pDatabase,CONST CTMEnvironment *pTMEnvironment,INT nProcedureParameterIndex,INT nParameterIndex,BOOL bStatic,LPCTSTR pszView,VALue &sValue,INT &nOccurrence)
+{
+  INT  nCount;
+  INT  nTrigger;
+  INT  nTriggers;
+  UINT  nStatus;
+  double  fValue;
+  CString  szValue;
+  ULONGLONG  nValue;
+  ULONGLONG  nAttributes;
+  CUIntArray  nTriggerRefs[2];
+  CTMParameter  *pTMParameter;
+  CDatabaseTMParameter  *pDatabaseTMParameter;
+
+  if (!m_bInitialization)
+  { if ((pDatabaseTMParameter = (!bStatic) ? pDatabase -> GetTMParameters() -> GetAt(nParameterIndex):(CDatabaseTMParameter *) NULL) &&  pDatabaseTMParameter -> GetTriggerRefs(nTriggerRefs[0],nTriggerRefs[1]) >= 0)
+    { for (nTrigger = 0,nTriggers = (INT) nTriggerRefs[0].GetSize(); nTrigger < nTriggers; nTrigger++)
+      { if (nTriggerRefs[0].GetAt(nTrigger) == nParameterIndex) break;
+        continue;
+      }
+      if (nTrigger == nTriggers)
+      { nTriggerRefs[0].Add(nProcedureParameterIndex);
+        nTriggerRefs[1].Add(-1);
+        pDatabaseTMParameter -> SetTriggerRefs(nTriggerRefs[0],nTriggerRefs[1]);
+      }
+    }
+    nOccurrence = 0;
+    return 0;
+  }
+  if ((pTMParameter = pTMEnvironment -> GetTMParameters() -> GetAt(nParameterIndex)))
+  { if (!_tcsicmp(pszView,TEXT("raw")) || (!_tcsicmp(pszView,TEXT("eng")) && (pTMParameter -> GetAttributes() & (TMPARAMETER_CALIBRATION_NUMERICAL | TMPARAMETER_CALIBRATION_STATUS)) == 0))
+    { if ((nCount = pTMParameter -> GetValueCount()) > 0  &&  pTMParameter -> GetRawValue(nCount-1,nValue,nStatus))
+      { if ((nAttributes = pTMParameter -> GetAttributes()) & (TMPARAMETER_CODING_BITPATTERN | TMPARAMETER_CODING_INVERSEBITPATTERN | TMPARAMETER_CODING_UNSIGNEDINTEGER))
+        { for (sValue = (ULONGLONG) nValue,sValue.m_validity.setValid(),sValue.m_validity.setTransportError1(((nStatus & TMPARAMETER_STATUS_GOOD) != TMPARAMETER_STATUS_GOOD) ? TRUE:FALSE); (nStatus & TMPARAMETER_STATUS_VALID) == 0; )
+          { sValue.m_validity.setStateOff();
+            break;
+          }
+          nOccurrence = max(nCount-1,nOccurrence);
+          return 0;
+        }
+        if (nAttributes & (TMPARAMETER_CODING_SIGNEDINTEGER | TMPARAMETER_CODING_COMPLEMENTCOMPLEX))
+        { for (sValue = (LONGLONG) nValue,sValue.m_validity.setValid(),sValue.m_validity.setTransportError1(((nStatus & TMPARAMETER_STATUS_GOOD) != TMPARAMETER_STATUS_GOOD) ? TRUE:FALSE); (nStatus & TMPARAMETER_STATUS_VALID) == 0; )
+          { sValue.m_validity.setStateOff();
+            break;
+          }
+          nOccurrence = max(nCount-1,nOccurrence);
+          return 0;
+        }
+        if (nAttributes & TMPARAMETER_CODING_FLOATINGPOINT)
+        { for (sValue = CDatabaseEngine::DecodeValue(pDatabase -> GetType(),nAttributes,nValue,FALSE),sValue.m_validity.setValid(),sValue.m_validity.setTransportError1(((nStatus & TMPARAMETER_STATUS_GOOD) != TMPARAMETER_STATUS_GOOD) ? TRUE:FALSE); (nStatus & TMPARAMETER_STATUS_VALID) == 0; )
+          { sValue.m_validity.setStateOff();
+            break;
+          }
+          nOccurrence = max(nCount-1,nOccurrence);
+          return 0;
+        }
+      }
+      sValue = VALue();
+      nOccurrence = 0;
+      return -1;
+    }
+    if (!_tcsicmp(pszView,TEXT("eng")))
+    { if ((nAttributes = pTMParameter -> GetAttributes()) & TMPARAMETER_CALIBRATION_NUMERICAL)
+      { if ((nCount = pTMParameter -> GetValueCount()) > 0  &&  pTMParameter -> GetRawValue(nCount-1,nValue,nStatus) &&  pTMParameter -> GetValue(pDatabase,nCount-1,fValue))
+        { for (sValue = fValue,sValue.m_validity.setValid(),sValue.m_validity.setTransportError1(((nStatus & TMPARAMETER_STATUS_GOOD) != TMPARAMETER_STATUS_GOOD) ? TRUE:FALSE); (nStatus & TMPARAMETER_STATUS_VALID) == 0; )
+          { sValue.m_validity.setStateOff();
+            break;
+          }
+          nOccurrence = max(nCount-1,nOccurrence);
+          return 0;
+        }
+        sValue = VALue();
+        nOccurrence = 0;
+        return -1;
+      }
+      if (nAttributes & TMPARAMETER_CALIBRATION_STATUS)
+      { if ((nCount = pTMParameter -> GetValueCount()) > 0  &&  pTMParameter -> GetRawValue(nCount-1,nValue,nStatus) &&  pTMParameter -> GetValueAsText(pDatabase,nCount-1,szValue))
+        { for (sValue = szValue,sValue.m_validity.setValid(),sValue.m_validity.setTransportError1(((nStatus & TMPARAMETER_STATUS_GOOD) != TMPARAMETER_STATUS_GOOD) ? TRUE:FALSE); (nStatus & TMPARAMETER_STATUS_VALID) == 0; )
+          { sValue.m_validity.setStateOff();
+            break;
+          }
+          nOccurrence = max(nCount-1,nOccurrence);
+          return 0;
+        }
+      }
+      sValue = VALue();
+      nOccurrence = 0;
+      return -1;
+    }
+    if (!_tcsicmp(pszView,TEXT("time")))
+    { if ((nCount = pTMParameter -> GetValueCount()) > 0  &&  pTMParameter -> GetRawValue(nCount-1,nValue,nStatus))
+      { for (sValue = pTMParameter -> GetValueTime(0).GetTime(),sValue.m_validity.setValid(),sValue.m_validity.setTransportError1(((nStatus & TMPARAMETER_STATUS_GOOD) != TMPARAMETER_STATUS_GOOD) ? TRUE:FALSE); (nStatus & TMPARAMETER_STATUS_VALID) == 0; )
+        { sValue.m_validity.setStateOff();
+          break;
+        }
+        nOccurrence = max(nCount-1,nOccurrence);
+        return 0;
+      }
+    }
+  }
+  sValue = VALue();
+  nOccurrence = 0;
+  return -1;
+}
+
+double Sin(VALue sValue)
+{
+  double  fValue;
+  LONGLONG  nValue;
+  ULONGLONG  uValue;
+
+  if ((sValue.isInteger() ||  sValue.isSInteger()) &&  sValue.asInteger(nValue)) return sin((double) nValue);
+  if (sValue.isUInteger() &&  sValue.asUInteger(uValue)) return sin((double) uValue);
+  if (sValue.isReal() &&  sValue.asDouble(fValue)) return sin(fValue);
+  return NAN;
+}
+
+double Cos(VALue sValue)
+{
+  double  fValue;
+  LONGLONG  nValue;
+  ULONGLONG  uValue;
+
+  if ((sValue.isInteger() ||  sValue.isSInteger()) &&  sValue.asInteger(nValue)) return cos((double) nValue);
+  if (sValue.isUInteger() &&  sValue.asUInteger(uValue)) return cos((double) uValue);
+  if (sValue.isReal() &&  sValue.asDouble(fValue)) return cos(fValue);
+  return NAN;
+}
+
+double Tan(VALue sValue)
+{
+  double  fValue;
+  LONGLONG  nValue;
+  ULONGLONG  uValue;
+
+  if ((sValue.isInteger() ||  sValue.isSInteger()) &&  sValue.asInteger(nValue)) return tan((double) nValue);
+  if (sValue.isUInteger() &&  sValue.asUInteger(uValue)) return tan((double) uValue);
+  if (sValue.isReal() &&  sValue.asDouble(fValue)) return tan(fValue);
+  return NAN;
+}
+
+double Cotan(VALue sValue)
+{
+  double  fValue;
+  LONGLONG  nValue;
+  ULONGLONG  uValue;
+
+  if ((sValue.isInteger() ||  sValue.isSInteger()) &&  sValue.asInteger(nValue)) return(((fValue = tan((double) nValue)) != 0.0) ? (1.0/fValue):NAN);
+  if (sValue.isUInteger() &&  sValue.asUInteger(uValue)) return(((fValue = tan((double) uValue)) != 0.0) ? (1.0/fValue):NAN);
+  if (sValue.isReal() &&  sValue.asDouble(fValue)) return(((fValue = tan(fValue)) != 0.0) ? (1.0/fValue):NAN);
+  return NAN;
+}
+
+double Arcsin(VALue sValue)
+{
+  double  fValue;
+  LONGLONG  nValue;
+  ULONGLONG  uValue;
+
+  if ((sValue.isInteger() ||  sValue.isSInteger()) &&  sValue.asInteger(nValue)) return asin((double) nValue);
+  if (sValue.isUInteger() &&  sValue.asUInteger(uValue)) return asin((double) uValue);
+  if (sValue.isReal() &&  sValue.asDouble(fValue)) return asin(fValue);
+  return NAN;
+}
+
+double Arccos(VALue sValue)
+{
+  double  fValue;
+  LONGLONG  nValue;
+  ULONGLONG  uValue;
+
+  if ((sValue.isInteger() ||  sValue.isSInteger()) &&  sValue.asInteger(nValue)) return acos((double) nValue);
+  if (sValue.isUInteger() &&  sValue.asUInteger(uValue)) return acos((double) uValue);
+  if (sValue.isReal() &&  sValue.asDouble(fValue)) return acos(fValue);
+  return NAN;
+}
+
+double Arctan(VALue sValue)
+{
+  double  fValue;
+  LONGLONG  nValue;
+  ULONGLONG  uValue;
+
+  if ((sValue.isInteger() ||  sValue.isSInteger()) &&  sValue.asInteger(nValue)) return atan((double) nValue);
+  if (sValue.isUInteger() &&  sValue.asUInteger(uValue)) return atan((double) uValue);
+  if (sValue.isReal() &&  sValue.asDouble(fValue)) return atan(fValue);
+  return NAN;
+}
+
+double Arccotan(VALue sValue)
+{
+  double  fValue;
+  LONGLONG  nValue;
+  ULONGLONG  uValue;
+
+  if ((sValue.isInteger() ||  sValue.isSInteger()) &&  sValue.asInteger(nValue)) return(((fValue = tan((double) nValue)) != 0.0) ? (M_PI/2.0-Arctan(sValue)):NAN);
+  if (sValue.isUInteger() &&  sValue.asUInteger(uValue)) return(((fValue = tan((double) uValue)) != 0.0) ? (M_PI/2.0-Arctan(sValue)):NAN);
+  if (sValue.isReal() &&  sValue.asDouble(fValue)) return(((fValue = tan(fValue)) != 0.0) ? (M_PI/2.0-Arctan(sValue)):NAN);
+  return NAN;
+}
+
+double Ln(VALue sValue)
+{
+  double  fValue;
+  LONGLONG  nValue;
+  ULONGLONG  uValue;
+
+  if ((sValue.isInteger() ||  sValue.isSInteger()) &&  sValue.asInteger(nValue)) return log((double) nValue);
+  if (sValue.isUInteger() &&  sValue.asUInteger(uValue)) return log((double) uValue);
+  if (sValue.isReal() &&  sValue.asDouble(fValue)) return log(fValue);
+  return NAN;
+}
+
+double Exp(VALue sValue)
+{
+  double  fValue;
+  LONGLONG  nValue;
+  ULONGLONG  uValue;
+
+  if ((sValue.isInteger() ||  sValue.isSInteger()) &&  sValue.asInteger(nValue)) return pow(M_E,(double) nValue);
+  if (sValue.isUInteger() &&  sValue.asUInteger(uValue)) return pow(M_E,(double) uValue);
+  if (sValue.isReal() &&  sValue.asDouble(fValue)) return pow(M_E,fValue);
+  return NAN;
+}
+
+LONGLONG Sign(VALue sValue)
+{
+  double  fValue;
+  LONGLONG  nValue;
+  ULONGLONG  uValue;
+
+  if ((sValue.isInteger() ||  sValue.isSInteger()) &&  sValue.asInteger(nValue)) return((nValue > 0) ? 1:((nValue == 0) ? 0:-1));
+  if (sValue.isUInteger() &&  sValue.asUInteger(uValue)) return((uValue > 0) ? 1:0);
+  if (sValue.isReal() &&  sValue.asDouble(fValue)) return((fValue > 0.0) ? 1:((fValue == 0.0) ? 0:-1));
+  return 0;
+}
+
+double Abs(VALue sValue)
+{
+  double  fValue;
+  LONGLONG  nValue;
+  ULONGLONG  uValue;
+
+  if ((sValue.isInteger() ||  sValue.isSInteger()) &&  sValue.asInteger(nValue)) return fabs((double) nValue);
+  if (sValue.isUInteger() &&  sValue.asUInteger(uValue)) return fabs((double) uValue);
+  if (sValue.isReal() &&  sValue.asDouble(fValue)) return fabs(fValue);
+  return NAN;
+}
+
+VOID MSG_TRACE(INT nLevel,LPCSTR pszText)
+{
+  return;
+}
+VOID MSG_TRACE(INT nLevel,LPCWSTR pszText)
+{
+  return;
+}
+
+VOID MSG_SYS_ERROR(LPCSTR pszID,LPCSTR pszText)
+{
+  return;
+}
+VOID MSG_SYS_ERROR(LPCWSTR pszID,LPCWSTR pszText)
+{
+  return;
+}
+
+VOID MSG_EVENT_MESSAGE(LPCSTR pszID,LPCSTR pszText)
+{
+  return;
+}
+VOID MSG_EVENT_MESSAGE(LPCWSTR pszID,LPCWSTR pszText)
+{
+  return;
+}
+
+
+

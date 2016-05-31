@@ -1,0 +1,11 @@
+  for (nParameter = 0,nParameters = (INT) pDatabase -> GetTMParameters() -> GetSize(); nParameter < nParameters; nParameter++)
+  { if ((pDatabaseTMParameter = pDatabase -> GetTMParameters() -> GetAt(nParameter)) && (pDatabaseTMParameter -> GetAttributes() & TMPARAMETER_NATURE_DERIVED_HARDCODED))
+    { if ((pTMParameter = pTMEnvironment -> GetTMParameters() -> GetAt(pTMEnvironment -> GetTMParameters() -> Find(pDatabaseTMParameter -> GetTag()))))
+      { if ((pDerivationProcedure = pTMParameter -> GetDerivationProcedure()))
+        { (*pDerivationProcedure)(pDatabase,pTMEnvironment);
+          continue;
+        }
+      }
+    }
+  }
+  m_bInitialization = TRUE;
