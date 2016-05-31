@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="HTML Help Files">
+      <UniqueIdentifier>{50f3267e-d8e5-46a1-bbba-a4d2efd9265d}</UniqueIdentifier>
+      <Extensions>hhp;hhc;hhk</Extensions>
+    </Filter>
+    <Filter Include="HTML Help Topics">
+      <UniqueIdentifier>{bbd72f3e-1dd6-429e-bed1-33832fdfcc32}</UniqueIdentifier>
+      <Extensions>htm;html</Extensions>
+    </Filter>
+    <Filter Include="HTML Help Files\Images">
+      <UniqueIdentifier>{6581428a-1efd-4ffa-a1c8-ed0da1e4f7e6}</UniqueIdentifier>
+      <Extensions>bmp;gif;jpg;jpeg;png</Extensions>
+    </Filter>
+    <Filter Include="HTML Help Files\Templates">
+      <UniqueIdentifier>{905d8b67-2cb0-4879-a566-7214761095f2}</UniqueIdentifier>
+      <Extensions>htm;html</Extensions>
+    </Filter>
+    <Filter Include="HTML Help Files\Resources">
+      <UniqueIdentifier>{fafa2ea9-79f8-4a64-978d-cb35280b14b5}</UniqueIdentifier>
+      <Extensions>css;js</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="profile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Simulator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="displays.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="profile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Simulator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="displays.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\DeviceButtonStart.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\DeviceButtonStop.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\DeviceButtonSuspend.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Simulator.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\SimulatorDoc.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\DeviceToolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\SimulatorDataConsole.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\menuimages (large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\menuimages (small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Help\SatView_Help_Telemetry_Service_ENERTEC_Device_Clients_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Help_Telemetry_Service_ENERTEC_Device_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Help_Telemetry_Service_ENERTEC_Emulation_Device_Clients_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Help_Telemetry_Service_ENERTEC_Emulation_Device_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Simulator_Help.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Simulator_Help_Contacts.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Simulator_Help_New_Features.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Simulator_Help_Telecommand.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Simulator_Help_Telemetry.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Simulator_Help_Troubleshooting.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\Simulator.hhc">
+      <Filter>HTML Help Files</Filter>
+    </None>
+    <None Include="Help\Simulator.hhk">
+      <Filter>HTML Help Files</Filter>
+    </None>
+    <None Include="Help\templates\Template.htm">
+      <Filter>HTML Help Files\Templates</Filter>
+    </None>
+    <None Include="Help\resources\behaviors.js">
+      <Filter>HTML Help Files\Resources</Filter>
+    </None>
+    <None Include="Help\resources\ie.css">
+      <Filter>HTML Help Files\Resources</Filter>
+    </None>
+    <None Include="Help\resources\iefix.css">
+      <Filter>HTML Help Files\Resources</Filter>
+    </None>
+    <None Include="Help\resources\styles.css">
+      <Filter>HTML Help Files\Resources</Filter>
+    </None>
+    <None Include="Simulator.rh">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Simulator.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Help\images\application.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\background.jpg">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\bullet.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\collapsebutton.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\company.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\company-location.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\expandbutton.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\info.gif">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\largescalemap.gif">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\logo.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\note.gif">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\template.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\templatebackground.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\templatebottom.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\warning.gif">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Help\Simulator.hhp">
+      <Filter>HTML Help Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

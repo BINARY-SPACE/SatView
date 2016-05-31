@@ -1,0 +1,589 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "verrsrc.h"
+
+#include "Simulator.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""verrsrc.h""\r\n"
+    "\r\n"
+    "#include ""Simulator.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""    // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+#ifdef _DEBUG
+ FILEFLAGS VS_FF_DEBUG
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_APP
+ FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "SatView™ is a product of BINARY SPACE, Switzerland."
+            VALUE "CompanyName", "BINARY SPACE"
+            VALUE "FileDescription", "SatView Simulator"
+            VALUE "FileVersion", "1.00.00"
+            VALUE "InternalName", "SatView"
+            VALUE "LegalCopyright", "Copyright© by BINARY SPACE"
+            VALUE "LegalTrademarks", "SatView™ is a trademark of BINARY SPACE"
+            VALUE "OriginalFilename", "Simulator.exe"
+            VALUE "ProductName", "SatView™"
+            VALUE "ProductVersion", "1.00.00"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDR_IODEVICETOOLBAR     BITMAP                  "res\\DeviceToolbar.bmp"
+IDB_MAINFRAMELARGEIMAGES BITMAP                  "res\\menuimages (large).bmp"
+IDB_MAINFRAMESMALLIMAGES BITMAP                  "res\\menuimages (small).bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Simulator.ico"
+IDR_SIMULATORDATACONSOLE ICON                    "res\\SimulatorDataConsole.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    BUTTON      IDM_ABOUT
+END
+
+IDR_IODEVICETOOLBAR TOOLBAR 16, 16
+BEGIN
+    BUTTON      IDM_IODEVICELABEL
+    BUTTON      IDM_IODEVICE
+    BUTTON      IDM_IODEVICECONFIGURATION
+    SEPARATOR
+    BUTTON      IDM_IODEVICERELOAD
+    SEPARATOR
+    BUTTON      IDM_IODEVICESTART
+    BUTTON      IDM_IODEVICESUSPEND
+    BUTTON      IDM_IODEVICESTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Device"
+    BEGIN
+        POPUP "&Products"
+        BEGIN
+            MENUITEM "",                            IDM_FIRSTIODEVICE, GRAYED
+        END
+        MENUITEM "Con&figuration...\tCtrl+F",   IDM_IODEVICECONFIGURATION, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Reload\tCtrl+R",             IDM_IODEVICERELOAD, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Start",                      IDM_IODEVICESTART, GRAYED
+        MENUITEM "S&uspend",                    IDM_IODEVICESUSPEND, GRAYED
+        MENUITEM "St&op",                       IDM_IODEVICESTOP, GRAYED
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbars",                   IDM_VIEW_TOOLBARS
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "Help &Topics...",             IDM_HELP
+        MENUITEM SEPARATOR
+        MENUITEM "&About %s...",                IDM_ABOUT
+    END
+END
+
+IDR_SIMULATORDATACONSOLE MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Device"
+    BEGIN
+        POPUP "&Products"
+        BEGIN
+            MENUITEM "",                            IDM_FIRSTIODEVICE, GRAYED
+        END
+        MENUITEM "Con&figuration...\tCtrl+F",   IDM_IODEVICECONFIGURATION, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Reload\tCtrl+R",             IDM_IODEVICERELOAD, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Start",                      IDM_IODEVICESTART, GRAYED
+        MENUITEM "S&uspend",                    IDM_IODEVICESUSPEND, GRAYED
+        MENUITEM "St&op",                       IDM_IODEVICESTOP, GRAYED
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbars",                   IDM_VIEW_TOOLBARS
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&New Window",                 ID_WINDOW_NEW
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "Help &Topics...",             IDM_HELP
+        MENUITEM SEPARATOR
+        MENUITEM "&About %s...",                IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "F",            IDM_IODEVICECONFIGURATION, VIRTKEY, CONTROL
+    "R",            IDM_IODEVICERELOAD,     VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 275, 29
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About %s"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,4,20,20
+    LTEXT           "%s Satellite TM/TC Simulator Version %s",IDC_ABOUT_NAMEANDVERSION,36,5,175,8,SS_NOPREFIX
+    LTEXT           "Copyright© 1992-%d by %s",IDC_ABOUT_COPYRIGHT,36,14,175,8
+    DEFPUSHBUTTON   "OK",IDOK,217,5,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    ID_SEPARATOR            " "
+    ID_DATACONSOLE_PANE_SATELLITE "Satellite"
+    ID_DATACONSOLE_PANE_IODEVICE "I/O Device"
+    ID_DATACONSOLE_PANE_IODEVICESTATE "I/O Device State"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_SIMULATORDATACONSOLE 
+                            "\nTM Data Console\nSatView Satellite TM/TC Simulator\n\n\nSimulatorDataConsole.Document\nSimulatorDataConsole.Document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "SatView™ Simulator"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_DIRECT    "Print the active document using current options\nQuick Print"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_IODEVICELABEL       "Shows the current I/O device"
+    IDM_IODEVICE            "Shows the current I/O device"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_IODEVICECONFIGURATION 
+                            "Configures the current I/O device\nConfigures I/O Device"
+    IDM_IODEVICERELOAD      "Reloads the data of the current data console window\nReloads I/O Device Data"
+    IDM_IODEVICESTART       "Starts the I/O device associated to the current data console window\nStarts I/O Device "
+    IDM_IODEVICESUSPEND     "Suspends the I/O device associated to the current data console window\nSuspends I/O Device"
+    IDM_IODEVICESTOP        "Stops the I/O device associated to the current data console window\nStops I/O Device"
+    IDM_VIEW_TOOLBARS       "Show or hide the toolbars\nToggle Toolbars"
+    IDM_ABOUT               "Display program information, version number and copyright\nAbout"
+    IDM_HELP                "Opens the online help documentation\nHelp"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_EXIT             "Quit the application\nExit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle Status Bar"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    AFX_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_SIMULATOR_TITLE     "%s - %s"
+    IDS_TOOLBAR_TITLE       "Commands"
+    IDS_DEVICESTOOLBAR_TITLE "I/O Devices"
+    IDS_DEVICESTOOLBAR_LABEL "Device:"
+    IDS_DEVICESTOOLBAR_CONFIGURATION "Configuration..."
+    IDS_DEVICESTOOLBAR_RELOAD "Reload"
+    IDS_FILESEARCH_ALL      "\\*.*"
+    IDS_FILESEARCH_DLL      "\\*.DLL"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_FILESEARCH_TXT      "\\*.TXT"
+    IDS_FILEEXTENSION_TXT   ".TXT"
+    IDS_MESSAGESWINDOW_TITLE " Messages"
+    IDS_MESSAGESWINDOW_TITLEITEM_TIME "Time"
+    IDS_MESSAGESWINDOW_TITLEITEM_TYPE "Type"
+    IDS_MESSAGESWINDOW_TITLEITEM_SOURCE "Source"
+    IDS_MESSAGESWINDOW_TITLEITEM_MESSAGE "Message"
+    IDS_MESSAGETYPE_INFORMATIONAL "Informational"
+    IDS_MESSAGETYPE_SUCCESS "Success"
+    IDS_MESSAGETYPE_WARNING "Warning"
+    IDS_MESSAGETYPE_ERROR   "Error"
+    IDS_MESSAGETYPE_NONE    "-"
+    IDS_MESSAGESOURCE_NONE  "-"
+    IDS_MESSAGESOURCE_DATACONSOLE "Data Console"
+    IDS_MESSAGE_WELCOME     "Welcome to the SatView™ Satellite TM/TC Simulator!"
+    IDS_MESSAGE_NEW_DATACONSOLE "Opening a new data console window"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MESSAGE_OPEN_DATACONSOLE "Loading the data profile '%s'..."
+    IDS_MESSAGE_UPDATE_DATACONSOLE 
+                            "The I/O device for the data console window '%s' has been updated"
+    IDS_MESSAGE_CLOSE_DATACONSOLE "Closing the data console window '%s'"
+    IDS_MESSAGE_DATACONSOLE_SAVE_FAILURE 
+                            "The content of the data console window '%s' cannot be saved"
+    IDS_MESSAGE_DATACONSOLE_LOAD_FAILURE 
+                            "The content of the data console window '%s' cannot be loaded"
+    IDS_MESSAGE_DATACONSOLE_LOAD_UNKNOWN_FAILURE 
+                            "The content of the data console window cannot be loaded"
+    IDS_MESSAGE_DATACONSOLE_KEYWORD_MISSING 
+                            "The keyword '%s' is missing or has an illegal value in the data to be loaded into the data console window '%s'"
+    IDS_MESSAGE_DATACONSOLE_SUPPORT_MISSING 
+                            "The type or format of the data to be loaded into the data console window '%s' is not yet supported"
+    IDS_MESSAGE_DATACONSOLE_SUPPORT_UNKNOWN_MISSING 
+                            "The type or format of the data to be loaded into the data console window is not yet supported"
+    IDS_MESSAGE_DATACONSOLE_PARSING_TMPACKETS_FAILURE 
+                            "An error occurred after %d TM packets while translating the data of the data console window '%s'"
+    IDS_MESSAGE_CLIENT_LOGIN_SUCCESS 
+                            "The client '%s' logged-in successfully at the I/O device '%s'"
+    IDS_MESSAGE_CLIENT_LOGIN_FAILURE 
+                            "The client '%s' was denied to log-in at the I/O device '%s' due to the specified security policy"
+    IDS_MESSAGE_CLIENT_LOGOUT_SUCCESS 
+                            "The client '%s' logged-out at the I/O device '%s'"
+    IDS_MESSAGE_GOODBYE     "Terminating..."
+    IDS_DEVICENAME_DEFAULT  "Default Device"
+    IDS_DEVICENAME_SPECIALCHAR "&"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_DEVICESTATE_READY   "READY"
+    IDS_DEVICESTATE_RUNNING "RUNNING"
+    IDS_DEVICESTATE_SUSPENDED "SUSPENDED"
+    IDS_DEVICESTATE_STOPPED "STOPPED"
+    IDS_DEVICESTATE_UNKNOWN "UNKNOWN"
+    IDS_DEVICEDATA_KEYWORD_SATELLITE "SATELLITE:"
+    IDS_DEVICEDATA_KEYWORD_TYPE "TYPE:"
+    IDS_DEVICEDATA_KEYWORD_FORMAT "FORMAT:"
+    IDS_DEVICEDATA_KEYWORD_OBRT "OBRT:"
+    IDS_DEVICEDATA_TYPE_RAWDATA "RAW DATA"
+    IDS_DEVICEDATA_TYPE_TRANSFERFRAMES "TRANSFER FRAMES"
+    IDS_DEVICEDATA_TYPE_SOURCEPACKETS "SOURCE PACKETS"
+    IDS_DEVICEDATA_OBRT_BEGINSYMBOL ">"
+    IDS_DEVICEDATA_OBRT_ENDSYMBOL "<"
+    IDS_DEVICEDATA_ADDRESS_SEPARATOR ":"
+    IDS_DEVICEDATA_SKIPBYTES_SYMBOL "XX"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_DEVICEERROR_GENERAL "General failure on the I/O device"
+    IDS_DEVICEERROR_OPEN    "Cannot open the I/O device '%s'"
+    IDS_DEVICEERROR_FIND    "Cannot find the I/O device '%s'"
+    IDS_DEVICEERROR_CONFIGURATION "Cannot configure the requested I/O device"
+    IDS_DEVICEERROR_START   "Cannot start the I/O device '%s'"
+    IDS_DEVICEERROR_SUSPEND "Cannot suspend the I/O device '%s'"
+    IDS_DEVICEERROR_STOP    "Cannot stop the I/O device '%s'"
+    IDS_DEVICEINFORMATION_START "The I/O device '%s' was started successfully"
+    IDS_DEVICEINFORMATION_SUSPEND 
+                            "The I/O device '%s' was suspended successfully"
+    IDS_DEVICEINFORMATION_STOP "The I/O device '%s' was stopped successfully"
+    IDS_STATUSBAR_MESSAGECOUNT "%d Message(s)"
+    IDS_STATUSBAR_SATELLITEDATANONE "UNKNOWN"
+    IDS_STATUSBAR_SATELLITEDATASIZE "%s Character(s)"
+    IDS_STATUSBAR_DEVICES   "Choose the desired I/O Device..."
+    IDS_PRINTDOCUMENT_FOOTER "Printed on %s at %s (%s), Page %d"
+    IDS_PRINTDOCUMENT_UNKNOWNDEVICE "?"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_REG_SUBKEYVALUE_DEVICESDATA "DevicesData"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"    // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
