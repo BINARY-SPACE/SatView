@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|x64">
+      <Configuration>Template</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{65C70D60-54F7-4A9E-B426-20C7EC5C5F82}</ProjectGuid>
+    <SccProjectName />
+    <SccLocalPath />
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.10586.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SatView</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SatView</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SatView</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SatView</TargetName>
+    <CustomBuildAfterTargets Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    </CustomBuildAfterTargets>
+    <CustomBuildAfterTargets Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    </CustomBuildAfterTargets>
+    <CustomBuildAfterTargets Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    </CustomBuildAfterTargets>
+    <CustomBuildAfterTargets Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    </CustomBuildAfterTargets>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IncludePath);$(VCInstallDir)atlmfc\include;$(DXSDK_DIR)Include</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IncludePath);$(VCInstallDir)atlmfc\include;$(DXSDK_DIR)Include</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IncludePath);$(VCInstallDir)atlmfc\include;$(DXSDK_DIR)Include</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IncludePath);$(VCInstallDir)atlmfc\include;$(DXSDK_DIR)Include</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreLinkEventUseInBuild>
+    </PreLinkEventUseInBuild>
+    <PreBuildEventUseInBuild />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEventUseInBuild />
+    <PreLinkEventUseInBuild />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PreLinkEventUseInBuild />
+    <PreBuildEventUseInBuild />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PreLinkEventUseInBuild />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>SMTP;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=_WIN32_WINNT_MAXVER;_WINDOWS;_AFXEXT;_USRDLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dnsapi.lib;Iphlpapi.lib;mpr.lib;netapi32.lib;rpcrt4.lib;sapi.lib;secur32.lib;uxtheme.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)SatView.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>SatView.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName)_dll.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>false</GenerateMapFile>
+      <MapFileName>
+      </MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)SatView.lib</ImportLibrary>
+      <ImageHasSafeExceptionHandlers>
+      </ImageHasSafeExceptionHandlers>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/SatView.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>.\Res;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <CustomBuildStep>
+      <Message>Performing Custom Build Tools</Message>
+      <Command>
+      </Command>
+      <Outputs>
+      </Outputs>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>xcopy $(OutDir)SatView.dll ..\Desktop\$(OutDir)*.* /Y
+if errorlevel 1 goto ERROR
+xcopy $(OutDir)SatView.dll ..\Editor\$(OutDir)*.* /Y
+if errorlevel 1 goto ERROR
+xcopy $(OutDir)SatView.dll ..\Simulator\$(OutDir)*.* /Y
+if errorlevel 1 goto ERROR
+goto END
+:ERROR
+echo File transfer ended with errors!
+echo No or not all files have been copied.
+:END</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Distributing File...</Message>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <PreLinkEvent>
+      <Message>
+      </Message>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>SMTP;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=_WIN32_WINNT_MAXVER;_WINDOWS;_AFXEXT;_USRDLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <MinimalRebuild>true</MinimalRebuild>
+      <OmitFramePointers>false</OmitFramePointers>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dnsapi.lib;Iphlpapi.lib;mpr.lib;netapi32.lib;rpcrt4.lib;sapi.lib;secur32.lib;uxtheme.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)SatView.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>SatView.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName)_dll.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>false</GenerateMapFile>
+      <MapFileName>
+      </MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)SatView.lib</ImportLibrary>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TypeLibraryName>.\Debug/SatView.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>.\Res;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <CustomBuildStep>
+      <Message>Performing Custom Build Tools</Message>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>xcopy $(OutDir)SatView.dll ..\Desktop\$(OutDir)*.* /Y
+if errorlevel 1 goto ERROR
+xcopy $(OutDir)SatView.dll ..\Editor\$(OutDir)*.* /Y
+if errorlevel 1 goto ERROR
+xcopy $(OutDir)SatView.dll ..\Simulator\$(OutDir)*.* /Y
+if errorlevel 1 goto ERROR
+goto END
+:ERROR
+echo File transfer ended with errors!
+echo No or not all files have been copied.
+:END
+</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Distributing File...</Message>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <PreLinkEvent>
+      <Message>
+      </Message>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>SMTP;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=_WIN32_WINNT_MAXVER;_WINDOWS;_AFXEXT;_USRDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <OmitFramePointers>true</OmitFramePointers>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dnsapi.lib;Iphlpapi.lib;mpr.lib;netapi32.lib;rpcrt4.lib;sapi.lib;secur32.lib;uxtheme.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)SatView.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>SatView.def</ModuleDefinitionFile>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName)_dll.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(TargetDir)$(TargetName)_dll.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)SatView.lib</ImportLibrary>
+      <ImageHasSafeExceptionHandlers />
+      <GenerateDebugInformation>No</GenerateDebugInformation>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/SatView.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>.\Res;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <CustomBuildStep>
+      <Message>Performing Custom Build Tools</Message>
+      <Command>
+      </Command>
+      <Outputs>
+      </Outputs>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>"\Program Files (x86)\Windows Kits\10\bin\x86\signtool.exe" sign /t http://timestamp.digicert.com /f "..\BINARY SPACE.pfx" /p AW642341AW642341 "$(OutDir)$(TargetName)$(TargetExt)"
+xcopy $(OutDir)SatView.dll ..\Desktop\$(OutDir)*.* /Y
+if errorlevel 1 goto ERROR
+xcopy $(OutDir)SatView.dll ..\Editor\$(OutDir)*.* /Y
+if errorlevel 1 goto ERROR
+xcopy $(OutDir)SatView.dll ..\Simulator\$(OutDir)*.* /Y
+if errorlevel 1 goto ERROR
+goto END
+:ERROR
+echo File transfer ended with errors!
+echo No or not all files have been copied.
+:END</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Signing &amp; Distributing File...</Message>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <PreLinkEvent>
+      <Message>
+      </Message>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>SMTP;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=_WIN32_WINNT_MAXVER;_WINDOWS;_AFXEXT;_USRDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <OmitFramePointers>true</OmitFramePointers>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dnsapi.lib;Iphlpapi.lib;mpr.lib;netapi32.lib;rpcrt4.lib;sapi.lib;secur32.lib;uxtheme.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)SatView.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>SatView.def</ModuleDefinitionFile>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName)_dll.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(TargetDir)$(TargetName)_dll.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)SatView.lib</ImportLibrary>
+      <ImageHasSafeExceptionHandlers>
+      </ImageHasSafeExceptionHandlers>
+      <GenerateDebugInformation>No</GenerateDebugInformation>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TypeLibraryName>.\Release/SatView.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>.\Res;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <CustomBuildStep>
+      <Message>Performing Custom Build Tools</Message>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>"\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe" sign /t http://timestamp.digicert.com /f "..\BINARY SPACE.pfx" /p AW642341AW642341 "$(OutDir)$(TargetName)$(TargetExt)"
+xcopy $(OutDir)SatView.dll "\Program Files\SatView\*.*" /Y
+if errorlevel 1 goto ERROR
+wevtutil im messages.man
+if errorlevel 1 goto PUBLISHER_ERROR
+xcopy $(OutDir)SatView.dll ..\Desktop\$(OutDir)*.* /Y
+if errorlevel 1 goto ERROR
+xcopy $(OutDir)SatView.dll ..\Editor\$(OutDir)*.* /Y
+if errorlevel 1 goto ERROR
+xcopy $(OutDir)SatView.dll ..\Simulator\$(OutDir)*.* /Y
+if errorlevel 1 goto ERROR
+goto END
+:PUBLISHER_ERROR
+echo The publisher cannot be registered.
+goto END
+:ERROR
+echo File transfer ended with errors!
+echo No or not all files have been copied.
+:END</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Installing the Event Log Provider, Signing &amp; Distributing file...</Message>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>wevtutil um messages.man</Command>
+      <Message>Removing the Event Log Provider...</Message>
+    </PreBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <PreLinkEvent>
+      <Message>
+      </Message>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="SMTP\NTLMAuth.cpp" />
+    <ClCompile Include="SMTP\SMTP.cpp" />
+    <ClCompile Include="SMTP\SMTPSockets.cpp" />
+    <ClCompile Include="accounts.cpp">
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EditAndContinue</DebugInformationFormat>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">EditAndContinue</DebugInformationFormat>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Sync</ExceptionHandling>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Sync</ExceptionHandling>
+      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</MinimalRebuild>
+      <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </OmitFramePointers>
+      <RemoveUnreferencedCodeData Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</RemoveUnreferencedCodeData>
+    </ClCompile>
+    <ClCompile Include="assistant.cpp" />
+    <ClCompile Include="archive.cpp" />
+    <ClCompile Include="audio.cpp" />
+    <ClCompile Include="books.cpp" />
+    <ClCompile Include="compression.cpp" />
+    <ClCompile Include="controls.cpp" />
+    <ClCompile Include="database.cpp" />
+    <ClCompile Include="devices.cpp" />
+    <ClCompile Include="documents.cpp" />
+    <ClCompile Include="email.cpp" />
+    <ClCompile Include="event.cpp" />
+    <ClCompile Include="eventlog.cpp" />
+    <ClCompile Include="jscript.cpp" />
+    <ClCompile Include="language.cpp" />
+    <ClCompile Include="logfile.cpp" />
+    <ClCompile Include="mimics.cpp" />
+    <ClCompile Include="mutex.cpp" />
+    <ClCompile Include="network.cpp" />
+    <ClCompile Include="profiles.cpp" />
+    <ClCompile Include="registry.cpp" />
+    <ClCompile Include="SatView.cpp" />
+    <ClCompile Include="security.cpp" />
+    <ClCompile Include="tcprocedures.cpp" />
+    <ClCompile Include="thread.cpp" />
+    <ClCompile Include="timekey.cpp" />
+    <ClCompile Include="token.cpp" />
+    <ClCompile Include="tools.cpp" />
+    <ClCompile Include="ttcprocess.cpp" />
+    <ClCompile Include="version.cpp" />
+    <ClCompile Include="views.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="messages.man">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">mc -r res messages.man</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling the Event Log Manifest...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">res\messages.rc</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling the Event Log Manifest...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">mc -r res messages.man</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">res\messages.rc</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">res\messages.rc</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mc -r res messages.man</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compiling the Event Log Manifest...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mc -r res messages.man</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling the Event Log Manifest...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">res\messages.rc</Outputs>
+      <SubType>Designer</SubType>
+    </CustomBuild>
+    <None Include="res\cursor (split-horizontal).cur" />
+    <None Include="res\cursor (split-vertical).cur" />
+    <None Include="res\hatch (cross).bmp" />
+    <None Include="res\hatch (cross-diagonal).bmp" />
+    <None Include="res\hatch (diagonal-down).bmp" />
+    <None Include="res\hatch (diagonal-up).bmp" />
+    <None Include="res\hatch (horizontal).bmp" />
+    <None Include="res\hatch (points-high).bmp" />
+    <None Include="res\hatch (points-low).bmp" />
+    <None Include="res\hatch (points-medium).bmp" />
+    <None Include="res\hatch (solid).bmp" />
+    <None Include="res\hatch (vertical).bmp" />
+    <None Include="res\paper (center-bottom).bmp" />
+    <None Include="res\paper (center-middle).bmp" />
+    <None Include="res\paper (center-top).bmp" />
+    <None Include="res\paper (left-bottom).bmp" />
+    <None Include="res\paper (left-middle).bmp" />
+    <None Include="res\paper (left-top).bmp" />
+    <None Include="res\paper (right-bottom).bmp" />
+    <None Include="res\paper (right-middle).bmp" />
+    <None Include="res\paper (right-top).bmp" />
+    <None Include="res\printerfont.bmp" />
+    <None Include="res\tcstep (block-large).bmp" />
+    <None Include="res\tcstep (block-large).png" />
+    <None Include="res\tcstep (block-small).bmp" />
+    <None Include="res\tcstep (block-small).png" />
+    <None Include="res\tcstep (body-executed).bmp" />
+    <None Include="res\tcstep (body-executed).png" />
+    <None Include="res\tcstep (body-failed).bmp" />
+    <None Include="res\tcstep (body-failed).png" />
+    <None Include="res\tcstep (body-forced).bmp" />
+    <None Include="res\tcstep (body-forced).png" />
+    <None Include="res\tcstep (body-running).bmp" />
+    <None Include="res\tcstep (body-running).png" />
+    <None Include="res\tcstep (branch-large).bmp" />
+    <None Include="res\tcstep (branch-large).png" />
+    <None Include="res\tcstep (branch-small).bmp" />
+    <None Include="res\tcstep (branch-small).png" />
+    <None Include="res\tcstep (call-procedure).bmp" />
+    <None Include="res\tcstep (call-procedure).png" />
+    <None Include="res\tcstep (confirmation-executed).bmp" />
+    <None Include="res\tcstep (confirmation-executed).png" />
+    <None Include="res\tcstep (confirmation-failed).bmp" />
+    <None Include="res\tcstep (confirmation-failed).png" />
+    <None Include="res\tcstep (confirmation-forced).bmp" />
+    <None Include="res\tcstep (confirmation-forced).png" />
+    <None Include="res\tcstep (confirmation-running).bmp" />
+    <None Include="res\tcstep (confirmation-running).png" />
+    <None Include="res\tcstep (control-procedure).bmp" />
+    <None Include="res\tcstep (control-procedure).png" />
+    <None Include="res\tcstep (control-thread).bmp" />
+    <None Include="res\tcstep (control-thread).png" />
+    <None Include="res\tcstep (direction-down).bmp" />
+    <None Include="res\tcstep (direction-down).png" />
+    <None Include="res\tcstep (direction-left).bmp" />
+    <None Include="res\tcstep (direction-left).png" />
+    <None Include="res\tcstep (direction-right).bmp" />
+    <None Include="res\tcstep (direction-right).png" />
+    <None Include="res\tcstep (direction-up).bmp" />
+    <None Include="res\tcstep (direction-up).png" />
+    <None Include="res\tcstep (doloop-large).bmp" />
+    <None Include="res\tcstep (doloop-large).png" />
+    <None Include="res\tcstep (doloop-small).bmp" />
+    <None Include="res\tcstep (doloop-small).png" />
+    <None Include="res\tcstep (end-large).bmp" />
+    <None Include="res\tcstep (end-large).png" />
+    <None Include="res\tcstep (end-small).bmp" />
+    <None Include="res\tcstep (end-small).png" />
+    <None Include="res\tcstep (forloop-large).bmp" />
+    <None Include="res\tcstep (forloop-large).png" />
+    <None Include="res\tcstep (forloop-small).bmp" />
+    <None Include="res\tcstep (forloop-small).png" />
+    <None Include="res\tcstep (goto-large).bmp" />
+    <None Include="res\tcstep (goto-large).png" />
+    <None Include="res\tcstep (goto-small).bmp" />
+    <None Include="res\tcstep (goto-small).png" />
+    <None Include="res\tcstep (inject-alert).bmp" />
+    <None Include="res\tcstep (inject-alert).png" />
+    <None Include="res\tcstep (label-large).bmp" />
+    <None Include="res\tcstep (label-large).png" />
+    <None Include="res\tcstep (label-small).bmp" />
+    <None Include="res\tcstep (label-small).png" />
+    <None Include="res\tcstep (log-message).bmp" />
+    <None Include="res\tcstep (log-message).png" />
+    <None Include="res\tcstep (send-tcfunction).bmp" />
+    <None Include="res\tcstep (send-tcfunction).png" />
+    <None Include="res\tcstep (send-tcsequence).bmp" />
+    <None Include="res\tcstep (send-tcsequence).png" />
+    <None Include="res\tcstep (set-arguments).bmp" />
+    <None Include="res\tcstep (set-arguments).png" />
+    <None Include="res\tcstep (set-parameters).bmp" />
+    <None Include="res\tcstep (set-parameters).png" />
+    <None Include="res\tcstep (set-synchronization).bmp" />
+    <None Include="res\tcstep (set-synchronization).png" />
+    <None Include="res\tcstep (set-variables).bmp" />
+    <None Include="res\tcstep (set-variables).png" />
+    <None Include="res\tcstep (start-large).bmp" />
+    <None Include="res\tcstep (start-large).png" />
+    <None Include="res\tcstep (start-procedure).bmp" />
+    <None Include="res\tcstep (start-procedure).png" />
+    <None Include="res\tcstep (start-small).bmp" />
+    <None Include="res\tcstep (start-small).png" />
+    <None Include="res\tcstep (status).bmp" />
+    <None Include="res\tcstep (status).png" />
+    <None Include="res\tcstep (status-mask).bmp" />
+    <None Include="res\tcstep (status-mask).png" />
+    <None Include="res\tcstep (status-nomask).bmp" />
+    <None Include="res\tcstep (status-nomask).png" />
+    <None Include="res\tcstep (switch-large).bmp" />
+    <None Include="res\tcstep (switch-large).png" />
+    <None Include="res\tcstep (switch-small).bmp" />
+    <None Include="res\tcstep (switch-small).png" />
+    <None Include="res\tcstep (trigger-executed).bmp" />
+    <None Include="res\tcstep (trigger-executed).png" />
+    <None Include="res\tcstep (trigger-failed).bmp" />
+    <None Include="res\tcstep (trigger-failed).png" />
+    <None Include="res\tcstep (trigger-forced).bmp" />
+    <None Include="res\tcstep (trigger-forced).png" />
+    <None Include="res\tcstep (trigger-running).bmp" />
+    <None Include="res\tcstep (trigger-running).png" />
+    <None Include="res\tcstep (user-interaction).bmp" />
+    <None Include="res\tcstep (user-interaction).png" />
+    <None Include="res\tcstep (wait-synchronization).bmp" />
+    <None Include="res\tcstep (wait-synchronization).png" />
+    <None Include="res\tcstep (wait-timeinterval).bmp" />
+    <None Include="res\tcstep (wait-timeinterval).png" />
+    <None Include="res\tcstep (whileloop-large).bmp" />
+    <None Include="res\tcstep (whileloop-large).png" />
+    <None Include="res\tcstep (whileloop-small).bmp" />
+    <None Include="res\tcstep (whileloop-small).png" />
+    <None Include="res\truetypefont.bmp" />
+    <None Include="SatView.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SatView.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SMTP\CryptoCertificate.h" />
+    <ClInclude Include="SMTP\CryptoChain.h" />
+    <ClInclude Include="SMTP\CryptoCRL.h" />
+    <ClInclude Include="SMTP\CryptoCTL.h" />
+    <ClInclude Include="SMTP\CryptoHelpers.h" />
+    <ClInclude Include="SMTP\CryptoStore.h" />
+    <ClInclude Include="SMTP\MD5.h" />
+    <ClInclude Include="SMTP\NTLMAuth.h" />
+    <ClInclude Include="SMTP\SMTP.h" />
+    <ClInclude Include="SMTP\SMTPSockets.h" />
+    <ClInclude Include="SMTP\SSLWrappers.h" />
+    <ClInclude Include="accounts.h" />
+    <ClInclude Include="assistant.h" />
+    <ClInclude Include="archive.h" />
+    <ClInclude Include="audio.h" />
+    <ClInclude Include="books.h" />
+    <ClInclude Include="compression.h" />
+    <ClInclude Include="controls.h" />
+    <ClInclude Include="database.h" />
+    <ClInclude Include="devices.h" />
+    <ClInclude Include="documents.h" />
+    <ClInclude Include="email.h" />
+    <ClInclude Include="event.h" />
+    <ClInclude Include="eventlog.h" />
+    <ClInclude Include="messages.h" />
+    <ClInclude Include="jscript.h" />
+    <ClInclude Include="language.h" />
+    <ClInclude Include="logfile.h" />
+    <ClInclude Include="macros.h" />
+    <ClInclude Include="mimics.h" />
+    <ClInclude Include="mutex.h" />
+    <ClInclude Include="network.h" />
+    <ClInclude Include="profiles.h" />
+    <ClInclude Include="registry.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SatView.h" />
+    <ClInclude Include="security.h" />
+    <ClInclude Include="strings.h" />
+    <ClInclude Include="tcprocedures.h" />
+    <ClInclude Include="thread.h" />
+    <ClInclude Include="timekey.h" />
+    <ClInclude Include="token.h" />
+    <ClInclude Include="tools.h" />
+    <ClInclude Include="ttcprocess.h" />
+    <ClInclude Include="version.h" />
+    <ClInclude Include="views.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="SatView.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

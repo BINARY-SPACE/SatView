@@ -1,0 +1,6 @@
+; SatView.def : Declares the module parameters for the DLL.
+
+LIBRARY      "SATVIEW"
+
+EXPORTS
+    ; Explicit exports can go here

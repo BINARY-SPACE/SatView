@@ -1,0 +1,678 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2145e526-64a4-4a09-aa4b-6432b3ae46e1}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;hpj;bat;for;f90</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{3730c549-4625-46bc-80cb-573696edb0d8}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;fi;fd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{9b4afa5c-60e2-4e10-bccc-f263fce35a0c}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="SMTP">
+      <UniqueIdentifier>{02390c80-a63a-4ad3-b659-93917c4fe93a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SMTP\Header Files">
+      <UniqueIdentifier>{e2f92631-aba6-4df4-9104-9a84f8fb6b44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SMTP\Source Files">
+      <UniqueIdentifier>{fdd23a39-50f3-4617-bae1-b15b338004eb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="accounts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="archive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="audio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="books.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="controls.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="database.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="devices.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="eventlog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="jscript.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="language.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="logfile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mimics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mutex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="network.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="profiles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="registry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SatView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="security.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tcprocedures.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="timekey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="token.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tools.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="version.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="views.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="assistant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ttcprocess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="compression.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="documents.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="email.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SMTP\NTLMAuth.cpp">
+      <Filter>SMTP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SMTP\SMTP.cpp">
+      <Filter>SMTP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SMTP\SMTPSockets.cpp">
+      <Filter>SMTP\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SatView.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="res\paper (left-top).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (left-middle).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (left-bottom).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (center-top).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (center-middle).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (center-bottom).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (right-top).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (right-middle).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (right-bottom).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (solid).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (horizontal).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (vertical).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (diagonal-down).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (diagonal-up).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (cross).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (cross-diagonal).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (points-low).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (points-medium).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (points-high).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\printerfont.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\truetypefont.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (start-large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (branch-large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (switch-large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (forloop-large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (whileloop-large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (doloop-large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (block-large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (goto-large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (label-large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (end-large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (start-small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (branch-small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (switch-small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (forloop-small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (whileloop-small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (doloop-small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (block-small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (goto-small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (label-small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (end-small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (direction-up).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (direction-left).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (direction-down).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (direction-right).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (status).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (status-mask).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (status-nomask).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (trigger-running).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (trigger-executed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (trigger-failed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (trigger-forced).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (body-running).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (body-executed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (body-failed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (body-forced).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (confirmation-running).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (confirmation-executed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (confirmation-failed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (confirmation-forced).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (set-arguments).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (set-variables).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (set-parameters).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (set-synchronization).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (inject-alert).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (call-procedure).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (start-procedure).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (control-procedure).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (control-thread).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (wait-timeinterval).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (wait-synchronization).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (send-tcfunction).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (send-tcsequence).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (log-message).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (user-interaction).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (split-horizontal).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (split-vertical).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (block-large).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (block-small).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (body-executed).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (body-failed).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (body-forced).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (body-running).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (branch-large).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (branch-small).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (call-procedure).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (confirmation-executed).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (confirmation-failed).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (confirmation-forced).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (confirmation-running).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (control-procedure).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (control-thread).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (direction-down).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (direction-left).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (direction-right).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (direction-up).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (doloop-large).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (doloop-small).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (end-large).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (end-small).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (forloop-large).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (forloop-small).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (goto-large).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (goto-small).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (inject-alert).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (label-large).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (label-small).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (log-message).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (send-tcfunction).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (send-tcsequence).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (set-arguments).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (set-parameters).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (set-synchronization).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (set-variables).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (start-large).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (start-procedure).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (start-small).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (status).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (status-mask).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (status-nomask).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (switch-large).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (switch-small).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (trigger-executed).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (trigger-failed).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (trigger-forced).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (trigger-running).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (user-interaction).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (wait-synchronization).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (wait-timeinterval).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (whileloop-large).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstep (whileloop-small).png">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SatView.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="accounts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="archive.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="audio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="books.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="database.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="devices.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eventlog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="jscript.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="language.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="logfile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mimics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mutex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="network.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="profiles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="registry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SatView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="security.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="strings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tcprocedures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="timekey.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="token.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tools.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="views.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="assistant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ttcprocess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="compression.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="documents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="messages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="email.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SMTP\CryptoCertificate.h">
+      <Filter>SMTP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SMTP\CryptoChain.h">
+      <Filter>SMTP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SMTP\CryptoCRL.h">
+      <Filter>SMTP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SMTP\CryptoCTL.h">
+      <Filter>SMTP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SMTP\CryptoHelpers.h">
+      <Filter>SMTP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SMTP\CryptoStore.h">
+      <Filter>SMTP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SMTP\MD5.h">
+      <Filter>SMTP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SMTP\NTLMAuth.h">
+      <Filter>SMTP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SMTP\SMTP.h">
+      <Filter>SMTP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SMTP\SMTPSockets.h">
+      <Filter>SMTP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SMTP\SSLWrappers.h">
+      <Filter>SMTP\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="messages.man">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>
