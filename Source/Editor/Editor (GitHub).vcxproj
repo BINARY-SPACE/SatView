@@ -442,7 +442,6 @@ echo.
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">hhc "Help\Editor.hhp"
 if not exist "Help\Editor.chm" goto :HelpError
 copy "Help\Editor.chm" "$(OutDir)Editor.chm"
-copy "Help\Editor.chm" "\Program Files\SatView\*.*"
 goto :HelpDone
 :HelpError
 echo Help\Editor.hhp(1) : error:Problem encountered creating help file
