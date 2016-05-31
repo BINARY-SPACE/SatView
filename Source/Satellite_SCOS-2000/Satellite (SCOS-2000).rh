@@ -1,0 +1,26 @@
+// SATELLITE (SCOS-2000).RH : Resource Related Identifier Definitions.
+//
+// This is a part of the SatView(TM) spacecraft operating system.
+// Copyright© 1992-2016 by BINARY SPACE, Switzerland.
+// All rights reserved.
+//
+// This source code contains the resource related identifier
+// definitions.
+//
+/**********************************************************************
+ * Modifications:                                                     *
+ *====================================================================*
+ * Date       | Release | Comments                                    *
+ *------------|---------|---------------------------------------------*
+ * 2013/03/06 | 1.00.00 | Initial creation. [AW]                      *
+ **********************************************************************/
+
+#ifndef __SATELLITE_SCOS2000_RH__
+#define __SATELLITE_SCOS2000_RH__
+
+
+#define MINSATELLITESCOS2000STRINGID   1000
+#define MAXSATELLITESCOS2000STRINGID   (MINSATELLITESCOS2000STRINGID+1)
+
+
+#endif // __SATELLITE_SCOS2000_RH__
