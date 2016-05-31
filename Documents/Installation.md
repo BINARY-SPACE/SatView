@@ -7,6 +7,7 @@
 - Rename the directories '**Satellite_SCOS-2000**' (inside '**SatView**') to '**Satellite (SCOS-2000)**' and '**Satellite_ALTEL**' to '**Satellite (ALTEL)**'
 - Add the following environment variables to the 'System variables':<br />
 'Include=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\shared;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\ucrt;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\um'<br />
+and<br />
 'Lib=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\amd64;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\lib\amd64;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10586.0\ucrt\x64;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10586.0\um\x64'
 - Open the Microsoft® Visual Studio® 2015 under the 'Administrator' account (right-click and select 'Run as administrator')
 - Open the project solution called 'SatView (GitHub)'
