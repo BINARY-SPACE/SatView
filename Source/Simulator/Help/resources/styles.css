@@ -1,0 +1,137 @@
+﻿.CompanyNameTextStyle {
+	font-family: CompanyFont, "Viper Squadron Solid", sans-serif;
+	font-size: 13px;
+	white-space: nowrap;
+	text-align: left;
+	color: #072C61;
+}
+.StandardTitleTextStyle {
+	font-family: "Futura Hv BT", sans-serif;
+	font-size: 18px;
+	text-align: left;
+	color: #072C61;
+}
+.StandardVersionTextStyle {
+	font-family: "Futura Bk BT", sans-serif;
+	font-size: 10px;
+	text-align: right;
+	color: #072C61;
+}
+.StandardSummaryTitleStyle {
+	font-family: "Futura Hv BT", sans-serif;
+	font-size: 14px;
+	text-align: left;
+	color: #072C61;
+}
+.StandardSummaryTextStyle {
+	font-family: "Futura Bk BT", sans-serif;
+	font-size: 12px;
+	text-align: left;
+	color: #072C61;
+}
+.StandardTextStyle {
+	font-family: "Futura Bk BT", sans-serif;
+	font-size: 12px;
+	text-align: left;
+	color: #072C61;
+}
+
+.StandardListTitleTextStyle {
+	font-family: "Futura Hv BT", sans-serif;
+	font-size: 15px;
+	margin-bottom: 10px;
+	text-align: left;
+	color: #072C61;
+}
+.StandardListItemTextStyle {
+	font-family: "Futura Bk BT", sans-serif;
+	font-size: 12px;
+	text-align: left;
+	color: #072C61;
+}
+.StandardListExpandableItemTextStyle {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: "Futura Hv BT", sans-serif;
+	font-size: 14px;
+	text-indent: 0px;
+	text-align: left;
+	color: #072C61;
+}
+
+.StandardTableStyle {
+	position: relative;
+	margin-left: 16px;
+	margin-right: 5px;
+	border-collapse: collapse;
+	word-spacing: 0px;
+	text-align: left;
+}
+.StandardTableTitleTextStyle {
+	font-family: "Futura Hv BT", sans-serif;
+	font-size: 12px;
+	text-align: left;
+	vertical-align: top;
+	color: #FFFFFF;
+}
+.StandardTableItemTextStyle {
+	font-family: "Futura Bk BT", sans-serif;
+	font-size: 12px;
+	text-align: left;
+	vertical-align: top;
+	color: #072C61;
+}
+
+.StandardMenuItemTextStyle {
+	font-family: "Wingdings";
+	font-size: 12px;
+	text-align: left;
+	color: #072C61;
+}
+
+.DPLKeyword {
+	font-family: "Futura Hv BT", sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	text-align: left;
+	color:  #072C61;
+}
+.DPLCode {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 12px;
+	font-weight: normal;
+	text-align: left;
+	color:  #072C61;
+}
+
+.MDLKeyword {
+	font-family: "Futura Hv BT", sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	text-align: left;
+	color:  #072C61;
+}
+.MDLCode {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 12px;
+	font-weight: normal;
+	text-align: left;
+	color:  #072C61;
+}
+
+.TPLKeyword {
+	font-family: "Futura Hv BT", sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	text-align: left;
+	color:  #072C61;
+}
+.TPLCode {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 12px;
+	font-weight: normal;
+	text-align: left;
+	color:  #072C61;
+}
