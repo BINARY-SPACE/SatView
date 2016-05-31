@@ -296,7 +296,6 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">hhc "Help\Simulator.hhp"
 if not exist "Help\Simulator.chm" goto :HelpError
 copy "Help\Simulator.chm" "$(OutDir)Simulator.chm"
-copy "Help\Simulator.chm" "\Program Files\SatView\*.*"
 goto :HelpDone
 :HelpError
 echo Help\Simulator.hhp(1) : error:Problem encountered creating help file
