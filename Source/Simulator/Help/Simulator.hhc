@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Precision Helper 2.0.1">
+<!-- Sitemap 1.0 -->
+</HEAD>
+<BODY>
+    <OBJECT type="text/site properties">
+      <param name="FrameName" value="right">
+      <param name="Window Styles" value="0x00800025">
+      <param name="ImageType" value="Folder">
+      <param name="comment" value="title:SatView™ Simulator Help">
+      <param name="comment" value="base:SatView_Simulator_Help.htm">
+    </OBJECT>
+    <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Welcome">
+          <param name="Local" value="SatView_Simulator_Help.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="New Features">
+          <param name="Local" value="SatView_Simulator_Help_New_Features.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telemetry Data Generation">
+          <param name="Local" value="SatView_Simulator_Help_Telemetry.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telecommand Processing">
+          <param name="Local" value="SatView_Simulator_Help_Telecommand.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Troubleshooting">
+          <param name="Local" value="SatView_Simulator_Help_Troubleshooting.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Contacts">
+          <param name="Local" value="SatView_Simulator_Help_Contacts.htm">
+        </OBJECT>
+    </UL>
+</BODY>
+</HTML>

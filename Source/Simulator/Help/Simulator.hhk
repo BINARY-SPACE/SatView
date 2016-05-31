@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Precision Helper 2.0.1">
+<!-- Sitemap 1.0 -->
+</HEAD>
+<BODY>
+    <OBJECT type="text/site properties">
+      <param name="FrameName" value="right">
+    </OBJECT>
+    <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="TCP/IP">
+          <param name="Local" value="SatView_Simulator_Help_Telemetry.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="ENERTEC TT&C 3801">
+          <param name="Local" value="SatView_Simulator_Help_Telemetry.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telemetry Data">
+          <param name="Local" value="SatView_Simulator_Help_Telemetry.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telemetry Data Provider Device">
+          <param name="Local" value="SatView_Simulator_Help_Telemetry.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telecommand Uplink Device">
+          <param name="Local" value="SatView_Simulator_Help_Telecommand.htm">
+        </OBJECT>
+    </UL>
+</BODY>
+</HTML>

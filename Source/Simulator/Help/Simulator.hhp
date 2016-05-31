@@ -1,0 +1,37 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Simulator.chm
+Contents file=Simulator.hhc
+Default window=SatView™ Simulator Help
+Default topic=SatView_Simulator_Help.htm
+Display compile progress=No
+Full-text search=Yes
+Index file=Simulator.hhk
+Language=0x0409 English (United States)
+Title=SatView™ Simulator Help
+Error log file=
+Full text search stop list file=
+Binary TOC=No
+Auto index=No
+Binary Index=Yes
+Create CHI file=No
+Display compile notes=Yes
+Enhanced decompilation=No
+Flat=No
+Default Font=Futura Bk BT,8,0
+
+[WINDOWS]
+SatView™ Simulator Help="SatView™ Simulator Help","Simulator.hhc","Simulator.hhk","SatView_Simulator_Help.htm","SatView_Simulator_Help.htm",,,,,0x00042520,264,0x0000305E,[271,372,593,566],0x000B0000,,,0,0,0,0
+
+[FILES]
+SatView_Help_Telemetry_Service_ENERTEC_Device_Clients_Dialog_Box.htm
+SatView_Help_Telemetry_Service_ENERTEC_Device_Dialog_Box.htm
+SatView_Help_Telemetry_Service_ENERTEC_Emulation_Device_Clients_Dialog_Box.htm
+SatView_Help_Telemetry_Service_ENERTEC_Emulation_Device_Dialog_Box.htm
+SatView_Simulator_Help.htm
+SatView_Simulator_Help_Contacts.htm
+SatView_Simulator_Help_New_Features.htm
+SatView_Simulator_Help_Telecommand.htm
+SatView_Simulator_Help_Telemetry.htm
+SatView_Simulator_Help_Troubleshooting.htm
+
