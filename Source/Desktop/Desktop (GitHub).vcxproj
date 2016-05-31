@@ -424,7 +424,6 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">hhc "Help\SatView.hhp"
 if not exist "Help\SatView.chm" goto :HelpError
 copy "Help\SatView.chm" "$(OutDir)SatView.chm"
-copy "Help\SatView.chm" "\Program Files\SatView\*.*"
 goto :HelpDone
 :HelpError
 echo Help\SatView.hhp(1) : error:Problem encountered creating help file
