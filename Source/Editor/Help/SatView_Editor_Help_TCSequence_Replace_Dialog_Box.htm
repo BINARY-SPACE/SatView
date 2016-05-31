@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>TC Sequence Replace Dialog Box</title>
+<link rel="stylesheet" type="text/css" href="resources/styles.css">
+<![if lte IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/iefix.css">
+<![endif]>
+<![if gt IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/ie.css">
+<![endif]>
+<script src="resources/behaviors.js" type="text/javascript"></script>
+</head>
+
+<body style="margin: 0 0 0 0;" background="images/background.jpg" onload="FP_callJS('onRecalcLayout()')">
+<img id="PageTemplate" src="images/template.png" alt="" style="position: absolute; left: 0px; top: 0px; width: 880px; height: 660px; border: none; outline: none;">
+<img id="PageFloater" src="images/templatebackground.png" alt="" style="position: absolute; left: 39px; top: 659px; width: 803px; height: auto; background-image: url('images/templatebackground.png'); background-repeat: repeat-y; display: none;">
+<img id="PageApplication" src="images/application.png" alt="" style="position: absolute; left: 50px; top: 90px; border: none; outline: none;">
+<div id="PageTitle" style="position: absolute; left: 295px; top: 84px; width: 545px; height: 22px;">
+	<span class="StandardTitleTextStyle" style="width: 545px;">TC Sequence Replace Dialog Box</span>
+</div>
+<div id="PageContents" style="position: absolute; left: 40px; top: 114px; width: 800px; height: auto; z-index: 1;">
+	<div id="PageHeader" style="position: relative; left: 0px; top: 0px; width: 550px; height: auto; float: right;">
+		<p class="StandardSummaryTitleStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-top: 10px; margin-bottom: 0px; text-indent: 0px; float: left;">SUMMARY</p>
+		<div id="PageVersionSection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; float: right;">
+			<span class="StandardVersionTextStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-right: 10px; float: right;">
+			<!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%A, %B %d, %Y" startspan -->Saturday, October 10, 2015<!--webbot bot="Timestamp" endspan i-checksum="670" --><br>Version 1.0</span>
+		</div>
+		<div id="PageSummarySection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-top: 2px; float: left;">
+			<div id="PageSummaryBox" style="position: relative; left: 0px; top: 0px; width: 538px; height: auto; border: 1px solid #FFFF00; background: #FFFFDD; margin-right: 5px; float: left;">
+				<p class="StandardSummaryTextStyle" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 0px; padding-top: 2px; padding-bottom: 2px; float: left;">SatView™ supports an interface to find and replace telecommand sequence definition related xml code.</p>
+			</div>
+		</div>
+	</div>
+	<div id="PageText" style="position: relative; left: 0px; top: 0px; width: 800px; height: auto; margin-bottom: 10px; float: left;">
+		<div id="HowDoISection" style="margin-left: 20px; margin-top: 20px; margin-right: 5px;">
+			<p class="StandardListTitleTextStyle">How do I...</p>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 10px; margin-top: 4px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListExpandableItemTextStyle" style="margin-top: 2px; cursor: pointer;" onclick="onClickListItem(event)">Replace Code</p>
+						<div style="display: none;">
+							<img src="images/collapsebutton.png" alt="">
+							<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; border: 1px solid #9BAFDE; background: #D9E9FE; z-index: 2;">
+								<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+									<li>Open the <b>Replace Dialog Box</b> if it is not open yet: Move the focus to the code pane and push the <b>Replace</b> button inside the <b>Editing</b> panel of the <b>Home</b> ribbon bar category.</li>
+									<li>Enter the text to be replaced into the <b>Find Text</b> edit field.<br><img src="images/note.gif" alt="" style="margin-left: 0px; margin-top: 4px; margin-right: 4px;"><span class="StandardListItemTextStyle">Note:</span><p class="StandardListItemTextStyle" style="margin-left: 0px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px;">Use the associated combo box in order to re-use previous searched words.</li>
+									<li>Type the replacement text <i>x</i> into the <b>Replace with <i>x</i></b> edit field.<br><img src="images/note.gif" alt="" style="margin-left: 0px; margin-top: 4px; margin-right: 4px;"><span class="StandardListItemTextStyle">Note:</span><p class="StandardListItemTextStyle" style="margin-left: 0px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px;">Previous replacement text can be found in the associated combo box.</li>
+									<li>Determine the direction the text replacement should take place by checking either the <b>Up</b> or <b>Down</b> radio button.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The search always starts with the first or last line available depending on the search direction if the <b>Search all</b> check box is marked.</li>
+									<li>
+										Choose one or more of the available search options:
+										<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px;">
+											<tr>
+												<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Option</font></b></p></td>
+												<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+											</tr>
+											<tr>
+												<td width="125" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Search all</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Searches all source code. Starts the search either from the first or last line (depending on the search direction) but not from the current one.</p></td>
+											</tr>
+											<tr>
+												<td width="125" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Match case</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Searches for a word or phrase with matching case.</p></td>
+											</tr>
+											<tr>
+												<td width="125" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Match whole word</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Searches for the specified word which may not be part of another word.</p></td>
+											</tr>
+										</table>
+									</li>
+									<li>
+										Take one of the following actions by pushing the corresponding button:
+										<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px;">
+											<tr>
+												<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Action</font></b></p></td>
+												<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+											</tr>
+											<tr>
+												<td width="125" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Find Next</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Jumps to the next (or previous) occurrence of the text and highlights it but does not replace it.</p></td>
+											</tr>
+											<tr>
+												<td width="125" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Replace</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Jumps to the next (or previous) occurrence of the text and replaces it immediately.</p></td>
+											</tr>
+											<tr>
+												<td width="125" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Replace All</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Replaces all occurrences of the searched text immediately.</p></td>
+											</tr>
+										</table>
+									</li>
+									<li>Push the <b>Close</b> button to terminate the text replacement.</li>
+								</ol>
+							</div>
+							<div style="position: relative; left: 0px; top: 0px; width: 100%; height: auto; margin-top: 5px; border: 1px solid #FE9B9B; background: #FEDDDD;">
+								<p class="StandardListItemTextStyle" style="margin: 2 5 2 5;"><span style="font-size: 14px;">Prerequisites:</span><br><span style="font-size: 12px;">The privilege '<b>Creating and modifying alphanumeric displays</b>' must be enabled to edit alphanumeric displays.</span></p>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<img id="PageFooter" src="images/templatebottom.png" alt="" style="position: relative; left: -1px; top: 0px;">
+</div>
+</body>
+
+</html>
