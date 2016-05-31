@@ -1,0 +1,1138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ca8c96ae-d221-42e7-9113-10c8b2e5ba07}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{8e5e622e-55e2-4ae0-bcbc-d90c2a5f6060}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{f00c863e-577e-4ce7-ab52-ec6e9e4da203}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="HTML Help Files">
+      <UniqueIdentifier>{01baf4c1-458e-45b8-9053-308244294458}</UniqueIdentifier>
+      <Extensions>hhp;hhc;hhk</Extensions>
+    </Filter>
+    <Filter Include="HTML Help Topics">
+      <UniqueIdentifier>{ee649453-a55e-497f-aeea-306aae712e34}</UniqueIdentifier>
+      <Extensions>htm;html</Extensions>
+    </Filter>
+    <Filter Include="HTML Help Files\Images">
+      <UniqueIdentifier>{44c05369-05a1-4c63-84ea-ff8dcfa66b36}</UniqueIdentifier>
+      <Extensions>bmp;gif;jpg;jpeg;png</Extensions>
+    </Filter>
+    <Filter Include="HTML Help Files\Resources">
+      <UniqueIdentifier>{8bb99a05-e442-44d7-ad91-fb568cef0067}</UniqueIdentifier>
+      <Extensions>css;js</Extensions>
+    </Filter>
+    <Filter Include="HTML Help Files\Templates">
+      <UniqueIdentifier>{ea86c4cc-a580-4cab-a169-f8bd23887dc5}</UniqueIdentifier>
+      <Extensions>htm;html</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="and.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="compiler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="displays.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="grd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="jcode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mmd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="obprocessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pod.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="profile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="script.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tcfunction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tcparameter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tcprocedure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tcsequence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tmpacket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tmparameter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dbms.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Editor.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="and.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="compiler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="displays.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="grd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="jcode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mmd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="obprocessor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="profile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="script.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tcfunction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tcparameter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tcprocedure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tcsequence.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tmpacket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tmparameter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dbms.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RES\about.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="RES\and.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Editor.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="RES\grd.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="RES\mmd.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Res\obprocessor.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="RES\pod.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Res\script.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Res\tcfunction.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Res\tcpacket.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Res\tcparameter.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Res\tcprocedure.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Res\tcsequence.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Res\tmpacket.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Res\tmparameter.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Res\toolbar6.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Res\toolbar7.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="RES\welcome.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="RES\welcome.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmd (position).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmd (size).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tab (database).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tab (procedures).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tab (logs).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (database-root).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (database-none).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (database-closed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (database-open).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (tmpacket).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (tcfunction).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (tmparameter).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (tcparameter).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (obprocessor).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (and).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (grd).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (mmd).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (pod).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (script).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (procedures-root).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (procedures-none).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (tcsequence).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (tcprocedure).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (logs-root).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (logs-none).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tree (logs-folder).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (size-directions).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (size-horizontal).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (size-vertical).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (split-horizontal).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (split-vertical).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (mimics-default).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (mimics-point).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (mimics-move).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (mimics-select).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (mimics-sizehorizontal).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (mimics-sizevertical).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (mimics-sizediagonalup).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (mimics-sizediagonaldown).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (mimics-turn).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (tcstep-point).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (tcstep-tip).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (zoom-point).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (zoom-drag).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (close).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (close-pressed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (expandhorizontal).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (expandhorizontal-pressed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (expandhorizontal-disabled).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (expandvertical).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (expandvertical-pressed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (expandvertical-disabled).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (contracthorizontal).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (contracthorizontal-pressed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (contractvertical).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (contractvertical-pressed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (scrollleft).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (scrollleft-pressed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (scrollleft-disabled).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (scrollright).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (scrollright-pressed).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (scrollright-disabled).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\button (findoptions).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor (mimics-sizealldirections).cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hometabimages (large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hometabimages (small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\about.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\help.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\menuimages (large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\menuimages (small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\buildtabimages (large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\buildtabimages (small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\debugtabimages (large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\debugtabimages (small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\viewtabimages (large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\viewtabimages (small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\databasetabimages (large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\databasetabimages (small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mimicstabimages (large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mimicstabimages (small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\telecommandstabimages (large).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\telecommandstabimages (small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\floatingmenuimages (small).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmdouterhorizontalthumb.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmdouterverticalthumb.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmdinnerhorizontalleftthumb.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmdinnerhorizontalrightthumb.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmdinnerverticaltopthumb.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmdinnerverticalbottomthumb.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstepstoolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstepstoolbar (disabled).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcstepsmenuimages.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mimicsobjectstoolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mimicsobjectstoolbar (disabled).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mimicsobjectsmenuimages.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Help\Editor.hhc">
+      <Filter>HTML Help Files</Filter>
+    </None>
+    <None Include="Help\Editor.hhk">
+      <Filter>HTML Help Files</Filter>
+    </None>
+    <None Include="Help\resources\behaviors.js">
+      <Filter>HTML Help Files\Resources</Filter>
+    </None>
+    <None Include="Help\resources\ie.css">
+      <Filter>HTML Help Files\Resources</Filter>
+    </None>
+    <None Include="Help\resources\iefix.css">
+      <Filter>HTML Help Files\Resources</Filter>
+    </None>
+    <None Include="Help\resources\styles.css">
+      <Filter>HTML Help Files\Resources</Filter>
+    </None>
+    <None Include="Help\templates\Template.htm">
+      <Filter>HTML Help Files\Templates</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Accounts.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_AND_Find_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_AND_GoTo_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_AND_Replace_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_AND_Save_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Compile_Batches_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Compile_Directives_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Compile_Options_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Compilers.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Compilers_Basics.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Contacts.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Basics.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_DBMS_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_DBMS_Tables_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Delete_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Export_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Find_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Import_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Open_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Table_Form_Export_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Table_Form_Import_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Table_Form_Open_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Table_Form_Properties_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Tables_Export_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Tables_Import_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Validity_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Database_Versioning_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Databases.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Display_Windows_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Editors.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Editors_Automation_Scripts.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Editors_Mimics_Displays.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Editors_Table_Forms.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Editors_Telecommand_Procedures.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_GRD_Find_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_GRD_GoTo_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_GRD_Replace_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_GRD_Save_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Login.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Login_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Group_Delete_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Group_Export_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Group_Import_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Group_Insert_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Group_New_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Object_Arc_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Object_Circle_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Object_Group_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Object_Image_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Object_Line_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Object_Link_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Object_Rectangle_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Object_Rotate_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Object_Switch_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Object_Text_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Mimics_Object_Triangle_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_MMD_Export_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_MMD_Find_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_MMD_GoTo_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_MMD_Import_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_MMD_Open_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_MMD_Properties_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_MMD_Replace_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_MMD_Save_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_MMD_Test_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_New_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_New_Features.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers_Automation.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers_Automation_Scripts.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers_Automation_Service.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers_Databases.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers_Databases_Syntax.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers_Interfaces.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers_Interfaces_Memorydumps.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers_Interfaces_PFLP.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers_Interfaces_TPEP.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers_Languages.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers_Languages_DPL.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers_Languages_MDL.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Papers_Languages_TPL.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_POD_Find_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_POD_GoTo_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_POD_Replace_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_POD_Save_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Script_Export_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Script_Find_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Script_GoTo_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Script_Import_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Script_Open_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Script_Properties_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Script_PropertiesParameterDetails_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Script_PropertiesParameters_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Script_Replace_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Script_Save_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Export_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Find_Code_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Find_Flowchart_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_GoTo_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Import_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Open_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_Arguments_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_Branch_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_CallProcedure_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_Code_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_ControlProcedure_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_ControlThread_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_Debug_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_DoLoop_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_ForLoop_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_Goto_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_InjectAlert_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_Label_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_LogMessage_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_Overview_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_Parameters_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_SendTCFunction_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_SendTCFunctionParameters_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_SendTCFunctionParameterSets_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_SendTCSequence_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_SetArguments_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_SetParameters_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_SetSynchronizationObject_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_SetVariables_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_StartProcedure_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_Steps_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_Switch_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_TCStack_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_TestProfileParameters_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_TestTCParameters_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_TestTMParameters_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_Threads_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_UserInteraction_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_Variables_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_WaitSynchronizationObject_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_WaitTimeInterval_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Properties_WhileLoop_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Replace_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCProcedure_Save_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCSequence_Find_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCSequence_GoTo_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCSequence_Replace_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_TCSequence_Save_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Tools.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Tools_Options.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Tools_Options_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Troubleshooting.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_User_Accounts.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_User_Accounts_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_User_Interface.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_User_Interface_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_User_Interface_Keyboard.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_User_Interface_Ribbonbar.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_User_Privileges.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_User_Privileges_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_User_Privileges_Summary.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="Help\SatView_Editor_Help_Welcome_Dialog_Box.htm">
+      <Filter>HTML Help Topics</Filter>
+    </None>
+    <None Include="res\mainframe.mfcribbon-ms">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmdinnerhorizontalleftthumb.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmdinnerhorizontalrightthumb.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmdinnerverticalbottomthumb.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmdinnerverticaltopthumb.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmdouterhorizontalthumb.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mmdouterverticalthumb.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tab (database).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tab (logs).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tab (procedures).png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcprocedure (thread).tpl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tcprocedure.tpl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Editor.rh">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Help\images\application.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\automationscripts.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\background.jpg">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\bullet.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\collapsebutton.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\company.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\company-location.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\ENERTEC.jpg">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\expandbutton.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\formtables.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\formview.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\info.gif">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\largescalemap.gif">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\logo.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\mmdinterface.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\note.gif">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\pflpmessages.jpg">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\pflptimeformat.jpg">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\SatView Automation Service Mechanism.jpg">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\SatView Automation Service P2P Connection.jpg">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\SatView Interfaces.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\scriptinterface.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\tcpinterface.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\template.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\templatebackground.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\templatebottom.png">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\tpepmessageheader.jpg">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\tpepmessages.jpg">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+    <Image Include="Help\images\warning.gif">
+      <Filter>HTML Help Files\Images</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Help\Editor.hhp">
+      <Filter>HTML Help Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>
