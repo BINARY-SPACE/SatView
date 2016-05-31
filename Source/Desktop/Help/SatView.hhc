@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Precision Helper 2.0.1">
+<!-- Sitemap 1.0 -->
+</HEAD>
+<BODY>
+    <OBJECT type="text/site properties">
+      <param name="FrameName" value="right">
+      <param name="Window Styles" value="0x00800025">
+      <param name="ImageType" value="Folder">
+      <param name="comment" value="title:SatView™ Desktop Help">
+      <param name="comment" value="base:SatView_Desktop_Help.htm">
+    </OBJECT>
+    <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Welcome">
+          <param name="Local" value="SatView_Desktop_Help.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Log-in">
+          <param name="Local" value="SatView_Desktop_Help_Login.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="New Features">
+          <param name="Local" value="SatView_Desktop_Help_New_Features.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="System Settings">
+          <param name="Local" value="SatView_Desktop_Help_Settings.htm">
+        </OBJECT>
+        <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Display Area">
+              <param name="Local" value="SatView_Desktop_Help_Settings_Displayarea.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Event Logs">
+              <param name="Local" value="SatView_Desktop_Help_Settings_Eventlogs.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Printing">
+              <param name="Local" value="SatView_Desktop_Help_Settings_Printing.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Auditions">
+              <param name="Local" value="SatView_Desktop_Help_Settings_Auditions.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Notfications">
+              <param name="Local" value="SatView_Desktop_Help_Settings_Notifications.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Miscellaneous">
+              <param name="Local" value="SatView_Desktop_Help_Settings_Miscellaneous.htm">
+            </OBJECT>
+        </UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="System Accounts">
+          <param name="Local" value="SatView_Desktop_Help_Accounts.htm">
+        </OBJECT>
+        <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Users">
+              <param name="Local" value="SatView_Desktop_Help_User_Accounts.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Privileges">
+              <param name="Local" value="SatView_Desktop_Help_User_Privileges.htm">
+            </OBJECT>
+        </UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="System Alerts">
+          <param name="Local" value="SatView_Desktop_Help_System_Alerts.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Automation Service">
+          <param name="Local" value="SatView_Desktop_Help_Automation_Service.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telemetry Data Processing">
+          <param name="Local" value="SatView_Desktop_Help_Telemetry.htm">
+        </OBJECT>
+        <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Telemetry Service">
+              <param name="Local" value="SatView_Desktop_Help_Telemetry_Service.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Memory Dumps Service">
+              <param name="Local" value="SatView_Desktop_Help_MemoryDumps_Service.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="PFLP Service">
+              <param name="Local" value="SatView_Desktop_Help_PFLP_Service.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="TPEP Service">
+              <param name="Local" value="SatView_Desktop_Help_TPEP_Service.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Archives">
+              <param name="Local" value="SatView_Desktop_Help_Telemetry_Archives.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Displays">
+              <param name="Local" value="SatView_Desktop_Help_Telemetry_Displays.htm">
+            </OBJECT>
+            <UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Alphanumeric Display (AND)">
+                  <param name="Local" value="SatView_Desktop_Help_AND.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Graphic Display (GRD)">
+                  <param name="Local" value="SatView_Desktop_Help_GRD.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Hexadecimal Display (HEX)">
+                  <param name="Local" value="SatView_Desktop_Help_HEX.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Out-of-limit Display (OOL)">
+                  <param name="Local" value="SatView_Desktop_Help_OOL.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Mimics Display (MMD)">
+                  <param name="Local" value="SatView_Desktop_Help_MMD.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Parameter Observation Display (POD)">
+                  <param name="Local" value="SatView_Desktop_Help_POD.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Telemetry Parameter Exchange Protocol Display (TPEP)">
+                  <param name="Local" value="SatView_Desktop_Help_TPEP_Display.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Eventbox">
+                  <param name="Local" value="SatView_Desktop_Help_Eventbox.htm">
+                </OBJECT>
+            </UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Events">
+              <param name="Local" value="SatView_Desktop_Help_Telemetry_Events.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Reports">
+              <param name="Local" value="SatView_Desktop_Help_Telemetry_Reports.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Parameters">
+              <param name="Local" value="SatView_Desktop_Help_Telemetry_Parameters.htm">
+            </OBJECT>
+        </UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Telecommand Processing">
+          <param name="Local" value="SatView_Desktop_Help_Telecommand.htm">
+        </OBJECT>
+        <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Telecommand Service">
+              <param name="Local" value="SatView_Desktop_Help_Telecommand_Service.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Displays">
+              <param name="Local" value="SatView_Desktop_Help_Telecommand_Displays.htm">
+            </OBJECT>
+            <UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="TC Manual Stack">
+                  <param name="Local" value="SatView_Desktop_Help_TCManualStack.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="TC Automatic Stack">
+                  <param name="Local" value="SatView_Desktop_Help_TCAutomaticStack.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="TC Procedures Monitor">
+                  <param name="Local" value="SatView_Desktop_Help_TCProceduresMonitor.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="TC Diagnostics Oversampling Dump Display">
+                  <param name="Local" value="SatView_Desktop_Help_TCDiagnosticsOversamplingDump.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="TC On-Board Buffer Queues Display">
+                  <param name="Local" value="SatView_Desktop_Help_TCOnBoardBufferQueues.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="TC On-Board Memory Images Display">
+                  <param name="Local" value="SatView_Desktop_Help_TCOnBoardMemoryImages.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="TC History Display">
+                  <param name="Local" value="SatView_Desktop_Help_TCHistory.htm">
+                </OBJECT>
+            </UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Parameters">
+              <param name="Local" value="SatView_Desktop_Help_Telecommand_Parameters.htm">
+            </OBJECT>
+        </UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Address Books">
+          <param name="Local" value="SatView_Desktop_Help_Addressbooks.htm">
+        </OBJECT>
+        <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Servers">
+              <param name="Local" value="SatView_Desktop_Help_Addressbook_Servers.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Users">
+              <param name="Local" value="SatView_Desktop_Help_Addressbook_Users.htm">
+            </OBJECT>
+        </UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Tools">
+          <param name="Local" value="SatView_Desktop_Help_Tools.htm">
+        </OBJECT>
+        <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Download Options">
+              <param name="Local" value="SatView_Desktop_Help_Tools_Downloads.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Database Options">
+              <param name="Local" value="SatView_Desktop_Help_Tools_Options.htm">
+            </OBJECT>
+			<LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Satellite Tracking Options">
+              <param name="Local" value="SatView_Desktop_Help_Tools_Options.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="E-Mail Options">
+              <param name="Local" value="SatView_Desktop_Help_Tools_Options.htm">
+            </OBJECT>
+        </UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="User Interface">
+          <param name="Local" value="SatView_Desktop_Help_User_Interface.htm">
+        </OBJECT>
+        <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Ribbon Bar">
+              <param name="Local" value="SatView_Desktop_Help_User_Interface_Ribbonbar.htm">
+            </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Keyboard">
+              <param name="Local" value="SatView_Desktop_Help_User_Interface_Keyboard.htm">
+            </OBJECT>
+        </UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Papers">
+          <param name="Local" value="SatView_Desktop_Help_Papers.htm">
+        </OBJECT>
+        <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Databases">
+              <param name="Local" value="SatView_Desktop_Help_Papers_Databases.htm">
+            </OBJECT>
+            <UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Table Definitions and Rules">
+                  <param name="Local" value="SatView_Desktop_Help_Papers_Databases_Syntax.htm">
+                </OBJECT>
+            </UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Interfaces">
+              <param name="Local" value="SatView_Desktop_Help_Papers_Interfaces.htm">
+            </OBJECT>
+            <UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Packet Front-End Link Protocol (PFLP)">
+                  <param name="Local" value="SatView_Desktop_Help_Papers_Interfaces_PFLP.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Telemetry Parameter Exchange Protocol (TPEP)">
+                  <param name="Local" value="SatView_Desktop_Help_Papers_Interfaces_TPEP.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Memory Dumps Interface">
+                  <param name="Local" value="SatView_Desktop_Help_Papers_Interfaces_Memorydumps.htm">
+                </OBJECT>
+            </UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Programming Languages">
+              <param name="Local" value="SatView_Desktop_Help_Papers_Languages.htm">
+            </OBJECT>
+            <UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Derived Parameter Language (DPL)">
+                  <param name="Local" value="SatView_Desktop_Help_Papers_Languages_DPL.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Mimics Description Language (MDL)">
+                  <param name="Local" value="SatView_Desktop_Help_Papers_Languages_MDL.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Telecommand Procedure Language (TPL)">
+                  <param name="Local" value="SatView_Desktop_Help_Papers_Languages_TPL.htm">
+                </OBJECT>
+            </UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Automation Concepts">
+              <param name="Local" value="SatView_Desktop_Help_Papers_Automation.htm">
+            </OBJECT>
+            <UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Automation Service">
+                  <param name="Local" value="SatView_Desktop_Help_Papers_Automation_Service.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Automation Scripts">
+                  <param name="Local" value="SatView_Desktop_Help_Papers_Automation_Scripts.htm">
+                </OBJECT>
+            </UL>
+        </UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Troubleshooting">
+          <param name="Local" value="SatView_Desktop_Help_Troubleshooting.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Contacts">
+          <param name="Local" value="SatView_Desktop_Help_Contacts.htm">
+        </OBJECT>
+    </UL>
+</BODY>
+</HTML>

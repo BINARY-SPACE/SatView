@@ -1,0 +1,941 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Memory Dumps Interface</title>
+<link rel="stylesheet" type="text/css" href="resources/styles.css">
+<![if lte IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/iefix.css">
+<![endif]>
+<![if gt IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/ie.css">
+<![endif]>
+<script src="resources/behaviors.js" type="text/javascript"></script>
+</head>
+
+<body style="margin: 0 0 0 0;" background="images/background.jpg" onload="FP_callJS('onRecalcLayout()')">
+<img id="PageTemplate" src="images/template.png" alt="" style="position: absolute; left: 0px; top: 0px; width: 880px; height: 660px; border: none; outline: none;">
+<img id="PageFloater" src="images/templatebackground.png" alt="" style="position: absolute; left: 39px; top: 659px; width: 803px; height: auto; background-image: url('images/templatebackground.png'); background-repeat: repeat-y; display: none;">
+<img id="PageApplication" src="images/application.png" alt="" style="position: absolute; left: 50px; top: 90px; border: none; outline: none;">
+<div id="PageTitle" style="position: absolute; left: 295px; top: 84px; width: 545px; height: 22px;">
+	<span class="StandardTitleTextStyle" style="width: 545px;">Memory Dumps Interface</span>
+</div>
+<div id="PageContents" style="position: absolute; left: 40px; top: 114px; width: 800px; height: auto; z-index: 1;">
+	<div id="PageHeader" style="position: relative; left: 0px; top: 0px; width: 550px; height: auto; float: right;">
+		<p class="StandardSummaryTitleStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-top: 10px; margin-bottom: 0px; text-indent: 0px; float: left;">SUMMARY</p>
+		<div id="PageVersionSection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; float: right;">
+			<span class="StandardVersionTextStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-right: 10px; float: right;">
+			<!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%A, %B %d, %Y" startspan -->Saturday, October 10, 2015<!--webbot bot="Timestamp" endspan i-checksum="670" --><br>Version 1.0</span>
+		</div>
+		<div id="PageSummarySection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-top: 2px; float: left;">
+			<div id="PageSummaryBox" style="position: relative; left: 0px; top: 0px; width: 538px; height: auto; border: 1px solid #FFFF00; background: #FFFFDD; margin-right: 5px; float: left;">
+				<p class="StandardSummaryTextStyle" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 0px; padding-top: 2px; padding-bottom: 2px; float: left;">SatView™ comes with a special memory dump interface that allows the processing, archiving and distribution of on-board memory dumps alongside the standard telemetry data services.</p>
+			</div>
+		</div>
+	</div>
+	<div id="PageText" style="position: relative; left: 0px; top: 0px; width: 800px; height: auto; margin-bottom: 10px; float: left;">
+		<div id="HowDoISection" style="margin-left: 20px; margin-top: 20px; margin-right: 5px; display: none;">
+			<p class="StandardListTitleTextStyle">How do I...</p>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 10px; margin-top: 4px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListExpandableItemTextStyle" style="margin-top: 2px; cursor: pointer;" onclick="onClickListItem(event)"></p>
+						<div style="margin-bottom: 10px; display: block;">
+							<img src="images/collapsebutton.png" alt="">
+							<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; border: 1px solid #9BAFDE; background: #D9E9FE;">
+								<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+								</ol>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 20px; margin-bottom: 2px;">Contents</p>
+		<ul class="StandardListTitleTextStyle" style="list-style-type: none; margin-left: 20px; margin-top: 2px; margin-right: 5px; margin-bottom: 20px; padding-left: 0px; font-size: 14px;">
+			<li>1. <a href="#Introduction" style="color: #072C61;">Introduction</a></li>
+			<li>2. <a href="#Interface Description" style="color: #072C61;">Interface Description</a><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>2.1. Memory Mapping</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>2.2. Filename Convention</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>2.3. Archiving &amp; Retrievals</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>2.4. Notifications</b></span></li>
+			<li>3. <a href="#File Format" style="color: #072C61;">File Format</a></li>
+			<li>4. <a href="#Memory Acquisition Buffer (MAB)" style="color: #072C61;">Memory Acquisition Buffer</a> (MAB)<br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>4.1. Normal Format</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>4.2. Descriptive Format</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>4.3. Delimited Format</b></span></li>
+		</ul>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Document Change Log</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 20px;">
+			<tr>
+				<td width="50" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Issue</font></b></p></td>
+				<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Revision</font></b></p></td>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Date</font></b></p></td>
+				<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Affected</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Reason</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">December 1998</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">All</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">New document</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">2</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">June 1999</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 4</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Changed MAB format</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">3</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">September 1999</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 4</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Modified delimited MAB format (due to NASDA request)</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">November 2001</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 4</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Different MAB time offset</p></td>
+			</tr>
+		</table>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Table of Figures</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 20px;">
+			<tr>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Figure</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+			</tr>
+		</table>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Legend</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 40px;">
+			<tr>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Mnemonic</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+			</tr>
+		</table>
+		<ul class="StandardListTitleTextStyle" style="list-style-type: none; margin-left: 20px; margin-top: 20px; margin-bottom: 2px; margin-right: 5px; padding-left: 0px; font-size: 14px;">
+			<li>
+				<p style="margin-bottom: 2px;">1. <a name="Introduction">Introduction</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 0px;">This document provides a description of how and to what extent SatView™ handles the various types of spacecraft memory dumps. It must be stated here that the <i>Memory Dump Service</i> described hereinafter is a light-weight solution compared to the <i>TC On-board Memory Images Display</i> which is used to reflect the complete on-board memory status of a spacecraft.</p>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">2. <a name="Interface Description">Interface Description</a></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px;">SatView™ incorporates a special memory dump facility that allows the processing, archiving and retrieving of such data alongside the standard telemetry data management.<br>Any memory area required to be handled this way can be registered interactively by its name, starting page address and offset as well as with its size. The source of the dump data needs to be specified as well because different telemetry source packets carry the corresponding information.<br>Whenever memory dump data is received that matches with the specified source and one of the specified memory areas, a file is automatically generated carrying the raw data headed by some further information. Special additional processing is performed by SatView™ for the <i>Mission Acquisition Buffer</i> (MAB). Dump data can be monitored in real-time and retrieval mode by using the <a href="SatView_Desktop_Help_HEX.htm">HEX Display</a> window (HEX).</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>2.1. Memory Mapping</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">A special dialog box is provided by SatView™ in order to register, modify or delete memory areas from the list of dumps to be handled by this facility. The following information is required to register a new memory area:</p>
+				<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 16px; padding-left: 0px;">
+					<li style="margin-top: -2px;">Name of the memory area</li>
+					<li style="margin-top: -5px;">Page address and offset including the size of the memory area</li>
+					<li style="margin-top: -5px;">Source of the dump data</li>
+				</ul>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;">Further information that needs to be provided for a successful registration (related to archiving and notification) is explained later.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>2.2. Filename Convention</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">All files generated by this facility are named using the syntax: <i>xxx_YYYYMMDD_hhmmss.ext</i> where <i>YYYY</i> is the year, <i>MM</i> the month, <i>DD</i> the day of month, <i>hh</i> the hour, <i>mm</i> the minutes and <i>ss</i> the seconds. The filename reflects the correlated UTC time of the first telemetry source packet that started the dump. <i>xxx</i> is user definable (should be 'SPY' for the <i>SPY Buffer</i> or 'MAB' for the <i>Mission Acquisition Buffer</i>) and <i>ext</i> is the file extension.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>2.3. Archiving &amp; Retrievals</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The following parameters related to the file-based archiving can be defined interactively:</p>
+				<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 16px; padding-left: 0px;">
+					<li style="margin-top: -2px;">Parts of the filename (<i>xxx</i> and <i>ext</i>) as well as the directory</li>
+					<li style="margin-top: -5px;">Various file formats (MAB only)</li>
+					<li style="margin-top: -5px;">Retention options</li>
+				</ul>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;">Retrievals are possible on archived files (previously generated memory dumps) or by reconstructing the memory dumps through reprocessing of the archived telemetry data.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>2.4. Notifications</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">Remote users can be notified by SatView™ when dump data of a registered memory area has arrived. The notification can be requested on a per-memory area basis and consists of a file transfer via FTP. In order to setup such a notification procedure the following information needs to be provided:</p>
+				<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 16px; padding-left: 0px;">
+					<li style="margin-top: -2px;">FTP address of the destination to where the file should be sent to</li>
+					<li style="margin-top: -5px;">Directory on the destination host</li>
+					<li style="margin-top: -5px;">User name and password</li>
+					<li style="margin-top: -5px;">Port number</li>
+					<li style="margin-top: -5px;">Filtering options</li>
+				</ul>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;">Access to the Internet is obtained through standard Microsoft® Windows® communication services.</p>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">3. <a name="File Format">File Format</a></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;">The standard file format generated by this memory dump facility looks as follows:</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;"><b>SPACECRAFT:</b> ARTEMIS<br><b>APPLICATION:</b> SatView <i>x.x</i><br><b>INTERFACE:</b> On-Board Memory Dump<br><b>NAME:</b> <i>Name of Memory Area</i><br><b>SOURCE:</b> <i>Name of the Source</i><br><b>DUMP TAG:</b> <i>XXXX</i><br><b>DUMP TIME:</b> <i>YYYY/MM/DD hh:mm:ss.nnn</i><br><b>ADDRESS RANGE:</b> <i>XXXXXXXX-XXXXXXXX</i> (Hex) or <b>FIRST REGISTER:</b> <i>DDDD</i><br><b>STATUS:</b> Complete or Incomplete<br><i>Memory Dump Data</i></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 8px; margin-bottom: 0px;"><u>Legend</u>:</p>
+				<table class="StandardListItemTextStyle" cellpadding="0" cellspacing="0">
+					<tr>
+						<td valign="top" style="width: 140px;"><b><i>x.x</i></b></td>
+						<td>Version Number</td>
+					</tr>
+					<tr>
+						<td valign="top" style="width: 140px;"><b><i>XXXXXXXX-XXXXXXXX</i></b></td>
+						<td>Memory Area Address (Hex)<br>May be a 16-bit or 32-bit address depending on the spacecraft.</td>
+					</tr>
+					<tr>
+						<td valign="top" style="width: 140px;"><b><i>DDDD</i></b></td>
+						<td>Number of the first register<br>May be one or more digits.</td>
+					</tr>
+					<tr>
+						<td valign="top" style="width: 140px;"><b><i>YYYY</i></b></td>
+						<td>Year</td>
+					</tr>
+					<tr>
+						<td valign="top" style="width: 140px;"><b><i>MM</i></b></td>
+						<td>Month</td>
+					</tr>
+					<tr>
+						<td valign="top" style="width: 140px;"><b><i>DD</i></b></td>
+						<td>Day of month</td>
+					</tr>
+					<tr>
+						<td valign="top" style="width: 140px;"><b><i>HH</i></b></td>
+						<td>Hours</td>
+					</tr>
+					<tr>
+						<td valign="top" style="width: 140px;"><b><i>MM</i></b></td>
+						<td>Minutes</td>
+					</tr>
+					<tr>
+						<td valign="top" style="width: 140px;"><b><i>SS</i></b></td>
+						<td>Seconds</td>
+					</tr>
+					<tr>
+						<td valign="top" style="width: 140px;"><b><i>nnn</i></b></td>
+						<td>Milliseconds</td>
+					</tr>
+					<tr>
+						<td valign="top" style="width: 140px;"><b><i>Memory Dump Data</i></b></td>
+						<td>Character-based hexadecimal string delimited by a space every 16-bits and a CR/LF every 16 words. Missing data is marked with a ‘<b>?</b>’ i.e. gaps are detected whenever possible.</td>
+					</tr>
+				</table>
+				<img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;"><span class="StandardTextStyle">Note:</span>
+				<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 16px; padding-left: 0px;">
+					<li style="margin-top: -3px;">The '<b>ADDRESS RANGE</b>' entry is not listed in memory register dumps.</li>
+					<li style="margin-top: -5px;">The '<b>FIRST REGISTER</b>' item is listed in memory register dumps only.</li>
+				</ul>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">4. <a name="Memory Acquisition Buffer (MAB)">Memory Acquisition Buffer (MAB)</a></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;">Special file formats are generated in the case of the <i>Mission Acquisition Buffer</i> (MAB). In addition to the standard one described in the previous chapter, a delimited as well as a descriptive format can be built upon request.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>4.1. Normal Format</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 4px;">This chapter shows a sample MAB in the normal format. For comparison reasons, the same one is formatted in the descriptive and delimited way in the next chapters.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">
+					<span style="font-family: Courier New; font-size: 10px;">
+						SPACECRAFT: ARTEMIS<br>
+						APPLICATION: SatView 1.0<br>
+						INTERFACE: On-Board Memory Dump<br>
+						NAME: Memory Acquisition Buffer<br>
+						SOURCE: Intelligent User<br>
+						DUMP TAG: 050N<br>
+						DUMP TIME: 2001/11/15 01:57:37.377<br>
+						ADDRESS RANGE: A000-A97F (Hex)<br>
+						STATUS: Complete<br>
+						0025 1CE2 00F2 4F71 00C9 9F67 00DA C3E7 0001 00BB 008B 00FF 0000 DC22 3ACE 00FB<br>
+						C3EC 0078 0080 8833 DBFF 3AAB 0080 882D DBF3 3A9F 0080 8828 DBE7 3A93 0080 881B<br>
+						DBDB 3A87 0080 9724 DBFB 3AA7 0080 9731 DC06 3AB2 0080 9731 DC11 3ABD 0080 9730<br>
+						DC1C 3AC8 0080 9723 DC27 3AD3 0080 971B DC32 3ADE 0080 871B DC11 3AE9 0080 8825<br>
+						DC05 3AC8 0080 8830 DBF9 3ABC 0080 8835 DBED 3AB0 0080 8831 DBE1 3AA4 0080 981F<br>
+						DC01 3A98 0080 9725 DC0C 3AB8 0080 9751 DC17 3AC3 0080 9733 DC22 3ACE 0080 9726<br>
+						DC2D 3AD9 0080 872B DC0C 3AE4 0080 8725 DC00 3AEF 0080 8829 DBF4 3ACE 0080 883A<br>
+						DBE8 3AC2 0080 883B DBDC 3AB6 0080 8826 DBD0 3AAA 0080 9825 DBF0 3A9E 0080 9722<br>
+						DBFB 3ABE 0080 972E DC06 3AC9 0080 9744 DC11 3AD4 0080 972B DC1C 3ADF 0080 8721<br>
+						DBFB 3AEA 0080 8832 DBEF 3AC9 0080 8826 DBE3 3ABD 0080 8822 DBD7 3AB1 0080 881D<br>
+						DBCB 3AA5 0080 981E DBEB 3A99 0080 9727 DBF6 3AB9 0080 972B DC01 3AC4 0080 9730<br>
+						DC0C 3ACF 0080 9727 DC17 3ADA 0080 871E DBF6 3AE5 0080 871C DBEA 3AF0 0080 881E<br>
+						DBDE 3ACF 0080 881F DBD2 3AC3 0080 881F DBC6 3AB7 0080 9824 DBE6 3AAB 0080 9823<br>
+						DBF1 3A9F 0080 972A DBFC 3ABF 0080 9733 DC07 3ACA 0080 972F DC12 3AD5 0080 9726<br>
+						DC1D 3AE0 0080 872A DBFC 3AEB 0080 872C DBF0 3AF6 0080 8830 DBE4 3AD5 0080 8835<br>
+						DBD8 3AC9 0080 8841 DBCC 3ABD 0080 9833 DBEC 3AB1 0080 9826 DBF7 3AA5 0080 9724<br>
+						DC02 3AC5 0080 9740 DC0D 3AD0 0080 9738 DC18 3ADB 0080 8722 DBF7 3AE6 0080 8720<br>
+						DBEB 3AF1 0080 8828 DBDF 3AD0 0080 882A DBD3 3AC4 0080 8825 DBC7 3AB8 0080 9824<br>
+						DBE7 3AAC 0080 982A DBF2 3AA0 0080 9727 DBFD 3AC0 0080 972D DC08 3ACB 0080 9742<br>
+						DC13 3AD6 0080 8726 DBF2 3AE1 0080 8736 DBE6 3AEC 0080 872B DBDA 3AF7 0080 882B<br>
+						DBCE 3AD6 0080 8830 DBC2 3ACA 0080 9844 DBE2 3ABE 0080 9840 DBED 3AB2 0080 9838<br>
+						DBF8 3AA6 0080 973D DC03 3AC6 0080 9735 DC0E 3AD1 0080 973B DC19 3ADC 0080 8735<br>
+						DBF8 3AE7 0080 8739 DBEC 3AF2 0080 8840 DBE0 3AD1 0080 8842 DBD4 3AC5 0080 8834<br>
+						DBC8 3AB9 0080 9829 DBE8 3AAD 0080 9828 DBF3 3AA1 0080 972E DBFE 3AC1 0080 972B<br>
+						DC09 3ACC 0080 9734 DC14 3AD7 0080 8731 DBF3 3AE2 0080 872E DBE7 3AED 0080 872B<br>
+						DBDB 3AF8 0080 882C DBCF 3AD7 0080 882B DBC3 3ACB 0080 9830 DBE3 3ABF 0080 983F<br>
+						DBEE 3AB3 0080 9834 DBF9 3AA7 0080 972A DC04 3AC7 0080 9742 DC0F 3AD2 0080 8720<br>
+						DBEE 3ADD 0080 8723 DBE2 3AE8 0080 8737 DBD6 3AF3 0080 882A DBCA 3AD2 0080 8824<br>
+						DBBE 3AC6 0080 9833 DBDE 3ABA 0080 983A DBE9 3AAE 0080 982B DBF4 3AA2 0080 972E<br>
+						DBFF 3AC2 0080 972B DC0A 3ACD 0080 9720 DC15 3AD8 0080 872B DBF4 3AE3 0080 872F<br>
+						DBE8 3AEE 0080 871F DBDC 3AF9 0080 882B DBD0 3AD8 0080 8826 DBC4 3ACC 0080 982A<br>
+						DBE4 3AC0 0019 C6EC 001A C810 0001 00AE 00B3 0063 0000 E137 2DBA 003B C815 0078<br>
+						0080 9722 E158 2DDB 0080 9720 E163 2DE6 0080 971F E16E 2DF1 0080 9720 E179 2DFC<br>
+						0080 971F E184 2E07 0080 871D E163 2E12 0080 8721 E157 2E1D 0080 8721 E14B 2E28<br>
+						0080 881B E13F 2E07 0080 8819 E133 2DFB 0080 981D E153 2DEF 0080 9827 E15E 2DE3<br>
+						0080 9823 E169 2DD7 0080 981D E174 2DCB 0080 971A E17F 2DEB 0080 871F E15E 2DF6<br>
+						0080 8728 E152 2E01 0080 8724 E146 2E0C 0080 871B E13A 2E17 0080 881E E12E 2DF6<br>
+						0080 9824 E14E 2DEA 0080 982A E159 2DDE 0080 982B E164 2DD2 0080 9822 E16F 2DC6<br>
+						0080 981D E17A 2DBA 0080 8819 E159 2DAE 0080 871C E14D 2DCE 0080 8725 E141 2DD9<br>
+						0080 8723 E135 2DE4 0080 871A E129 2DEF 0080 9818 E149 2DCE 0080 9827 E154 2DC2<br>
+						0080 982B E15F 2DB6 0080 981C E16A 2DAA 0080 9818 E175 2D9E 0080 8813 E175 2D9E<br>
+						0080 8718 E154 2DBE 0080 8729 E148 2DC9 0080 8734 E13C 2DD4 0080 871C E130 2DDF<br>
+						0080 8817 E124 2DBE 0080 981E E144 2DB2 0080 9827 E14F 2DA6 0080 9842 E15A 2D9A<br>
+						0080 983A E165 2D8E 0080 9827 E170 2D82 0080 9819 E17B 2D76 0080 8722 E15A 2D96<br>
+						0080 872F E14E 2DA1 0080 874B E142 2DAC 0080 8742 E136 2DB7 0080 8724 E12A 2DC2<br>
+						0080 9824 E14A 2DA1 0080 9829 E155 2D95 0080 982B E160 2D89 0080 9827 E16B 2D7D<br>
+						0080 981D E176 2D71 0000 9812 E176 2D71 0080 8715 E155 2D91 0080 8724 E149 2D9C<br>
+						0080 8730 E13D 2DA7 0080 872C E131 2DB2 0080 881F E125 2D91 0080 982F E145 2D85<br>
+						0080 9833 E150 2D79 0080 9833 E15B 2D6D 0080 982A E166 2D61 0080 9825 E171 2D55<br>
+						0080 971C E17C 2D75 0080 8726 E15B 2D80 0080 8728 E14F 2D8B 0080 872E E143 2D96<br>
+						0080 8822 E137 2D75 0080 881E E12B 2D69 0080 982D E14B 2D5D 0080 983D E156 2D51<br>
+						0080 9833 E161 2D45 0080 972B E16C 2D65 0080 972D E177 2D70 0080 9728 E182 2D7B<br>
+						0080 8728 E161 2D86 0080 8722 E155 2D91 0080 8832 E149 2D70 0080 8839 E13D 2D64<br>
+						0080 882D E131 2D58 0080 983F E151 2D4C 0080 983C E15C 2D40 0080 982C E167 2D34<br>
+						0080 972D E172 2D54 0080 972F E17D 2D5F 0080 9730 E188 2D6A 0080 8729 E167 2D75<br>
+						0080 8724 E15B 2D80 0080 882D E14F 2D5F 0080 882D E143 2D53 0080 8825 E137 2D47<br>
+						0080 982D E157 2D3B 0080 982E E162 2D2F 0080 971F E16D 2D4F 0080 9726 E178 2D5A<br>
+						0080 9724 E183 2D65 0080 9720 E18E 2D70 0080 8825 E16D 2D4F 0080 8847 E161 2D43<br>
+						0080 8835 E155 2D37 0080 8837 E149 2D2B 0080 8821 E13D 2D1F 0080 9725 E15D 2D3F<br>
+						0080 974A E168 2D4A 0080 9732 E173 2D55 0080 9720 E17E 2D60 0080 9720 E189 2D6B<br>
+						0080 9825 E194 2D4A 0080 8827 E173 2D3E 0080 8838 E167 2D32 0080 883F E15B 2D26<br>
+						0080 8833 E14F 2D1A 0080 9820 E16F 2D0E 0080 972B E17A 2D2E 0080 973A E185 2D39<br>
+						00FE E07B 00F2 4FE7 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+						0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<br>
+					</span>
+				</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>4.2. Descriptive Format</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 4px;">This format follows the syntax outlined in the document ‘ARTEMIS-OICETS INTERSATELLITE LINK EXPERIMENT IN ORBIT TEST PLAN’ (Ref: R/TTN/9811, page 12) with the exception of the time indication which is expressed as an offset (0s &le; t &lt; 256s).</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">
+					<span style="font-family: Courier New; font-size: 10px;">
+						The FPSCE entered BIAS 2 CALIBRATION mode after 28s, (0' 28.882")<br><br>
+						The FPSCE entered IDLE mode after 79s, (1' 19.441")<br><br>
+						The SCANNING started after 159s, (2' 39.402")<br><br>
+						The ACQUISITION started after 195s, (3' 15.902")<br>
+						The acquisition was performed in 1 step<br>
+						The first detected address on the acquisition sensor was ASDX=6.388750 mrad, ASDY=2.838125 mrad<br>
+						The corresponding FPA commands were FPACOMX=-44.833984 mrad, FPACOMY=73.505859 mrad<br>
+						The first detected level above threshold was ASVMAX=255 lsb<br><br>
+						The RALLYING 1 started after 195s, (3' 15.921")<br>
+						The detected addresses and levels on the TS and the corresponding FPA commands sampled at 4 kHz were:<br>
+						TSDX (lsb),TSDY (lsb),TSVMAX (lsb),FPA command X (mrad),FPA command Y (mrad)<br>
+						8,8,51,-45.004883,73.334961<br>
+						8,8,45,-45.063477,73.276367<br>
+						8,8,40,-45.122070,73.217773<br>
+						8,8,27,-45.180664,73.159180<br>
+						9,7,36,-45.024414,73.315430<br>
+						9,7,49,-44.970703,73.369141<br>
+						9,7,49,-44.916992,73.422852<br>
+						9,7,48,-44.863281,73.476563<br>
+						9,7,35,-44.809570,73.530273<br>
+						9,7,27,-44.755859,73.583984<br>
+						8,7,27,-44.916992,73.637695<br>
+						8,8,37,-44.975586,73.476563<br>
+						8,8,48,-45.034180,73.417969<br>
+						8,8,53,-45.092773,73.359375<br>
+						8,8,49,-45.151367,73.300781<br>
+						9,8,31,-44.995117,73.242188<br>
+						9,7,37,-44.941406,73.398438<br>
+						9,7,81,-44.887695,73.452148<br>
+						9,7,51,-44.833984,73.505859<br>
+						9,7,38,-44.780273,73.559570<br>
+						8,7,43,-44.941406,73.613281<br>
+						8,7,37,-45.000000,73.666992<br>
+						8,8,41,-45.058594,73.505859<br>
+						8,8,58,-45.117188,73.447266<br>
+						8,8,59,-45.175781,73.388672<br>
+						8,8,38,-45.234375,73.330078<br>
+						9,8,37,-45.078125,73.271484<br>
+						9,7,34,-45.024414,73.427734<br>
+						9,7,46,-44.970703,73.481445<br>
+						9,7,68,-44.916992,73.535156<br>
+						9,7,43,-44.863281,73.588867<br>
+						8,7,33,-45.024414,73.642578<br>
+						8,8,50,-45.083008,73.481445<br>
+						8,8,38,-45.141602,73.422852<br>
+						8,8,34,-45.200195,73.364258<br>
+						8,8,29,-45.258789,73.305664<br>
+						9,8,30,-45.102539,73.247070<br>
+						9,7,39,-45.048828,73.403320<br>
+						9,7,43,-44.995117,73.457031<br>
+						9,7,48,-44.941406,73.510742<br>
+						9,7,39,-44.887695,73.564453<br>
+						8,7,30,-45.048828,73.618164<br>
+						8,7,28,-45.107422,73.671875<br>
+						8,8,30,-45.166016,73.510742<br>
+						8,8,31,-45.224609,73.452148<br>
+						8,8,31,-45.283203,73.393555<br>
+						9,8,36,-45.126953,73.334961<br>
+						9,8,35,-45.073242,73.276367<br>
+						9,7,42,-45.019531,73.432617<br>
+						9,7,51,-44.965820,73.486328<br>
+						9,7,47,-44.912109,73.540039<br>
+						9,7,38,-44.858398,73.593750<br>
+						8,7,42,-45.019531,73.647461<br>
+						8,7,44,-45.078125,73.701172<br>
+						8,8,48,-45.136719,73.540039<br>
+						8,8,53,-45.195313,73.481445<br>
+						8,8,65,-45.253906,73.422852<br>
+						9,8,51,-45.097656,73.364258<br>
+						9,8,38,-45.043945,73.305664<br>
+						9,7,36,-44.990234,73.461914<br>
+						9,7,64,-44.936523,73.515625<br>
+						9,7,56,-44.882813,73.569336<br>
+						8,7,34,-45.043945,73.623047<br>
+						8,7,32,-45.102539,73.676758<br>
+						8,8,40,-45.161133,73.515625<br>
+						8,8,42,-45.219727,73.457031<br>
+						8,8,37,-45.278320,73.398438<br>
+						9,8,36,-45.122070,73.339844<br>
+						9,8,42,-45.068359,73.281250<br>
+						9,7,39,-45.014648,73.437500<br>
+						9,7,45,-44.960938,73.491211<br>
+						9,7,66,-44.907227,73.544922<br>
+						8,7,38,-45.068359,73.598633<br>
+						8,7,54,-45.126953,73.652344<br>
+						8,7,43,-45.185547,73.706055<br>
+						8,8,43,-45.244141,73.544922<br>
+						8,8,48,-45.302734,73.486328<br>
+						9,8,68,-45.146484,73.427734<br>
+						9,8,64,-45.092773,73.369141<br>
+						9,8,56,-45.039063,73.310547<br>
+						9,7,61,-44.985352,73.466797<br>
+						9,7,53,-44.931641,73.520508<br>
+						9,7,59,-44.877930,73.574219<br>
+						8,7,53,-45.039063,73.627930<br>
+						8,7,57,-45.097656,73.681641<br>
+						8,8,64,-45.156250,73.520508<br>
+						8,8,66,-45.214844,73.461914<br>
+						8,8,52,-45.273438,73.403320<br>
+						9,8,41,-45.117188,73.344727<br>
+						9,8,40,-45.063477,73.286133<br>
+						9,7,46,-45.009766,73.442383<br>
+						9,7,43,-44.956055,73.496094<br>
+						9,7,52,-44.902344,73.549805<br>
+						8,7,49,-45.063477,73.603516<br>
+						8,7,46,-45.122070,73.657227<br>
+						8,7,43,-45.180664,73.710938<br>
+						8,8,44,-45.239258,73.549805<br>
+						8,8,43,-45.297852,73.491211<br>
+						9,8,48,-45.141602,73.432617<br>
+						9,8,63,-45.087891,73.374023<br>
+						9,8,52,-45.034180,73.315430<br>
+						9,7,42,-44.980469,73.471680<br>
+						9,7,66,-44.926758,73.525391<br>
+						8,7,32,-45.087891,73.579102<br>
+						8,7,35,-45.146484,73.632813<br>
+						8,7,55,-45.205078,73.686523<br>
+						8,8,42,-45.263672,73.525391<br>
+						8,8,36,-45.322266,73.466797<br>
+						9,8,51,-45.166016,73.408203<br>
+						9,8,58,-45.112305,73.349609<br>
+						9,8,43,-45.058594,73.291016<br>
+						9,7,46,-45.004883,73.447266<br>
+						9,7,43,-44.951172,73.500977<br>
+						9,7,32,-44.897461,73.554688<br>
+						8,7,43,-45.058594,73.608398<br>
+						8,7,47,-45.117188,73.662109<br>
+						8,7,31,-45.175781,73.715820<br>
+						8,8,43,-45.234375,73.554688<br>
+						8,8,38,-45.292969,73.496094<br>
+						9,8,42,-45.136719,73.437500<br><br>
+						The SCANNING started after 198s, (3' 18.921")<br><br>
+						The ACQUISITION started after 200s, (3' 20.62")<br>
+						The acquisition was performed in 1 step<br>
+						The first detected address on the acquisition sensor was ASDX=12.482500 mrad, ASDY=-15.911875 mrad<br>
+						The corresponding FPA commands were FPACOMX=-38.481445 mrad, FPACOMY=57.158203 mrad<br>
+						The first detected level above threshold was ASVMAX=99 lsb<br><br>
+						The RALLYING 1 started after 200s, (3' 20.82")<br>
+						The detected addresses and levels on the TS and the corresponding FPA commands sampled at 4 kHz were:<br>
+						TSDX (lsb),TSDY (lsb),TSVMAX (lsb),FPA command X (mrad),FPA command Y (mrad)<br>
+						9,7,34,-38.320313,57.319336<br>
+						9,7,32,-38.266602,57.373047<br>
+						9,7,31,-38.212891,57.426758<br>
+						9,7,32,-38.159180,57.480469<br>
+						9,7,31,-38.105469,57.534180<br>
+						8,7,29,-38.266602,57.587891<br>
+						8,7,33,-38.325195,57.641602<br>
+						8,7,33,-38.383789,57.695313<br>
+						8,8,27,-38.442383,57.534180<br>
+						8,8,25,-38.500977,57.475586<br>
+						9,8,29,-38.344727,57.416992<br>
+						9,8,39,-38.291016,57.358398<br>
+						9,8,35,-38.237305,57.299805<br>
+						9,8,29,-38.183594,57.241211<br>
+						9,7,26,-38.129883,57.397461<br>
+						8,7,31,-38.291016,57.451172<br>
+						8,7,40,-38.349609,57.504883<br>
+						8,7,36,-38.408203,57.558594<br>
+						8,7,27,-38.466797,57.612305<br>
+						8,8,30,-38.525391,57.451172<br>
+						9,8,36,-38.369141,57.392578<br>
+						9,8,42,-38.315430,57.333984<br>
+						9,8,43,-38.261719,57.275391<br>
+						9,8,34,-38.208008,57.216797<br>
+						9,8,29,-38.154297,57.158203<br>
+						8,8,25,-38.315430,57.099609<br>
+						8,7,28,-38.374023,57.255859<br>
+						8,7,37,-38.432617,57.309570<br>
+						8,7,35,-38.491211,57.363281<br>
+						8,7,26,-38.549805,57.416992<br>
+						9,8,24,-38.393555,57.255859<br>
+						9,8,39,-38.339844,57.197266<br>
+						9,8,43,-38.286133,57.138672<br>
+						9,8,28,-38.232422,57.080078<br>
+						9,8,24,-38.178711,57.021484<br>
+						8,8,19,-38.178711,57.021484<br>
+						8,7,24,-38.339844,57.177734<br>
+						8,7,41,-38.398438,57.231445<br>
+						8,7,52,-38.457031,57.285156<br>
+						8,7,28,-38.515625,57.338867<br>
+						8,8,23,-38.574219,57.177734<br>
+						9,8,30,-38.417969,57.119141<br>
+						9,8,39,-38.364258,57.060547<br>
+						9,8,66,-38.310547,57.001953<br>
+						9,8,58,-38.256836,56.943359<br>
+						9,8,39,-38.203125,56.884766<br>
+						9,8,25,-38.149414,56.826172<br>
+						8,7,34,-38.310547,56.982422<br>
+						8,7,47,-38.369141,57.036133<br>
+						8,7,75,-38.427734,57.089844<br>
+						8,7,66,-38.486328,57.143555<br>
+						8,7,36,-38.544922,57.197266<br>
+						9,8,36,-38.388672,57.036133<br>
+						9,8,41,-38.334961,56.977539<br>
+						9,8,43,-38.281250,56.918945<br>
+						9,8,39,-38.227539,56.860352<br>
+						9,8,29,-38.173828,56.801758<br>
+						9,8,18,-38.173828,56.801758<br>
+						8,7,21,-38.334961,56.958008<br>
+						8,7,36,-38.393555,57.011719<br>
+						8,7,48,-38.452148,57.065430<br>
+						8,7,44,-38.510742,57.119141<br>
+						8,8,31,-38.569336,56.958008<br>
+						9,8,47,-38.413086,56.899414<br>
+						9,8,51,-38.359375,56.840820<br>
+						9,8,51,-38.305664,56.782227<br>
+						9,8,42,-38.251953,56.723633<br>
+						9,8,37,-38.198242,56.665039<br>
+						9,7,28,-38.144531,56.821289<br>
+						8,7,38,-38.305664,56.875000<br>
+						8,7,40,-38.364258,56.928711<br>
+						8,7,46,-38.422852,56.982422<br>
+						8,8,34,-38.481445,56.821289<br>
+						8,8,30,-38.540039,56.762695<br>
+						9,8,45,-38.383789,56.704102<br>
+						9,8,61,-38.330078,56.645508<br>
+						9,8,51,-38.276367,56.586914<br>
+						9,7,43,-38.222656,56.743164<br>
+						9,7,45,-38.168945,56.796875<br>
+						9,7,40,-38.115234,56.850586<br>
+						8,7,40,-38.276367,56.904297<br>
+						8,7,34,-38.334961,56.958008<br>
+						8,8,50,-38.393555,56.796875<br>
+						8,8,57,-38.452148,56.738281<br>
+						8,8,45,-38.510742,56.679688<br>
+						9,8,63,-38.354492,56.621094<br>
+						9,8,60,-38.300781,56.562500<br>
+						9,8,44,-38.247070,56.503906<br>
+						9,7,45,-38.193359,56.660156<br>
+						9,7,47,-38.139648,56.713867<br>
+						9,7,48,-38.085938,56.767578<br>
+						8,7,41,-38.247070,56.821289<br>
+						8,7,36,-38.305664,56.875000<br>
+						8,8,45,-38.364258,56.713867<br>
+						8,8,45,-38.422852,56.655273<br>
+						8,8,37,-38.481445,56.596680<br>
+						9,8,45,-38.325195,56.538086<br>
+						9,8,46,-38.271484,56.479492<br>
+						9,7,31,-38.217773,56.635742<br>
+						9,7,38,-38.164063,56.689453<br>
+						9,7,36,-38.110352,56.743164<br>
+						9,7,32,-38.056641,56.796875<br>
+						8,8,37,-38.217773,56.635742<br>
+						8,8,71,-38.276367,56.577148<br>
+						8,8,53,-38.334961,56.518555<br>
+						8,8,55,-38.393555,56.459961<br>
+						8,8,33,-38.452148,56.401367<br>
+						9,7,37,-38.295898,56.557617<br>
+						9,7,74,-38.242188,56.611328<br>
+						9,7,50,-38.188477,56.665039<br>
+						9,7,32,-38.134766,56.718750<br>
+						9,7,32,-38.081055,56.772461<br>
+						9,8,37,-38.027344,56.611328<br>
+						8,8,39,-38.188477,56.552734<br>
+						8,8,56,-38.247070,56.494141<br>
+						8,8,63,-38.305664,56.435547<br>
+						8,8,51,-38.364258,56.376953<br>
+						9,8,32,-38.208008,56.318359<br>
+						9,7,43,-38.154297,56.474609<br>
+						9,7,58,-38.100586,56.528320<br><br>
+						The TRACKING 2 started after 224s, (3' 44.480")<br><br>
+						The FPSCE entered IDLE mode after 79s, (1' 19.902")<br>
+					</span>
+				</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>4.3. Delimited Format</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 4px;">This format is supplied to ease the use with spreadsheet applications like for example with Microsoft® Excel®.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">
+					<span style="font-family: Courier New; font-size: 10px;">
+						"FPSCE MODE: BIAS 2 CALIBRATION"<br>
+						"AS FLAG","TS FLAG","BEACON FLAG","TELECOM FLAG","FPSCE OBRT","FPSCE TIME"<br>
+						"INACTIVE","ACTIVE","INACTIVE","INACTIVE",7394,28.882<br><br>
+						"FPSCE MODE: IDLE"<br>
+						"AS FLAG","TS FLAG","BEACON FLAG","TELECOM FLAG","FPSCE OBRT","FPSCE TIME"<br>
+						"ACTIVE","ACTIVE","ACTIVE","ACTIVE",20337,79.441<br><br>
+						"FPSCE MODE: SCANNING"<br>
+						"AS FLAG","TS FLAG","BEACON FLAG","TELECOM FLAG","FPSCE OBRT","FPSCE TIME"<br>
+						"INACTIVE","INACTIVE","ACTIVE","ACTIVE",40807,159.402<br><br>
+						"FPSCE MODE: ACQUISITION"<br>
+						"AS FLAG","TS FLAG","BEACON FLAG","TELECOM FLAG","FPSCE OBRT","FPSCE TIME","STEPS"<br>
+						"ACTIVE","INACTIVE","ACTIVE","ACTIVE",50151,195.902,1<br>
+						"ASDX (mrad)","ASDY (mrad)","ASVMAX (lsb)","ASVMIN (lsb)","FPACOMX (mrad)","FPACOMY (mrad)"<br>
+						6.388750,2.838125,255,0,-44.833984,73.505859<br><br>
+						"FPSCE MODE: RALLYING 1"<br>
+						"AS FLAG","TS FLAG","BEACON FLAG","TELECOM FLAG","FPSCE OBRT","FPSCE TIME","SAMPLES"<br>
+						"ACTIVE","ACTIVE","ACTIVE","ACTIVE",50156,195.921,120<br>
+						"BEACON FLAG","TELECOM FLAG","TSDX (lsb)","TSDY (lsb)","TSVMAX (lsb)","FPACOMX (mrad)","FPACOMY (mrad)"<br>
+						"INACTIVE","ACTIVE",8,8,51,-45.004883,73.334961<br>
+						"INACTIVE","ACTIVE",8,8,45,-45.063477,73.276367<br>
+						"INACTIVE","ACTIVE",8,8,40,-45.122070,73.217773<br>
+						"INACTIVE","ACTIVE",8,8,27,-45.180664,73.159180<br>
+						"INACTIVE","ACTIVE",9,7,36,-45.024414,73.315430<br>
+						"INACTIVE","ACTIVE",9,7,49,-44.970703,73.369141<br>
+						"INACTIVE","ACTIVE",9,7,49,-44.916992,73.422852<br>
+						"INACTIVE","ACTIVE",9,7,48,-44.863281,73.476563<br>
+						"INACTIVE","ACTIVE",9,7,35,-44.809570,73.530273<br>
+						"INACTIVE","ACTIVE",9,7,27,-44.755859,73.583984<br>
+						"INACTIVE","ACTIVE",8,7,27,-44.916992,73.637695<br>
+						"INACTIVE","ACTIVE",8,8,37,-44.975586,73.476563<br>
+						"INACTIVE","ACTIVE",8,8,48,-45.034180,73.417969<br>
+						"INACTIVE","ACTIVE",8,8,53,-45.092773,73.359375<br>
+						"INACTIVE","ACTIVE",8,8,49,-45.151367,73.300781<br>
+						"INACTIVE","ACTIVE",9,8,31,-44.995117,73.242188<br>
+						"INACTIVE","ACTIVE",9,7,37,-44.941406,73.398438<br>
+						"INACTIVE","ACTIVE",9,7,81,-44.887695,73.452148<br>
+						"INACTIVE","ACTIVE",9,7,51,-44.833984,73.505859<br>
+						"INACTIVE","ACTIVE",9,7,38,-44.780273,73.559570<br>
+						"INACTIVE","ACTIVE",8,7,43,-44.941406,73.613281<br>
+						"INACTIVE","ACTIVE",8,7,37,-45.000000,73.666992<br>
+						"INACTIVE","ACTIVE",8,8,41,-45.058594,73.505859<br>
+						"INACTIVE","ACTIVE",8,8,58,-45.117188,73.447266<br>
+						"INACTIVE","ACTIVE",8,8,59,-45.175781,73.388672<br>
+						"INACTIVE","ACTIVE",8,8,38,-45.234375,73.330078<br>
+						"INACTIVE","ACTIVE",9,8,37,-45.078125,73.271484<br>
+						"INACTIVE","ACTIVE",9,7,34,-45.024414,73.427734<br>
+						"INACTIVE","ACTIVE",9,7,46,-44.970703,73.481445<br>
+						"INACTIVE","ACTIVE",9,7,68,-44.916992,73.535156<br>
+						"INACTIVE","ACTIVE",9,7,43,-44.863281,73.588867<br>
+						"INACTIVE","ACTIVE",8,7,33,-45.024414,73.642578<br>
+						"INACTIVE","ACTIVE",8,8,50,-45.083008,73.481445<br>
+						"INACTIVE","ACTIVE",8,8,38,-45.141602,73.422852<br>
+						"INACTIVE","ACTIVE",8,8,34,-45.200195,73.364258<br>
+						"INACTIVE","ACTIVE",8,8,29,-45.258789,73.305664<br>
+						"INACTIVE","ACTIVE",9,8,30,-45.102539,73.247070<br>
+						"INACTIVE","ACTIVE",9,7,39,-45.048828,73.403320<br>
+						"INACTIVE","ACTIVE",9,7,43,-44.995117,73.457031<br>
+						"INACTIVE","ACTIVE",9,7,48,-44.941406,73.510742<br>
+						"INACTIVE","ACTIVE",9,7,39,-44.887695,73.564453<br>
+						"INACTIVE","ACTIVE",8,7,30,-45.048828,73.618164<br>
+						"INACTIVE","ACTIVE",8,7,28,-45.107422,73.671875<br>
+						"INACTIVE","ACTIVE",8,8,30,-45.166016,73.510742<br>
+						"INACTIVE","ACTIVE",8,8,31,-45.224609,73.452148<br>
+						"INACTIVE","ACTIVE",8,8,31,-45.283203,73.393555<br>
+						"INACTIVE","ACTIVE",9,8,36,-45.126953,73.334961<br>
+						"INACTIVE","ACTIVE",9,8,35,-45.073242,73.276367<br>
+						"INACTIVE","ACTIVE",9,7,42,-45.019531,73.432617<br>
+						"INACTIVE","ACTIVE",9,7,51,-44.965820,73.486328<br>
+						"INACTIVE","ACTIVE",9,7,47,-44.912109,73.540039<br>
+						"INACTIVE","ACTIVE",9,7,38,-44.858398,73.593750<br>
+						"INACTIVE","ACTIVE",8,7,42,-45.019531,73.647461<br>
+						"INACTIVE","ACTIVE",8,7,44,-45.078125,73.701172<br>
+						"INACTIVE","ACTIVE",8,8,48,-45.136719,73.540039<br>
+						"INACTIVE","ACTIVE",8,8,53,-45.195313,73.481445<br>
+						"INACTIVE","ACTIVE",8,8,65,-45.253906,73.422852<br>
+						"INACTIVE","ACTIVE",9,8,51,-45.097656,73.364258<br>
+						"INACTIVE","ACTIVE",9,8,38,-45.043945,73.305664<br>
+						"INACTIVE","ACTIVE",9,7,36,-44.990234,73.461914<br>
+						"INACTIVE","ACTIVE",9,7,64,-44.936523,73.515625<br>
+						"INACTIVE","ACTIVE",9,7,56,-44.882813,73.569336<br>
+						"INACTIVE","ACTIVE",8,7,34,-45.043945,73.623047<br>
+						"INACTIVE","ACTIVE",8,7,32,-45.102539,73.676758<br>
+						"INACTIVE","ACTIVE",8,8,40,-45.161133,73.515625<br>
+						"INACTIVE","ACTIVE",8,8,42,-45.219727,73.457031<br>
+						"INACTIVE","ACTIVE",8,8,37,-45.278320,73.398438<br>
+						"INACTIVE","ACTIVE",9,8,36,-45.122070,73.339844<br>
+						"INACTIVE","ACTIVE",9,8,42,-45.068359,73.281250<br>
+						"INACTIVE","ACTIVE",9,7,39,-45.014648,73.437500<br>
+						"INACTIVE","ACTIVE",9,7,45,-44.960938,73.491211<br>
+						"INACTIVE","ACTIVE",9,7,66,-44.907227,73.544922<br>
+						"INACTIVE","ACTIVE",8,7,38,-45.068359,73.598633<br>
+						"INACTIVE","ACTIVE",8,7,54,-45.126953,73.652344<br>
+						"INACTIVE","ACTIVE",8,7,43,-45.185547,73.706055<br>
+						"INACTIVE","ACTIVE",8,8,43,-45.244141,73.544922<br>
+						"INACTIVE","ACTIVE",8,8,48,-45.302734,73.486328<br>
+						"INACTIVE","ACTIVE",9,8,68,-45.146484,73.427734<br>
+						"INACTIVE","ACTIVE",9,8,64,-45.092773,73.369141<br>
+						"INACTIVE","ACTIVE",9,8,56,-45.039063,73.310547<br>
+						"INACTIVE","ACTIVE",9,7,61,-44.985352,73.466797<br>
+						"INACTIVE","ACTIVE",9,7,53,-44.931641,73.520508<br>
+						"INACTIVE","ACTIVE",9,7,59,-44.877930,73.574219<br>
+						"INACTIVE","ACTIVE",8,7,53,-45.039063,73.627930<br>
+						"INACTIVE","ACTIVE",8,7,57,-45.097656,73.681641<br>
+						"INACTIVE","ACTIVE",8,8,64,-45.156250,73.520508<br>
+						"INACTIVE","ACTIVE",8,8,66,-45.214844,73.461914<br>
+						"INACTIVE","ACTIVE",8,8,52,-45.273438,73.403320<br>
+						"INACTIVE","ACTIVE",9,8,41,-45.117188,73.344727<br>
+						"INACTIVE","ACTIVE",9,8,40,-45.063477,73.286133<br>
+						"INACTIVE","ACTIVE",9,7,46,-45.009766,73.442383<br>
+						"INACTIVE","ACTIVE",9,7,43,-44.956055,73.496094<br>
+						"INACTIVE","ACTIVE",9,7,52,-44.902344,73.549805<br>
+						"INACTIVE","ACTIVE",8,7,49,-45.063477,73.603516<br>
+						"INACTIVE","ACTIVE",8,7,46,-45.122070,73.657227<br>
+						"INACTIVE","ACTIVE",8,7,43,-45.180664,73.710938<br>
+						"INACTIVE","ACTIVE",8,8,44,-45.239258,73.549805<br>
+						"INACTIVE","ACTIVE",8,8,43,-45.297852,73.491211<br>
+						"INACTIVE","ACTIVE",9,8,48,-45.141602,73.432617<br>
+						"INACTIVE","ACTIVE",9,8,63,-45.087891,73.374023<br>
+						"INACTIVE","ACTIVE",9,8,52,-45.034180,73.315430<br>
+						"INACTIVE","ACTIVE",9,7,42,-44.980469,73.471680<br>
+						"INACTIVE","ACTIVE",9,7,66,-44.926758,73.525391<br>
+						"INACTIVE","ACTIVE",8,7,32,-45.087891,73.579102<br>
+						"INACTIVE","ACTIVE",8,7,35,-45.146484,73.632813<br>
+						"INACTIVE","ACTIVE",8,7,55,-45.205078,73.686523<br>
+						"INACTIVE","ACTIVE",8,8,42,-45.263672,73.525391<br>
+						"INACTIVE","ACTIVE",8,8,36,-45.322266,73.466797<br>
+						"INACTIVE","ACTIVE",9,8,51,-45.166016,73.408203<br>
+						"INACTIVE","ACTIVE",9,8,58,-45.112305,73.349609<br>
+						"INACTIVE","ACTIVE",9,8,43,-45.058594,73.291016<br>
+						"INACTIVE","ACTIVE",9,7,46,-45.004883,73.447266<br>
+						"INACTIVE","ACTIVE",9,7,43,-44.951172,73.500977<br>
+						"INACTIVE","ACTIVE",9,7,32,-44.897461,73.554688<br>
+						"INACTIVE","ACTIVE",8,7,43,-45.058594,73.608398<br>
+						"INACTIVE","ACTIVE",8,7,47,-45.117188,73.662109<br>
+						"INACTIVE","ACTIVE",8,7,31,-45.175781,73.715820<br>
+						"INACTIVE","ACTIVE",8,8,43,-45.234375,73.554688<br>
+						"INACTIVE","ACTIVE",8,8,38,-45.292969,73.496094<br>
+						"INACTIVE","ACTIVE",9,8,42,-45.136719,73.437500<br><br>
+						"FPSCE MODE: SCANNING"<br>
+						"AS FLAG","TS FLAG","BEACON FLAG","TELECOM FLAG","FPSCE OBRT","FPSCE TIME"<br>
+						"ACTIVE","INACTIVE","INACTIVE","INACTIVE",50924,198.921<br><br>
+						"FPSCE MODE: ACQUISITION"<br>
+						"AS FLAG","TS FLAG","BEACON FLAG","TELECOM FLAG","FPSCE OBRT","FPSCE TIME","STEPS"<br>
+						"ACTIVE","INACTIVE","INACTIVE","INACTIVE",51216,200.62,1<br>
+						"ASDX (mrad)","ASDY (mrad)","ASVMAX (lsb)","ASVMIN (lsb)","FPACOMX (mrad)","FPACOMY (mrad)"<br>
+						12.482500,-15.911875,99,0,-38.481445,57.158203<br><br>
+						"FPSCE MODE: RALLYING 1"<br>
+						"AS FLAG","TS FLAG","BEACON FLAG","TELECOM FLAG","FPSCE OBRT","FPSCE TIME","SAMPLES"<br>
+						"ACTIVE","ACTIVE","INACTIVE","INACTIVE",51221,200.82,120<br>
+						"BEACON FLAG","TELECOM FLAG","TSDX (lsb)","TSDY (lsb)","TSVMAX (lsb)","FPACOMX (mrad)","FPACOMY (mrad)"<br>
+						"INACTIVE","ACTIVE",9,7,34,-38.320313,57.319336<br>
+						"INACTIVE","ACTIVE",9,7,32,-38.266602,57.373047<br>
+						"INACTIVE","ACTIVE",9,7,31,-38.212891,57.426758<br>
+						"INACTIVE","ACTIVE",9,7,32,-38.159180,57.480469<br>
+						"INACTIVE","ACTIVE",9,7,31,-38.105469,57.534180<br>
+						"INACTIVE","ACTIVE",8,7,29,-38.266602,57.587891<br>
+						"INACTIVE","ACTIVE",8,7,33,-38.325195,57.641602<br>
+						"INACTIVE","ACTIVE",8,7,33,-38.383789,57.695313<br>
+						"INACTIVE","ACTIVE",8,8,27,-38.442383,57.534180<br>
+						"INACTIVE","ACTIVE",8,8,25,-38.500977,57.475586<br>
+						"INACTIVE","ACTIVE",9,8,29,-38.344727,57.416992<br>
+						"INACTIVE","ACTIVE",9,8,39,-38.291016,57.358398<br>
+						"INACTIVE","ACTIVE",9,8,35,-38.237305,57.299805<br>
+						"INACTIVE","ACTIVE",9,8,29,-38.183594,57.241211<br>
+						"INACTIVE","ACTIVE",9,7,26,-38.129883,57.397461<br>
+						"INACTIVE","ACTIVE",8,7,31,-38.291016,57.451172<br>
+						"INACTIVE","ACTIVE",8,7,40,-38.349609,57.504883<br>
+						"INACTIVE","ACTIVE",8,7,36,-38.408203,57.558594<br>
+						"INACTIVE","ACTIVE",8,7,27,-38.466797,57.612305<br>
+						"INACTIVE","ACTIVE",8,8,30,-38.525391,57.451172<br>
+						"INACTIVE","ACTIVE",9,8,36,-38.369141,57.392578<br>
+						"INACTIVE","ACTIVE",9,8,42,-38.315430,57.333984<br>
+						"INACTIVE","ACTIVE",9,8,43,-38.261719,57.275391<br>
+						"INACTIVE","ACTIVE",9,8,34,-38.208008,57.216797<br>
+						"INACTIVE","ACTIVE",9,8,29,-38.154297,57.158203<br>
+						"INACTIVE","ACTIVE",8,8,25,-38.315430,57.099609<br>
+						"INACTIVE","ACTIVE",8,7,28,-38.374023,57.255859<br>
+						"INACTIVE","ACTIVE",8,7,37,-38.432617,57.309570<br>
+						"INACTIVE","ACTIVE",8,7,35,-38.491211,57.363281<br>
+						"INACTIVE","ACTIVE",8,7,26,-38.549805,57.416992<br>
+						"INACTIVE","ACTIVE",9,8,24,-38.393555,57.255859<br>
+						"INACTIVE","ACTIVE",9,8,39,-38.339844,57.197266<br>
+						"INACTIVE","ACTIVE",9,8,43,-38.286133,57.138672<br>
+						"INACTIVE","ACTIVE",9,8,28,-38.232422,57.080078<br>
+						"INACTIVE","ACTIVE",9,8,24,-38.178711,57.021484<br>
+						"INACTIVE","ACTIVE",8,8,19,-38.178711,57.021484<br>
+						"INACTIVE","ACTIVE",8,7,24,-38.339844,57.177734<br>
+						"INACTIVE","ACTIVE",8,7,41,-38.398438,57.231445<br>
+						"INACTIVE","ACTIVE",8,7,52,-38.457031,57.285156<br>
+						"INACTIVE","ACTIVE",8,7,28,-38.515625,57.338867<br>
+						"INACTIVE","ACTIVE",8,8,23,-38.574219,57.177734<br>
+						"INACTIVE","ACTIVE",9,8,30,-38.417969,57.119141<br>
+						"INACTIVE","ACTIVE",9,8,39,-38.364258,57.060547<br>
+						"INACTIVE","ACTIVE",9,8,66,-38.310547,57.001953<br>
+						"INACTIVE","ACTIVE",9,8,58,-38.256836,56.943359<br>
+						"INACTIVE","ACTIVE",9,8,39,-38.203125,56.884766<br>
+						"INACTIVE","ACTIVE",9,8,25,-38.149414,56.826172<br>
+						"INACTIVE","ACTIVE",8,7,34,-38.310547,56.982422<br>
+						"INACTIVE","ACTIVE",8,7,47,-38.369141,57.036133<br>
+						"INACTIVE","ACTIVE",8,7,75,-38.427734,57.089844<br>
+						"INACTIVE","ACTIVE",8,7,66,-38.486328,57.143555<br>
+						"INACTIVE","ACTIVE",8,7,36,-38.544922,57.197266<br>
+						"INACTIVE","ACTIVE",9,8,36,-38.388672,57.036133<br>
+						"INACTIVE","ACTIVE",9,8,41,-38.334961,56.977539<br>
+						"INACTIVE","ACTIVE",9,8,43,-38.281250,56.918945<br>
+						"INACTIVE","ACTIVE",9,8,39,-38.227539,56.860352<br>
+						"INACTIVE","ACTIVE",9,8,29,-38.173828,56.801758<br>
+						"INACTIVE","INACTIVE",9,8,18,-38.173828,56.801758<br>
+						"INACTIVE","ACTIVE",8,7,21,-38.334961,56.958008<br>
+						"INACTIVE","ACTIVE",8,7,36,-38.393555,57.011719<br>
+						"INACTIVE","ACTIVE",8,7,48,-38.452148,57.065430<br>
+						"INACTIVE","ACTIVE",8,7,44,-38.510742,57.119141<br>
+						"INACTIVE","ACTIVE",8,8,31,-38.569336,56.958008<br>
+						"INACTIVE","ACTIVE",9,8,47,-38.413086,56.899414<br>
+						"INACTIVE","ACTIVE",9,8,51,-38.359375,56.840820<br>
+						"INACTIVE","ACTIVE",9,8,51,-38.305664,56.782227<br>
+						"INACTIVE","ACTIVE",9,8,42,-38.251953,56.723633<br>
+						"INACTIVE","ACTIVE",9,8,37,-38.198242,56.665039<br>
+						"INACTIVE","ACTIVE",9,7,28,-38.144531,56.821289<br>
+						"INACTIVE","ACTIVE",8,7,38,-38.305664,56.875000<br>
+						"INACTIVE","ACTIVE",8,7,40,-38.364258,56.928711<br>
+						"INACTIVE","ACTIVE",8,7,46,-38.422852,56.982422<br>
+						"INACTIVE","ACTIVE",8,8,34,-38.481445,56.821289<br>
+						"INACTIVE","ACTIVE",8,8,30,-38.540039,56.762695<br>
+						"INACTIVE","ACTIVE",9,8,45,-38.383789,56.704102<br>
+						"INACTIVE","ACTIVE",9,8,61,-38.330078,56.645508<br>
+						"INACTIVE","ACTIVE",9,8,51,-38.276367,56.586914<br>
+						"INACTIVE","ACTIVE",9,7,43,-38.222656,56.743164<br>
+						"INACTIVE","ACTIVE",9,7,45,-38.168945,56.796875<br>
+						"INACTIVE","ACTIVE",9,7,40,-38.115234,56.850586<br>
+						"INACTIVE","ACTIVE",8,7,40,-38.276367,56.904297<br>
+						"INACTIVE","ACTIVE",8,7,34,-38.334961,56.958008<br>
+						"INACTIVE","ACTIVE",8,8,50,-38.393555,56.796875<br>
+						"INACTIVE","ACTIVE",8,8,57,-38.452148,56.738281<br>
+						"INACTIVE","ACTIVE",8,8,45,-38.510742,56.679688<br>
+						"INACTIVE","ACTIVE",9,8,63,-38.354492,56.621094<br>
+						"INACTIVE","ACTIVE",9,8,60,-38.300781,56.562500<br>
+						"INACTIVE","ACTIVE",9,8,44,-38.247070,56.503906<br>
+						"INACTIVE","ACTIVE",9,7,45,-38.193359,56.660156<br>
+						"INACTIVE","ACTIVE",9,7,47,-38.139648,56.713867<br>
+						"INACTIVE","ACTIVE",9,7,48,-38.085938,56.767578<br>
+						"INACTIVE","ACTIVE",8,7,41,-38.247070,56.821289<br>
+						"INACTIVE","ACTIVE",8,7,36,-38.305664,56.875000<br>
+						"INACTIVE","ACTIVE",8,8,45,-38.364258,56.713867<br>
+						"INACTIVE","ACTIVE",8,8,45,-38.422852,56.655273<br>
+						"INACTIVE","ACTIVE",8,8,37,-38.481445,56.596680<br>
+						"INACTIVE","ACTIVE",9,8,45,-38.325195,56.538086<br>
+						"INACTIVE","ACTIVE",9,8,46,-38.271484,56.479492<br>
+						"INACTIVE","ACTIVE",9,7,31,-38.217773,56.635742<br>
+						"INACTIVE","ACTIVE",9,7,38,-38.164063,56.689453<br>
+						"INACTIVE","ACTIVE",9,7,36,-38.110352,56.743164<br>
+						"INACTIVE","ACTIVE",9,7,32,-38.056641,56.796875<br>
+						"INACTIVE","ACTIVE",8,8,37,-38.217773,56.635742<br>
+						"INACTIVE","ACTIVE",8,8,71,-38.276367,56.577148<br>
+						"INACTIVE","ACTIVE",8,8,53,-38.334961,56.518555<br>
+						"INACTIVE","ACTIVE",8,8,55,-38.393555,56.459961<br>
+						"INACTIVE","ACTIVE",8,8,33,-38.452148,56.401367<br>
+						"INACTIVE","ACTIVE",9,7,37,-38.295898,56.557617<br>
+						"INACTIVE","ACTIVE",9,7,74,-38.242188,56.611328<br>
+						"INACTIVE","ACTIVE",9,7,50,-38.188477,56.665039<br>
+						"INACTIVE","ACTIVE",9,7,32,-38.134766,56.718750<br>
+						"INACTIVE","ACTIVE",9,7,32,-38.081055,56.772461<br>
+						"INACTIVE","ACTIVE",9,8,37,-38.027344,56.611328<br>
+						"INACTIVE","ACTIVE",8,8,39,-38.188477,56.552734<br>
+						"INACTIVE","ACTIVE",8,8,56,-38.247070,56.494141<br>
+						"INACTIVE","ACTIVE",8,8,63,-38.305664,56.435547<br>
+						"INACTIVE","ACTIVE",8,8,51,-38.364258,56.376953<br>
+						"INACTIVE","ACTIVE",9,8,32,-38.208008,56.318359<br>
+						"INACTIVE","ACTIVE",9,7,43,-38.154297,56.474609<br>
+						"INACTIVE","ACTIVE",9,7,58,-38.100586,56.528320<br><br>
+						"FPSCE MODE: TRACKING 2"<br>
+						"AS FLAG","TS FLAG","BEACON FLAG","TELECOM FLAG","FPSCE OBRT","FPSCE TIME"<br>
+						"ACTIVE","ACTIVE","ACTIVE","ACTIVE",57467,224.480<br><br>
+						"FPSCE MODE: IDLE"<br>
+						"AS FLAG","TS FLAG","BEACON FLAG","TELECOM FLAG","FPSCE OBRT","FPSCE TIME"<br>
+						"ACTIVE","ACTIVE","ACTIVE","ACTIVE",20455,79.902<br>
+					</span>
+				</p>
+			</li>
+		</ul>
+	</div>
+	<img id="PageFooter" src="images/templatebottom.png" alt="" style="position: relative; left: -1px; top: 0px;">
+</div>
+</body>
+
+</html>

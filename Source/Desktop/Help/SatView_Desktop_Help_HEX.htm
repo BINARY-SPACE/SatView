@@ -1,0 +1,552 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Hexadecimal Display (HEX)</title>
+<link rel="stylesheet" type="text/css" href="resources/styles.css">
+<![if lte IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/iefix.css">
+<![endif]>
+<![if gt IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/ie.css">
+<![endif]>
+<script src="resources/behaviors.js" type="text/javascript"></script>
+</head>
+
+<body style="margin: 0 0 0 0;" background="images/background.jpg" onload="FP_callJS('onRecalcLayout()')">
+<img id="PageTemplate" src="images/template.png" alt="" style="position: absolute; left: 0px; top: 0px; width: 880px; height: 660px; border: none; outline: none;">
+<img id="PageFloater" src="images/templatebackground.png" alt="" style="position: absolute; left: 39px; top: 659px; width: 803px; height: auto; background-image: url('images/templatebackground.png'); background-repeat: repeat-y; display: none;">
+<img id="PageApplication" src="images/application.png" alt="" style="position: absolute; left: 50px; top: 90px; border: none; outline: none;">
+<div id="PageTitle" style="position: absolute; left: 295px; top: 84px; width: 545px; height: 22px;">
+	<span class="StandardTitleTextStyle" style="width: 545px;">Hexadecimal Display (HEX)</span>
+</div>
+<div id="PageContents" style="position: absolute; left: 40px; top: 114px; width: 800px; height: auto; z-index: 1;">
+	<div id="PageHeader" style="position: relative; left: 0px; top: 0px; width: 550px; height: auto; float: right;">
+		<p class="StandardSummaryTitleStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-top: 10px; margin-bottom: 0px; text-indent: 0px; float: left;">SUMMARY</p>
+		<div id="PageVersionSection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; float: right;">
+			<span class="StandardVersionTextStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-right: 10px; float: right;">
+			<!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%A, %B %d, %Y" startspan -->Saturday, October 10, 2015<!--webbot bot="Timestamp" endspan i-checksum="670" --><br>Version 1.0</span>
+		</div>
+		<div id="PageSummarySection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-top: 2px; float: left;">
+			<div id="PageSummaryBox" style="position: relative; left: 0px; top: 0px; width: 538px; height: auto; border: 1px solid #FFFF00; background: #FFFFDD; margin-right: 5px; float: left;">
+				<p class="StandardSummaryTextStyle" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 0px; padding-top: 2px; padding-bottom: 2px; float: left;">A <i>Hexadecimal Display</i> (HEX) is capable to monitor raw (unprocessed) telemetry data as well as <a href="SatView_Desktop_Help_MemoryDumps_Service.htm">Memory Dumps</a>. In addition to that, so called <i>Spy Locations</i> extract selected portions of the data for further investigation.</p>
+			</div>
+		</div>
+	</div>
+	<div id="PageText" style="position: relative; left: 0px; top: 0px; width: 800px; height: auto; margin-bottom: 10px; float: left;">
+		<div id="HowDoISection" style="margin-left: 20px; margin-top: 20px; margin-right: 5px;">
+			<p class="StandardListTitleTextStyle">How do I...</p>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 10px; margin-top: 4px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListExpandableItemTextStyle" style="margin-top: 2px; cursor: pointer;" onclick="onClickListItem(event)">Open a HEX Display</p>
+						<div style="margin-bottom: 10px; display: none;">
+							<img src="images/collapsebutton.png" alt="">
+							<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; border: 1px solid #9BAFDE; background: #D9E9FE;">
+								<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+									<li>Push the <b>HEX</b> button inside the <b>Telemetry Displays</b> panel of the <b>Displays</b> ribbon bar category.<br>This opens the <a href="SatView_Desktop_Help_HEX_Open_Dialog_Box.htm">HEX Open Dialog Box</a>.</li>
+									<li>
+										Choose between the available display types by checking the appropriate radio button in the dialog box:
+										<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px;">
+											<tr>
+												<td width="100" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Type</font></b></p></td>
+												<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+											</tr>
+											<tr>
+												<td width="100" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Normal</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Shows the raw data belonging to a specified telemetry packet.<br>Select the format to be viewed in the <b>Display</b> combo box.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>When monitoring telemetry data that is not conform with the <i>CCSDS Packet Telemetry Standard</i> this option displays the complete telemetry formats generated by the spacecraft.</p></td>
+											</tr>
+											<tr>
+												<td width="100" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Stream</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Shows the raw data of every telemetry packet (or format) received.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This option is not applicable when the telemetry data is not compatible with the <i>CCSDS Packet Telemetry Standard</i>.</p></td>
+											</tr>
+											<tr>
+												<td width="100" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Dumps</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Displays the content of a specified <a href="SatView_Desktop_Help_MemoryDumps_Service.htm">memory dump</a>.<br>Select the memory dump to be viewed in the <b>Display</b> combo box.</p></td>
+											</tr>
+										</table>
+									</li>
+									<li>Choose the data mode by either checking the <b>Realtime</b> or <b>History</b> radio button.<br>Follow the instructions about how to retrieve with a HEX display when requesting historical telemetry data.</li>
+									<li>Optionally <a href="SatView_Desktop_Help_HEX.htm">configure the HEX display</a>.</li>
+									<li>Push the <b>OK</b> button.</li>
+								</ol>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 10px; margin-top: 9px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListExpandableItemTextStyle" style="margin-top: 7px; cursor: pointer;" onclick="onClickListItem(event)">Configure the Settings</p>
+						<div style="margin-bottom: 10px; display: none;">
+							<img src="images/collapsebutton.png" alt="">
+							<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; border: 1px solid #9BAFDE; background: #D9E9FE;">
+								<p class="StandardListItemTextStyle" style="margin-left: 5px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px;">Many aspects of a HEX display are configurable. Layout, retrieval source and print jobs can be configured and modified as required. Furthermore, it is also possible to define areas of special interest, called <i>Spy Locations</i>, that show selected bits extracted from the telemetry data stream.</p>
+								<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+									<li>Open the <a href="SatView_Desktop_Help_HEX_Configuration_Dialog_Box.htm">HEX Settings Dialog Box</a> if it is not open yet:<br>Activate the HEX display and select the <b>Settings...</b> item on the application button's menu. Alternatively, push the <b>HEX</b> button on the display's toolbar.</li>
+									<li>
+										<p style="margin-top: 0px; margin-bottom: 0px;">Read more about:</p>
+										<table border="0" cellpadding="0" cellspacing="0" style="position: relative; margin-bottom: 5px;">
+											<tr>
+												<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Modifying the Layout</p>
+													<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 5px; padding-left: 5px; border: 1px solid #9BAFDE; background: #EEEEFE; display: none;">
+														<img src="images/collapsebutton.png" alt="">
+														<p class="StandardListItemTextStyle" style="margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; font-weight: bold;">Specifying the Appearance:</p>
+														<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+															<li>Select the <b>Layout</b> page.</li>
+															<li style="vertical-align: top;">
+																<table class="StandardTableExpandableItemsStyle" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px;">
+																	<tr>
+																		<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Changing the Number of Bytes per Line</p>
+																			<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 5px; padding-left: 5px; border: 1px solid #9BAFDE; background: #FFFFFF; display: none;">
+																				<img src="images/collapsebutton.png" alt="">
+																				<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 25px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+																					<li>Inside the <b>Format</b> group box adjust the number in the <b>For unformatted data use...</b> edit field.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This option does not apply to the <i>Dumps</i> display type.</li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Changing the Color of the Data</p>
+																			<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 5px; padding-left: 5px; border: 1px solid #9BAFDE; background: #FFFFFF; display: none;">
+																				<img src="images/collapsebutton.png" alt="">
+																				<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+																					<li>Specify the kind of data those color should be changed by selecting it in the <b>For <i>kind of data</i> use...</b> combo box.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This option does not apply to the <i>Dumps</i> display type.</li>
+																					<li>Select the desired color in the corresponding <b>...color</b> combo box.</li>
+																				</ol>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Enumerating Lines and Columns</p>
+																			<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 5px; padding-left: 5px; border: 1px solid #9BAFDE; background: #FFFFFF; display: none;">
+																				<img src="images/collapsebutton.png" alt="">
+																				<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 25px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+																					<li>Mark either the <b>Enumerate lines</b>, or <b>Enumerate columns</b> check box or both depending on the kind of enumeration required and adjust the numbers in the corresponding edit fields.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This option does not apply to the <i>Dumps</i> display type.</li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Changing the Fonts</p>
+																			<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 0px; padding-left: 5px; border: 1px solid #9BAFDE; background: #FFFFFF; display: none;">
+																				<img src="images/collapsebutton.png" alt="">
+																				<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+																					<li>Inside the <b>Fonts</b> group box select the <b>Title</b>, <b>Data</b>, <b>Spy Header</b> or <b>Spy Locations</b> radio button depending on which font should be changed. The <b>Title</b> radio button refers to the title bar on top of each display, the <b>Data</b> to the displayed information and the <b>Spy Header/Locations</b> to the locations of special interest, when defined, at the bottom part of the display.</li>
+																					<li>Select the font name in the <b>Name</b> combo box and select the desired style and size in the <b>Style</b> combo box and <b>Size</b> edit field respectively. A sample of the chosen font is always displayed in the <b>Sample</b> area.</li>
+																				</ol>
+																			</div>
+																		</td>
+																	</tr>
+																</table>
+															</li>
+														</ol>
+														<p class="StandardListItemTextStyle" style="margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; font-weight: bold;">Controlling the Operating Flags:</p>
+														<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+															<li>Select the <b>Layout</b> page.</li>
+															<li style="vertical-align: top;">
+																<table class="StandardTableExpandableItemsStyle" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px;">
+																	<tr>
+																		<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Bad Data Flag</p>
+																			<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 0px; padding-left: 5px; border: 1px solid #9BAFDE; background: #FFFFFF; display: none;">
+																				<img src="images/collapsebutton.png" alt="">
+																				<p class="StandardListItemTextStyle" style="margin-left: 0px; margin-top: -4px; margin-right: 5px; margin-bottom: 2px;">Every telemetry parameter has an associated data quality flag referring to its value. By default, a parameter value with a bad quality flag is not updated.</p>
+																				<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 25px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+																					<li>Mark the <b>Bad Data</b> check box if the telemetry parameter values should be displayed even if their data quality flag is set to bad.</li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																</table>
+															</li>
+														</ol>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 7px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 5px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Using Spy Locations</p>
+													<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 5px; padding-left: 5px; border: 1px solid #9BAFDE; background: #EEEEFE; display: none;">
+														<img src="images/collapsebutton.png" alt="">
+														<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+															<li>Select the <b>Contents</b> page.</li>
+															<li style="vertical-align: top;">
+																<table class="StandardTableExpandableItemsStyle" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px;">
+																	<tr>
+																		<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Adding a new Spy Location</p>
+																			<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 5px; padding-left: 5px; border: 1px solid #9BAFDE; background: #FFFFFF; display: none;">
+																				<img src="images/collapsebutton.png" alt="">
+																				<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 0px; margin-right: 5px; margin-bottom: 4px; padding-left: 0px;">
+																					<li>
+																						Specify the radix with which the value at the spy location should be displayed by checking the appropriate radio button:
+																						<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px;">
+																							<tr>
+																								<td width="100" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Radix</font></b></p></td>
+																								<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+																							</tr>
+																							<tr>
+																								<td width="100" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Decimal</p></td>
+																								<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">The value composed of the bits found at the spy location is displayed with a decimal radix. The first bit is always interpreted as the most significant bit.</p></td>
+																							</tr>
+																							<tr>
+																								<td width="100" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Binary</p></td>
+																								<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">The extracted value is displayed with a binary radix.</p></td>
+																							</tr>
+																							<tr>
+																								<td width="100" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Octal</p></td>
+																								<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">The extracted value is displayed with a octal radix.</p></td>
+																							</tr>
+																							<tr>
+																								<td width="100" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Hexadecimal</p></td>
+																								<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">The extracted value is displayed with a hexadecimal radix.</p></td>
+																							</tr>
+																						</table>
+																					</li>
+																					<li>
+																						Specify the position of the spy location by filling in the <b>Byte</b>, <b>Bit</b> and <b>Length</b> edit field.<br>Valid ranges for the various edit fields are:
+																						<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px;">
+																							<tr>
+																								<td width="100" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+																								<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Valid Range</font></b></p></td>
+																							</tr>
+																							<tr>
+																								<td width="100" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Byte</p></td>
+																								<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">&gt;= 0</p></td>
+																							</tr>
+																							<tr>
+																								<td width="100" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Bit</p></td>
+																								<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">0...7</p></td>
+																							</tr>
+																							<tr>
+																								<td width="100" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Length</p></td>
+																								<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">1...32</p></td>
+																							</tr>
+																						</table>
+																						<img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The value of a spy location is not updated if its position is (partly) outside the telemetry data packet (or format).
+																					</li>
+																					<li>Enter the name of the spy location into the <b>Description</b> edit field.</li>
+																					<li>Determine the color <i>x</i> with which the parts of the spy location should be displayed by selecting the appropriate options in the <b>For <i>part of spy location</i> use color <i>x</i></b> combo boxes.</li>
+																					<li>Push the <b>Add</b> button.</li>
+																				</ol>
+																				<img src="images/note.gif" alt="" style="margin-left: 5px; margin-top: 4px; margin-right: 4px;"><span class="StandardListItemTextStyle">Note:</span><p class="StandardListItemTextStyle" style="margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px;">This option does not apply to the <i>Dumps</i> display type.</p>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Modifying a Spy Location</p>
+																			<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 5px; padding-left: 5px; border: 1px solid #9BAFDE; background: #FFFFFF; display: none;">
+																				<img src="images/collapsebutton.png" alt="">
+																				<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 0px; margin-right: 5px; margin-bottom: 4px; padding-left: 0px;">
+																					<li>Select the spy location to be modified in the <b>Spy Locations</b> list box and perform the required changes.</li>
+																					<li>Push the <b>Modify</b> button.</li>
+																				</ol>
+																				<img src="images/note.gif" alt="" style="margin-left: 5px; margin-top: 4px; margin-right: 4px;"><span class="StandardListItemTextStyle">Note:</span><p class="StandardListItemTextStyle" style="margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px;">This option does not apply to the <i>Dumps</i> display type.</p>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Deleting a Spy Location</p>
+																			<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 0px; padding-left: 5px; border: 1px solid #9BAFDE; background: #FFFFFF; display: none;">
+																				<img src="images/collapsebutton.png" alt="">
+																				<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 0px; margin-right: 5px; margin-bottom: 4px; padding-left: 0px;">
+																					<li>Select the spy location to be deleted in the <b>Spy Locations</b> list box.</li>
+																					<li>Push the <b>Remove</b> button in order to delete the selected spy location. Use the <b>Remove All</b> button to delete all at once.</li>
+																				</ol>
+																				<img src="images/note.gif" alt="" style="margin-left: 5px; margin-top: 4px; margin-right: 4px;"><span class="StandardListItemTextStyle">Note:</span><p class="StandardListItemTextStyle" style="margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px;">This option does not apply to the <i>Dumps</i> display type.</p>
+																			</div>
+																		</td>
+																	</tr>
+																</table>
+															</li>
+														</ol>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 7px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 5px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Specifying the Retrieval Source</p>
+													<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 5px; padding-left: 5px; border: 1px solid #9BAFDE; background: #EEEEFE; display: none;">
+														<img src="images/collapsebutton.png" alt="">
+														<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+															<li>Select the <b>Retrieving</b> page.</li>
+															<li>Select the retrieval file to become the source for any retrieval requests by highlighting it in the <b>Data Source</b> combo box.<br>Push the <b>Inspect</b> button to check a potential retrieval file. The details about the inspected retrieval file are shown in the <b>Source Information</b> group box.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The set of retrieval files listed in the <b>Data Source</b> combo box can be specified in the <a href="SatView_Desktop_Help_Telemetry_Archives.htm">Retrievals</a> page of the <a href="SatView_Desktop_Help_Settings_Dialog_Box.htm">System Settings Dialog Box</a>.</li>
+														</ol>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 7px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 5px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Using Print Job Profiles</p>
+													<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 5px; padding-left: 5px; border: 1px solid #9BAFDE; background: #EEEEFE; display: none;">
+														<img src="images/collapsebutton.png" alt="">
+														<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+															<li>Select the <b>Printing</b> page.</li>
+															<li style="vertical-align: top;">
+																<table class="StandardTableExpandableItemsStyle" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px;">
+																	<tr>
+																		<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Creating a new Print Job Profile</p>
+																			<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 5px; padding-left: 5px; border: 1px solid #9BAFDE; background: #FFFFFF; display: none;">
+																				<img src="images/collapsebutton.png" alt="">
+																				<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+																					<li>Type the name of the print job profile to be created into the <b>Name</b> combo box.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The <b>Default</b> print job profile is used when printing with the quick printing method and can only be modified but not removed.</li>
+																					<li>In the <b>Properties</b> group box specify the print profile to be used with this print job profile by selecting the corresponding profile in the <b>Print Profile</b> combo box. The print profile specifies the printer and paper related properties whereas the print job profile adds some, more HEX display specific, printing directives.</li>
+																					<li>Specify how many lines of the telemetry data or of the spy locations should be printed by checking either the <b>Print all lines</b> or <b>Print the <i>first/last</i> <i>n</i> lines</b> radio button and by filling-in the corresponding edit fields.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>Mark the <b>Print Spy Locations</b> check box if the spy locations should be printed as well. Printing restrictions for spy locations can only be specified when this option is checked.</li>
+																					<li>Type a comment into the <b>Text</b> edit field if additional information should be added to the title of the print-out. Mark the <b>Clear after use</b> check box if this text should be used in a single print-out only.</li>
+																					<li>Push the <b>Add</b> button.</li>																				</ol>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Modifying a Print Job Profile</p>
+																			<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 5px; padding-left: 5px; border: 1px solid #9BAFDE; background: #FFFFFF; display: none;">
+																				<img src="images/collapsebutton.png" alt="">
+																				<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 25px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+																					<li>Select the name of the print job profile to be modified in the <b>Name</b> combo box and perform the necessary changes (see 'Creating a new Print Job Profile').</li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Deleting a Print Job Profile</p>
+																			<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 0px; padding-left: 5px; border: 1px solid #9BAFDE; background: #FFFFFF; display: none;">
+																				<img src="images/collapsebutton.png" alt="">
+																				<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+																					<li>Select the name of the print job profile to be deleted in the <b>Name</b> combo box.</li>
+																					<li>Push the <b>Remove</b> button to remove the selected print job profile. Use the <b>Remove All</b> button to delete all existing profiles.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The <b>Default</b> print job profile cannot be deleted.</li>
+																				</ol>
+																			</div>
+																		</td>
+																	</tr>
+																</table>
+															</li>
+														</ol>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Scheduling Print Jobs</p>
+													<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 0px; padding-left: 5px; border: 1px solid #9BAFDE; background: #EEEEFE; display: none;">
+														<img src="images/collapsebutton.png" alt="">
+														<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+															<li>Select the <b>Jobs</b> page.</li>
+															<li>Select the print job to be scheduled in the <b>Defined</b> list box.</li>
+															<li>
+																Specify when the print job should be executed by marking one or more of the available options:
+																<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="margin-left: 0px; margin-top: 2px; margin-bottom: 2px;">
+																	<tr>
+																		<td width="175" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Option</font></b></p></td>
+																		<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+																	</tr>
+																	<tr>
+																		<td width="175" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Print at <i>YYYY.DDD.hh:mm:ss</i></p></td>
+																		<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Prints the HEX display at a specified time.<br>Type the time into the associated time edit field.</p></td>
+																	</tr>
+																	<tr>
+																		<td width="175" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Print at <i>hh:mm:ss</i> every day</p></td>
+																		<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Prints the HEX display every day at a specified time.<br>Type the time into the associated time edit field.</p></td>
+																	</tr>
+																	<tr>
+																		<td width="175" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Print at <i>name</i> event</p></td>
+																		<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Prints the HEX display when the event <i>name</i> is in a signaled state.<br>Select the event in the associated combo box.</p></td>
+																	</tr>
+																</table>
+															</li>
+															<li>When printing at a certain time is enabled it is possible to specify how many times the printing should be repeated and with what interval. In the <b>For <i>repetition type</i></b> combo box select the repetition characteristics for either daily or non-daily printing. In the case of non-daily printing specify the interval in minutes after which another printing should occur by checking the <b>Repeat every <i>n</i> minutes</b> and by typing the interval <i>n</i> into the associated edit field.<br>For both kinds of printing stop conditions can be specified by selecting either the <b>Stop after <i>n</i> copies</b> or <b>Stop at time <i>YYYY.DDD.mm:hh:ss</i></b> radio button and by filling in the appropriate data into the edit fields.</li>
+															<li>Push the <b>&gt;</b> button to activate the print job. The name of the print job is copied from the <b>Defined</b> list box into the <b>Active</b> one in order to indicate the activation.<br>Whenever a print job needs to be deactivated but not deleted select it in the <b>Active</b> list box and then push the <b>&lt;</b> button.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>Deactivated print jobs are not scheduled.</li>
+														</ol>
+													</div>
+												</td>
+											</tr>
+										</table>
+									<li>Push the <b>OK</b> button.</li>
+								</ol>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 10px; margin-top: 4px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListExpandableItemTextStyle" style="margin-top: 2px; cursor: pointer;" onclick="onClickListItem(event)">Perform Retrievals</p>
+						<div style="margin-bottom: 10px; display: none;">
+							<img src="images/collapsebutton.png" alt="">
+							<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; padding-bottom: 2px; border: 1px solid #9BAFDE; background: #D9E9FE;">
+								<p class="StandardListItemTextStyle" style="margin-left: 5px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px;">SatView™ provides a convenient way to retrieve telemetry data. Navigating through historical telemetry data is a simple process thanks to the various playback modes and high capacity random access storage devices.</p>
+								<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+									<li>Open the <a href="SatView_Desktop_Help_HEX_Retrieve_Dialog_Box.htm">HEX Retrievals Dialog Box</a> by selecting the <b>Retrievals...</b> item on the application button's menu when the display is activated. Alternatively, push the <b>Retrievals</b> button on the display's toolbar.</li>
+									<li>In the <b>Retrieve from Time</b> edit field inside the <b>Historical Data</b> group box specify the time at which the retrieval should start.<br>The syntax for the specification of the time is: <i>YYYY.DDD.hh:mm:ss</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>Mark the <b>Exact Time</b> check box in order to force the retrieval to start exactly at the specified time. This is done automatically for the <i>Stream</i> type of displays. For the other types it depends on the way how telemetry data is processed.</li>
+									<li>
+										Specify when the retrieval should be stopped by checking one of the following options:
+										<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px;">
+											<tr>
+												<td width="225" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Option</font></b></p></td>
+												<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+											</tr>
+											<tr>
+												<td width="225" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Stop at <i>YYYY.DDD.hh:mm:ss</i></p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Stops the retrieval at the specified time. Type that time into the associated time edit field.</p></td>
+											</tr>
+											<tr>
+												<td width="225" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Stop when no more data is available</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Stops retrieving telemetry data when no more data is available in the retrieval file.</p></td>
+											</tr>
+											<tr>
+												<td width="225" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Switch to realtime</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Automatically switches to real-time when no more telemetry data is available.</p></td>
+											</tr>
+										</table>
+									</li>
+									<li>Specify whether or not memory dumps should be generated from the historical telemetry data by marking the <b>Redo Dumps</b> check box. Selecting the <b>Archiving</b> check box as well saves the memory dumps, enabling the <b>Notifications</b> check box sends them via FTP to clients. The way how this is performed is defined through the <a href="SatView_Desktop_Help_MemoryDumps_Service.htm">Memory Dumps Service</a>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The options described in this point are available for the <i>Dumps</i> display type only.</li>
+									<li>
+										Determine the playback mode by checking one of the following possibilities:
+										<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px;">
+											<tr>
+												<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Option</font></b></p></td>
+												<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+											</tr>
+											<tr>
+												<td width="125" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Automatic</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Replays the telemetry data with a specified speed.<br>Adjust the speed with the <b>Speed</b> slider.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The playback mode may be changed interactively during the retrieval. Read below how to navigate through the historical telemetry data.</p></td>
+											</tr>
+											<tr>
+												<td width="125" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Pseudo Realtime</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">The telemetry data is replayed at a speed close to real-time.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The playback mode may be changed interactively during the retrieval. Read below how to navigate through the historical telemetry data.</p></td>
+											</tr>
+											<tr>
+												<td width="125" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Manual</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">The telemetry data closest to the specified starting time is monitored and then the retrieval is stopped.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The playback mode may be changed interactively during the retrieval. Read below how to navigate through the historical telemetry data.</p></td>
+											</tr>
+										</table>
+									</li>
+									<li>Specify an interval in minutes if a sequential retrieval is not required. This option is useful when navigating through the retrieval file and searching for a certain incident.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>Depending on the telemetry data standard used it is not always possible to retrieve with the interval specified i.e. the de-facto interval may be smaller or bigger than the one specified for the <i>Generic</i> and obviously also for the <i>Dumps</i> display type.</li>
+									<li>Push the <b>OK</b> button.</li>
+								</ol>
+								<img src="images/note.gif" alt="" style="margin-left: 5px; margin-top: 4px; margin-right: 4px;"><span class="StandardTextStyle">Note:</span><p class="StandardTextStyle" style="margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px;">Push the <b>Realtime Mode</b> check box to terminate any retrievals and to switch back to real-time.</p>
+								<p class="StandardListItemTextStyle" style="margin-left: 5px; margin-top: 8px; margin-right: 5px; margin-bottom: 0px;">Read more about:</p>
+								<table border="0" cellpadding="0" cellspacing="0" style="position: relative; margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 5px;">
+									<tr>
+										<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 0px; font-weight: bold; cursor: pointer;" onclick="onClickListItem(event)">Navigating through historical Telemetry Data</p>
+											<div style="left: 0px; top: 0px; width: auto; height: auto; margin-top: 0px; margin-bottom: 2px; padding-left: 5px; padding-bottom: 4px; border: 1px solid #9BAFDE; background: #EEEEFE; display: none;">
+												<img src="images/collapsebutton.png" alt="">
+												<p class="StandardListItemTextStyle" style="margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 2px;">Use the buttons on the toolbar of the HEX display or select the appropriate item on the application button's menu when the display is activated:</p>
+												<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="margin-left: 3px; margin-top: 0px; margin-right: 3px; margin-bottom: 2px;">
+													<tr>
+														<td width="175" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Menu Item</font></b></p></td>
+														<td width="100" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Shortcut Key</font></b></p></td>
+														<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Action</font></b></p></td>
+													</tr>
+													<tr>
+														<td width="175" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><b>Replay</b> <span class="StandardMenuItemTextStyle">è</span> <b>Pseudo Realtime</b></p></td>
+														<td width="110" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Ctrl+U</p></td>
+														<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Moves forward in time automatically with approximately the speed it was processed in real-time mode.</p></td>
+													</tr>
+													<tr>
+														<td width="175" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><b>Replay</b> <span class="StandardMenuItemTextStyle">è</span> <b>Forward</b></p></td>
+														<td width="110" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Ctrl+Arrow Right</p></td>
+														<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Moves forward in time automatically with the speed specified when starting the retrieval.</p></td>
+													</tr>
+													<tr>
+														<td width="175" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><b>Replay</b> <span class="StandardMenuItemTextStyle">è</span> <b>Backward</b></p></td>
+														<td width="110" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Ctrl+Arrow Left</p></td>
+														<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Moves backward in time automatically with the speed specified when starting the retrieval.</p></td>
+													</tr>
+													<tr>
+														<td width="175" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><b>Step</b> <span class="StandardMenuItemTextStyle">è</span> <b>Forward</b></p></td>
+														<td width="110" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Shift+Arrow Right</p></td>
+														<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Moves forward to the next available telemetry data causing an update and then stops.</p></td>
+													</tr>
+													<tr>
+														<td width="175" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><b>Step</b> <span class="StandardMenuItemTextStyle">è</span> <b>Backward</b></p></td>
+														<td width="110" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Shift+Arrow Left</p></td>
+														<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Moves backward to the most recent available telemetry data causing an update and then stops.</p></td>
+													</tr>
+													<tr>
+														<td width="175" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><b>Stop</b></p></td>
+														<td width="110" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Pause</p></td>
+														<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Stops the retrieval at the current position.<br>It can be resumed by either of the above actions.</p></td>
+													</tr>
+												</table>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 10px; margin-top: 4px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListExpandableItemTextStyle" style="margin-top: 2px; cursor: pointer;" onclick="onClickListItem(event)">Find Displays</p>
+						<div style="margin-bottom: 10px; display: none;">
+							<img src="images/collapsebutton.png" alt="">
+							<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; border: 1px solid #9BAFDE; background: #D9E9FE;">
+								<p class="StandardListItemTextStyle" style="margin-left: 5px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px;">SatView™ provides a convenient way to search for a HEX display representing a specified telemetry packet or for a display which has a title containing a certain word or words. The search criteria can contain boolean operators.</p>
+								<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+									<li>Open the <a href="SatView_Desktop_Help_HEX_Find_Dialog_Box.htm">HEX Find Dialog Box</a> if it is not open yet:<br>Push the <b>Find...</b> button on the <a href="SatView_Desktop_Help_HEX_Open_Dialog_Box.htm">HEX Open Dialog Box</a>.</li>
+									<li>Select the search key in the <b>Key</b> combo box.</li>
+									<li>
+										Select a search value expression in the <b>Value</b> combo box or enter one into the same edit field (if no choices are available).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The search values may also contain the boolean operators '+' (AND) and '|' (OR). Whenever one or more of these operators are specified the operands need to be set into double quotes. There is no operator precedence; the search value expression is just evaluated from the left to the right.<br>Examples:<br>
+										<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px;">
+											<tr>
+												<td width="80" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Key</font></b></p></td>
+												<td width="175" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Search Value</font></b></p></td>
+												<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Action</font></b></p></td>
+											</tr>
+											<tr>
+												<td width="80" class="StandardTableItemTextStyle" valign="top" style="border-bottom: none;"><p style="margin: 1 4">Packet</p></td>
+												<td width="175" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">&quot;001R&quot;</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Searches for the HEX display that corresponds to the telemetry packet '001R'.</p></td>
+											</tr>
+											<tr>
+												<td width="80" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Description</p></td>
+												<td width="175" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">&quot;AOCS&quot; + &quot;DYNAMICS&quot;</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Searches for all HEX displays that contain the words 'AOCS' and 'DYNAMICS' in their title.</p></td>
+											</tr>
+										</table>
+									</li>
+									<li>Push the <b>Search</b> button.</li>
+									<li>Select the HEX display to be opened in the <b>Results</b> list box and push the <b>Open</b> button or double-click on the display to be opened.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>Push the <b>Close</b> button in order to discontinue the search for a HEX display.</li>
+								</ol>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 10px; margin-top: 4px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListExpandableItemTextStyle" style="margin-top: 2px; cursor: pointer;" onclick="onClickListItem(event)">Print Displays</p>
+						<div style="display: none;">
+							<img src="images/collapsebutton.png" alt="">
+							<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; border: 1px solid #9BAFDE; background: #D9E9FE;">
+								<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 2px; margin-right: 5px; margin-bottom: 5px; padding-left: 0px;">
+									<li>Activate the HEX display to be printed.</li>
+									<li>
+										Choose one of the following printing methods:
+										<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="margin-left: 0px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px;">
+											<tr>
+												<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Method</font></b></p></td>
+												<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+												<td width="300" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">How to do it</font></b></p></td>
+											</tr>
+											<tr>
+												<td width="125" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Quick Printing</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">This method is the most simple one because it does not need any further interaction of the user in order to print a HEX display. The way how the display is printed is defined by the <b>Default</b> print job profile.</p></td>
+												<td width="300" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Push the <b>Print</b> button on the display's toolbar.</p></td>
+											</tr>
+											<tr>
+												<td width="125" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Interactive Printing</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Whenever a HEX display needs to be printed in a different way than defined by the <b>Default</b> print job profile this method is the one to be used. It allows the modification of the print properties without changing the profile.</p></td>
+												<td width="300" class="StandardTableItemTextStyle" valign="top"><ul style="list-style-type: decimal; margin: 1 1 1 32; padding-left: 0px;"><li>Select the <b>Print...</b> item on the application button's menu when the display is activated.</li><li>Change the settings in the <b>Print Dialog Box</b> as required.</li><li>Push the <b>OK</b> button.</li></ul></td>
+											</tr>
+											<tr>
+												<td width="125" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Scheduled Printing<br>Event-driven Printing</p></td>
+												<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">Sometimes it may be advantageous to print a HEX display automatically at a certain time or when a predefined <a href="SatView_Desktop_Help_Telemetry_Events.htm">telemetry event</a> occurs. This can be achieved by scheduling a print job.</p></td>
+												<td width="300" class="StandardTableItemTextStyle" valign="top"><ul style="list-style-type: decimal; margin: 1 1 1 32; padding-left: 0px;"><li>Select the <b>Settings...</b> item on the application button's menu when the display is activated or push the <b>Settings</b> button on the display's toolbar.</li><li>Select the <b>Print</b> page in the <a href="SatView_Desktop_Help_HEX_Configuration_Dialog_Box.htm">HEX Settings Dialog Box</a>.</li><li>Add a print profile as required.</li><li>Push the <b>OK</b> button.</li></ul></td>
+											</tr>
+										</table>
+									</li>
+								</ol>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-left: 20px; margin-top: 10px; margin-right: 5px; border: 1px solid #FE9B9B; background: #FEDDDD;">
+			<p class="StandardListItemTextStyle" style="margin: 2 5 2 5;"><span style="font-size: 14px;">Prerequisites:</span><br><span style="font-size: 12px;">The privilege '<b>Using hexadecimal display windows</b>' must be enabled in order to use any HEX displays.</span></p>
+		</div>
+	</div>
+	<img id="PageFooter" src="images/templatebottom.png" alt="" style="position: relative; left: -1px; top: 0px;">
+</div>
+</body>
+
+</html>

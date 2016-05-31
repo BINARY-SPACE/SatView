@@ -1,0 +1,1170 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Packet Front-End Link Protocol (PFLP)</title>
+<link rel="stylesheet" type="text/css" href="resources/styles.css">
+<![if lte IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/iefix.css">
+<![endif]>
+<![if gt IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/ie.css">
+<![endif]>
+<script src="resources/behaviors.js" type="text/javascript"></script>
+</head>
+
+<body style="margin: 0 0 0 0;" background="images/background.jpg" onload="FP_callJS('onRecalcLayout()')">
+<img id="PageTemplate" src="images/template.png" alt="" style="position: absolute; left: 0px; top: 0px; width: 880px; height: 660px; border: none; outline: none;">
+<img id="PageFloater" src="images/templatebackground.png" alt="" style="position: absolute; left: 39px; top: 659px; width: 803px; height: auto; background-image: url('images/templatebackground.png'); background-repeat: repeat-y; display: none;">
+<img id="PageApplication" src="images/application.png" alt="" style="position: absolute; left: 50px; top: 90px; border: none; outline: none;">
+<div id="PageTitle" style="position: absolute; left: 295px; top: 84px; width: 545px; height: 22px;">
+	<span class="StandardTitleTextStyle" style="width: 545px;">Packet Front-End Link Protocol (PFLP)</span>
+</div>
+<div id="PageContents" style="position: absolute; left: 40px; top: 114px; width: 800px; height: auto; z-index: 1;">
+	<div id="PageHeader" style="position: relative; left: 0px; top: 0px; width: 550px; height: auto; float: right;">
+		<p class="StandardSummaryTitleStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-top: 10px; margin-bottom: 0px; text-indent: 0px; float: left;">SUMMARY</p>
+		<div id="PageVersionSection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; float: right;">
+			<span class="StandardVersionTextStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-right: 10px; float: right;">
+			<!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%A, %B %d, %Y" startspan -->Saturday, October 10, 2015<!--webbot bot="Timestamp" endspan i-checksum="670" --><br>Version 1.0</span>
+		</div>
+		<div id="PageSummarySection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-top: 2px; float: left;">
+			<div id="PageSummaryBox" style="position: relative; left: 0px; top: 0px; width: 538px; height: auto; border: 1px solid #FFFF00; background: #FFFFDD; margin-right: 5px; float: left;">
+				<p class="StandardSummaryTextStyle" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 0px; padding-top: 2px; padding-bottom: 2px; float: left;">SatView™ supports the <i>Packet Front-End Link Protocol</i> (PFLP) as defined by ESA and uses it to communicate with <a href="SatView_Desktop_Help_Telemetry_Service.htm">telemetry data provider devices</a>. This document describes the various implementations of PFLP necessary to interface with the supported front-end equipment.</p>
+			</div>
+		</div>
+	</div>
+	<div id="PageText" style="position: relative; left: 0px; top: 0px; width: 800px; height: auto; margin-bottom: 10px; float: left;">
+		<div id="HowDoISection" style="margin-left: 20px; margin-top: 20px; margin-right: 5px; display: none;">
+			<p class="StandardListTitleTextStyle">How do I...</p>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 10px; margin-top: 4px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListExpandableItemTextStyle" style="margin-top: 2px; cursor: pointer;" onclick="onClickListItem(event)"></p>
+						<div style="margin-bottom: 10px; display: block;">
+							<img src="images/collapsebutton.png" alt="">
+							<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; border: 1px solid #9BAFDE; background: #D9E9FE;">
+								<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+								</ol>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 20px; margin-bottom: 2px;">Contents</p>
+		<ul class="StandardListTitleTextStyle" style="list-style-type: none; margin-left: 20px; margin-top: 2px; margin-right: 5px; margin-bottom: 20px; padding-left: 0px; font-size: 14px;">
+			<li>1. <a href="#Introduction" style="color: #072C61;">Introduction</a></li>
+			<li>2. <a href="#Implementations" style="color: #072C61;">Implementations</a><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>2.1. ENERTEC TT&amp;C 3801</b></span><br><span class="StandardListItemTextStyle" style="margin-left: 20px;"><b>2.2. ENERTEC TT&amp;C 3801 Emulation</b></span></li>
+		</ul>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Document Change Log</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 20px;">
+			<tr>
+				<td width="50" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Issue</font></b></p></td>
+				<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Revision</font></b></p></td>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Date</font></b></p></td>
+				<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Affected</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Reason</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">September 1999</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">All</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">New document</p></td>
+			</tr>
+		</table>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Table of Figures</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 20px;">
+			<tr>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Figure</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">2.1.1.-1</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">PFLP Messages</p></td>
+			</tr>
+		</table>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Legend</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 40px;">
+			<tr>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Mnemonic</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+			</tr>
+		</table>
+		<ul class="StandardListTitleTextStyle" style="list-style-type: none; margin-left: 20px; margin-top: 20px; margin-bottom: 2px; margin-right: 5px; padding-left: 0px; font-size: 13px;">
+			<li>
+				<p style="margin-bottom: 2px;">1. <a name="Introduction">Introduction</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 0px;">SatView™ supports the <i>Packet Front-End Link Protocol</i> (PFLP) as defined by ESA in order to communicate with telemetry data provider devices. This document describes the various implementations of PFLP required to operate with the devices supported. SatView™ can be configured to act as a PFLP client or server or both (daisy-chaining).</p>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">2. <a name="Implementations">Implementations</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">Currently the following devices are supported by SatView™ through the PFLP:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 20px;">
+					<tr>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Device</font></b></p></td>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Version</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Company</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">ENERTEC TT&amp;C 3801</p></td>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1.x</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top">
+							<p style="margin: 1 4 1 4">
+								<b>ENERTEC SA</b><br>
+								Z.A. de Courtaboeuf 2<br>
+								3, avenue du Canada<br>
+								Parc Technopolis - Immeuble Parnasse<br>
+								L.P. 880<br>
+								91966 Courtaboeuf Cedex - France<br>
+								Tel: +33 (0) 1 64 86 34 00<br>
+								Fax: +33 (0) 1 64 86 34 12<br>
+								<a href="mailto:isite@zodiacaerospace.com">isite@zodiacaerospace.com</a><br><br>
+								<img src="images/ENERTEC.jpg" alt="" style="width: 450px;">
+								The ENERTEC™ telemetry products and systems give access to numerous fields of application, in data acquisition, flight testing of aircraft and missiles, ground vehicle testing, radar system proving, satellite integration, testing and monitoring, and many more.
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">ENERTEC TT&amp;C 3801 Emulation</p></td>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1.0</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top">
+							<img src="images/logo.png" alt="" style="position: relative; width: 150px; margin-top: 10px; margin-right: 150px; float: right;">
+							<p style="width: 150px; margin: 4 4 2 4">
+								<span class="CompanyNameTextStyle">Binary Space</span><br>
+								In der Weid 3<br>
+								CH-8122 Binz<br>
+								Tel: +41 44 8877987<br>
+								Fax: +41 44 8877989<br>
+								<a href="mailto:info@binary-space.com">info@binary-space.com</a><br>
+							</p>
+						</td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 0px;"><b>2.1. ENERTEC TT&amp;C 3801</b></p>
+				<table>
+					<tr>
+						<td><img src="images/warning.gif" alt=""></td>
+						<td><span class="StandardTextStyle">Information found in this chapter is the intellectual property of ENERTEC S.A. and hence is protected by copyright law and international treaties.</span></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1. Messages</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The TT&amp;C 3801 accepts several simultaneous connections for its telemetry services.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">In order to establish a service and to provide the telemetry services the following messages are exchanged:</p>
+				<img src="images/pflpmessages.jpg" alt="" style="margin-left: 50px;"><p class="StandardTextStyle" style="text-align: center; margin-top: 2px; margin-bottom: 7px;">Figure 2.1.1.-1  PFLP Messages</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">An <a href="#Acknowledgment Message">Acknowledgment Message</a> is sent by the TT&amp;C 3801 after the reception of any message in which such an acknowledgment is requested. <a href="#Status Message">Status Messages</a> on the other hand are transmitted periodically after a certain time-out and when no telemetry data is available.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1.1. <a name="Common Message Header">Common Message Header</a></b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">All messages within this protocol do have the same header:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Bytes</font></b></p></td>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">0</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Identification of the message</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-3</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Remaining Length</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Length of the message excluding the first 4 bytes</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Presence</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved (= <b>0x00</b>)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5-7</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Offset</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reserved (= <b>0x00</b>)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol Version</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">System Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0...255</b><br><u>Comments</u>:<br>Used in messages only returned by the TT&amp;C 3801 unit or by the SatView™ workstation running in emulation mode.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">10-11</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0...65535</b><br><u>Comments</u>:<br>A separate counter is used for every connection.<br>Used in messages returned by the TT&amp;C 3801 unit only.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">12</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Quality of the telemetry data returned in the data message</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">13</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sequence Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Indicates the correctness of the data message sequence</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">14</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Acknowledgment Request</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Implies the transmission of an <a href="#Acknowledgment Message">Acknowledgment Message</a></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">15</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code Flag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x41</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-23</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Filled with the telemetry data time<br><u>Comments</u>:<br>Format: Epoch is January 1st, 1958<br><img src="images/pflptimeformat.jpg" alt=""><br>Used in messages returned by the TT&amp;C 3801 unit only.</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1.2. <a name="Acknowledgment Message">Acknowledgment Message</a></b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">This message is sent by the TT&amp;C 3801 unit after the reception of a message which requests a message acknowledgment.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Bytes</font></b></p></td>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">0</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x42</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-3</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Remaining Length</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x16</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Presence</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5-7</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Offset</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol Version</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">System Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Identification of the TT&amp;C 3801 unit or the SatView™ workstation</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">10-11</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-bit message counter [0...65535]</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">12</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">13</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sequence Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">14</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Acknowledgment Request</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">15</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code Flag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x41</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-23</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>CDS Time</i><br>See <a href="#Common Message Header">Common Message Header</a> for the format.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">24-25</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0xAA55</b></p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1.3. <a name="Status Message">Status Message</a></b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">This message is sent repeatedly by the TT&amp;C 3801 unit when no telemetry data is available and after a configurable time-out occurred.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Bytes</font></b></p></td>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">0</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x57</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-3</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Remaining Length</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x14</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Presence</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5-7</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Offset</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol Version</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">System Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Identification of the TT&amp;C 3801 unit or the SatView™ workstation</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">10-11</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-bit message counter [0...65535]</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">12</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><table class="StandardTableItemTextStyle"><tr><td style="width: 50px;"><b>Bit 0</b><br> 0<br> 1</td><td><b>PM Demodulator</b><br> Not locked or not used<br> Locked</td></tr><tr><td><b>Bit 1</b><br> 0<br> 1</td><td><b>PSK Demodulator</b><br> Not locked or not used<br> Locked</td></tr><tr><td><b>Bit 2</b><br> 0<br> 1</td><td><b>Bit Synchronizer</b><br> Not locked<br> Locked</td></tr><tr><td><b>Bit 3</b><br> 0<br> 1</td><td><b>Viterbi Decoder</b><br> Not locked or not used<br> Locked</td></tr><tr><td><b>Bit 4/5</b><br> 00<br> 01<br> 11</td><td><b>Frame Synchronizer Status</b><br> Search<br> Control<br> Lock</td></tr><tr><td><b>Bit 6/7</b><br> 00<br> 10<br> 01<br> 11</td><td><b>Reed-Solomon and CRC</b><br> Errors detected by CRC<br> Errors cannot be corrected by RS<br> No RS or CRC error<br> Errors detected and corrected by RS</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">13</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sequence Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b> (= Sequence correct)<br><b>0x10</b> (= Sequence error)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">14</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Acknowledgment Request</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">15</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code Flag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x41</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-23</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>CDS Time</i><br>See <a href="#Common Message Header">Common Message Header</a> for the format.</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1.4. <a name="Service Request Message">Service Request Message</a></b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">A <b>Service Request Message</b> is sent by a client whenever a telemetry service is required and needs to be initiated. With this message the endianity of the client can be checked. The PFLP uses little endian standard whereas the TT&amp;C 3801 unit implements the big endian standard. Therefore, the TT&amp;C 3801 unit swaps bytes to decode the data correctly.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Bytes</font></b></p></td>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">0</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-3</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Remaining Length</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x2A</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Presence</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5-7</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Offset</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol Version</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">System Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">10-11</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">12</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">13</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sequence Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">14</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Acknowledgment Request</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b> (= Off)<br><b>0x01</b> (= On)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">15</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code Flag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-23</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">24-39</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Client Description</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">40-41</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Service Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x0010</b> for TM (= Telemetry data)<br><b>0x0020</b> for TC (= Telecommand data)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">42-45</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Endianity</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x01020304</b></p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1.5. <a name="Service Request Response Message">Service Request Response Message</a></b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The <b>Service Request Response Message</b> is returned by the TT&amp;C 3801 unit as an answer to a service request.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Bytes</font></b></p></td>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">0</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x11</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-3</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Remaining Length</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x2A</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Presence</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5-7</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Offset</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol Version</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">System Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Identification of the TT&amp;C 3801 unit or the SatView™ workstation</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">10-11</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-bit message counter [0...65535]</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">12</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">13</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sequence Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">14</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Acknowledgment Request</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">15</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code Flag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x41</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-23</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>CDS Time</i><br>See <a href="#Common Message Header">Common Message Header</a> for the format.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">24-39</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Server Description</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>TTC 3801 V1.00</b> or <b>SatView <i>X.x</i></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">40-41</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Service Identification Answer</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x0000</b> (= Service granted)<br><b>0x0010</b> (= Reserved)<br><b>0x0020</b> (= Endianity not supported)<br><b>0x0050</b> (= Protocol error)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">42-45</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Endianity</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x01020304</b></p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1.6. <a name="Service End Request Message">Service End Request Message</a></b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">A <b>Service End Request Message</b> is sent by a client whenever the telemetry service is to be stopped.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Bytes</font></b></p></td>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">0</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x60</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-3</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Remaining Length</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x16</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Presence</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5-7</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Offset</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol Version</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">System Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">10-11</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">12</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">13</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sequence Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">14</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Acknowledgment Request</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b> (= Off)<br><b>0x01</b> (= On)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">15</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code Flag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-23</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">24-25</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reason</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1.7. <a name="Service End Request Response Message">Service End Request Response Message</a></b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The <b>Service End Request Response Message</b> confirms the correct termination of a telemetry service and is sent by the TT&amp;C 3801 unit.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Bytes</font></b></p></td>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">0</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x61</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-3</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Remaining Length</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x16</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Presence</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5-7</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Offset</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol Version</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">System Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Identification of the TT&amp;C 3801 unit or the SatView™ workstation</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">10-11</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-bit message counter [0...65535]</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">12</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">13</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sequence Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">14</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Acknowledgment Request</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">15</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code Flag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x41</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-23</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>CDS Time</i><br>See <a href="#Common Message Header">Common Message Header</a> for the format.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">24-25</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Result</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x0000</b> (= Service ended successfully)<br><b>0x0010</b> (= System error)<br><b>0x0020</b> (= Rejected)</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1.8. <a name="Data Distribution Request Message">Data Distribution Request Message</a></b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">A <b>Data Distribution Request Message</b> must be transmitted by a client after a service has been initiated and specifies the telemetry data requested including any filtering options.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Bytes</font></b></p></td>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">0</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x20</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-3</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Remaining Length</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x1E</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Presence</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5-7</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Offset</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol Version</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">System Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">10-11</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">12</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">13</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sequence Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">14</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Acknowledgment Request</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b> (= Off)<br><b>0x01</b> (= On)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">15</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code Flag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-23</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">24-25</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Request Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x0001</b> (= Start data distribution)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">26-27</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Service Level</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x0000</b> (= Telemetry Source Packet)<br><b>0x0020</b> (= Transfer Frame)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">28-29</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Number of Filters</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x0001</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">30-33</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Filter</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0"><tr><td style="width: 50px; border-right: 1px #072C61 solid; border-bottom: 1px #072C61 solid;"><b>Bytes</b></td><td style="border-bottom: 1px #072C61 solid;"><span style="margin-left: 10px;"><b>Interpretation</b></span></td></tr><tr><td valign="top" style="border-right: 1px #072C61 solid;">30</td><td><span style="margin-left: 10px;"><b>1</b></span> (= Specific APID from any VCID)<br><span style="margin-left: 10px;"><b>2</b></span> (= Specific APID from a specific VCID)<br><span style="margin-left: 10px;"><b>3</b></span> (= Any APID from a specific VCID)<br><span style="margin-left: 10px;"><b>4</b></span> (= Any APID from any VCID)</td></tr><tr><td valign="top" style="border-right: 1px #072C61 solid;">31</td><td><span style="margin-left: 10px;"><b><i>VCID</i></b></span> (= Virtual Channel Identifier)</td></tr><tr><td style="border-right: 1px #072C61 solid;">32-33</td><td><span style="margin-left: 10px;"><b><i>APID</i></b></span> (= Application Identifier)</td></tr></table></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1.9. <a name="Data Distribution Request Response Message">Data Distribution Request Response Message</a></b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The <b>Data Distribution Request Response Message</b> is returned by the TT&amp;C 3801 unit in order to confirm the receipt of a data distribution request.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Bytes</font></b></p></td>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">0</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x21</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-3</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Remaining Length</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x1A</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Presence</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5-7</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Offset</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol Version</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">System Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Identification of the TT&amp;C 3801 unit or the SatView™ workstation</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">10-11</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-bit message counter [0...65535]</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">12</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">13</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sequence Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">14</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Acknowledgment Request</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">15</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code Flag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x41</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-23</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>CDS Time</i><br>See <a href="#Common Message Header">Common Message Header</a> for the format.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">24-25</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Request Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x0001</b> (= Start data distribution)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">26-27</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Request Result</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x0000</b> (= Request accepted)<br><b>0x0001</b> (= Request rejected)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">28-29</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reason</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x0000</b> (= None)<br><b>0x0010</b> (= System not ready)<br><b>0x0020</b> (= Data not supported)<br><b>0x0030</b> (= Service level not applicable)<br><b>0x0040</b> (= Incorrect filter)<br><b>0x0050</b> (= Bad request identification)</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1.10. <a name="Stop of Data Distribution Request Message">Stop of Data Distribution Request Message</a></b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">A <b>Stop of Data Distribution Request Message</b> is sent by a client when the data distribution is no longer required.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Bytes</font></b></p></td>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">0</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x22</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-3</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Remaining Length</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x16</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Presence</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5-7</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Offset</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol Version</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">System Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">10-11</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">12</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">13</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sequence Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">14</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Acknowledgment Request</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b> (= Off)<br><b>0x01</b> (= On)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">15</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code Flag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-23</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">24-25</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Reason</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Not used</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1.11. <a name="Stop of Data Distribution Request Response Message">Stop of Data Distribution Request Response Message</a></b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The <b>Stop of Data Distribution Request Response Message</b> is returned by the TT&amp;C 3801 unit in order to confirm the stopping of the data distribution.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Bytes</font></b></p></td>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">0</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x23</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-3</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Remaining Length</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x16</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Presence</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5-7</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Offset</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol Version</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">System Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Identification of the TT&amp;C 3801 unit or the SatView™ workstation</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">10-11</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-bit message counter [0...65535]</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">12</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">13</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sequence Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">14</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Acknowledgment Request</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">15</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code Flag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x41</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-23</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>CDS Time</i><br>See <a href="#Common Message Header">Common Message Header</a> for the format.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">24-25</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Request Result</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x0000</b> (= Request accepted)</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1.12. <a name="Transfer Frame Data Message">Transfer Frame Data Message</a></b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">This message is transmitted by the TT&amp;C 3801 unit as soon as a transfer frame is available and matches the filter value specified in the <a href="#Data Distribution Request Message">Data Distribution Request</a>.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Bytes</font></b></p></td>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">0</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x53</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-3</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Remaining Length</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Variable</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Presence</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5-7</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Offset</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol Version</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">System Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Identification of the TT&amp;C 3801 unit or the SatView™ workstation</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">10-11</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-bit message counter [0...65535]</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">12</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p><table class="StandardTableItemTextStyle"><tr><td style="width: 50px;"><b>Bit 0</b><br> 0<br> 1</td><td><b>PM Demodulator</b><br> Not locked or not used<br> Locked</td></tr><tr><td><b>Bit 1</b><br> 0<br> 1</td><td><b>PSK Demodulator</b><br> Not locked or not used<br> Locked</td></tr><tr><td><b>Bit 2</b><br> 0<br> 1</td><td><b>Bit Synchronizer</b><br> Not locked<br> Locked</td></tr><tr><td><b>Bit 3</b><br> 0<br> 1</td><td><b>Viterbi Decoder</b><br> Not locked or not used<br> Locked</td></tr><tr><td><b>Bit 4/5</b><br> 00<br> 01<br> 11</td><td><b>Frame Synchronizer Status</b><br> Search<br> Control<br> Lock</td></tr><tr><td><b>Bit 6/7</b><br> 00<br> 10<br> 01<br> 11</td><td><b>Reed-Solomon and CRC</b><br> Errors detected by CRC<br> Errors cannot be corrected by RS<br> No RS or CRC error<br> Errors detected and corrected by RS</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">13</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sequence Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b> (= Sequence correct)<br><b>0x10</b> (= Sequence error)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">14</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Acknowledgment Request</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">15</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code Flag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x41</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-23</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>CDS Time</i><br><u>Comments</u>:<br>Reception time of the first bit of the synchronization pattern.<br>See <a href="#Common Message Header">Common Message Header</a> for the format.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">24ff</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Data</i><br><u>Comments</u>:<br>Transfer frame data with or without synchronization pattern, header and trailer.</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 7px; margin-bottom: 2px;"><b>2.1.1.13. <a name="Source Packet Data Message">Source Packet Data Message</a></b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">This message is transmitted by the TT&amp;C 3801 unit as soon as a valid telemetry source packet is available and matches the filter value specified in the <a href="#Data Distribution Request Message">Data Distribution Request</a>.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px;">
+					<tr>
+						<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Bytes</font></b></p></td>
+						<td width="250" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Field</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">0</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x52</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1-3</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Remaining Length</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Variable</i></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Presence</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5-7</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Trailer Offset</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">8</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Protocol Version</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x10</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">9</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">System Identification</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Identification of the TT&amp;C 3801 unit or the SatView™ workstation</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">10-11</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Sequence Count</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-bit message counter [0...65535]</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">12</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p><table class="StandardTableItemTextStyle"><tr><td style="width: 50px;"><b>Bit 0</b><br> 0<br> 1</td><td><b>PM Demodulator</b><br> Not locked or not used<br> Locked</td></tr><tr><td><b>Bit 1</b><br> 0<br> 1</td><td><b>PSK Demodulator</b><br> Not locked or not used<br> Locked</td></tr><tr><td><b>Bit 2</b><br> 0<br> 1</td><td><b>Bit Synchronizer</b><br> Not locked<br> Locked</td></tr><tr><td><b>Bit 3</b><br> 0<br> 1</td><td><b>Viterbi Decoder</b><br> Not locked or not used<br> Locked</td></tr><tr><td><b>Bit 4/5</b><br> 00<br> 01<br> 11</td><td><b>Frame Synchronizer Status</b><br> Search<br> Control<br> Lock</td></tr><tr><td><b>Bit 6/7</b><br> 00<br> 10<br> 01<br> 11</td><td><b>Reed-Solomon and CRC</b><br> Errors detected by CRC<br> Errors cannot be corrected by RS<br> No RS or CRC error<br> Errors detected and corrected by RS</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">13</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sequence Quality Indication</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b> (= Sequence correct)<br><b>0x10</b> (= Sequence error)</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">14</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Message Acknowledgment Request</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x00</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">15</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code Flag</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><b>0x41</b></p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">16-23</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CDS Time Code</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>CDS Time</i><br><u>Comments</u>:<br>Reception time of the first bit of the synchronization pattern.<br>See <a href="#Common Message Header">Common Message Header</a> for the format.</p></td>
+					</tr>
+					<tr>
+						<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">24ff</p></td>
+						<td width="250" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Data</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4"><i>Data</i><br><u>Comments</u>:<br>Source packet data (including header and data field).</p></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 15px; margin-bottom: 2px;"><b>2.2. ENERTEC TT&amp;C 3801 Emulation</b></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">Each SatView™ workstation has a built-in capability to emulate a TT&amp;C 3801 unit and hence can act as a telemetry data server or client or both. This feature therefore enables the reception of telemetry data directly from another SatView™ workstation and allows daisy-chaining.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The following restrictions apply in emulation mode:</p>
+				<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; padding-left: 0px;">
+					<li style="margin-top: -2px;">The <a href="#Transfer Frame Data Message">Transfer Frame</a> service level is not supported.</li>
+					<li style="margin-top: -4px;"><b>SatView V<i>X.x</i></b> is returned as server description in the <a href="#Service Request Response Message">Service Request Response Message</a>.</li>
+				</ul>
+
+			</li>
+		</ul>
+	</div>
+	<img id="PageFooter" src="images/templatebottom.png" alt="" style="position: relative; left: -1px; top: 0px;">
+</div>
+</body>
+
+</html>

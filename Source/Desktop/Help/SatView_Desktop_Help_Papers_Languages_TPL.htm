@@ -1,0 +1,720 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Telecommand Procedure Language (TPL)</title>
+<link rel="stylesheet" type="text/css" href="resources/styles.css">
+<![if lte IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/iefix.css">
+<![endif]>
+<![if gt IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/ie.css">
+<![endif]>
+<script src="resources/behaviors.js" type="text/javascript"></script>
+</head>
+
+<body style="margin: 0 0 0 0;" background="images/background.jpg" onload="FP_callJS('onRecalcLayout()')">
+<img id="PageTemplate" src="images/template.png" alt="" style="position: absolute; left: 0px; top: 0px; width: 880px; height: 660px; border: none; outline: none;">
+<img id="PageFloater" src="images/templatebackground.png" alt="" style="position: absolute; left: 39px; top: 659px; width: 803px; height: auto; background-image: url('images/templatebackground.png'); background-repeat: repeat-y; display: none;">
+<img id="PageApplication" src="images/application.png" alt="" style="position: absolute; left: 50px; top: 90px; border: none; outline: none;">
+<div id="PageTitle" style="position: absolute; left: 295px; top: 84px; width: 545px; height: 22px;">
+	<span class="StandardTitleTextStyle" style="width: 545px;">Telecommand Procedure Language (TPL)</span>
+</div>
+<div id="PageContents" style="position: absolute; left: 40px; top: 114px; width: 800px; height: auto; z-index: 1;">
+	<div id="PageHeader" style="position: relative; left: 0px; top: 0px; width: 550px; height: auto; float: right;">
+		<p class="StandardSummaryTitleStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-top: 10px; margin-bottom: 0px; text-indent: 0px; float: left;">SUMMARY</p>
+		<div id="PageVersionSection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; float: right;">
+			<span class="StandardVersionTextStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-right: 10px; float: right;">
+			<!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%A, %B %d, %Y" startspan -->Thursday, January 14, 2016<!--webbot bot="Timestamp" endspan i-checksum="2382" --><br>Version 1.0</span>
+		</div>
+		<div id="PageSummarySection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-top: 2px; float: left;">
+			<div id="PageSummaryBox" style="position: relative; left: 0px; top: 0px; width: 538px; height: auto; border: 1px solid #FFFF00; background: #FFFFDD; margin-right: 5px; float: left;">
+				<p class="StandardSummaryTextStyle" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 0px; padding-top: 2px; padding-bottom: 2px; float: left;">The <i>Telecommand Procedure Language</i> (TPL) is the programming language of SatView™ to implement <i>Telecommand Procedures</i>. The usual way to design those procedures is with the supported interactive graphical interface provided by the SatView™ Editor which automatically converts the procedure into TPL code. However, it is also possible to write such code directly.<br>All information is subject to change without notice and does not represent a commitment on the part of <span class="CompanyNameTextStyle" style="font-size: 12px;">Binary Space</span>.</p>
+			</div>
+		</div>
+	</div>
+	<div id="PageText" style="position: relative; left: 0px; top: 0px; width: 800px; height: auto; margin-bottom: 10px; float: left;">
+		<div id="HowDoISection" style="margin-left: 20px; margin-top: 20px; margin-right: 5px; display: none;">
+			<p class="StandardListTitleTextStyle">How do I...</p>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 10px; margin-top: 4px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListExpandableItemTextStyle" style="margin-top: 2px; cursor: pointer;" onclick="onClickListItem(event)"></p>
+						<div style="margin-bottom: 10px; display: block;">
+							<img src="images/collapsebutton.png" alt="">
+							<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; border: 1px solid #9BAFDE; background: #D9E9FE; z-index: 2;">
+								<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+								</ol>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 20px; margin-bottom: 2px;">Contents</p>
+		<ul class="StandardListTitleTextStyle" style="list-style-type: none; margin-left: 20px; margin-top: 2px; margin-right: 5px; margin-bottom: 20px; padding-left: 0px; font-size: 14px;">
+			<li>1. <a href="#Introduction" style="color: #072C61;">Introduction</a></li>
+			<li>2. <a href="#Syntax" style="color: #072C61;">Syntax</a></li>
+			<li>3. <a href="#Library" style="color: #072C61;">Library</a></li>
+			<li>4. <a href="#Samples" style="color: #072C61;">Samples</a></li>
+		</ul>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Document Change Log</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 20px;">
+			<tr>
+				<td width="50" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Issue</font></b></p></td>
+				<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Revision</font></b></p></td>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Date</font></b></p></td>
+				<td width="75" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Affected</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Reason</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">March 2007</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">All</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">New document</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">2</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">July 2008</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">All</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Added feature to develop telecommand procedures without graphical interface</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">3</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">August 2008</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 3.1.</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Added support for bandwidth measurement</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">4</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">May 2011</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 3.1.</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">New telemetry data function '<b>GetPastValueTime</b>'</p></td>
+			</tr>
+			<tr>
+				<td width="50" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">1</p></td>
+				<td width="75" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">5</p></td>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">January 2016</p></td>
+				<td width="100" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Chapter 3.3.</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Added satellite tracking, pass &amp; interlink functions</p></td>
+			</tr>
+		</table>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Table of Figures</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 20px;">
+			<tr>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Figure</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+			</tr>
+		</table>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Legend</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px; margin-bottom: 40px;">
+			<tr>
+				<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Mnemonic</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+				<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">&nbsp;</p></td>
+			</tr>
+		</table>
+		<ul class="StandardListTitleTextStyle" style="list-style-type: none; margin-left: 20px; margin-top: 20px; margin-bottom: 2px; margin-right: 5px; padding-left: 0px; font-size: 14px;">
+			<li>
+				<p style="margin-bottom: 2px;">1. <a name="Introduction">Introduction</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 0px;">The <i>Telecommand Procedure Language</i> (TPL) is the programming language of SatView™ to implement telecommand procedures. It is an extension of the <i>Microsoft® Foundation Classes</i> (MFC). The associated library provides access to all kind of information related to the telemetry data and simplifies the decision if, when and how a telecommand should be released.<br>A telecommand procedure is usually developed in a graphical way through a <i>Telecommand Procedure Display</i> (TPD). This kind of display automatically generates the source code resulting from the thread related flowcharts and provides all features necessary to debug a telecommand procedure.</p>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">2. <a name="Syntax">Syntax</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 0px;">The source code of a telecommand procedure always consists of a hosting procedure containing one or more thread blocks.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 4px; margin-right: 10px; margin-bottom: 2px;">The syntax looks as follows:</p>
+				<div style="padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border: 1px solid #9BAFDE; background: #D7E7FE;">
+					<table class="TPLKeyword">
+						<tr>
+							<td>
+								<p style="margin-left: 10px; margin-top: 0px; margin-bottom: 0px;"><span class="TPLKeyword">TELECOMMAND PROCEDURE</span> <span class="StandardListItemTextStyle" style="color: red;"><b>'<i>Name</i>'</b></span> <span style="color: black;">&nbsp;[(<i>argument-declaration-list</i>)]<br>[<i>variable-declarations</i>]</span></p>
+								<p style="margin-left: 10px; margin-top: 0px; margin-right: 10px; margin-bottom: 5px;"><span class="TPLKeyword">BEGIN<br><br>{{THREAD <span class="StandardListItemTextStyle" style="color: red;"><b>'<i>Thread-Name</i>'</b></span></span></p>
+								<p style="margin-left: 10px; margin-top: -2px; margin-right: 10px; margin-bottom: 0px;">[<span class="TPLKeyword">TCPARAMETERS</span> <span class="StandardListItemTextStyle" style="color: maroon;"><i><b>T<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></span>...<span class="StandardListItemTextStyle" style="color: maroon;"><i><b>T<sub><span style="font-size: 10px; line-height: 16px;">j</span></sub></b></i></span>]</p>
+								<p style="margin-left: 10px; margin-top: -2px; margin-right: 10px; margin-bottom: 0px;">[<span class="TPLKeyword">PARAMETERS</span> <span class="StandardListItemTextStyle" style="color: green;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></span>...<span class="StandardListItemTextStyle" style="color: green;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">j</span></sub></b></i></span>]</p>
+								<p style="margin-left: 10px; margin-top: -2px; margin-right: 10px; margin-bottom: 0px;">[<span class="TPLKeyword">VOLATILE</span> <span class="StandardListItemTextStyle" style="color: olive;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">k</span></sub></b></i></span>...<span class="StandardListItemTextStyle" style="color: olive;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">l</span></sub></b></i></span>]</p>
+								<p style="margin-left: 10px; margin-top: -2px; margin-right: 10px; margin-bottom: 5px;"><span class="TPLKeyword">BEGIN</span></p>
+								<p style="margin-left: 20px; margin-top: -2px; margin-right: 10px; margin-bottom: 0px;"><span class="TPLCode"><i><b>TPL Code</b></i></span></p>
+								<p style="margin-left: 10px; margin-top: 3px; margin-right: 10px; margin-bottom: 0px;"><span class="TPLKeyword">END}}<br><br>END</span></p>
+							</td>
+							<td>
+								<table class="StandardTableStyle" cellpadding="0" cellspacing="0" style="margin-left: 20px; margin-top: 60px; margin-bottom: 0px;">
+									<tr>
+										<td width="20" class="StandardTableItemTextStyle" valign="top"><p style="margin: 0 4; color: #072C61;"><u>Notation</u>:</p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 0 4 color: #072C61;"><b>&nbsp;</b></p></td>
+									</tr>
+									<tr style="margin-top: -4px;">
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 2 4; color: red"><i><b>Name</b></i></p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 2 4">The name of the telecommand procedure.</p></td>
+									</tr>
+									<tr>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 0 4 0 4; color: black;"><i><b>arg-decl-list</b></i></p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 0 4 0 4;">Argument declaration (C++ syntax).</p></td>
+									</tr>
+									<tr>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 0 4 0 4; color: black;"><i><b>var-decls</b></i></p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 0 4 0 4;">Local variables declaration (C++ syntax).</p></td>
+									</tr>
+									<tr>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 0 4 0 4; color: maroon;"><i><b>T<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 0 4 0 4;">The tag of a telecommand parameter.</p></td>
+									</tr>
+									<tr>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: -2 4 0 4; color: green;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: -2 4 0 4;">The tag of a telemetry parameter.</p></td>
+									</tr>
+									<tr>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: -2 4 0 4;"><b>[<i>x</i>]</b></p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: -2 4 0 4;"><i><b>x</b></i> occurs zero times or once.</p></td>
+									</tr>
+									<tr>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 2 4 0 4;"><b>{<i>x</i>}</b></p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 2 4 0 4"><i><b>x</b></i> occurs zero or more times.</p></td>
+									</tr>
+									<tr>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 2 4 0 4;"><b>{{<i>x</i>}}</b></p></td>
+										<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 2 4 0 4"><i><b>x</b></i> occurs once or more times.</p></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<p class="StandardListItemTextStyle" style="margin-top: 5px; margin-bottom: 2px;">By using the <span class="TPLKeyword">VOLATILE</span> keyword the subsequent enumerated telemetry parameters are not checked whether or not they are initialized (i.e. do have a value). Each of the specified parameters must be contained in the list declared with the <span class="TPLKeyword">PARAMETERS</span> keyword and may have a random value. By default, the procedure is not executed whenever one of the parameters <span class="StandardListItemTextStyle" style="line-height: 12px; color: green;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></span>...<span class="StandardListItemTextStyle" style="color: green;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">j</span></sub></b></i></span> has no value.<br>With the <span class="TPLKeyword">VOLATILE</span> keyword specified, the calculation in the procedure is performed although one or more of the parameters <span class="StandardListItemTextStyle" style="line-height: 12px; color: olive;"><i><b>P<sub><span style="font-size: 10px; line-height: 12px;">k</span></sub></b></i></span>...<span class="StandardListItemTextStyle" style="color: olive;"><i><b>P<sub><span style="font-size: 10px; line-height: 12px;">l</span></sub></b></i></span> have no (or a random) value.</p>
+				<p class="StandardListItemTextStyle" style="margin-top: 5px; margin-bottom: 0px;">A telecommand procedure can have zero or more formal arguments. When taking advantage of the <i>Telecommand Procedure Display</i> for design, the arguments must be declared with the <b>Arguments</b> property page. The same applies to the local variables; they are declared with the <b>Variables</b> property page. Any number of threads (but at least one) can be hosted by a telecommand procedure. Their definition takes place via the <b>Threads</b> property page. Debugging features are available through the <b>Debug</b> property page.<br>The source code of a telecommand procedure is usually generated automatically when using the available graphical interface. However, in certain situations, it might be of some advantage to slightly modify the automatically generated source code or to write it completely without the support of the graphical interface, a feature which is supported too.<br></p>
+				<p class="StandardListItemTextStyle" style="margin-top: 4px; margin-bottom: 2px;">The following guidelines have to be considered when writing or modifying the source code of a telecommand procedure:</p>
+				<div style="height: auto; padding-left: 20px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border: 1px solid #9BAFDE; background: #D7E7FE;">
+					<table style="margin-left: 0px; margin-right: 10px;" cellpadding="0" cellspacing="0">
+						<tr>
+							<td class="TPLKeyword" style="width: 50%; margin-right: 20px;">THREAD <span style="color: red;">'<i>Thread-Name</i>'</span><br>[TCPARAMETERS  <span style="line-height: 12px;"><span style="color: maroon;"><i>T<sub>i</sub></i></span>{,<span style="color: maroon;"><i>T<sub>j</sub></i></span>}</span>;]<br>[PARAMETERS  <span style="line-height: 12px;"><span style="color: green;"><i>P<sub>i</sub></i></span>{,<span style="color: green;"><i>P<sub>j</sub></i></span>}</span>;]<br>BEGIN<br><span class="TPLCode">&nbsp;&nbsp;<b>while</b> (WaitThreadActivationExpression())<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green;">// Steps block code (TPL Code)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>if</b> (!IsThreadEnabled())<br>&nbsp;&nbsp;&nbsp;&nbsp;{ ResetThread();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>continue</b>;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b> TRUE;<br>&nbsp;&nbsp;}<br></span>END<br><br><span class="TPLCode">&nbsp;&nbsp;<b>if</b> (!CheckStepTrigger(TEXT("STEP_1")))<br>&nbsp;&nbsp;{ AlertStepTriggerFailure(TEXT("STEP_1"));<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b> FALSE;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;AlertStepTriggerSuccess(TEXT("STEP_1"));<br>&nbsp;&nbsp;if (!CheckStepBody(TEXT("STEP_1")))<br>&nbsp;&nbsp;{ AlertStepBodyFailure(TEXT("STEP_1"));<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b> FALSE;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<span style="color: green;">// Step body code (TPL Code)</span><br>&nbsp;&nbsp;AlertStepBodySuccess(TEXT("STEP_1"));<br>&nbsp;&nbsp;<b>if</b> (!CheckStepConfirmation(TEXT("STEP_1")))<br>&nbsp;&nbsp;{ AlertStepConfirmationFailure(TEXT("STEP_1"));<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b> FALSE;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;AlertStepConfirmationSuccess(TEXT("STEP_1"));</span></td>
+							<td class="StandardTextStyle"><br><br><br><br>The source code of each thread consists of a loop waiting for the activation expression to get true first.<br>Whenever a thread is going to terminate it should check if it is enabled. If yes, it can exit (by returning true), if no it should re-enter and wait again for the activation expression to become true.<br>A thread that terminates due to a failure should always return false.<br><img src="images/note.gif" alt="" style="margin-top: 8px; margin-right: 4px;">Note:<br>Do not change this part of the source code.<br><br><br>For each step inside a thread check the trigger first (use '<b>CheckStepTrigger</b>' and alert a failure if necessary with '<b>AlertStepTriggerFailure</b>'). If the trigger phase passed successfully this should also be notified (by '<b>AlertStepTriggerSuccess</b>').<br>Before the body phase of a step is started, its pre-execution expression should be checked (by using '<b>CheckStepBody</b>') and in case of a failure the appropriate notification should be done (with '<b>AlertStepBodyFailure</b>').<br>The same applies to the confirmation phase of a step (use '<b>CheckStepConfirmation</b>', '<b>AlertStepConfirmationSuccess</b>' or '<b>AlertStepConfirmationFailure</b>').<br><img src="images/note.gif" alt="" style="margin-top: 8px; margin-right: 4px;">Note:<br>Do not change or delete these step related functions as they are responsible for updating the flowcharts when the telecommand procedure is executing. Only the step body code should be modified.</td>
+						</tr>
+					</table>
+					<table style="margin-left: 0px; margin-top: 10px; margin-right: 10px;" cellpadding="0" cellspacing="0">
+						<tr>
+							<td class="StandardTextStyle">
+								<img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>There are some minor limitations concerning the coding in TPL:
+								<ul style="list-style-type: disc; margin-left: 16px; margin-top: 0px; margin-bottom: 0px; padding-left: 0px;">
+									<li>Only simple data types (no classes or arrays) are allowed as arguments. Variables declared inside the <span style="color: black;">[<i>variable-declarations</i>]</span> section must also have a simple data type. Local variables of a thread however (as part of the TPL code) may be of any type.</li>
+									<li>Full debugging support is available for variables declared inside the <span style="color: black;">[<i>variable-declarations</i>]</span> section only.</li>
+									<li>Global subroutines are allowed and should be placed between the code for the various threads.</li>
+								</ul>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">3. <a name="Library">Library</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;">Various library functions supported by the TPL provide easy access to the telemetry data characteristics. Together with the standard mathematical compiler libraries almost any calculation can be performed. The library is grouped into functions related to the action-object steps and others providing support in the area of telemetry data processing.</p>
+				<p class="StandardListTitleTextStyle" style="margin-top: 2px; margin-bottom: 2px; font-size: 13px"><b>3.1. Telemetry Functions</b></p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 10px;">
+					<tr>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Function</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CString <b>GetTMUnitTag(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the identifier of the telemetry unit that is currently processed.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The function returns the name of the telemetry packet if the Packet Telemetry Standard (CCSDS 102.0-B-2) is supported. For a telemetry format based standard, it results in a string with the syntax: 'FORMAT: <i>n</i>' where <i>n</i> is the frame number.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeTag <b>GetTMUnitTime(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time of the telemetry packet (or format).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The time identifies the moment when the telemetry packet (or format) was received on ground including eventual corrections to compensate any delays caused by the ground segment.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">UINT <b>GetTMUnitID(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the identifier of the telemetry unit or of the format.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The function returns the On-Board Reference Time (OBRT) of the telemetry packet if the Packet Telemetry Standard (CCSDS 102.0-B-2) is supported. For a telemetry format based standard, it returns the number known as format counter.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>GetTMUnitData(</b>INT <i>nBytePos</i>,<br>&nbsp;&nbsp;BYTE <i>&amp;nValue</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the value of a byte at the specified location <i>nBytePos</i> (&ge; 0) in the variable <i>nValue</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The function returns TRUE if the specified location is valid, FALSE otherwise.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>GetTMUnitData(</b>INT <i>nBytePos</i>,<br>&nbsp;&nbsp;INT <i>nBitPos</i>,<br>&nbsp;&nbsp;INT <i>nLength</i>,<br>&nbsp;&nbsp;ULONGLONG &amp;<i>nValue</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the value of data at the specified location <i>nBytePos</i> (&ge; 0), <i>nBitPos</i> (0 &le; <i>nBitPos</i> &lt; 8), <i>nLength</i> (1 &le; nLength &le; 64) in the variable <i>nValue</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The function returns TRUE if the specified location is valid, FALSE otherwise.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">WORD <b>GetTMUnitQuality(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the data quality indication of the telemetry packet or format. It may be a combination of one or more of the following values:<br>&nbsp;&nbsp;<b>TMUNIT_DATAQUALITY_GOOD</b><br>&nbsp;&nbsp;<b>TMUNIT_DATAQUALITY_BAD</b><br>&nbsp;&nbsp;<b>TMUNIT_SEQUENCEQUALITY_GOOD</b><br>&nbsp;&nbsp;<b>TMUNIT_SEQUENCEQUALITY_BAD</b><br>&nbsp;&nbsp;<b>TMUNIT_TIMECORRELATION_GOOD</b><br>&nbsp;&nbsp;<b>TMUNIT_TIMECORRELATION_BAD</b><br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The value <b>TMUNIT_DATAQUALITY_NONE</b> is returned in case of an error.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-sepecifier</i> <b>GetValue(</b><i>parameter-tag</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the current (calibrated) value of the telemetry parameter <i>parameter-tag</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If the parameter occurs more than once within a telemetry packet or format, the function returns the value of the first occurrence.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-sepecifier</i> <b>GetValue(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nOccurrence</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the current (calibrated) value of the telemetry parameter <i>parameter-tag</i> at the occurrence specified by <i>nOccurrence</i> (&ge; 0).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If an illegal occurrence number is specified the function returns 0.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-sepecifier</i> <b>GetRawValue(</b><i>parameter-tag</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the current raw value of the telemetry parameter <i>parameter-tag</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If the parameter occurs more than once within a telemetry packet or format, the function returns the value of the first occurrence.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-sepecifier</i> <b>GetRawValue(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nOccurrence</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the current raw value of the telemetry parameter <i>parameter-tag</i> at the occurrence specified by <i>nOccurrence</i> (&ge; 0).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If an illegal occurrence number is specified the function returns 0.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeTag <b>GetValueTime(</b><i>parameter-tag</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time associated with the current value of telemetry parameter <i>parameter-tag</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If the parameter occurs more than once within a telemetry packet or format, the function returns the time of the first occurrence.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeTag <b>GetValueTime(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nOccurrence</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time associated with the current value of telemetry parameter <i>parameter-tag</i> at the occurrence specified by <i>nOccurrence</i> (&ge; 0).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If an illegal occurrence number is specified the function returns 0.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-sepecifier</i> <b>GetPastValue(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nSample</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns a past (calibrated) value of the telemetry parameter <i>parameter-tag</i>. The variable <i>nSample</i> specifies how many samples in the past the value should be from.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If a parameter occurs more than once within a telemetry packet or format, each occurrence is counted as a sample.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-sepecifier</i> <b>GetPastRawValue(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nSample</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns a past raw value of the telemetry parameter <i>parameter-tag</i>. The variable <i>nSample</i> specifies how many samples in the past the value should be from.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If a parameter occurs more than once within a telemetry packet or format, each occurrence is counted as a sample.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeTag <b>GetPastValueTime(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nSample</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time associated with a past value of telemetry parameter <i>parameter-tag</i>. The variable <i>nSample</i> specifies how many samples in the past the value should be from.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If a parameter occurs more than once within a telemetry unit, each occurrence is counted as a sample.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-sepecifier</i> <b>CalculateValueAverage(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nSamples</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the raw average value of the last <i>nSamples</i> samples of the telemetry parameter <i>parameter-tag</i>.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>If less than <i>nSamples</i> samples have been collected, the function returns a floating average of the samples already encountered.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">UINT <b>GetStatus(</b><i>parameter-tag</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the status of the telemetry parameter <i>parameter-tag</i> which may be a combination of the following values:<br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_GOOD</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_BAD</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_NOLIMIT</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_SOFTLIMIT</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_HARDLIMIT</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_DELTALIMIT</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_VALID</b><br>&nbsp;&nbsp;<b>TMPARAMETER_STATUS_INVALID</b><br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The value <b>TMPARAMETER_STATUS_NONE</b> is returned if the parameter has no value.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">UINT <b>GetStatus(</b><i>parameter-tag</i>,<br>&nbsp;&nbsp;INT <i>nOccurrence</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the status of the telemetry parameter <i>parameter-tag</i> at the occurrence specified by <i>nOccurrence</i> (&ge; 0).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The value <b>TMPARAMETER_STATUS_NONE</b> is returned if the parameter has no value or an illegal occurrence number was specified.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">double <b>GetTotalTMBandwidth(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the total amount of bits per second available for the telemetry data (including the protocol overhead for the telemetry unit).<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>A value of <b>NAN</b> is returned when no bandwidth information is available.<br>Use the macro BOOL <b>isnan(</b>double <i>f</i><b>)</b> to check for that result.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">double <b>GetAvailableTMBandwidth(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the currently unused bandwidth as a floating-point number between 0 and 1.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>A value of <b>NAN</b> is returned when no bandwidth information or measurement is available.<br>Use the macro BOOL <b>isnan(</b>double <i>f</i><b>)</b> to check for that result.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">double <b>GetMaxDiagnosticTMBandwidth(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the maximum of bits per second currently available for diagnostic purposes, dumps or reports.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>A value of <b>NAN</b> is returned when no bandwidth information is available.<br>Use the macro BOOL <b>isnan(</b>double <i>f</i><b>)</b> to check for that result.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">double <b>GetAvailableDiagnosticTMBandwidth(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the bandwidth currently available for diagnostic purposes, dumps or reports as a number between 0 and 1.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>A value of <b>NAN</b> is returned when no bandwidth information or measurement is available.<br>Use the macro BOOL <b>isnan(</b>double <i>f</i><b>)</b> to check for that result.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeTag <b>GetLastTMBandwidthMeasurementTime(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the time of the last bandwidth measurement.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>A time equal to 0 is returned when no bandwidth information or measurement is available.</p></td>
+					</tr>
+				</table>
+				<p class="StandardListTitleTextStyle" style="margin-top: 2px; margin-bottom: 2px; font-size: 13px"><b>3.2. Action-object Step Functions</b><br>The following action-object related functions are supported:</p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;"><b>3.2.1. Common Functions</b></p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 10px;">
+					<tr>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Function</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>CheckStepTrigger(</b>LPCTSTR <i>pszStep</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Checks the trigger condition of the specified step.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This function returns TRUE if no trigger condition exists.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>CheckStepBody(</b>LPCTSTR <i>pszStep</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Checks the pre-execution expression (if any) of the specified step.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This function returns TRUE if no pre-execution expression exists.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>CheckStepConfirmation(</b>LPCTSTR <i>pszStep</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Checks the confirmation condition of the specified step.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This function returns TRUE if no confirmation condition exists.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">VOID <b>AlertStepTriggerSuccess(</b>LPCTSTR <i>pszStep</i>,<br>&nbsp;&nbsp;LPCTSTR <i>pszMessage</i>=NULL<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Notifies a successful trigger phase of the specified step and supplies an optional message.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">VOID <b>AlertStepTriggerWarning(</b>LPCTSTR <i>pszStep</i>,<br>&nbsp;&nbsp;LPCTSTR <i>pszMessage</i>=NULL<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Alerts a problematic trigger phase of the specified step and supplies an optional message.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">VOID <b>AlertStepTriggerFailure(</b>LPCTSTR <i>pszStep</i>,<br>&nbsp;&nbsp;LPCTSTR <i>pszMessage</i>=NULL<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Alerts a failed trigger phase of the specified step and supplies an optional message.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">VOID <b>AlertStepBodySuccess(</b>LPCTSTR <i>pszStep</i>,<br>&nbsp;&nbsp;LPCTSTR <i>pszMessage</i>=NULL<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Notifies a successful body phase of the specified step and supplies an optional message.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">VOID <b>AlertStepBodyWarning(</b>LPCTSTR <i>pszStep</i>,<br>&nbsp;&nbsp;LPCTSTR <i>pszMessage</i>=NULL<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Alerts a problematic body phase of the specified step and supplies an optional message.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">VOID <b>AlertStepBodyFailure(</b>LPCTSTR <i>pszStep</i>,<br>&nbsp;&nbsp;LPCTSTR <i>pszMessage</i>=NULL<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Alerts a failed body phase of the specified step and supplies an optional message.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">VOID <b>AlertStepConfirmationSuccess(</b>LPCTSTR <i>pszStep</i>,<br>&nbsp;&nbsp;LPCTSTR <i>pszMessage</i>=NULL<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Notifies a successful confirmation phase of the specified step and supplies an optional message.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">VOID <b>AlertStepConfirmationWarning(</b>LPCTSTR <i>pszStep</i>,<br>&nbsp;&nbsp;LPCTSTR <i>pszMessage</i>=NULL<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Alerts a problematic confirmation phase of the specified step and supplies an optional message.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">VOID <b>AlertStepConfirmationFailure(</b>LPCTSTR <i>pszStep</i>,<br>&nbsp;&nbsp;LPCTSTR <i>pszMessage</i>=NULL<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Alerts a failed confirmation phase of the specified step and supplies an optional message.</p></td>
+					</tr>
+				</table>
+				<p class="StandardTableItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;"><b>3.2.2. Specific Functions</b></p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 10px;">
+					<tr>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Function</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>SetProcedureState(</b>LPCTSTR <i>pszName</i>,<br>&nbsp;&nbsp;UINT <i>nState</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sets the execution state of the specified telecommand procedure.<br>The following options are available:<br>&nbsp;&nbsp;<b>TCPROCEDURE_ACTIONSTATE_SUSPEND</b><br>&nbsp;&nbsp;<b>TCPROCEDURE_ACTIONSTATE_RESUME</b><br>&nbsp;&nbsp;<b>TCPROCEDURE_ACTIONSTATE_ABORT</b></p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>SetThreadState(</b>LPCTSTR <i>pszName</i>,<br>&nbsp;&nbsp;UINT <i>nState</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Sets the execution state of the specified thread.<br>The following options are available:<br>&nbsp;&nbsp;<b>TCPROCEDURETHREAD_ACTIONSTATE_SUSPEND</b><br>&nbsp;&nbsp;<b>TCPROCEDURETHREAD_ACTIONSTATE_RESUME</b><br>&nbsp;&nbsp;<b>TCPROCEDURETHREAD_ACTIONSTATE_ENABLE</b><br>&nbsp;&nbsp;<b>TCPROCEDURETHREAD_ACTIONSTATE_DISABLE</b><br>&nbsp;&nbsp;<b>TCPROCEDURETHREAD_ACTIONSTATE_ABORT</b></p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>CallProcedure(</b>LPCTSTR <i>pszName</i>,...<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Calls the specified telecommand procedure and waits upon its completion.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>StartProcedure(</b>LPCTSTR <i>pszName</i>,...<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Starts the specified telecommand procedure and continues its execution.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>SetSynchronizationObject(</b>LPCTSTR <i>pszSyncObject</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Signals the specified synchronization object.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>WaitSynchronizationObject(</b>LPCTSTR <i>pszSyncObject</i>,<br>&nbsp;&nbsp;DWORD <i>Timeout</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Waits for the specified synchronization object to get signaled within the indicated amount of milliseconds.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>WaitTimeInterval(</b>DWORD <i>dwTimeInterval</i>)</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Waits the specified amount of milliseconds.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>WaitAbsoluteTime(</b>CONST CTimeTag &amp;<i>tTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Waits until the specified absolute time.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>InjectAlert(</b>LPCTSTR <i>pszAlert</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top">
+							<p style="margin: 1 4">Injects an alert as an event.<br>The supplied string must follow these formatting guidelines:</p>
+							<table class="StandardTableStyle" style="margin-left: 4px; margin-top: 2px; margin-right: 4px;" cellpadding="0" cellspacing="0">
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b>Flag</b></td>
+									<td class="StandardTableItemTextStyle"><b>Description</b></td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle">/CATEGORY</td>
+									<td class="StandardTableItemTextStyle">Specifies the category to which the message belongs:<br>'System', 'Spacecraft' or 'User'</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle">/TYPE</td>
+									<td class="StandardTableItemTextStyle">Specifies the type of the message.<br>Predefined values are:<br>'Success', 'Informational', 'Warning', 'Error' or 'Scheduled'.<br>Other custom types are also possible.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle">/SUBTYPE</td>
+									<td class="StandardTableItemTextStyle">Specifies the subtype of the message. This flag can be used together with the type to perform filtering.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle">/MESSAGE</td>
+									<td class="StandardTableItemTextStyle">Specifies the message text.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle">/COMMENT</td>
+									<td class="StandardTableItemTextStyle">Specifies any comment associated with the message.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle">/AUDITION</td>
+									<td class="StandardTableItemTextStyle">Specifies the name of an existing audition profile to be used when the message is displayed.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This option only works with the <i>Global Eventbox</i>. It is ignored for other Eventbox display windows.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle">/NOTIFICATION</td>
+									<td class="StandardTableItemTextStyle">Specifies the name of an existing notification profile to be used when the message is displayed.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This option only works with the <i>Global Eventbox</i>. It is ignored for other Eventbox display windows.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle">/COLOR</td>
+									<td class="StandardTableItemTextStyle">Specifies the color of the message text.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The color is expressed as a 24-bit value:<br>&nbsp;&nbsp;Red(0-255) +<br>&nbsp;&nbsp;Green(256-65535) +<br>&nbsp;&nbsp;Blue(65536-16777215)</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle">/BLINK</td>
+									<td class="StandardTableItemTextStyle">Indicates if the message should blink.</td>
+								</tr>
+							</table>
+							<p style="margin-left: 4px; margin-top: 4px; margin-bottom: 0px;"><u>Example</u>:</p>
+							<p style="margin-left: 4px; margin-top: 0px; margin-bottom: 2px;">pszAlert = "/CATEGORY:'System' /TYPE:'Informational' /MESSAGE:'Sample text.'"</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>LogMessage(</b>LPCTSTR <i>pszFileName</i>,<br>&nbsp;&nbsp;LPCTSTR <i>pszMessage</i>,<br>&nbsp;&nbsp;BOOL <i>bPlainText</i>=FALSE,<br>&nbsp;&nbsp;BOOL <i>bUnicode</i>=FALSE<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top">
+							<p style="margin: 1 4">Logs a message to the specified file.<br>The following options are available:</p>
+							<table class="StandardTableStyle" style="margin-left: 4px; margin-top: 2px; margin-right: 4px; margin-bottom: 2px;" cellpadding="0" cellspacing="0">
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>bPlainText</i></b></td>
+									<td class="StandardTableItemTextStyle"><b>Effect</b></td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle">TRUE</td>
+									<td class="StandardTableItemTextStyle">The message is written as a normal string to the file.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle">FALSE</td>
+									<td class="StandardTableItemTextStyle">The file is treated like a log file and hence not directly readable any more (for internal use only).</td>
+								</tr>
+							</table>
+							<table class="StandardTableStyle" style="margin-left: 4px; margin-top: 2px; margin-right: 4px; margin-bottom: 2px;" cellpadding="0" cellspacing="0">
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>bUnicode</i></b></td>
+									<td class="StandardTableItemTextStyle"><b>Effect</b></td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle">TRUE</td>
+									<td class="StandardTableItemTextStyle">The message is written to the file as an Unicode encoded string.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle">FALSE</td>
+									<td class="StandardTableItemTextStyle">The message is written to the file as an ASCII encoded string.</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>UserInteraction(</b>UINT <i>nType</i>,<br>&nbsp;&nbsp;LPCTSTR <i>pszMessage</i>,<br>&nbsp;&nbsp;CONST CStringArray &amp;<i>szVariables</i>,<br>&nbsp;&nbsp;CONST CStringArray &amp;<i>szVariableValues</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top">
+							<p style="margin: 1 4">Initiates a dialog box asking the operator either to acknowledge a message or to set values to a predefined set of variables.<br>The following options are available:<br>
+								<b>TCPROCEDUREUSERINTERACTIONITEM_ACTION_ACKNOWLEDGE</b><br>&nbsp;&nbsp;Requests the operator to just acknowledge the supplied message.<br>
+								<b>TCPROCEDUREUSERINTERACTIONITEM_ACTION_REQUEST</b><br>&nbsp;&nbsp;Asks the operator to set values for the supplied variables.<br>
+								<b>TCPROCEDUREUSERINTERACTIONITEM_ACTION_CHOOSE</b><br>&nbsp;&nbsp;Asks the operator to set values out of a set of predefined values.
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>SendTCFunction(</b>LPCTSTR <i>pszName</i>,<br>&nbsp;&nbsp;LPCTSTR <i>pszSequence</i>,<br>&nbsp;&nbsp;LPCTSTR <i>pszFunction</i>,<br>&nbsp;&nbsp;INT <i>nEntry</i>,<br>&nbsp;&nbsp;INT <i>nEntries</i>,<br>&nbsp;&nbsp;CONST CTimeTag &amp;<i>tScheduleTime</i>,<br>&nbsp;&nbsp;CONST CTimeTag &amp;<i>tReleaseTime</i>,<br>&nbsp;&nbsp;DWORD <i>dwReleaseOffset</i>,<br>&nbsp;&nbsp;CONST CTimeTag &amp;<i>tExecutionTime</i>,<br>&nbsp;&nbsp;DWORD <i>dwExecutionOffset</i>,<br>&nbsp;&nbsp;INT <i>nBlockID</i>,<br>&nbsp;&nbsp;BOOL <i>bGrouped</i>,<br>&nbsp;&nbsp;BOOL <i>bCritical</i>,<br>&nbsp;&nbsp;UINT <i>nAckFlags</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top">
+							<p style="margin: 1 4">Sends the specfied telecommand to the scheduler.<br>The following options are available:</p>
+							<table class="StandardTableStyle" style="margin-left: 4px; margin-top: 2px; margin-right: 4px; margin-bottom: 2px;" cellpadding="0" cellspacing="0">
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>pszName</i></b></td>
+									<td class="StandardTableItemTextStyle">Specifies the telecommand function.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>pszSequence</i></b></td>
+									<td class="StandardTableItemTextStyle">Specifies the telecommand sequence that hosts the function; otherwise it is an empty string.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>nEntry</i></b></td>
+									<td class="StandardTableItemTextStyle">Specifies the entry number (&gt; 0) if the telecommand function is part of a sequence; otherwise it is -1.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>nEntries</i></b></td>
+									<td class="StandardTableItemTextStyle">Specifies the total number of entries that the sequence contains. If the telecommand function is not part of a sequence it is -1.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>tScheduleTime</i></b></td>
+									<td class="StandardTableItemTextStyle">Contains the time at which this telecommand function was scheduled. This time must be identical for all entries of a telecommand sequence.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>tReleaseTime</i></b></td>
+									<td class="StandardTableItemTextStyle">Specifies the release time offset with respect to the start of the sequence. If the telecommand function is not part of a sequence it is 0.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This offset must be considered in the absolute release time already and is used for display purposes only.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>tExecutionTime</i></b></td>
+									<td class="StandardTableItemTextStyle">Specifies the time at which the telecommand function should be executed on-board of the spacecraft; otherwise it is 0.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>dwExecutionOffset</i></b></td>
+									<td class="StandardTableItemTextStyle">Specifies the execution time offset with respect to the start of the sequence. If the telecommand function is not part of a sequence it is 0.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This offset must be considered in the absolute execution time already and is used for display purposes only.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>nBlockID</i></b></td>
+									<td class="StandardTableItemTextStyle">Specifies the block identifier (&ge; 0) for a blocked telecommand. If the telecommand function is not part of a sequence or if it is not blocked it is -1.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>bGrouped</i></b></td>
+									<td class="StandardTableItemTextStyle">Indicates if the telecommand function is to be grouped with the previous entry in the sequence. It is FALSE if the telecommand function is not part of a sequence.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>bCritical</i></b></td>
+									<td class="StandardTableItemTextStyle">Indicates if the telecommand function needs to be acknowledged before being released.</td>
+								</tr>
+								<tr>
+									<td width="110" class="StandardTableItemTextStyle"><b><i>nAckFlags</i></b></td>
+									<td class="StandardTableItemTextStyle">Specifies one or more of the options* below when the telecommand function is part of a sequence; otherwise one or more of these options**. The options indicate if the operator should acknowledge a completed verification step.<br>* <b>TCSEQUENCEENTRY_ACKFLAG_ACCEPTANCE</b><br>&nbsp;&nbsp;<b>TCSEQUENCEENTRY_ACKFLAG_START</b><br>&nbsp;&nbsp;<b>TCSEQUENCEENTRY_ACKFLAG_PROGRESS</b><br>&nbsp;&nbsp;<b>TCSEQUENCEENTRY_ACKFLAG_COMPLETION</b><br>**<b>TCFUNCTION_ACKFLAG_ACCEPTANCE</b><br>&nbsp;&nbsp;<b>TCFUNCTION_ACKFLAG_START</b><br>&nbsp;&nbsp;<b>TCFUNCTION_ACKFLAG_PROGRESS</b><br>&nbsp;&nbsp;<b>TCFUNCTION_ACKFLAG_COMPLETION</b></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+				<p class="StandardListTitleTextStyle" style="margin-top: 2px; margin-bottom: 2px; font-size: 13px"><b>3.2.3. Thread Functions</b>
+				<p class="StandardTableItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;">The following thread related functions are supported:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 10px;">
+					<tr>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Function</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>WaitThreadActivationExpression(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Waits until the thread activation expression returns TRUE.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>This function returns FALSE whenever the thread execution has been aborted.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">VOID <b>EnableThread(</b>BOOL <i>bEnable</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Enables/disables the current thread.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">BOOL <b>IsThreadEnabled(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns TRUE if the current thread is enabled.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">VOID <b>ResetThread(</b>void<b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Resets the current thread.</p></td>
+					</tr>
+				</table>
+				<p class="StandardListTitleTextStyle" style="margin-top: 4px; margin-bottom: 0px; font-size: 13px"><b>3.3. Satellite Tracking, Pass &amp; Interlink Functions</b></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 2px; margin-bottom: 2px;">An extensive interface is provided by the TPL to support satellite tracking, location pass predictions as well as satellite interlink calculations.</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 5px;">
+					<tr>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Function</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">double <b>CalculateSpacecraftOrbitLongitude(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,CONST CTimeKey &<i>tTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the longitude of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; at the time <i>tTime</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned longitude will be between 0...360 degrees</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-top: 0px; margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>tTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">The time for which the longitude should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">double <b>CalculateSpacecraftOrbitLatitude(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,CONST CTimeKey &<i>tTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the latitude of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; at the time <i>tTime</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned latitude will be between -90...90 degrees</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>tTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">The time for which the latitude should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">double <b>CalculateSpacecraftOrbitAltitude(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,CONST CTimeKey &<i>tTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the altitude of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; at the time <i>tTime</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned altitude will be &gt; 0 km</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>tTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">The time for which the altitude should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">double <b>CalculateSpacecraftOrbitVelocity(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,CONST CTimeKey &<i>tTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the velocity of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; at the time <i>tTime</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned velocity will be &gt; 0 km/s</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>tTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">The time for which the velocity should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CSpacecraftPosition <b>CalculateSpacecraftPosition(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,CONST CTimeKey &<i>tTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the position (relative to the Sun) of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; at the time <i>tTime</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>For Earth-centric spacecraft (<i>nNORADID</i> &lt;&gt; 0) the parameter <i>tTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned position will be returned in form of the class 'CSpacecraftPosition'; its members <i>m_x</i>, <i>m_y</i>, <i>m_z</i> contain the position coordinates in km</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>tTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">The time for which the position (relative to the Sun) should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">CSpacecraftVelocity <b>CalculateSpacecraftVelocity(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,CONST CTimeKey &<i>tTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the velocity (relative to the Sun) of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; at the time <i>tTime</i>.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>For Earth-centric spacecraft (<i>nNORADID</i> &lt;&gt; 0) the parameter <i>tTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li><li>The returned velocity will be returned in form of the class 'CSpacecraftVelocity'; its members <i>m_x</i>, <i>m_y</i>, <i>m_z</i> contain the velocity coordinates in km/s</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 75px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>tTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">The time for which the velocity (relative to the Sun) should be calculated.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TIMETAG <b>CalculateSpacecraftPassStartTime(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,LPCTSTR <i>pszLocation</i>,double<br>&nbsp;&nbsp;<i>fLocationLongitude</i>,double <i>fLocationLatitude</i>,double<br>&nbsp;&nbsp;<i>fLocationAltitude</i>,CONST CTimeKey &<i>tStartTime</i>,CONST<br>&nbsp;&nbsp;CTimeSpan &<i>tInterval</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the begin of the next pass over the location &lt;<i>pszLocation</i>,<i>fLocationLongitude</i>,<i>fLocationLatitude</i>,<i>fLocationAltitude</i>&gt; of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; after the time <i>tStartTime</i> and within the subsequent <i>tInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tStartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>pszLocation</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of pass-over location.</td></tr><tr><td valign="top"><i>fLocationLongitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The longitude (deg) of the pass-over location.</td></tr><tr><td valign="top"><i>fLocationLatitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The latitude (deg) of the pass-over location.</td></tr><tr><td valign="top"><i>fLocationAltitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The altitude (km) of the pass-over location.</td></tr><tr><td valign="top"><i>tStartTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next pass over the specified location.</td></tr><tr><td valign="top"><i>tInterval</i></td><td valign="top">CTimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next pass over the specified location.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TIMETAG <b>CalculateSpacecraftPassStopTime(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraft</i>,UINT <i>nNORADID</i>,LPCTSTR <i>pszLocation</i>,double<br>&nbsp;&nbsp;<i>fLocationLongitude</i>,double <i>fLocationLatitude</i>,double<br>&nbsp;&nbsp;<i>fLocationAltitude</i>,CONST CTimeKey &<i>tStartTime</i>,CONST<br>&nbsp;&nbsp;CTimeSpan &<i>tInterval</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the end of the next pass over the location &lt;<i>pszLocation</i>,<i>fLocationLongitude</i>,<i>fLocationLatitude</i>,<i>fLocationAltitude</i>&gt; of the specified spacecraft &lt;<i>pszSpacecraft</i>,<i>nNORADID</i>&gt; after the time <i>tStartTime</i> and within the subsequent <i>tInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tStartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraft</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of spacecraft.</td></tr><tr><td valign="top"><i>nNORADID</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the specified spacecraft.</td></tr><tr><td valign="top"><i>pszLocation</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of pass-over location.</td></tr><tr><td valign="top"><i>fLocationLongitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The longitude (deg) of the pass-over location.</td></tr><tr><td valign="top"><i>fLocationLatitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The latitude (deg) of the pass-over location.</td></tr><tr><td valign="top"><i>fLocationAltitude</i></td><td valign="top">double &lt;in&gt;</td><td valign="top">The altitude (km) of the pass-over location.</td></tr><tr><td valign="top"><i>tStartTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next pass over the specified location.</td></tr><tr><td valign="top"><i>tInterval</i></td><td valign="top">CTimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next pass over the specified location.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TIMETAG <b>CalculateSpacecraftInterlinkStartTime(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraftA</i>,UINT <i>nNORADIDA</i>,LPCTSTR <i>pszSpacecraftB</i>,<br>&nbsp;&nbsp;UINT <i>nNORADIDB</i>,CONST CTimeKey &<i>tStartTime</i>,CONST<br>&nbsp;&nbsp;CTimeSpan &<i>tInterval</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the begin of the next interlink session between the spacecraft &lt;<i>pszSpacecraftA</i>,<i>nNORADIDA</i>&gt; and &lt;<i>pszSpacecraftB</i>,<i>nNORADIDB</i>&gt; after the time <i>tStartTime</i> and within the subsequent <i>tInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tStarTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraftA</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of first spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDA</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the first spacecraft.</td></tr><tr><td valign="top"><i>pszSpacecraftB</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of second spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDB</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the second spacecraft.</td></tr><tr><td valign="top"><i>tStartTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next interlink session.</td></tr><tr><td valign="top"><i>tInterval</i></td><td valign="top">CTimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next interlink session.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TIMETAG <b>CalculateSpacecraftInterlinkStopTime(</b>LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraftA</i>,UINT <i>nNORADIDA</i>,LPCTSTR <i>pszSpacecraftB</i>,<br>&nbsp;&nbsp;UINT <i>nNORADIDB</i>,CONST CTimeKey &<i>tStartTime</i>,CONST<br>&nbsp;&nbsp;CTimeSpan &<i>tInterval</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the end of the next interlink session between the spacecraft &lt;<i>pszSpacecraftA</i>,<i>nNORADIDA</i>&gt; and &lt;<i>pszSpacecraftB</i>,<i>nNORADIDB</i>&gt; after the time <i>tStartTime</i> and within the subsequent <i>tInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tStartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraftA</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of first spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDA</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the first spacecraft.</td></tr><tr><td valign="top"><i>pszSpacecraftB</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of second spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDB</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the second spacecraft.</td></tr><tr><td valign="top"><i>tStartTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next interlink session.</td></tr><tr><td valign="top"><i>tInterval</i></td><td valign="top">CTimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next interlink session.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TIMETAG <b>CalculateSpacecraftRelaidInterlinkStartTime(</b><br>&nbsp;&nbsp;LPCTSTR <i>pszSpacecraftA</i>,UINT <i>nNORADIDA</i>,LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraftVia</i>,UINT <i>nNORADIDVia</i>,LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraftB</i>,UINT <i>nNORADIDB</i>,CONST CTimeKey<br>&nbsp;&nbsp;&<i>tStartTime</i>,CONST CTimeSpan &<i>tInterval</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the begin of the next interlink session between the spacecraft &lt;<i>pszSpacecraftA</i>,<i>nNORADIDA</i>&gt; and &lt;<i>pszSpacecraftB</i>,<i>nNORADIDB</i>&gt; via the relais &lt;<i>pszSpacecraftVia</i>,<i>nNORADIDVia</i>&gt; after the time <i>tStartTime</i> and within the subsequent <i>tInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tStartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraftA</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of first spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDA</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the first spacecraft.</td></tr><tr><td valign="top"><i>pszSpacecraftVia</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of relais spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDVia</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the relais spacecraft.</td></tr><tr><td valign="top"><i>pszSpacecraftB</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of second spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDB</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the second spacecraft.</td></tr><tr><td valign="top"><i>tStartTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next interlink session.</td></tr><tr><td valign="top"><i>tInterval</i></td><td valign="top">CTimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next interlink session.</td></tr></table></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">TIMETAG <b>CalculateSpacecraftRelaidInterlinkStopTime(</b><br>&nbsp;&nbsp;LPCTSTR <i>pszSpacecraftA</i>,UINT <i>nNORADIDA</i>,LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraftVia</i>,UINT <i>nNORADIDVia</i>,LPCTSTR<br>&nbsp;&nbsp;<i>pszSpacecraftB</i>,UINT <i>nNORADIDB</i>,CONST CTimeKey<br>&nbsp;&nbsp;&<i>tStartTime</i>,CONST CTimeSpan &<i>tInterval</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Returns the end of the next interlink session between the spacecraft &lt;<i>pszSpacecraftA</i>,<i>nNORADIDA</i>&gt; and &lt;<i>pszSpacecraftB</i>,<i>nNORADIDB</i>&gt; via the relais &lt;<i>pszSpacecraftVia</i>,<i>nNORADIDVia</i>&gt; after the time <i>tStartTime</i> and within the subsequent <i>tInterval</i> interval.</p><img src="images/note.gif" alt="" style="margin-left: 4px; margin-top: 4px; margin-right: 4px;">Note:<ul class="StandardListItemTextStyle" style="list-style-type: disc; margin-left: 20px; margin-top: 0px; margin-right: 4px; margin-bottom: 0px; padding-left: 0px;"><li>This function is available for Earth-centric spacecraft only</li><li>The parameter <i>tStartTime</i> must be within an interval of a few days from current real-time in order to guarantee a precise result</li></ul><table class="StandardTableItemTextStyle" cellpadding="0" cellspacing="0" style="margin-left: 4px; margin-right: 4px; margin-bottom: 2px;"><tr><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Argument</b></td><td valign="top" style="width: 100px; border-bottom: 1px #072C61 solid;"><b>Type</b></td><td valign="top" style="border-bottom: 1px #072C61 solid"><b>Description</b></td></tr><tr><td valign="top"><i>pszSpacecraftA</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of first spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDA</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the first spacecraft.</td></tr><tr><td valign="top"><i>pszSpacecraftVia</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of relais spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDVia</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the relais spacecraft.</td></tr><tr><td valign="top"><i>pszSpacecraftB</i></td><td valign="top">LPCTSTR &lt;in&gt;</td><td valign="top">The name of second spacecraft.</td></tr><tr><td valign="top"><i>nNORADIDB</i></td><td valign="top">UINT &lt;in&gt;</td><td valign="top">The NORAD identifier of the second spacecraft.</td></tr><tr><td valign="top"><i>tStartTime</i></td><td valign="top">CTimeKey &lt;in&gt;</td><td valign="top">Specifies the start time to be used to calculate the next interlink session.</td></tr><tr><td valign="top"><i>tInterval</i></td><td valign="top">CTimeSpan &lt;in&gt;</td><td valign="top">Specifies the interval to be used to calculate the next interlink session.</td></tr></table></td>
+					</tr>
+				</table>
+				<p class="StandardListItemTextStyle" style="margin-top: 0px; margin-bottom: 8px;"><img src="images/note.gif" alt="" style="margin-right: 4px;">Note:<br>All satellite tracking, pass &amp; interlink functions cannot be tested within the SatView™ Editor; they all return 'NAN' (for 'double' data types) and '0' (for 'TIMETAG' data types). When executed within the SatView™ Desktop, the satellite tracking sub-system must be enabled for these functions to return valid results. Furthermore, it must be ensured that access to the Internet is guaranteed.</p>
+				<p class="StandardListTitleTextStyle" style="margin-top: 2px; margin-bottom: 2px; font-size: 13px;"><b>Helper Functions</b></p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 10px;">
+					<tr>
+						<td width="350" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Function</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">UINT <b>ConvertBinaryStringToValue(</b>LPCTSTR <i>pszValue</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Converts a binary encoded string into an unsigned integer.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">UINT <b>ConvertOctalStringToValue(</b>LPCTSTR <i>pszValue</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Converts a string representing an octal number into an unsigned integer.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">UINT <b>ConvertHexadecimalStringToValue(</b>LPCTSTR <i>pszValue</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Converts a string representing a hexadecimal number into an unsigned integer.</p></td>
+					</tr>
+					<tr>
+						<td width="350" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">TIMETAG <b>ConvertTimeStringToValue(</b>LPCTSTR <i>pszTime</i><b>)</b></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Converts a string representing a time into a variable of type TIMETAG.<br><img src="images/note.gif" alt="" style="margin-top: 4px; margin-right: 4px;">Note:<br>The string must be formatted as follows: <i>DD/MM/YYYY HH:MM:SS.nnn</i></p></td>
+					</tr>
+				</table>
+				<p class="StandardListTitleTextStyle" style="margin-left: 0px; margin-top: 0px; margin-bottom: 2px; font-size: 13px;">Data Types:</p>
+				<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 0px; margin-top: 0px; margin-bottom: 20px;">
+					<tr>
+						<td width="125" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Identifier</font></b></p></td>
+						<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Description</font></b></p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>type-sepecifier</i></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Depending on the data type of the telemetry parameter <span class="StandardListItemTextStyle" style="color: green;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></span> it is either an UINT, INT, double or CString.</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;"><i>parameter-tag</i></p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">Tag of the telemetry parameter <span class="StandardListItemTextStyle" style="color: green;"><i><b>P<sub><span style="font-size: 10px; line-height: 16px;">i</span></sub></b></i></span>.</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CSpacecraftPosition</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A class representing the position of a spacecraft (relative to the Sun for all non Earth-centric ones).<br>The following member properties are available:</p><div style="margin-left: 4px; margin-top: 2px; margin-right: 4px; margin-bottom: 1px">double <b>m_x</b><br>double <b>m_y</b><br>double <b>m_z</b></div></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CSpacecraftVelocity</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A class representing the velocity of a spacecraft (relative to the Sun for all non Earth-centric ones).<br>The following member properties are available:</p><div style="margin-left: 4px; margin-top: 2px; margin-right: 4px; margin-bottom: 1px">double <b>m_x</b><br>double <b>m_y</b><br>double <b>m_z</b></div></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CString</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A class representing a string.<br>Consult the <i>Microsoft® Foundation Class</i> (MFC) documentation.</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeTag<br>TIMETAG</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A class representing an absolute time in microseconds since January 1, 1970.<br>Consult the <i>Microsoft® Foundation Class</i> (MFC) documentation (see the 'CTime' class).</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeKey<br>TIMEKEY</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A class representing an absolute time in seconds since January 1, 1970.<br>Consult the <i>Microsoft® Foundation Class</i> (MFC) documentation (see the 'CTime' class).</p></td>
+					</tr>
+					<tr>
+						<td width="125" class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4;">CTimeSpan</p></td>
+						<td class="StandardTableItemTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 1 4">A class representing a time interval in seconds.<br>Consult the <i>Microsoft® Foundation Class</i> (MFC) documentation.</p></td>
+					</tr>
+				</table>
+			</li>
+			<li>
+				<p style="margin-top: 15px; margin-bottom: 2px;">4. <a name="Samples">Samples</a></p>
+				<p class="StandardTableItemTextStyle" style="margin-top: 0px; margin-bottom: 2px;">The source code shown below is usually generated automatically when designing a telecommand procedure graphically. However, as stated before, it is also possible to write the code directly which would require coding efforts as outlined below.</p>
+				<div style="padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border: 1px solid #9BAFDE; background: #D7E7FE;">
+					<span class="TPLKeyword">TELECOMMAND PROCEDURE&nbsp;&nbsp;<span style="color: red;">'100'</span><br>BEGIN<br>THREAD&nbsp;&nbsp;<span style="color: red;">'Primary Thread'</span><br>BEGIN<br><span class="TPLCode">&nbsp;&nbsp;<b>while</b> <b>(WaitThreadActivationExpression())</b>  <span class="StandardTextStyle" style="color: green;">// Waits until the thread activation expression returns true</span><br>&nbsp;&nbsp;<b>{</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>if</b> <b>(</b>!<b>CheckStepTrigger(</b>TEXT("STEP_1")<b>))</b> <span class="StandardTextStyle" style="color: green;">// Checks the trigger of the step 'STEP_1' to see if it can be executed</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>{</b> <b>AlertStepTriggerFailure(</b>TEXT("STEP_1")<b>)</b>; <span class="StandardTextStyle" style="color: green;">// A failed step trigger is alerted and the thread terminates</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b> FALSE; <span class="StandardTextStyle" style="color: green;">// A thread that terminates with a failure returns false</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>}</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>for</b> <b>(AlertStepTriggerSuccess(</b>TEXT("STEP_1")<b>)</b>; !<b>CheckStepBody(</b>TEXT("STEP_1")<b>)</b>; <b>)</b> <span class="StandardTextStyle" style="color: green;">// Signals a successful trigger phase and checks if the body phase of the step can be started</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>{</b> <b>AlertStepBodyFailure(</b>TEXT("STEP_1")<b>)</b>;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b> FALSE;<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>}</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>if</b> <b>(</b>!<b>SendTCFunction(</b>TEXT("STEP_1"),TEXT(""),TEXT("Z0001"),-1,-1,0,0,0,-1,FALSE,FALSE,0<b>))</b> <span class="StandardTextStyle" style="color: green;">// Sends a telecommand</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>{</b> <b>AlertStepBodyFailure(</b>TEXT("STEP_1"),TEXT("The telecommand function 'Z0001' could not be scheduled."<b>))</b>;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b> FALSE;<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>}</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>for</b> <b>(AlertStepBodySuccess(</b>TEXT("STEP_1")<b>)</b>; !<b>CheckStepConfirmation(</b>TEXT("STEP_1")<b>)</b>; <b>)</b> <span class="StandardTextStyle" style="color: green;">// Signals a successful body phase and checks if the confirmation phase of the step can be started</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>{</b> <b>AlertStepConfirmationFailure(</b>TEXT("STEP_1")<b>)</b>;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b> FALSE;<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>}</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>AlertStepConfirmationSuccess(</b>TEXT("STEP_1")<b>)</b>;<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>if</b> <b>(</b>!<b>IsThreadEnabled())</b> <span class="StandardTextStyle" style="color: green;">// A disabled thread that terminates re-enters</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>{</b> <b>ResetThread()</b>;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>continue</b>;<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>}</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>return</b> TRUE; <span class="StandardTextStyle" style="color: green;">// A thread that terminates successfully returns true</span><br>&nbsp;&nbsp;<b>}</b><br></span>END<br>END</span>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<img id="PageFooter" src="images/templatebottom.png" alt="" style="position: relative; left: -1px; top: 0px;">
+</div>
+</body>
+
+</html>
