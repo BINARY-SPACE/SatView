@@ -1,0 +1,26 @@
+// SATELLITE (ALTEL).RH : Resource Related Identifier Definitions.
+//
+// This is a part of the SatView(TM) spacecraft operating system.
+// Copyright© 1992-2016 by BINARY SPACE, Switzerland.
+// All rights reserved.
+//
+// This source code contains the resource related identifier
+// definitions.
+//
+/**********************************************************************
+ * Modifications:                                                     *
+ *====================================================================*
+ * Date       | Release | Comments                                    *
+ *------------|---------|---------------------------------------------*
+ * 2013/03/06 | 1.00.00 | Initial creation. [AW]                      *
+ **********************************************************************/
+
+#ifndef __SATELLITE_ALTEL_RH__
+#define __SATELLITE_ALTEL_RH__
+
+
+#define MINSATELLITEALTELSTRINGID   1000
+#define MAXSATELLITEALTELSTRINGID   (MINSATELLITEALTELSTRINGID+1)
+
+
+#endif // __SATELLITE_ALTEL_RH__

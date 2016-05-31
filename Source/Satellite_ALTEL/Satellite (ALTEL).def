@@ -1,0 +1,6 @@
+; SATELLITE (ALTEL).def : Declares the module parameters for the DLL.
+
+LIBRARY      "Satellite (ALTEL)"
+
+EXPORTS
+    ; Explicit exports can go here
