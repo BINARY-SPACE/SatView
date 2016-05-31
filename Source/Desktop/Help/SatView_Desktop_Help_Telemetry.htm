@@ -1,0 +1,101 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Telemetry Data Processing</title>
+<link rel="stylesheet" type="text/css" href="resources/styles.css">
+<![if lte IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/iefix.css">
+<![endif]>
+<![if gt IE 8]>
+<link rel="stylesheet" type="text/css" href="resources/ie.css">
+<![endif]>
+<script src="resources/behaviors.js" type="text/javascript"></script>
+</head>
+
+<body style="margin: 0 0 0 0;" background="images/background.jpg" onload="FP_callJS('onRecalcLayout()')">
+<img id="PageTemplate" src="images/template.png" alt="" style="position: absolute; left: 0px; top: 0px; width: 880px; height: 660px; border: none; outline: none;">
+<img id="PageFloater" src="images/templatebackground.png" alt="" style="position: absolute; left: 39px; top: 659px; width: 803px; height: auto; background-image: url('images/templatebackground.png'); background-repeat: repeat-y; display: none;">
+<img id="PageApplication" src="images/application.png" alt="" style="position: absolute; left: 50px; top: 90px; border: none; outline: none;">
+<div id="PageTitle" style="position: absolute; left: 295px; top: 84px; width: 545px; height: 22px;">
+	<span class="StandardTitleTextStyle" style="width: 545px;">Telemetry Data Processing</span>
+</div>
+<div id="PageContents" style="position: absolute; left: 40px; top: 114px; width: 800px; height: auto; z-index: 1;">
+	<div id="PageHeader" style="position: relative; left: 0px; top: 0px; width: 550px; height: auto; float: right;">
+		<p class="StandardSummaryTitleStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-top: 10px; margin-bottom: 0px; text-indent: 0px; float: left;">SUMMARY</p>
+		<div id="PageVersionSection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; float: right;">
+			<span class="StandardVersionTextStyle" style="position: relative; width: auto; height: auto; margin-left: 5px; margin-right: 10px; float: right;">
+			<!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%A, %B %d, %Y" startspan -->Saturday, October 10, 2015<!--webbot bot="Timestamp" endspan i-checksum="670" --><br>Version 1.0</span>
+		</div>
+		<div id="PageSummarySection" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-top: 2px; float: left;">
+			<div id="PageSummaryBox" style="position: relative; left: 0px; top: 0px; width: 538px; height: auto; border: 1px solid #FFFF00; background: #FFFFDD; margin-right: 5px; float: left;">
+				<p class="StandardSummaryTextStyle" style="position: relative; left: 0px; top: 0px; width: auto; height: auto; margin-left: 5px; margin-top: 0px; margin-right: 5px; margin-bottom: 0px; padding-top: 2px; padding-bottom: 2px; float: left;">SatView™ provides various services and interfaces related to the processing of telemetry data. Besides other issues, the supported interfaces to the ground station, the way how the data is presented, the telemetry data archive management and special data distribution services are addressed hereinafter.</p>
+			</div>
+		</div>
+	</div>
+	<div id="PageText" style="position: relative; left: 0px; top: 0px; width: 800px; height: auto; margin-bottom: 10px; float: left;">
+		<div id="HowDoISection" style="margin-left: 20px; margin-top: 20px; margin-right: 5px; display: none;">
+			<p class="StandardListTitleTextStyle">How do I...</p>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top"><img src="images/expandbutton.png" width="11" height="11" alt="Click to expand/collapse" style="margin-left: 10px; margin-top: 4px; margin-right: 5px; cursor: pointer;" onclick="onClickListItem(event)"></td><td valign="top"><p class="StandardListExpandableItemTextStyle" style="margin-top: 2px; cursor: pointer;" onclick="onClickListItem(event)"></p>
+						<div style="margin-bottom: 10px; display: block;">
+							<img src="images/collapsebutton.png" alt="">
+							<div style="position: relative; left: 0px; top: 0px; width: auto; height: auto; border: 1px solid #9BAFDE; background: #D9E9FE;">
+								<ol class="StandardListItemTextStyle" style="margin-left: 32px; margin-top: 2px; margin-right: 5px; margin-bottom: 2px; padding-left: 0px;">
+								</ol>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<p class="StandardListTitleTextStyle" style="margin-left: 20px; margin-top: 20px; margin-bottom: 2px;">Contents</p>
+		<table class="StandardTableStyle" border="2" bordercolor="#072C61" cellpadding="0" cellspacing="0" style="width: 776px; margin-left: 20px; margin-top: 0px;">
+			<tr>
+				<td width="150" bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Topic</font></b></p></td>
+				<td bgcolor="#072C61" class="StandardTableTitleTextStyle" bordercolor="#072C61" valign="top"><p style="margin: 2 4"><b><font color="#FFFFFF">Contents</font></b></p></td>
+			</tr>
+			<tr>
+				<td width="150" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><a href="SatView_Desktop_Help_Telemetry_Service.htm">Telemetry Service</a></p></td>
+				<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">SatView™ can be made compatible with a variety of telemetry data provider products. By implementing the concept of <i>virtual devices</i> where for each physical device to be connected to needs a corresponding software driver, all device dependencies can be encapsulated in an elegant way.<br>In order to provide a maximum availability of telemetry data, more than one device can be added to the list of potential telemetry data providers. Whenever SatView™ requires telemetry data, it steps through that list until an enabled device responds. All these devices can be enabled or disabled and scheduled individually. Additional options allow the specification of backup devices.</p></td>
+			</tr>
+			<tr>
+				<td width="150" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><a href="SatView_Desktop_Help_MemoryDumps_Service.htm">Memory Dumps Service</a></p></td>
+				<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">SatView™ is able to acquire and process telemetry data dumped from the spacecraft through the <i>Memory Dumps Service</i>. The collected data can (optionally) be further processed by user-defined <a href="SatView_Desktop_Help_Papers_Automation_Scripts.htm">automation scripts</a>, archived or sent to other users via FTP transfer. The <i>Dumps</i> type of the <i>Hexadecimal Display</i> (HEX) is the first choice to view such memory dumps. Each memory dump to be processed must be registered by an associated profile. The Memory Dump Service is a light-weight solution compared to the <i>TC On-board Memory Images Display</i> which is used to reflect the complete on-board memory status of a spacecraft.</p></td>
+			</tr>
+			<tr>
+				<td width="150" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><a href="SatView_Desktop_Help_PFLP_Service.htm">PFLP Service</a></p></td>
+				<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">SatView™ supports a special protocol called <a href="SatView_Desktop_Help_Papers_Interfaces_PFLP.htm">Packet Front-End Link Protocol</a> (PFLP) designed to export real-time telemetry data in form of telemetry source packets. It operates on top of TCP/IP and is session based. Each SatView™ workstation can handle an unlimited amount of clients and provides an easy way how to control the availability of the service including client access privileges.</p></td>
+			</tr>
+			<tr>
+				<td width="150" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><a href="SatView_Desktop_Help_TPEP_Service.htm">TPEP Service</a></p></td>
+				<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">SatView™ supports a special protocol called <a href="SatView_Desktop_Help_Papers_Interfaces_TPEP.htm">Telemetry Parameter Exchange Protocol</a> (TPEP) designed to export real-time and historical telemetry data in various forms. It operates on top of TCP/IP and is session based. Each SatView™ workstation can handle an unlimited amount of clients and provides an easy way how to control the availability of the service including client access privileges.</p></td>
+			</tr>
+			<tr>
+				<td width="150" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><a href="SatView_Desktop_Help_Telemetry_Archives.htm">Archives</a></p></td>
+				<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">SatView™ is able to archive the telemetry data on the basis of files. More than one file can be specified for archiving and together with a variety of options the data can be stored in many different ways. In general, the telemetry data is archived in a raw (unprocessed) form that allows the replay at a later time even with a modified database. However, in order to be compatible with incremental telemetry data streams (for example the <i>CCSDS Packet Telemetry Standard</i>) and to guarantee correct retrievals, the values of all telemetry parameters are embedded into the archive file at a definable interval.<br>Retrievals are performed through the various <a href="SatView_Desktop_Help_Telemetry_Displays.htm">displays</a> and can take place at the same time as the real-time processing. Due to the fact that the telemetry data can be distributed over many files, it is possible to determine a default retrieval file and to change to another one for each retrieval request separately.<br>Furthermore, the implemented backup capabilities simplify the way how to handle long-term archiving. Sometimes it may also be advantageous to extract values for a set of parameters over a specified amount of time. This is a supported feature and particularly useful to process the extracted telemetry data offline, for example, inside a spreadsheet. Extractions are not limited to specified parameter sets but can also include complete portions of history files originating from multiple sources. With this capability, interesting periods of telemetry data can be extracted and distributed as a fully functional history file.</p></td>
+			</tr>
+			<tr>
+				<td width="150" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><a href="SatView_Desktop_Help_Telemetry_Displays.htm">Displays</a></p></td>
+				<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">SatView™ supports various types of telemetry data related displays. They monitor the <a href="SatView_Desktop_Help_Telemetry_Parameters.htm">telemetry parameter</a> values in many ways: Raw, calibrated, pre-processed by user-defined <a href="SatView_Desktop_Help_Papers_Automation_Scripts.htm">automation scripts</a>, presented in a listed form, graphically or in a mimics layout. Each of those displays can also replay historical telemetry data and is equipped with a rich set of configuration options.</p></td>
+			</tr>
+			<tr>
+				<td width="150" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><a href="SatView_Desktop_Help_Telemetry_Events.htm">Events</a></p></td>
+				<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">SatView™ supports a mechanism to allow users to be notified in various ways when a certain predefined telemetry event occurs. Such an event can be identical to a <a href="SatView_Desktop_Help_Telemetry_Parameters.htm">telemetry parameter</a> smaller, equal, non-equal or bigger than a constant value or a more complex expression consisting of any thinkable mathematical calculation (comparable to a derived parameter). Any existing <a href="SatView_Desktop_Help_Settings_Auditions.htm">audition</a> and <a href="SatView_Desktop_Help_Settings_Notifications.htm">notification</a> profile can be attached to such an event.</p></td>
+			</tr>
+			<tr>
+				<td width="150" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><a href="SatView_Desktop_Help_Telemetry_Reports.htm">Reports</a></p></td>
+				<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">SatView™ supports a mechanism to automatically generate reports that can be updated based on system alerts, telemetry events, file triggers or a time schedule. Telemetry reports also provide the capability to invoke <a href="SatView_Desktop_Help_Papers_Automation_Scripts.htm">automation scripts</a> (user defined code) supporting the automation of third-party applications (like Microsoft® Office® applications for example) and provide other powerful features. The generated reports can be mailed or transferred by FTP to any specified user on a daily or weekly basis. Furthermore, it is possible to generate telemetry reports based on historical telemetry data.</p></td>
+			</tr>
+			<tr>
+				<td width="150" class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4"><a href="SatView_Desktop_Help_Telemetry_Parameters.htm">Parameters</p></td>
+				<td class="StandardTableItemTextStyle" valign="top"><p style="margin: 1 4">SatView™ provides a convenient interface to view the properties of telemetry parameters. Type, nature, coding of a parameter as well as other relevant information is displayed. For constants and derived parameters it is also possible to modify the current value. This is particularly useful for iterative derived parameters which always need an initialization.</p></td>
+			</tr>
+		</table>
+	</div>
+	<img id="PageFooter" src="images/templatebottom.png" alt="" style="position: relative; left: -1px; top: 0px;">
+</div>
+</body>
+
+</html>
