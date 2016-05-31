@@ -1,0 +1,6 @@
+; SCOS-2000.def : Declares the module parameters for the DLL.
+
+LIBRARY      "SCOS-2000"
+
+EXPORTS
+    ; Explicit exports can go here
