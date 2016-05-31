@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{8d528dbb-b6c2-425b-bda1-a9d9e4a18ecf}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2fe46581-c4b7-4343-b9d1-d2074c69224b}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{b78a3a7c-b103-4b87-a531-9ab85f576941}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Mimics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsArcCtl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsArcPpg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsControls.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsCtl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsCtlEnum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsDialogs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsGroupCtl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsGroupPpg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsImageCtl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsImagePpg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsLineCtl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsLinePpg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsPpg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsRectangleCtl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsRectanglePpg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsSwitchCtl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsSwitchPpg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsTextCtl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsTextPpg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsTools.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsTriangleCtl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsTrianglePpg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsEllipseCtl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsEllipsePpg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicsTimeKey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Mimics.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="res\hatch (solid).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (horizontal).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (vertical).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (diagonal-down).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (diagonal-up).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (cross).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (cross-diagonal).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (points-low).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (points-medium).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\hatch (points-high).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (left-top).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (left-middle).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (left-bottom).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (center-top).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (center-middle).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (center-bottom).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (right-top).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (right-middle).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\paper (right-bottom).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\printerfont.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\truetypefont.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\line.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\arc.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ellipse.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\rectangle.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\triangle.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\switch.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\text.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\image.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\group.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mimicsobjectstoolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mimicsobjectstoolbar (disabled).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mimicsobjectsmenuimages.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Mimics.rh">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="Mimics.odl">
+      <Filter>Source Files</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Mimics.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mimics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsArcCtl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsArcPpg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsControls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsCtl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsCtlEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsDialogs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsGroupCtl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsGroupPpg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsIIDs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsImageCtl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsImagePpg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsLineCtl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsLinePpg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsPpg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsRectangleCtl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsRectanglePpg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsSwitchCtl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsSwitchPpg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsTextCtl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsTextPpg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsTools.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsTriangleCtl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsTrianglePpg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsEllipseCtl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsEllipsePpg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicsTimeKey.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

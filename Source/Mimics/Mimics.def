@@ -1,0 +1,9 @@
+; Mimics.def : Declares the module parameters.
+
+LIBRARY      "MIMICS.OCX"
+
+EXPORTS
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE
+	DllGetClassObject	PRIVATE
+	DllCanUnloadNow		PRIVATE

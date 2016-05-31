@@ -1,0 +1,626 @@
+// Mimics.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (Mimics.tlb) that will become a resource in
+// Mimics.ocx.
+
+[ uuid(D9B0D9EB-C96C-11D3-B5E7-0060082D5389), version(1.0),
+  helpfile("Mimics.hlp"),
+  helpstring("Mimics ActiveX Control module"),
+  control ]
+library MIMICSLib
+{
+	#include <olectl.h>
+	#include <idispids.h>
+
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CMimicsLineCtrl
+
+	[ uuid(D9B0D9EE-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Dispatch interface for MimicsLine Control"), hidden ]
+	dispinterface _DMimicsLine
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMimicsLineCtrl)
+			[id(65537)] BSTR Name;
+			[id(65538)] BSTR Type;
+			[id(65539)] BSTR ToolTipText;
+			[id(1)] LONG Style;
+			[id(2)] OLE_COLOR Color;
+			[id(3)] LONG Thickness;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMimicsLineCtrl)
+			[id(65540)] void SetInitialSize(OLE_XSIZE_PIXELS cx,OLE_YSIZE_PIXELS cy);
+			[id(65541)] void GetInitialSize(OLE_XSIZE_PIXELS *cx,OLE_YSIZE_PIXELS *cy);
+			[id(65542)] void Show();
+			[id(65543)] void Hide();
+			[id(65544)] BOOL IsVisible();
+			[id(65545)] BOOL Blink(LONG nInterval);
+			[id(65546)] void Draw(OLE_HANDLE hDC,VARIANT *pRect,VARIANT *pxForm,BOOL bShape);
+			[id(4)] void Arrow(BOOL bEnable);
+			[id(5)] void DoubleArrow(BOOL bEnable);
+			[id(6)] void Cross(BOOL bEnable);
+			[id(7)] BOOL SetCrossPt(double fPt);
+			[id(8)] BOOL GetCrossPt(double *fPt);
+			[id(9)] BOOL IsArrow();
+			[id(10)] BOOL IsDoubleArrow();
+			[id(11)] BOOL IsCross();
+			[id(12)] void Solid();
+			[id(13)] void Dash();
+			[id(14)] void Dot();
+			[id(15)] void DashDot();
+			[id(16)] void DashDotDot();
+			[id(17)] BOOL IsSolid();
+			[id(18)] BOOL IsDashed();
+			[id(19)] BOOL IsDotted();
+			[id(20)] BOOL IsDashDotted();
+			[id(21)] BOOL IsDashDotDotted();
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CMimicsLineCtrl
+
+	[ uuid(D9B0D9EF-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Event interface for MimicsLine Control") ]
+	dispinterface _DMimicsLineEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CMimicsLineCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CMimicsLineCtrl
+
+	[ uuid(D9B0D9F0-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("MimicsLine Control"), control ]
+	coclass MimicsLine
+	{
+		[default] dispinterface _DMimicsLine;
+		[default, source] dispinterface _DMimicsLineEvents;
+	};
+
+	//  Primary dispatch interface for CMimicsRectangleCtrl
+
+	[ uuid(D9B0D9FD-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Dispatch interface for MimicsRectangle Control"), hidden ]
+	dispinterface _DMimicsRectangle
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMimicsRectangleCtrl)
+			[id(65537)] BSTR Name;
+			[id(65538)] BSTR Type;
+			[id(65539)] BSTR ToolTipText;
+			[id(1)] LONG Style;
+			[id(2)] LONG BorderSize;
+			[id(3)] LONG BorderStyle;
+			[id(4)] OLE_COLOR BorderColor;
+			[id(5)] OLE_COLOR InteriorColor;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMimicsRectangleCtrl)
+			[id(65540)] void SetInitialSize(OLE_XSIZE_PIXELS cx,OLE_YSIZE_PIXELS cy);
+			[id(65541)] void GetInitialSize(OLE_XSIZE_PIXELS *cx,OLE_YSIZE_PIXELS *cy);
+			[id(65542)] void Show();
+			[id(65543)] void Hide();
+			[id(65544)] BOOL IsVisible();
+			[id(65545)] BOOL Blink(LONG nInterval);
+			[id(65546)] void Draw(OLE_HANDLE hDC,VARIANT *pRect,VARIANT *pxForm,BOOL bShape);
+			[id(6)] void SetInteriorHatch(LONG nHatch,OLE_COLOR nColor);
+			[id(7)] BOOL GetInteriorHatch(LONG *pHatch,OLE_COLOR *pColor);
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CMimicsRectangleCtrl
+
+	[ uuid(D9B0D9FE-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Event interface for MimicsRectangle Control") ]
+	dispinterface _DMimicsRectangleEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CMimicsRectangleCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CMimicsRectangleCtrl
+
+	[ uuid(D9B0D9FF-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("MimicsRectangle Control"), control ]
+	coclass MimicsRectangle
+	{
+		[default] dispinterface _DMimicsRectangle;
+		[default, source] dispinterface _DMimicsRectangleEvents;
+	};
+
+	//  Primary dispatch interface for CMimicsEllipseCtrl
+
+	[ uuid(D9B0D9F8-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Dispatch interface for MimicsEllipse Control"), hidden ]
+	dispinterface _DMimicsEllipse
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMimicsEllipseCtrl)
+			[id(65537)] BSTR Name;
+			[id(65538)] BSTR Type;
+			[id(65539)] BSTR ToolTipText;
+			[id(1)] LONG Style;
+			[id(2)] LONG BorderSize;
+			[id(3)] LONG BorderStyle;
+			[id(4)] OLE_COLOR BorderColor;
+			[id(5)] OLE_COLOR InteriorColor;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMimicsEllipseCtrl)
+			[id(65540)] void SetInitialSize(OLE_XSIZE_PIXELS cx,OLE_YSIZE_PIXELS cy);
+			[id(65541)] void GetInitialSize(OLE_XSIZE_PIXELS *cx,OLE_YSIZE_PIXELS *cy);
+			[id(65542)] void Show();
+			[id(65543)] void Hide();
+			[id(65544)] BOOL IsVisible();
+			[id(65545)] BOOL Blink(LONG nInterval);
+			[id(65546)] void Draw(OLE_HANDLE hDC,VARIANT *pRect,VARIANT *pxForm,BOOL bShape);
+			[id(6)] void SetInteriorHatch(LONG nHatch,OLE_COLOR nColor);
+			[id(7)] BOOL GetInteriorHatch(LONG *pHatch,OLE_COLOR *pColor);
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CMimicsEllipseCtrl
+
+	[ uuid(D9B0D9F9-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Event interface for MimicsEllipse Control") ]
+	dispinterface _DMimicsEllipseEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CMimicsEllipseCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CMimicsEllipseCtrl
+
+	[ uuid(D9B0D9FA-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("MimicsEllipse Control"), control ]
+	coclass MimicsEllipse
+	{
+		[default] dispinterface _DMimicsEllipse;
+		[default, source] dispinterface _DMimicsEllipseEvents;
+	};
+
+	//  Primary dispatch interface for CMimicsArcCtrl
+
+	[ uuid(D9B0D9F3-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Dispatch interface for MimicsArc Control"), hidden ]
+	dispinterface _DMimicsArc
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMimicsArcCtrl)
+			[id(65537)] BSTR Name;
+			[id(65538)] BSTR Type;
+			[id(65539)] BSTR ToolTipText;
+			[id(1)] LONG Style;
+			[id(2)] LONG BorderSize;
+			[id(3)] LONG BorderStyle;
+			[id(4)] OLE_COLOR BorderColor;
+			[id(5)] OLE_COLOR InteriorColor;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMimicsArcCtrl)
+			[id(65540)] void SetInitialSize(OLE_XSIZE_PIXELS cx,OLE_YSIZE_PIXELS cy);
+			[id(65541)] void GetInitialSize(OLE_XSIZE_PIXELS *cx,OLE_YSIZE_PIXELS *cy);
+			[id(65542)] void Show();
+			[id(65543)] void Hide();
+			[id(65544)] BOOL IsVisible();
+			[id(65545)] BOOL Blink(LONG nInterval);
+			[id(65546)] void Draw(OLE_HANDLE hDC,VARIANT *pRect,VARIANT *pxForm,BOOL bShape);
+			[id(6)] void SetInteriorHatch(LONG nHatch,OLE_COLOR nColor);
+			[id(7)] BOOL GetInteriorHatch(LONG *pHatch,OLE_COLOR *pColor);
+			[id(8)] void SetRadials(double fRadial1,double fRadial2);
+			[id(9)] void GetRadials(double *fRadial1,double *fRadial2);
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CMimicsArcCtrl
+
+	[ uuid(D9B0D9F4-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Event interface for MimicsArc Control") ]
+	dispinterface _DMimicsArcEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CMimicsArcCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CMimicsArcCtrl
+
+	[ uuid(D9B0D9F5-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("MimicsArc Control"), control ]
+	coclass MimicsArc
+	{
+		[default] dispinterface _DMimicsArc;
+		[default, source] dispinterface _DMimicsArcEvents;
+	};
+
+	//  Primary dispatch interface for CMimicsTriangleCtrl
+
+	[ uuid(D9B0DA02-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Dispatch interface for MimicsTriangle Control"), hidden ]
+	dispinterface _DMimicsTriangle
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMimicsTriangleCtrl)
+			[id(65537)] BSTR Name;
+			[id(65538)] BSTR Type;
+			[id(65539)] BSTR ToolTipText;
+			[id(1)] LONG Style;
+			[id(2)] LONG BorderSize;
+			[id(3)] LONG BorderStyle;
+			[id(4)] OLE_COLOR BorderColor;
+			[id(5)] OLE_COLOR InteriorColor;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMimicsTriangleCtrl)
+			[id(65540)] void SetInitialSize(OLE_XSIZE_PIXELS cx,OLE_YSIZE_PIXELS cy);
+			[id(65541)] void GetInitialSize(OLE_XSIZE_PIXELS *cx,OLE_YSIZE_PIXELS *cy);
+			[id(65542)] void Show();
+			[id(65543)] void Hide();
+			[id(65544)] BOOL IsVisible();
+			[id(65545)] BOOL Blink(LONG nInterval);
+			[id(65546)] void Draw(OLE_HANDLE hDC,VARIANT *pRect,VARIANT *pxForm,BOOL bShape);
+			[id(6)] void SetInteriorHatch(LONG nHatch,OLE_COLOR nColor);
+			[id(7)] BOOL GetInteriorHatch(LONG *pHatch,OLE_COLOR *pColor);
+			[id(8)] void SetEdges(double x1,double y1,double x2,double y2,double x3,double y3);
+			[id(9)] void GetEdges(double *x1,double *y1,double *x2,double *y2,double *x3,double *y3);
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CMimicsTriangleCtrl
+
+	[ uuid(D9B0DA03-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Event interface for MimicsTriangle Control") ]
+	dispinterface _DMimicsTriangleEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CMimicsTriangleCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CMimicsTriangleCtrl
+
+	[ uuid(D9B0DA04-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("MimicsTriangle Control"), control ]
+	coclass MimicsTriangle
+	{
+		[default] dispinterface _DMimicsTriangle;
+		[default, source] dispinterface _DMimicsTriangleEvents;
+	};
+
+	//  Primary dispatch interface for CMimicsSwitchCtrl
+
+	[ uuid(D9B0DA07-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Dispatch interface for MimicsSwitch Control"), hidden ]
+	dispinterface _DMimicsSwitch
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMimicsSwitchCtrl)
+			[id(65537)] BSTR Name;
+			[id(65538)] BSTR Type;
+			[id(65539)] BSTR ToolTipText;
+			[id(1)] LONG Style;
+			[id(2)] OLE_COLOR Color;
+			[id(3)] OLE_COLOR FrameColor;
+			[id(4)] OLE_COLOR InteriorFrameColor;
+			[id(5)] OLE_COLOR CenterColor;
+			[id(6)] OLE_COLOR InteriorCenterColor;
+			[id(7)] OLE_COLOR BarColor;
+			[id(8)] OLE_COLOR StubsColor;
+			[id(9)] LONG Thickness;
+			[id(10)] LONG FrameThickness;
+			[id(11)] LONG CenterThickness;
+			[id(12)] LONG BarThickness;
+			[id(13)] LONG StubsThickness;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMimicsSwitchCtrl)
+			[id(65540)] void SetInitialSize(OLE_XSIZE_PIXELS cx,OLE_YSIZE_PIXELS cy);
+			[id(65541)] void GetInitialSize(OLE_XSIZE_PIXELS *cx,OLE_YSIZE_PIXELS *cy);
+			[id(65542)] void Show();
+			[id(65543)] void Hide();
+			[id(65544)] BOOL IsVisible();
+			[id(65545)] BOOL Blink(LONG nInterval);
+			[id(65546)] void Draw(OLE_HANDLE hDC,VARIANT *pRect,VARIANT *pxForm,BOOL bShape);
+			[id(14)] void Open();
+			[id(15)] BOOL IsOpen();
+			[id(16)] BOOL IsClosed();
+			[id(17)] void Close();
+			[id(18)] void Pos1();
+			[id(19)] BOOL IsPos1();
+			[id(20)] void Pos2();
+			[id(21)] BOOL IsPos2();
+			[id(22)] void Pos3();
+			[id(23)] BOOL IsPos3();
+			[id(24)] void Broken();
+			[id(25)] BOOL IsBroken();
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CMimicsSwitchCtrl
+
+	[ uuid(D9B0DA08-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Event interface for MimicsSwitch Control") ]
+	dispinterface _DMimicsSwitchEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CMimicsSwitchCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CMimicsSwitchCtrl
+
+	[ uuid(D9B0DA09-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("MimicsSwitch Control"), control ]
+	coclass MimicsSwitch
+	{
+		[default] dispinterface _DMimicsSwitch;
+		[default, source] dispinterface _DMimicsSwitchEvents;
+	};
+
+	//  Primary dispatch interface for CMimicsTextCtrl
+
+	[ uuid(D9B0DA0C-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Dispatch interface for MimicsText Control"), hidden ]
+	dispinterface _DMimicsText
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMimicsTextCtrl)
+			[id(65537)] BSTR Name;
+			[id(65538)] BSTR Type;
+			[id(65539)] BSTR ToolTipText;
+			[id(1)] BSTR Text;
+			[id(2)] LONG Mode;
+			[id(3)] OLE_COLOR Color;
+			[id(4)] OLE_COLOR BackgroundColor;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMimicsTextCtrl)
+			[id(65540)] void SetInitialSize(OLE_XSIZE_PIXELS cx,OLE_YSIZE_PIXELS cy);
+			[id(65541)] void GetInitialSize(OLE_XSIZE_PIXELS *cx,OLE_YSIZE_PIXELS *cy);
+			[id(65542)] void Show();
+			[id(65543)] void Hide();
+			[id(65544)] BOOL IsVisible();
+			[id(65545)] BOOL Blink(LONG nInterval);
+			[id(65546)] void Draw(OLE_HANDLE hDC,VARIANT *pRect,VARIANT *pxForm,BOOL bShape);
+			[id(5)] BOOL SetFont(VARIANT *pFont);
+			[id(6)] BOOL GetFont(VARIANT *pFont);
+			[id(7)] void AlignLeft();
+			[id(8)] void AlignCenter();
+			[id(9)] void AlignRight();
+			[id(10)] void AlignVertical(BOOL bEnable);
+			[id(11)] BOOL IsLeftAligned();
+			[id(12)] BOOL IsCenterAligned();
+			[id(13)] BOOL IsRightAligned();
+			[id(14)] BOOL IsVerticalAligned();
+			[id(15)] void LeftToRightReading();
+			[id(16)] void TopToBottomReading();
+			[id(17)] BOOL IsLeftToRightReading();
+			[id(18)] BOOL IsTopToBottomReading();
+			[id(19)] void SetTabChars(LONG nChars);
+			[id(20)] LONG GetTabChars();
+			[id(21)] void WrapWords(BOOL bEnable);
+			[id(22)] BOOL IsWrappingWords();
+			[id(23)] void SingleLine(BOOL bEnable);
+			[id(24)] BOOL IsSingleLine();
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CMimicsTextCtrl
+
+	[ uuid(D9B0DA0D-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Event interface for MimicsText Control") ]
+	dispinterface _DMimicsTextEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CMimicsTextCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CMimicsTextCtrl
+
+	[ uuid(D9B0DA0E-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("MimicsText Control"), control ]
+	coclass MimicsText
+	{
+		[default] dispinterface _DMimicsText;
+		[default, source] dispinterface _DMimicsTextEvents;
+	};
+
+	//  Primary dispatch interface for CMimicsImageCtrl
+
+	[ uuid(D9B0DA17-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Dispatch interface for MimicsImage Control"), hidden ]
+	dispinterface _DMimicsImage
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMimicsImageCtrl)
+			[id(65537)] BSTR Name;
+			[id(65538)] BSTR Type;
+			[id(65539)] BSTR ToolTipText;
+			[id(1)] LONG Style;
+			[id(2)] BSTR FileName;
+			[id(3)] BYTE ImageTransparency;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMimicsEllipseCtrl)
+			[id(65540)] void SetInitialSize(OLE_XSIZE_PIXELS cx,OLE_YSIZE_PIXELS cy);
+			[id(65541)] void GetInitialSize(OLE_XSIZE_PIXELS *cx,OLE_YSIZE_PIXELS *cy);
+			[id(65542)] void Show();
+			[id(65543)] void Hide();
+			[id(65544)] BOOL IsVisible();
+			[id(65545)] BOOL Blink(LONG nInterval);
+			[id(65546)] void Draw(OLE_HANDLE hDC,VARIANT *pRect,VARIANT *pxForm,BOOL bShape);
+			[id(4)] void SetImageOrigin(OLE_XPOS_PIXELS x,OLE_YPOS_PIXELS y);
+			[id(5)] void GetImageOrigin(OLE_XPOS_PIXELS *x,OLE_YPOS_PIXELS *y);
+			[id(6)] void SetImageSize(OLE_XSIZE_PIXELS cx,OLE_YSIZE_PIXELS cy);
+			[id(7)] void GetImageSize(OLE_XSIZE_PIXELS *cx,OLE_YSIZE_PIXELS *cy);
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CMimicsEllipseCtrl
+
+	[ uuid(D9B0DA18-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Event interface for MimicsImage Control") ]
+	dispinterface _DMimicsImageEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CMimicsImageCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CMimicsImageCtrl
+
+	[ uuid(D9B0DA19-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("MimicsImage Control"), control ]
+	coclass MimicsImage
+	{
+		[default] dispinterface _DMimicsImage;
+		[default, source] dispinterface _DMimicsImageEvents;
+	};
+
+	//  Primary dispatch interface for CMimicsGroupCtrl
+
+	[ uuid(D9B0DA12-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Dispatch interface for MimicsGroup Control"), hidden ]
+	dispinterface _DMimicsGroup
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMimicsGroupCtrl)
+			[id(65537)] BSTR Name;
+			[id(65538)] BSTR Type;
+			[id(65539)] BSTR ToolTipText;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMimicsGroupCtrl)
+			[id(65540)] void SetInitialSize(OLE_XSIZE_PIXELS cx,OLE_YSIZE_PIXELS cy);
+			[id(65541)] void GetInitialSize(OLE_XSIZE_PIXELS *cx,OLE_YSIZE_PIXELS *cy);
+			[id(65542)] void Show();
+			[id(65543)] void Hide();
+			[id(65544)] BOOL IsVisible();
+			[id(65545)] BOOL Blink(LONG nInterval);
+			[id(65546)] void Draw(OLE_HANDLE hDC,VARIANT *pRect,VARIANT *pxForm,BOOL bShape);
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CMimicsGroupCtrl
+
+	[ uuid(D9B0DA13-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("Event interface for MimicsGroup Control") ]
+	dispinterface _DMimicsGroupEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CMimicsGroupCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CMimicsGroupCtrl
+
+	[ uuid(D9B0DA14-C96C-11D3-B5E7-0060082D5389),
+	  helpstring("MimicsGroup Control"), control ]
+	coclass MimicsGroup
+	{
+		[default] dispinterface _DMimicsGroup;
+		[default, source] dispinterface _DMimicsGroupEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};
