@@ -7,7 +7,6 @@
 - Rename the directories '**Satellite_SCOS-2000**' (inside '**SatView**') to '**Satellite (SCOS-2000)**' and '**Satellite_ALTEL**' to '**Satellite (ALTEL)**'
 - Add the following environment variables to the 'System variables':<br />
 **Include**=\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Include\10.0.***XXXXX***.0\shared<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Include\10.0.***XXXXX***.0\ucrt<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Include\10.0.***XXXXX***.0\um<br />
-and<br />
 **Lib**=\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\amd64<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\lib\amd64<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Lib\10.0.***XXXXX***.0\ucrt\x64<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Lib\10.0.***XXXXX***.0\um\x64
 <br />
 Note: ***XXXXX*** = Windows® 10 SDK Version (e.g. 14393)
