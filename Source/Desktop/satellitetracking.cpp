@@ -397,6 +397,7 @@ CSatelliteTrackingToolWnd::CSatelliteTrackingToolWnd() : CDisplayWnd()
 	SetType(DISPLAY_TYPE_SATELLITETRACKINGTOOL);
 	m_pwndSceneView = (CSpaceSceneView *)NULL;
 	m_bInitialized = FALSE;
+	m_bRunning = FALSE;
 	m_bEnabled = TRUE;
 }
 
@@ -422,7 +423,7 @@ BOOL CSatelliteTrackingToolWnd::Create(CMDIFrameWnd *pParentWnd, LPCTSTR pszTitl
 
 BOOL CSatelliteTrackingToolWnd::Start()
 {
-	for (Initialize(TRUE); m_bInitialized && m_bEnabled; )
+	for (Initialize(TRUE); m_bInitialized && !m_bRunning && m_bEnabled; )
 	{
 		if (m_pwndSceneView->Start())
 		{
@@ -430,6 +431,7 @@ BOOL CSatelliteTrackingToolWnd::Start()
 			{
 				m_pwndSceneView->EnableSlowRefreshMode();
 			}
+			m_bRunning = TRUE;
 			return TRUE;
 		}
 		return FALSE;
@@ -460,11 +462,11 @@ VOID CSatelliteTrackingToolWnd::Update()
 
 BOOL CSatelliteTrackingToolWnd::Stop()
 {
-	if (m_bInitialized && m_bEnabled)
+	if (m_bInitialized && m_bRunning && m_bEnabled)
 	{
 		if (m_pwndSceneView->Stop())
 		{
-			m_bInitialized = FALSE;
+			m_bRunning = FALSE;
 			return TRUE;
 		}
 		return FALSE;

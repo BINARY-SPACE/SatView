@@ -3356,6 +3356,7 @@ VOID CDisplayPage::DestroyDisplays(UINT nCode, BOOL bAll)
 					pDisplayWnd->DestroyWindow();
 					continue;
 				}
+				if (LOWORD(pDisplayWnd->GetType()) == DISPLAY_TYPE_SATELLITETRACKINGTOOL && nCode != CDesktopApp::Exit) continue;
 			}
 			if (pDisplayWnd->GetScope() == DISPLAY_SCOPE_LOCAL || bAll)
 			{

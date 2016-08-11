@@ -154,10 +154,11 @@ public:
 private:
 	CSpaceSceneView  *m_pwndSceneView;
 	CSpaceSceneViewMessageBar  m_wndMessageBar;
-	BOOL  m_bInitialized;
 private:
 	CString  m_szConfigurationFileName;
 	CString  m_szHelpFileName;
+	BOOL  m_bInitialized;
+	BOOL  m_bRunning;
 	BOOL  m_bEnabled;
 
 	// Operations
