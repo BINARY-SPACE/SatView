@@ -1,4 +1,5 @@
 ### SatView™ Installation Guide<br />
+**Installing Satview™ and customizing it to your needs is a challenging task and requires deep knowledge of the Microsoft® Windows® platform and the related development tools. Therefore, it is highly recommended to get in touch with BINARY SPACE.**<br /><br />Here is a short list to get started with the installation:
 - Install Microsoft® Windows® 10 Professional/Enterprise or Microsoft® Windows® Server 2016
 - Install Microsoft® Visual Studio® 2015 with all features
 - Install Microsoft® SQL Server® 2016 (the 'Database Engine Services' feature is sufficient) with mixed-mode authentication where the 'sa' account shares the same password as the 'Administrator' account for SatView™ and add the 'Administrator' account to the 'sysadmin' group
