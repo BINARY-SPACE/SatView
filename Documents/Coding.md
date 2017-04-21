@@ -7,8 +7,7 @@ In most cases, there are three major areas which need customization:
 <p align="center">
   <img src="../Images/SatView™%20Interfaces.png" />
 </p>
-
-####1. Database
+#### 1. Database
 Currently, SatView™ supports two database standards: SCOS-2000 (ESA) and ALTEL (L3 Communications).<br />
 The document ['SatView™ Database Standards'](../Documents/SatView™ Database Standards.pdf) describes these standards in more detail and helps to evaluate which one fits the mission's needs best.<br />
 Depending on the chosen database standard, the associated projects need to be included in the software solution:<br />
@@ -38,12 +37,12 @@ The above principle is illustrated with the **CDatabaseEngine** class:
 <p align="center">
   <img src="../Images/SatView™%20Software%20Architecture.png" />
 </p>
-<br />  
-####2. Data I/O
+
+#### 2. Data I/O
 Another area requiring customization is related to the integration into the ground segment i.e. data input/output.<br />
 SatView™ incorporates a generic interface for telemetry/telecommand data exchange that can handle raw data, telemetry packets and transfer frames. Getting compatible with the corresponding ground segment device means to write an intermediate driver in form of a *Dynamic Link Library* (DLL).<br />
 Consult the document ['SatView™ Data I/O Device Driver Development'](../Documents/SatView™ Data IO Interface.pdf) to learn about how to implement such a data I/O driver. An implementation sample is available for the ENERTEC TT&C 3801 device (see the '**ENERTEC**' project).<br />
-<br />
-####3. Automation
+
+#### 3. Automation
 Remote control of SatView™ might be important in some missions. Currently, SatView™ supports a simple (but extensible) set of commands that can be executed from remote locations.<br />
 Consult the document ['SatView™ Automation Interface'](../Documents/SatView™ Automation Interface.pdf) to learn about the implemented automation interface.
