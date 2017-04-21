@@ -13,7 +13,7 @@ Interested hardware integrators as well as those already operating satellites in
 <br />  
 ### Overview<br />
 SatView™ is designed to allow adoption to different ground segments as well as to various satellites. This is achieved by a kernel-based approach where the invariant code is encapsulated and separated from the remaining code.<br />
-Read the [SatView™ Brochure](/Brochures/SatView™ Brochure.pdf) to learn more about its design and the components the product consists of.
+Read the [SatView™ Brochure](/Brochures/SatView™%20Brochure.pdf) to learn more about its design and the components the product consists of.
 <br />  
 ### Pre-Requisites<br />
 #### Hardware:
@@ -34,7 +34,7 @@ Follow this [installation guide](/Documents/Installation.md) in order to get the
 Consult these [coding guidelines](/Documents/Coding.md) to start adapting the code to the ground segment and the satellite.
 <br />  
 ### License<br />
-The source code in this repository is governed by the '**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International**' license. Read the corresponding [copyright notice](/Copyright/Copyright-Notice.md).
+The source code in this repository is governed by the '**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International**' license. Read the corresponding [copyright notice](/Copyright/Copyright%20Notice.md).
 <br />  
 <br />  
 Contact BINARY SPACE for further information.
