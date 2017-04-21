@@ -34,7 +34,7 @@ Follow this [installation guide](/Documents/Installation.md) in order to get the
 Consult these [coding guidelines](/Documents/Coding.md) to start adapting the code to the ground segment and the satellite.
 <br />  
 ### License<br />
-The source code in this repository is governed by the '**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International**' license. Read the corresponding [copyright notice](/Copyright/Copyright Notice.md).
+The source code in this repository is governed by the '**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International**' license. Read the corresponding [copyright notice](/Copyright/Copyright-Notice.md).
 <br />  
 <br />  
 Contact BINARY SPACE for further information.
