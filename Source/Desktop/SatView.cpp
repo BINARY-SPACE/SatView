@@ -789,6 +789,13 @@ BOOL CMainStatusBar::IsPaneAvailable(UINT nPaneID) CONST
 	return((nPaneID == ID_STATUSBAR_MESSAGEPANE || nPaneID == ID_STATUSBAR_NETWORKPANE || nPaneID == ID_STATUSBAR_TELEMETRYPANE || nPaneID == ID_STATUSBAR_TELECOMMANDPANE || nPaneID == ID_STATUSBAR_ARCHIVINGPANE || (nPaneID == ID_STATUSBAR_CPUPERFORMANCEPANE  &&  m_cCPUPerformanceMonitor.IsAvailable(CPUPERFORMANCEMONITOR_COUNTER_PROCESSORTIME)) || nPaneID == ID_STATUSBAR_CLOCKPANE) ? TRUE : FALSE);
 }
 
+BOOL CMainStatusBar::SetPaneText(int nIndex, LPCTSTR lpszNewText, BOOL bUpdate)
+{
+	CSingleLock  cLock(m_pCriticalSection, TRUE);
+
+	return((nIndex != CommandToIndex(ID_STATUSBAR_MESSAGEPANE) || lstrcmp(lpszNewText, STRING(IDS_STATUSBAR_READY)) || !IsShowingProgress()) ? CMFCStatusBar::SetPaneText(nIndex, lpszNewText, bUpdate) : FALSE);
+}
+
 BOOL CMainStatusBar::SetProgressIndicator(LPCTSTR pszMessage)
 {
 	CDC  *pDC;

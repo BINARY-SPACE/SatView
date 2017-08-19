@@ -437,6 +437,8 @@ private:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CMainStatusBar)
 public:
+	virtual BOOL SetPaneText(int nIndex, LPCTSTR lpszNewText, BOOL bUpdate = TRUE);
+public:
 	virtual BOOL Lock();
 	virtual BOOL Unlock();
 protected:
