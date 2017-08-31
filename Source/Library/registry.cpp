@@ -697,7 +697,7 @@ REGSAM CRegistry::CheckSAM(HKEY hKey, REGSAM regSAM) CONST
 
 	if (hKey == HKEY_LOCAL_MACHINE)
 	{
-		GetSystemInfo(&sSystemInfo);
+		GetNativeSystemInfo(&sSystemInfo);
 		return((sSystemInfo.wProcessorArchitecture == PROCESSOR_ARCHITECTURE_INTEL) ? (KEY_WOW64_32KEY | regSAM) : (KEY_WOW64_64KEY | regSAM));
 	}
 	return regSAM;
