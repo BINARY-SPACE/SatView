@@ -102,9 +102,9 @@ private:
 	BOOL SetSecurity(HKEY hKey, LPCTSTR pszSubKey, CONST CSecurityDescriptor &cSecurityDescriptor);
 	BOOL GetSecurity(HKEY hKey, LPCTSTR pszSubKey, CSecurityDescriptor &cSecurityDescriptor) CONST;
 
-	REGSAM CheckSAM(HKEY hKey, REGSAM regSAM) CONST;
-
 	CString ConstructQualifiedSubKey(LPCTSTR pszSubKey) CONST;
+
+	REGSAM CheckSAM(REGSAM regSAM) CONST;
 };
 
 /////////////////////////////////////////////////////////////////////////////

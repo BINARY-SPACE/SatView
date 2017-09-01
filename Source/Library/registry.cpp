@@ -514,7 +514,7 @@ INT CRegistry::EnumSubKeys(HKEY hKey, LPCTSTR pszSubKey, CStringArray &szSubKeys
 
 	if (RegConnectRegistry(GetComputerUNCName(), hKey, &hRegKey) == ERROR_SUCCESS)
 	{
-		if (RegOpenKeyEx(hRegKey, pszSubKey, 0, CheckSAM(hKey, KEY_READ), &hRegSubKey) == ERROR_SUCCESS)
+		if (RegOpenKeyEx(hRegKey, pszSubKey, 0, CheckSAM(KEY_READ), &hRegSubKey) == ERROR_SUCCESS)
 		{
 			if (RegQueryInfoKey(hRegSubKey, (LPTSTR)NULL, (LPDWORD)NULL, (LPDWORD)NULL, &dwSubKeys, &cbSubKey, (LPDWORD)NULL, (LPDWORD)NULL, (LPDWORD)NULL, (LPDWORD)NULL, (LPDWORD)NULL, (PFILETIME)NULL) == ERROR_SUCCESS)
 			{
@@ -556,7 +556,7 @@ INT CRegistry::EnumValueNames(HKEY hKey, LPCTSTR pszSubKey, CStringArray &szValu
 
 	if (RegConnectRegistry(GetComputerUNCName(), hKey, &hRegKey) == ERROR_SUCCESS)
 	{
-		if (RegOpenKeyEx(hRegKey, pszSubKey, 0, CheckSAM(hKey, KEY_READ), &hRegSubKey) == ERROR_SUCCESS)
+		if (RegOpenKeyEx(hRegKey, pszSubKey, 0, CheckSAM(KEY_READ), &hRegSubKey) == ERROR_SUCCESS)
 		{
 			if (RegQueryInfoKey(hRegSubKey, (LPTSTR)NULL, (LPDWORD)NULL, (LPDWORD)NULL, (LPDWORD)NULL, (LPDWORD)NULL, (LPDWORD)NULL, &dwValueNames, &cbValueName, (LPDWORD)NULL, (LPDWORD)NULL, (PFILETIME)NULL) == ERROR_SUCCESS)
 			{
@@ -594,7 +594,7 @@ BOOL CRegistry::SetInfo(HKEY hKey, LPCTSTR pszSubKey, LPCTSTR pszValueName, DWOR
 
 	if (RegConnectRegistry(GetComputerUNCName(), hKey, &hRegKey) == ERROR_SUCCESS)
 	{
-		if ((AfxIsValidString(pszValueName) && RegCreateKeyEx(hRegKey, pszSubKey, 0, (LPTSTR)NULL, REG_OPTION_NON_VOLATILE, CheckSAM(hKey, KEY_WRITE), (LPSECURITY_ATTRIBUTES)NULL, &hRegSubKey, &dwKeyStatus) == ERROR_SUCCESS) || (!AfxIsValidString(pszValueName) && ((lRegKeyCode = RegDeleteKey(hRegKey, pszSubKey)) == ERROR_SUCCESS || lRegKeyCode == ERROR_FILE_NOT_FOUND)))
+		if ((AfxIsValidString(pszValueName) && RegCreateKeyEx(hRegKey, pszSubKey, 0, (LPTSTR)NULL, REG_OPTION_NON_VOLATILE, CheckSAM(KEY_WRITE), (LPSECURITY_ATTRIBUTES)NULL, &hRegSubKey, &dwKeyStatus) == ERROR_SUCCESS) || (!AfxIsValidString(pszValueName) && ((lRegKeyCode = RegDeleteKey(hRegKey, pszSubKey)) == ERROR_SUCCESS || lRegKeyCode == ERROR_FILE_NOT_FOUND)))
 		{
 			if ((AfxIsValidString(pszValueName) && ((AfxIsValidAddress(pInfo, cbInfo, FALSE) && RegSetValueEx(hRegSubKey, pszValueName, 0, dwType, pInfo, cbInfo) == ERROR_SUCCESS) || (!AfxIsValidAddress(pInfo, cbInfo, FALSE) && (GetInfo(hKey, pszSubKey, pszValueName) < 0 || (lRegKeyCode = RegDeleteValue(hRegSubKey, pszValueName)) == ERROR_SUCCESS || lRegKeyCode == ERROR_FILE_NOT_FOUND)))) || !AfxIsValidString(pszValueName))
 			{
@@ -617,7 +617,7 @@ INT CRegistry::GetInfo(HKEY hKey, LPCTSTR pszSubKey, LPCTSTR pszValueName, LPDWO
 
 	if (RegConnectRegistry(GetComputerUNCName(), hKey, &hRegKey) == ERROR_SUCCESS)
 	{
-		if (RegOpenKeyEx(hRegKey, pszSubKey, 0, CheckSAM(hKey, KEY_READ), &hRegSubKey) == ERROR_SUCCESS)
+		if (RegOpenKeyEx(hRegKey, pszSubKey, 0, CheckSAM(KEY_READ), &hRegSubKey) == ERROR_SUCCESS)
 		{
 			if (RegQueryValueEx(hRegSubKey, pszValueName, (LPDWORD)NULL, pdwType, pInfo, &(cbValueData = cbInfo)) == ERROR_SUCCESS)
 			{
@@ -641,7 +641,7 @@ BOOL CRegistry::SetSecurity(HKEY hKey, LPCTSTR pszSubKey, CONST CSecurityDescrip
 
 	if (RegConnectRegistry(GetComputerUNCName(), hKey, &hRegKey) == ERROR_SUCCESS)
 	{
-		if (RegOpenKeyEx(hRegKey, pszSubKey, 0, CheckSAM(hKey, KEY_ALL_ACCESS), &hRegSubKey) == ERROR_SUCCESS)
+		if (RegOpenKeyEx(hRegKey, pszSubKey, 0, CheckSAM(KEY_ALL_ACCESS), &hRegSubKey) == ERROR_SUCCESS)
 		{
 			if (RegSetKeySecurity(hRegSubKey, cSecurityDescriptor.QueryInformation(), (PSECURITY_DESCRIPTOR)cSecurityDescriptor.GetPSECURITY_DESCRIPTOR()) == ERROR_SUCCESS)
 			{
@@ -665,7 +665,7 @@ BOOL CRegistry::GetSecurity(HKEY hKey, LPCTSTR pszSubKey, CSecurityDescriptor &c
 
 	if (RegConnectRegistry(GetComputerUNCName(), hKey, &hRegKey) == ERROR_SUCCESS)
 	{
-		if (RegOpenKeyEx(hRegKey, pszSubKey, 0, CheckSAM(hKey, KEY_ALL_ACCESS), &hRegSubKey) == ERROR_SUCCESS)
+		if (RegOpenKeyEx(hRegKey, pszSubKey, 0, CheckSAM(KEY_ALL_ACCESS), &hRegSubKey) == ERROR_SUCCESS)
 		{
 			if (RegGetKeySecurity(hRegSubKey, OWNER_SECURITY_INFORMATION | GROUP_SECURITY_INFORMATION | DACL_SECURITY_INFORMATION, (PSECURITY_DESCRIPTOR)NULL, &(cbSecurityDescriptor = 0)) == ERROR_INSUFFICIENT_BUFFER)
 			{
@@ -689,18 +689,6 @@ BOOL CRegistry::GetSecurity(HKEY hKey, LPCTSTR pszSubKey, CSecurityDescriptor &c
 		RegCloseKey(hRegKey);
 	}
 	return FALSE;
-}
-
-REGSAM CRegistry::CheckSAM(HKEY hKey, REGSAM regSAM) CONST
-{
-	SYSTEM_INFO  sSystemInfo;
-
-	if (hKey == HKEY_LOCAL_MACHINE)
-	{
-		GetNativeSystemInfo(&sSystemInfo);
-		return((sSystemInfo.wProcessorArchitecture == PROCESSOR_ARCHITECTURE_INTEL) ? (KEY_WOW64_32KEY | regSAM) : (KEY_WOW64_64KEY | regSAM));
-	}
-	return regSAM;
 }
 
 CString CRegistry::ConstructQualifiedSubKey(LPCTSTR pszSubKey) CONST
@@ -739,4 +727,12 @@ CString CRegistry::ConstructQualifiedSubKey(LPCTSTR pszSubKey) CONST
 		}
 	}
 	return pszSubKey;
+}
+
+REGSAM CRegistry::CheckSAM(REGSAM regSAM) CONST
+{
+	SYSTEM_INFO  sSystemInfo;
+
+	GetNativeSystemInfo(&sSystemInfo);
+	return((sSystemInfo.wProcessorArchitecture == PROCESSOR_ARCHITECTURE_INTEL) ? (KEY_WOW64_32KEY | regSAM) : (KEY_WOW64_64KEY | regSAM));
 }
