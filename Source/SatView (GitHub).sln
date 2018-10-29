@@ -199,6 +199,4 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		DPBuild = 5
 	EndGlobalSection
-
-
 EndGlobal
