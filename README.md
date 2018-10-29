@@ -24,8 +24,8 @@ Read the [SatView™ Brochure](/Brochures/SatView™%20Brochure.pdf) to learn mo
 
 #### Software:
 - Microsoft® Windows® 10 Professional/Enterprise or Microsoft® Server® 2016
-- Microsoft® SQL Server® 2016
-- Microsoft® Visual Studio® 2015
+- Microsoft® SQL Server® 2017
+- Microsoft® Visual Studio® 2017 (Version 15.8.8 or later)
 
 ### Installation<br />
 Follow this [installation guide](/Documents/Installation.md) in order to get the development environment downloaded and set-up.
