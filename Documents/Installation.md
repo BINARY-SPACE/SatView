@@ -16,5 +16,8 @@ Note: ***XXXXX*** = Windows® 10 SDK Version (e.g. 17134)
 - Rename the project '**Satellite (SCOS-2000)**' or '**Satellite (ALTEL)**' (including the contained classes and the resulting output file) to the name of the satellite to be supported
 - Open the file called 'messages.man' in the '**Library**' project and modify the absolute paths associated with the '**resourceFileName**' and '**messageFileName**' entries to point to the resulting output file 'SatView.dll'
 - Complete the coding for the projects '**SCOS-2000**' or '**ALTEL**' and the associated (renamed) satellite project
+- Code the data I/O interface driver (read the [coding guidelines](Coding.md))
+- Compile the solution
 - Launch the '**SatView™ Editor**' for the first time, register the satellite name and enter the password for the 'Administrator' account (i.e. the password for the 'Administrator' account of SatView™ must be identical to the one for the OS)
 - Start building the database; consult the help file '**Editor.chm**' in order to learn how to create & modify databases
+- Launch the '**SatView™ Desktop**' to monitor & control the spacecraft
