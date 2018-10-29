@@ -9,13 +9,13 @@
 **Include**=\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Include\10.0.***XXXXX***.0\shared<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Include\10.0.***XXXXX***.0\ucrt<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Include\10.0.***XXXXX***.0\um<br />
 **Lib**=\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\amd64<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\lib\amd64<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Lib\10.0.***XXXXX***.0\ucrt\x64<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Lib\10.0.***XXXXX***.0\um\x64<br />
 Note: ***XXXXX*** = Windows® 10 SDK Version (e.g. 17134)
-- Clone the repository by selecting the 'Open in Visual Studio' option call it 'SatView'
+- Clone the repository by selecting the 'Open in Visual Studio' option and call it 'SatView'
 - Close Microsoft® Visual Studio® 2017 and reopen it under the 'Administrator' account (right-click and select 'Run as administrator')
 - Open the downloaded repository and load the available solution file 'SatView (GitHub)' inside the 'Source' folder
 - Exclude either the projects '**SCOS-2000**' & '**Satellite (SCOS-2000)**' or '**ALTEL**' & '**Satellite (ALTEL)**' from the solution  depending on the database standard selected (read the [coding guidelines](Coding.md))
 - Rename the project '**Satellite (SCOS-2000)**' or '**Satellite (ALTEL)**' (including the contained classes and the resulting output file) to the name of the satellite to be supported
 - Open the file called 'messages.man' in the '**Library**' project and modify the absolute paths associated with the '**resourceFileName**' and '**messageFileName**' entries to point to the resulting output file 'SatView.dll'
-- Complete the coding for the projects '**SCOS-2000**' or '**ALTEL**' and the associated (renamed) satellite project
+- Complete the coding for the projects '**SCOS-2000**' or '**ALTEL**' and the associated (renamed) spacecraft project
 - Code the data I/O interface driver (read the [coding guidelines](Coding.md))
 - Compile the solution
 - Launch the '**SatView™ Editor**' for the first time, register the satellite name and enter the password for the 'Administrator' account (i.e. the password for the 'Administrator' account of SatView™ must be identical to the one for the OS)
