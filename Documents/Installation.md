@@ -5,14 +5,12 @@
 - Open Microsoft® Visual Studio® 2017 and install the '**GitHub Extension for Visual Studio**' via the 'Tools'->'Extensions and Updates...' menu item
 - Install Microsoft® SQL Server® 2017 (the 'Database Engine Services' feature is sufficient) with mixed-mode authentication where the 'sa' account shares the same password as the 'Administrator' account for SatView™ and add the 'Administrator' account to the 'sysadmin' group
 - Download and install the SQL Server® Management Studio 17 (SSMS):<br />https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017
-- Clone the repository
-- Download the '**SatView**' GitHub repository as 'zip' file, extract the '**Source**' directory, rename it to '**SatView**' and move it into the '**Documents**' folder
-- Rename the directories '**Satellite_SCOS-2000**' (inside '**SatView**') to '**Satellite (SCOS-2000)**' and '**Satellite_ALTEL**' to '**Satellite (ALTEL)**'
-- Add the following environment variables to the 'System variables' (for 64-bit):<br />
+- Clone the repository by selecting the 'Open in Visual Studio' option
+- Add the following environment variables to the 'System Variables' (for 64-bit):<br />
 **Include**=\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Include\10.0.***XXXXX***.0\shared<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Include\10.0.***XXXXX***.0\ucrt<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Include\10.0.***XXXXX***.0\um<br />
 **Lib**=\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\amd64<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\lib\amd64<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Lib\10.0.***XXXXX***.0\ucrt\x64<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Lib\10.0.***XXXXX***.0\um\x64<br />
 Note: ***XXXXX*** = Windows® 10 SDK Version (e.g. 17134)
-- Open Microsoft® Visual Studio® 2017 under the 'Administrator' account (right-click and select 'Run as administrator')
+- Reopen Microsoft® Visual Studio® 2017 under the 'Administrator' account (right-click and select 'Run as administrator')
 - Open the project solution called 'SatView (GitHub)'
 - Exclude either the projects '**SCOS-2000**' & '**Satellite (SCOS-2000)**' or '**ALTEL**' & '**Satellite (ALTEL)**' from the solution  depending on the database standard selected (read the [coding guidelines](Coding.md))
 - Rename the project '**Satellite (SCOS-2000)**' or '**Satellite (ALTEL)**' (including the contained classes and the resulting output file) to the name of the satellite to be supported
