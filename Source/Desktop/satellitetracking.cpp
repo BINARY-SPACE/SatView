@@ -427,10 +427,6 @@ BOOL CSatelliteTrackingToolWnd::Start()
 	{
 		if (m_pwndSceneView->Start())
 		{
-			if (!IsWindowVisible())
-			{
-				m_pwndSceneView->EnableSlowRefreshMode();
-			}
 			m_bRunning = TRUE;
 			return TRUE;
 		}
@@ -613,10 +609,6 @@ VOID CSatelliteTrackingToolWnd::Enable(BOOL bEnable)
 		{
 			if (m_pwndSceneView->Start(FALSE))
 			{
-				if (!IsWindowVisible())
-				{
-					m_pwndSceneView->EnableSlowRefreshMode();
-				}
 				m_bEnabled = TRUE;
 				return;
 			}
@@ -761,7 +753,6 @@ void CSatelliteTrackingToolWnd::OnShowWindow(BOOL bShow, UINT nStatus)
 	if (IsWindow(m_pwndSceneView->GetSafeHwnd()))
 	{
 		m_pwndSceneView->ShowSideBars(bShow);
-		m_pwndSceneView->EnableSlowRefreshMode(!bShow);
 	}
 	CDisplayWnd::OnShowWindow(bShow, nStatus);
 }
@@ -777,7 +768,6 @@ void CSatelliteTrackingToolWnd::OnSize(UINT nType, int cx, int cy)
 {
 	if (IsWindow(m_pwndSceneView->GetSafeHwnd()))
 	{
-		m_pwndSceneView->EnableSlowRefreshMode(nType == SIZE_MINIMIZED || nType == SIZE_MAXHIDE);
 		RecalcLayout();
 	}
 	CDisplayWnd::OnSize(nType, cx, cy);
