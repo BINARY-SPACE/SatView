@@ -5562,18 +5562,21 @@ void CTCProcessInterfaceSocket::Close(BOOL bDetach)
 {
 	CTCProcessInterfaceThread  *pThread;
 
-	for (CAsyncSocket::Close(), m_szComputer.Empty(), m_nData[0].RemoveAll(), m_nData[1].RemoveAll(); m_nTimerID != 0; )
+	if (m_hSocket != INVALID_SOCKET)
 	{
-		KillTimer((HWND)NULL, m_nTimerID);
-		m_nTimerID = 0;
-		break;
-	}
-	if ((pThread = m_pTCProcessInterfaceThread))
-	{
-		for (m_pTCProcessInterfaceThread = (CTCProcessInterfaceThread *)NULL; !bDetach; )
+		for (CAsyncSocket::Close(), m_szComputer.Empty(), m_nData[0].RemoveAll(), m_nData[1].RemoveAll(); m_nTimerID != 0; )
 		{
-			pThread->UpdateCommandSources();
+			KillTimer((HWND)NULL, m_nTimerID);
+			m_nTimerID = 0;
 			break;
+		}
+		if ((pThread = m_pTCProcessInterfaceThread))
+		{
+			for (m_pTCProcessInterfaceThread = (CTCProcessInterfaceThread*)NULL; !bDetach; )
+			{
+				pThread->UpdateCommandSources();
+				break;
+			}
 		}
 	}
 }
@@ -8222,9 +8225,9 @@ int CTCProcessInterfaceThread::Run()
 					m_bCommandHandler[2] = FALSE;
 				}
 				SetCommandHandlerState(TCSERVICE_COMMANDHANDLERSTATE_STOPPED);
+				dwTimeout = 1000 * TCSERVICE_COMMANDINTERFACE_MINIMUMTIMEOUT;
 				pCommandSources.RemoveAll();
 				m_bCommand[1] = TRUE;
-				dwTimeout = 0;
 				break;
 			}
 			SetCommandHandlerState(szHandler[2], TCSERVICE_COMMANDHANDLERSTATE_STOPPED | TCSERVICE_COMMANDHANDLERSTATE_LINK_GOOD);
