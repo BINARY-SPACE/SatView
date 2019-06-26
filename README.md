@@ -24,7 +24,7 @@ Read the [SatView™ Brochure](/Brochures/SatView™%20Brochure.pdf) to learn mo
 
 #### Software:
 - Microsoft® Windows® 10 Professional/Enterprise or Microsoft® Server® 2019
-- Microsoft® SQL Server® 2019
+- Microsoft® SQL Server® 2017
 - Microsoft® Visual Studio® 2019 (Version 16.1.4 or later)
 
 ### Installation<br />
