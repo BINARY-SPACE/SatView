@@ -1,0 +1,1679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|x64">
+      <Configuration>Template</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E7F6903E-391A-4167-AA3D-8859BD1FBA7A}</ProjectGuid>
+    <SccProjectName />
+    <SccLocalPath />
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Desktop</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Template|x64'">
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SatView</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SatView</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SatView</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SatView</TargetName>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ExecutablePath);$(WindowsSdkMSBuildTools);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH)</ExecutablePath>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ExecutablePath);$(WindowsSdkMSBuildTools);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH)</ExecutablePath>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ExecutablePath);$(WindowsSdkMSBuildTools);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH)</ExecutablePath>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ExecutablePath);$(WindowsSdkMSBuildTools);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH)</ExecutablePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IncludePath);$(VCInstallDir)atlmfc\include;$(DXSDK_DIR)Include</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IncludePath);$(VCInstallDir)atlmfc\include;$(DXSDK_DIR)Include</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IncludePath);$(VCInstallDir)atlmfc\include;$(DXSDK_DIR)Include</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IncludePath);$(VCInstallDir)atlmfc\include;$(DXSDK_DIR)Include</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\Library;..\Library\SMTP;..\Mimics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=_WIN32_WINNT_MAXVER;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>false</StringPooling>
+      <MinimalRebuild>
+      </MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+      <AdditionalOptions>/clr:nostdlib %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>mapi32.lib;rasapi32.lib;htmlhelp.lib;pdh.lib;winfax.lib;winmm.lib;SatView.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)SatView.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\Library\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <GenerateMapFile>false</GenerateMapFile>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <AssemblyDebug>true</AssemblyDebug>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/SatView.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>..\Library;..\Mimics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\Library;..\Library\SMTP;..\Mimics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=_WIN32_WINNT_MAXVER;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>false</StringPooling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+      <AdditionalOptions>/clr:nostdlib %(AdditionalOptions)</AdditionalOptions>
+      <MinimalRebuild>
+      </MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>mapi32.lib;rasapi32.lib;htmlhelp.lib;pdh.lib;winfax.lib;winmm.lib;SatView.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)SatView.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\Library\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <GenerateMapFile>false</GenerateMapFile>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <EnableUAC>true</EnableUAC>
+      <UACUIAccess>false</UACUIAccess>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <AssemblyDebug>true</AssemblyDebug>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TypeLibraryName>.\Debug/SatView.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>..\Library;..\Mimics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\Library;..\Library\SMTP;..\Mimics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=_WIN32_WINNT_MAXVER;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+      <AdditionalOptions>/clr:nostdlib %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>mapi32.lib;rasapi32.lib;htmlhelp.lib;pdh.lib;winfax.lib;winmm.lib;SatView.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)SatView.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\Library\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/SatView.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>..\Library;..\Mimics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\Library;..\Library\SMTP;..\Mimics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=_WIN32_WINNT_MAXVER;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+      <AdditionalOptions>/clr:nostdlib %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>mapi32.lib;rasapi32.lib;htmlhelp.lib;pdh.lib;winfax.lib;winmm.lib;SatView.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)SatView.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\Library\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <EnableUAC>true</EnableUAC>
+      <UACUIAccess>false</UACUIAccess>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TypeLibraryName>.\Release/SatView.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>..\Library;..\Mimics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="and.cpp" />
+    <ClCompile Include="cpu.cpp" />
+    <ClCompile Include="dialogs.cpp" />
+    <ClCompile Include="displays.cpp" />
+    <ClCompile Include="eventbox.cpp" />
+    <ClCompile Include="grd.cpp" />
+    <ClCompile Include="hex.cpp" />
+    <ClCompile Include="jcode.cpp">
+      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</MinimalRebuild>
+      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</MinimalRebuild>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Default</BasicRuntimeChecks>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeader>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ProgramDatabase</DebugInformationFormat>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</CompileAsManaged>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExceptionHandling>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExceptionHandling>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExceptionHandling>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExceptionHandling>
+    </ClCompile>
+    <ClCompile Include="logo.cpp" />
+    <ClCompile Include="mmd.cpp" />
+    <ClCompile Include="ool.cpp" />
+    <ClCompile Include="pod.cpp" />
+    <ClCompile Include="profile.cpp" />
+    <ClCompile Include="satellitetracking.cpp" />
+    <ClCompile Include="SatView.cpp" />
+    <ClCompile Include="tc.cpp" />
+    <ClCompile Include="tcdiagnostics.cpp" />
+    <ClCompile Include="tchistory.cpp" />
+    <ClCompile Include="tcmonitor.cpp" />
+    <ClCompile Include="tconboard.cpp" />
+    <ClCompile Include="tcstacks.cpp" />
+    <ClCompile Include="tm.cpp">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MaxSpeed</Optimization>
+    </ClCompile>
+    <ClCompile Include="tpep.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SatView.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="and.h" />
+    <ClInclude Include="cpu.h" />
+    <ClInclude Include="dialogs.h" />
+    <ClInclude Include="displays.h" />
+    <ClInclude Include="eventbox.h" />
+    <ClInclude Include="grd.h" />
+    <ClInclude Include="hex.h" />
+    <ClInclude Include="jcode.h" />
+    <ClInclude Include="logo.h" />
+    <ClInclude Include="mmd.h" />
+    <ClInclude Include="ool.h" />
+    <ClInclude Include="pod.h" />
+    <ClInclude Include="profile.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="satellitetracking.h" />
+    <ClInclude Include="SatView.h" />
+    <ClInclude Include="tc.h" />
+    <ClInclude Include="tcdiagnostics.h" />
+    <ClInclude Include="tchistory.h" />
+    <ClInclude Include="tcmonitor.h" />
+    <ClInclude Include="tconboard.h" />
+    <ClInclude Include="tcstacks.h" />
+    <ClInclude Include="tm.h" />
+    <ClInclude Include="tpep.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Help\resources\behaviors.js" />
+    <None Include="Help\resources\ie.css" />
+    <None Include="Help\resources\iefix.css" />
+    <None Include="Help\resources\styles.css" />
+    <None Include="Help\SatView.hhc" />
+    <None Include="Help\SatView.hhk" />
+    <CustomBuild Include="Help\SatView.hhp">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">hhc "Help\SatView.hhp"
+if not exist "Help\SatView.chm" goto :HelpError
+copy "Help\SatView.chm" "$(OutDir)SatView.chm"
+goto :HelpDone
+:HelpError
+echo Help\SatView.hhp(1) : error:Problem encountered creating help file
+echo.
+:HelpDone
+echo.</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">hhc "Help\SatView.hhp"
+if not exist "Help\SatView.chm" goto :HelpError
+copy "Help\SatView.chm" "$(OutDir)SatView.chm"
+goto :HelpDone
+:HelpError
+echo Help\SatView.hhp(1) : error:Problem encountered creating help file
+echo.
+:HelpDone
+echo.</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">hhc "Help\SatView.hhp"
+if not exist "Help\SatView.chm" goto :HelpError
+copy "Help\SatView.chm" "$(OutDir)SatView.chm"
+goto :HelpDone
+:HelpError
+echo Help\SatView.hhp(1) : error:Problem encountered creating help file
+echo.
+:HelpDone
+echo.</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">hhc "Help\SatView.hhp"
+if not exist "Help\SatView.chm" goto :HelpError
+copy "Help\SatView.chm" "$(OutDir)SatView.chm"
+goto :HelpDone
+:HelpError
+echo Help\SatView.hhp(1) : error:Problem encountered creating help file
+echo.
+:HelpDone
+echo.</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Making help file...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Making help file...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Making help file...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Making help file...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)SatView.chm;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)SatView.chm;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)SatView.chm;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)SatView.chm;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <None Include="Help\SatView_Desktop_Help.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Accounts.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Addressbooks.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Addressbook_Servers.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Addressbook_Servers_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Addressbook_Users.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Addressbook_Users_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Addressbook_Users_Import_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Addresses_Users_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_AND.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_AND_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_AND_Directory_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_AND_Export_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_AND_Find_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_AND_Import_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_AND_Linkages_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_AND_Open_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_AND_Retrieve_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_AND_View_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Automation_Service.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Automation_Service_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Contacts.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Display_Lock_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Display_Pages_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Display_Unlock_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Display_Windows_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Eventbox.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Eventbox_Acknowledge_Event_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Eventbox_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Eventbox_Filter_Event_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Eventbox_Find_Event_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Eventbox_Open_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Eventbox_Retrieve_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Eventbox_Schedule_Event_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Eventbox_Schedule_Event_Info_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Eventbox_View_Event_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Eventbox_View_List_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_GRD.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_GRD_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_GRD_Export_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_GRD_Find_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_GRD_Import_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_GRD_Linkages_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_GRD_Open_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_GRD_Retrieve_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_GRD_View_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_HEX.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_HEX_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_HEX_Find_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_HEX_Open_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_HEX_Retrieve_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Login.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Login_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Login_Options_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Login_Schedule_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_MemoryDumps_Service.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_MemoryDumps_Service_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_MemoryDumps_Service_Export_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_MemoryDumps_Service_Import_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_MMD.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_MMD_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_MMD_Find_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_MMD_Linkages_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_MMD_Open_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_MMD_Retrieve_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_New_Features.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_OOL.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_OOL_Acknowledge_Ool_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_OOL_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_OOL_Find_Parameter_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_OOL_Linkages_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_OOL_Open_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_OOL_Retrieve_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_OOL_View_Ool_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers_Automation.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers_Automation_Scripts.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers_Automation_Service.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers_Databases.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers_Databases_Syntax.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers_Interfaces.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers_Interfaces_Memorydumps.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers_Interfaces_PFLP.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers_Interfaces_TPEP.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers_Languages.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers_Languages_DPL.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers_Languages_MDL.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Papers_Languages_TPL.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_PFLP_Service.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_PFLP_Service_ClientAddresses_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_PFLP_Service_Clients_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_PFLP_Service_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_POD.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_POD_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_POD_Export_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_POD_Find_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_POD_Import_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_POD_Linkages_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_POD_Open_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_POD_Retrieve_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Auditions.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Displayarea.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Eventlogs.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Miscellaneous.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Notifications.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Notifications_Abort_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Notifications_EMail_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Notifications_FAX_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Notifications_FTPMessage_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Notifications_PagerCall_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Notifications_PhoneCall_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Notifications_PrinterMessage_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Settings_Printing.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Statusbar_Panes.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_System_Alerts.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_System_Alerts_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_AlertOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_ComposedItemPropertiesLoadTemplate_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_ComposedItemPropertiesSaveTemplate_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_ComposedItemProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_HistoricalComposedItemProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_HistoricalItemProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_Interlocks_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_ItemPropertiesLoadTemplate_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_ItemPropertiesParameterSets_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_ItemPropertiesParameters_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_ItemPropertiesSaveTemplate_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_ItemProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_ItemReleaseBlockMacro_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_ItemReleaseConstraints_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_ItemReleaseInterlocks_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_LoadContents_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_LoggingOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_RetrievalOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_SaveContents_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_SearchFilter_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_SubSystems_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCAutomaticStack_UserPermissions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCDiagnosticsOversamplingDump.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCDiagnosticsOversamplingDump_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCDiagnosticsOversamplingDump_Open_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCDiagnosticsOversamplingDump_Properties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCDiagnosticsOversamplingDump_Retrieve_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCDiagnosticsOversamplingDump_View_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCHistory.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCHistory_AlertOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCHistory_ComposedItemProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCHistory_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCHistory_Find_Telecommand_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCHistory_ItemPropertiesParameters_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCHistory_ItemProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCHistory_Open_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCHistory_Retrieve_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_AlertOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_ComposedItemPropertiesLoadTemplate_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_ComposedItemPropertiesSaveTemplate_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_ComposedItemProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_Interlocks_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_ItemPropertiesLoadTemplate_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_ItemPropertiesParameterSets_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_ItemPropertiesParameters_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_ItemPropertiesSaveTemplate_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_ItemProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_ItemReleaseBlockMacro_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_ItemReleaseConstraints_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_ItemReleaseInterlocks_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_LoadCommand_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_LoadContents_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_LoggingOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_RetrievalOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_SaveContents_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_SearchFilter_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCManualStack_SearchGroups_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardBufferQueues.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardBufferQueues_ComposedItemProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardBufferQueues_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardBufferQueues_DumpProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardBufferQueues_Dump_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardBufferQueues_Find_Telecommand_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardBufferQueues_ItemPropertiesParameters_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardBufferQueues_ItemProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardBufferQueues_ResetProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardBufferQueues_Reset_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardBufferQueues_StartProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardBufferQueues_StopProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardMemoryImages.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardMemoryImages_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardMemoryImages_DownloadAreasProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardMemoryImages_DownloadDumpsProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardMemoryImages_ExportDumps_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardMemoryImages_ImportDumps_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardMemoryImages_LoggingOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardMemoryImages_RetrievalOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardMemoryImages_StopDownloadsProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardMemoryImages_TableProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardMemoryImages_UploadAnalysisProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardMemoryImages_UploadAreasProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCOnBoardMemoryImages_UploadDumpsProperties_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor_Acknowledgments_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor_AlertOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor_ArgumentValues_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor_Authorizations_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor_CommandInterlocks_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor_CommandOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor_Details_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor_ExecutionOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor_Interlocks_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor_LoggingOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor_ParameterArguments_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCProceduresMonitor_RetrievalOptions_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TCStack_Find_Command_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Displays.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Options_CommandHandlerClientAddresses_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Options_CommandHandlerSettings_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Options_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Options_HistoryArchivalSettings_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Options_Interlocks_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Options_LoggingArchivalSettings_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Options_LoggingRetrievalSettings_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Options_SubSystems_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Parameters.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Parameters_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Parameters_ExportSets_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Parameters_ImportSets_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Service.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telecommand_Service_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Archives.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Archives_Archivals_Options_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Archives_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Archives_Extractions_Abort_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Archives_Extractions_Export_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Archives_Extractions_Import_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Archives_Tools.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Archives_Tools_Options_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Displays.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Events.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Events_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Events_Export_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Events_Import_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Parameters.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Parameters_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Parameters_ExportSets_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Parameters_ImportSets_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Reports.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Reports_Abort_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Reports_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Reports_Export_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Reports_FileTriggers_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Reports_FTP_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Reports_Historical_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Reports_Import_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Reports_Schedule_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Service.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Service_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Service_ENERTEC_Device_Clients_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Service_ENERTEC_Device_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Service_ENERTEC_Emulation_Device_Clients_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Telemetry_Service_ENERTEC_Emulation_Device_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Tools.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Tools_Downloads.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Tools_Downloads_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Tools_Options.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Tools_Options_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Display.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Display_Alerts_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Display_Configuration_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Display_Connection_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Display_Find_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Display_Open_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Display_View_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Service.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Service_ClientAddresses_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Service_Clients_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Service_Connect_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Service_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Service_Packets_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_TPEP_Service_Parameters_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Troubleshooting.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_User_Accounts.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_User_Accounts_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_User_Account_Change_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_User_Account_Databases_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_User_Account_Directory_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_User_Interface.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_User_Interface_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_User_Interface_Keyboard.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_User_Interface_Ribbonbar.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_User_Privileges.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_User_Privileges_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_User_Privileges_Summary.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Desktop_Help_Welcome_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Help_Telemetry_Service_ENERTEC_Device_Clients_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Help_Telemetry_Service_ENERTEC_Device_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Help_Telemetry_Service_ENERTEC_Emulation_Device_Clients_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\SatView_Help_Telemetry_Service_ENERTEC_Emulation_Device_Dialog_Box.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Help\templates\Template.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="res\about.bmp" />
+    <None Include="res\about.ico" />
+    <None Include="res\alert.bmp" />
+    <None Include="res\alert.ico" />
+    <None Include="res\alertbox.ico" />
+    <None Include="res\and (big - disabled).bmp" />
+    <None Include="res\and (big).bmp" />
+    <None Include="res\and (disabled).bmp" />
+    <None Include="res\and (large).bmp" />
+    <None Include="res\and (small).bmp" />
+    <None Include="res\and.bmp" />
+    <None Include="res\and.ico" />
+    <None Include="res\communicationtabimages (large).bmp" />
+    <None Include="res\communicationtabimages (small).bmp" />
+    <None Include="res\cpu chart (frame-small).png" />
+    <None Include="res\directory (small).bmp" />
+    <None Include="res\disk (0%-small).png" />
+    <None Include="res\disk (10%-small).png" />
+    <None Include="res\disk (100%-small).png" />
+    <None Include="res\disk (20%-small).png" />
+    <None Include="res\disk (30%-small).png" />
+    <None Include="res\disk (40%-small).png" />
+    <None Include="res\disk (50%-small).png" />
+    <None Include="res\disk (60%-small).png" />
+    <None Include="res\disk (70%-small).png" />
+    <None Include="res\disk (80%-small).png" />
+    <None Include="res\disk (90%-small).png" />
+    <None Include="res\displaystabimages (large).bmp" />
+    <None Include="res\displaystabimages (small).bmp" />
+    <None Include="res\eventbox (big - disabled).bmp" />
+    <None Include="res\eventbox (big).bmp" />
+    <None Include="res\eventbox (disabled).bmp" />
+    <None Include="res\eventbox (large).bmp" />
+    <None Include="res\eventbox (small).bmp" />
+    <None Include="res\eventbox.bmp" />
+    <None Include="res\eventbox.ico" />
+    <None Include="res\floatingmenuimages (small).bmp" />
+    <None Include="res\grd (big - disabled).bmp" />
+    <None Include="res\grd (big).bmp" />
+    <None Include="res\grd (disabled).bmp" />
+    <None Include="res\grd (large).bmp" />
+    <None Include="res\grd (small).bmp" />
+    <None Include="res\grd.bmp" />
+    <None Include="res\grd.ico" />
+    <None Include="res\handcursor (blue).cur" />
+    <None Include="res\handcursor (red).cur" />
+    <None Include="res\help.bmp" />
+    <None Include="res\hex (big - disabled).bmp" />
+    <None Include="res\hex (big).bmp" />
+    <None Include="res\hex (disabled).bmp" />
+    <None Include="res\hex (large).bmp" />
+    <None Include="res\hex (small).bmp" />
+    <None Include="res\hex.bmp" />
+    <None Include="res\hex.ico" />
+    <None Include="res\led (green-small).png" />
+    <None Include="res\led (red-small).png" />
+    <None Include="res\led (white-small).png" />
+    <None Include="res\led (yellow-small).png" />
+    <None Include="res\logbook.ico" />
+    <None Include="res\logo.bmp" />
+    <None Include="res\mailbox.ico" />
+    <None Include="res\mainframe.mfcribbon-ms" />
+    <None Include="res\menu.bmp" />
+    <None Include="res\menuimages (big).bmp" />
+    <None Include="res\menuimages (large).bmp" />
+    <None Include="res\menuimages (small).bmp" />
+    <None Include="res\menutabimages (big).bmp" />
+    <None Include="res\menutabimages (large).bmp" />
+    <None Include="res\menutabimages (small).bmp" />
+    <None Include="res\mmd (big - disabled).bmp" />
+    <None Include="res\mmd (big).bmp" />
+    <None Include="res\mmd (disabled).bmp" />
+    <None Include="res\mmd (large).bmp" />
+    <None Include="res\mmd (small).bmp" />
+    <None Include="res\mmd.bmp" />
+    <None Include="res\mmd.ico" />
+    <None Include="res\network (offline-small).png" />
+    <None Include="res\network (online-small).png" />
+    <None Include="res\next.ico" />
+    <None Include="res\ool (big - disabled).bmp" />
+    <None Include="res\ool (big).bmp" />
+    <None Include="res\ool (disabled).bmp" />
+    <None Include="res\ool (large).bmp" />
+    <None Include="res\ool (small).bmp" />
+    <None Include="res\ool.bmp" />
+    <None Include="res\ool.ico" />
+    <None Include="res\paper (landscape).bmp" />
+    <None Include="res\paper (portrait).bmp" />
+    <None Include="res\permissions.ico" />
+    <None Include="res\pod (big - disabled).bmp" />
+    <None Include="res\pod (big).bmp" />
+    <None Include="res\pod (disabled).bmp" />
+    <None Include="res\pod (large).bmp" />
+    <None Include="res\pod (small).bmp" />
+    <None Include="res\pod.bmp" />
+    <None Include="res\pod.ico" />
+    <None Include="res\previous.ico" />
+    <None Include="res\redo.ico" />
+    <None Include="res\satellitetrackingtool.ico" />
+    <None Include="res\SatView.ico" />
+    <None Include="res\system (disabled).bmp" />
+    <None Include="res\system.bmp" />
+    <None Include="res\systemtabimages (large).bmp" />
+    <None Include="res\systemtabimages (small).bmp" />
+    <None Include="res\tc (blocked).png" />
+    <None Include="res\tc (cev failed).png" />
+    <None Include="res\tc (cev idle).png" />
+    <None Include="res\tc (cev passed).png" />
+    <None Include="res\tc (cev pending).png" />
+    <None Include="res\tc (cev unknown).png" />
+    <None Include="res\tc (cev unverified).png" />
+    <None Include="res\tc (checks disabled).png" />
+    <None Include="res\tc (checks off).png" />
+    <None Include="res\tc (checks on).png" />
+    <None Include="res\tc (error).png" />
+    <None Include="res\tc (grouped).png" />
+    <None Include="res\tc (information).png" />
+    <None Include="res\tc (lock failure).png" />
+    <None Include="res\tc (lock idle).png" />
+    <None Include="res\tc (lock pending).png" />
+    <None Include="res\tc (lock success).png" />
+    <None Include="res\tc (lock).png" />
+    <None Include="res\tc (no checks).png" />
+    <None Include="res\tc (pev go).png" />
+    <None Include="res\tc (pev nogo).png" />
+    <None Include="res\tc (ptv failed).png" />
+    <None Include="res\tc (ptv go).png" />
+    <None Include="res\tc (ptv wait).png" />
+    <None Include="res\tc (warning).png" />
+    <None Include="Res\speech.cfg" />
+    <None Include="res\tcautomaticstack (disabled).bmp" />
+    <None Include="res\tcautomaticstack (extra).bmp" />
+    <None Include="res\tcautomaticstack (large).bmp" />
+    <None Include="res\tcautomaticstack (operations-large).bmp" />
+    <None Include="res\tcautomaticstack (operations-small).bmp" />
+    <None Include="res\tcautomaticstack (properties-large).bmp" />
+    <None Include="res\tcautomaticstack (properties-small).bmp" />
+    <None Include="res\tcautomaticstack (small).bmp" />
+    <None Include="res\tcautomaticstack.bmp" />
+    <None Include="res\tcautomaticstack.ico" />
+    <None Include="res\tcautomaticstackoperations (big - disabled).bmp" />
+    <None Include="res\tcautomaticstackoperations (big).bmp" />
+    <None Include="res\tcautomaticstackproperties (big - disabled).bmp" />
+    <None Include="res\tcautomaticstackproperties (big).bmp" />
+    <None Include="res\tcbufferqueues (big - disabled).bmp" />
+    <None Include="res\tcbufferqueues (big).bmp" />
+    <None Include="res\tcbufferqueues (disabled).bmp" />
+    <None Include="res\tcbufferqueues (large).bmp" />
+    <None Include="res\tcbufferqueues (small).bmp" />
+    <None Include="res\tcbufferqueues.bmp" />
+    <None Include="res\tcbufferqueues.ico" />
+    <None Include="res\tchistory (big - disabled).bmp" />
+    <None Include="res\tchistory (big).bmp" />
+    <None Include="res\tchistory (disabled).bmp" />
+    <None Include="res\tchistory (extra).bmp" />
+    <None Include="res\tchistory (large).bmp" />
+    <None Include="res\tchistory (small).bmp" />
+    <None Include="res\tchistory.bmp" />
+    <None Include="res\tchistory.ico" />
+    <None Include="res\tcmanualstack (disabled).bmp" />
+    <None Include="res\tcmanualstack (extra).bmp" />
+    <None Include="res\tcmanualstack (large).bmp" />
+    <None Include="res\tcmanualstack (operations-large).bmp" />
+    <None Include="res\tcmanualstack (operations-small).bmp" />
+    <None Include="res\tcmanualstack (properties-large).bmp" />
+    <None Include="res\tcmanualstack (properties-small).bmp" />
+    <None Include="res\tcmanualstack (small).bmp" />
+    <None Include="res\tcmanualstack.bmp" />
+    <None Include="res\tcmanualstack.ico" />
+    <None Include="res\tcmanualstackoperations (big - disabled).bmp" />
+    <None Include="res\tcmanualstackoperations (big).bmp" />
+    <None Include="res\tcmanualstackproperties (big - disabled).bmp" />
+    <None Include="res\tcmanualstackproperties (big).bmp" />
+    <None Include="res\tcmemoryimages (big - disabled).bmp" />
+    <None Include="res\tcmemoryimages (big).bmp" />
+    <None Include="res\tcmemoryimages (disabled).bmp" />
+    <None Include="res\tcmemoryimages (extra).bmp" />
+    <None Include="res\tcmemoryimages (large).bmp" />
+    <None Include="res\tcmemoryimages (operations-large).bmp" />
+    <None Include="res\tcmemoryimages (operations-small).bmp" />
+    <None Include="res\tcmemoryimages (properties-large).bmp" />
+    <None Include="res\tcmemoryimages (properties-small).bmp" />
+    <None Include="res\tcmemoryimages (small).bmp" />
+    <None Include="res\tcmemoryimages.bmp" />
+    <None Include="res\tcmemoryimages.ico" />
+    <None Include="res\tcmemoryimagesmenu.bmp" />
+    <None Include="res\tcoversamplingdump (big - disabled).bmp" />
+    <None Include="res\tcoversamplingdump (big).bmp" />
+    <None Include="res\tcoversamplingdump (disabled).bmp" />
+    <None Include="res\tcoversamplingdump (large).bmp" />
+    <None Include="res\tcoversamplingdump (small).bmp" />
+    <None Include="res\tcoversamplingdump.bmp" />
+    <None Include="res\tcoversamplingdump.ico" />
+    <None Include="res\tcproceduresmonitor (big - disabled).bmp" />
+    <None Include="res\tcproceduresmonitor (big).bmp" />
+    <None Include="res\tcproceduresmonitor (disabled).bmp" />
+    <None Include="res\tcproceduresmonitor (large).bmp" />
+    <None Include="res\tcproceduresmonitor (small).bmp" />
+    <None Include="res\tcproceduresmonitor.bmp" />
+    <None Include="res\tcproceduresmonitor.ico" />
+    <None Include="res\telecommand (disabled).bmp" />
+    <None Include="res\telecommand displays (disabled).bmp" />
+    <None Include="res\telecommand displays.bmp" />
+    <None Include="res\telecommand.bmp" />
+    <None Include="res\telecommandtabimages (large).bmp" />
+    <None Include="res\telecommandtabimages (small).bmp" />
+    <None Include="res\telemetry (disabled).bmp" />
+    <None Include="res\telemetry displays (disabled).bmp" />
+    <None Include="res\telemetry displays.bmp" />
+    <None Include="res\telemetry.bmp" />
+    <None Include="res\telemetrytabimages (large).bmp" />
+    <None Include="res\telemetrytabimages (small).bmp" />
+    <None Include="res\tools (disabled).bmp" />
+    <None Include="res\tools.bmp" />
+    <None Include="res\toolstabimages (large).bmp" />
+    <None Include="res\toolstabimages (small).bmp" />
+    <None Include="res\tpep (big - disabled).bmp" />
+    <None Include="res\tpep (big).bmp" />
+    <None Include="res\tpep (disabled).bmp" />
+    <None Include="res\tpep (large).bmp" />
+    <None Include="res\tpep (small).bmp" />
+    <None Include="res\tpep.bmp" />
+    <None Include="res\tpep.ico" />
+    <None Include="res\undo.ico" />
+    <None Include="res\welcome.ico" />
+    <None Include="SatView.rh" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Help\images\application.png" />
+    <Image Include="Help\images\automationscripts.png" />
+    <Image Include="Help\images\background.jpg" />
+    <Image Include="Help\images\bullet.png" />
+    <Image Include="Help\images\collapsebutton.png" />
+    <Image Include="Help\images\company-location.png" />
+    <Image Include="Help\images\company.png" />
+    <Image Include="Help\images\ENERTEC.jpg" />
+    <Image Include="Help\images\expandbutton.png" />
+    <Image Include="Help\images\formtables.png" />
+    <Image Include="Help\images\formview.png" />
+    <Image Include="Help\images\info.gif" />
+    <Image Include="Help\images\largescalemap.gif" />
+    <Image Include="Help\images\logo.png" />
+    <Image Include="Help\images\mmdinterface.png" />
+    <Image Include="Help\images\note.gif" />
+    <Image Include="Help\images\pflpmessages.jpg" />
+    <Image Include="Help\images\pflptimeformat.jpg" />
+    <Image Include="Help\images\SatView Automation Service Mechanism.jpg" />
+    <Image Include="Help\images\SatView Automation Service P2P Connection.jpg" />
+    <Image Include="Help\images\SatView Interfaces.png" />
+    <Image Include="Help\images\scriptinterface.png" />
+    <Image Include="Help\images\tcautomaticstack.png" />
+    <Image Include="Help\images\tchistory.png" />
+    <Image Include="Help\images\tcmanualstack.png" />
+    <Image Include="Help\images\tconboardbuffers.png" />
+    <Image Include="Help\images\tconboardimages.png" />
+    <Image Include="Help\images\tcoversamplingdump.png" />
+    <Image Include="Help\images\tcpinterface.png" />
+    <Image Include="Help\images\tcproceduresmonitor.png" />
+    <Image Include="Help\images\template.png" />
+    <Image Include="Help\images\templatebackground.png" />
+    <Image Include="Help\images\templatebottom.png" />
+    <Image Include="Help\images\tpepmessageheader.jpg" />
+    <Image Include="Help\images\tpepmessages.jpg" />
+    <Image Include="Help\images\warning.gif" />
+    <Image Include="res\error.ico" />
+    <Image Include="res\information.ico" />
+    <Image Include="res\news.ico" />
+    <Image Include="res\question.ico" />
+    <Image Include="res\warning.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="SatView.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
