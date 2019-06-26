@@ -66,9 +66,9 @@ public:
 	static BOOL RegisterCustomControls();
 	static BOOL UnregisterCustomControls();
 
-	static CRuntimeClass *GetCustomControlBaseClass(CRuntimeClass *pClass);
+	static CRuntimeClass* GetCustomControlBaseClass(CRuntimeClass* pClass);
 
-	static CFont *GetCustomControlFont(CONST CWnd *pControl);
+	static CFont* GetCustomControlFont(CONST CWnd* pControl);
 };
 
 // Specify the associated inline definitions
@@ -92,6 +92,7 @@ class AFX_EXT_CLASS CSimpleEdit : public CEdit
 
 	// Construction
 public:
+	CSimpleEdit();
 
 	// Attributes
 protected:
@@ -101,7 +102,7 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle = ES_MULTILINE | WS_BORDER | WS_VISIBLE | WS_VSCROLL);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle = ES_MULTILINE | WS_BORDER | WS_VISIBLE | WS_VSCROLL);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -118,8 +119,8 @@ public:
 protected:
 	//{{AFX_MSG(CSimpleEdit)
 	afx_msg BOOL OnNcCreate(LPCREATESTRUCT lpCreateStruct);
-	afx_msg BOOL OnSetCursor(CWnd *pWnd, UINT nHitTest, UINT message);
-	afx_msg void OnSetFocus(CWnd *pOldWnd);
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+	afx_msg void OnSetFocus(CWnd* pOldWnd);
 	afx_msg void OnEnable(BOOL bEnable);
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnMButtonDown(UINT nFlags, CPoint point);
@@ -155,7 +156,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceSimpleEdit)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -208,19 +209,19 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle = ES_LEFT | WS_BORDER | WS_VISIBLE | WS_TABSTOP, BOOL bMinusZero = FALSE);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle = ES_LEFT | WS_BORDER | WS_VISIBLE | WS_TABSTOP, BOOL bMinusZero = FALSE);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
 
 	BOOL SetBase(UINT nBase, UINT nDigits = 0);
-	BOOL GetBase(UINT &nBase, UINT &nDigits) CONST;
+	BOOL GetBase(UINT& nBase, UINT& nDigits) CONST;
 	BOOL SetRange(LONGLONG nMin, LONGLONG nMax);
-	BOOL GetRange(LONGLONG &nMin, LONGLONG &nMax) CONST;
+	BOOL GetRange(LONGLONG& nMin, LONGLONG& nMax) CONST;
 	BOOL SetPos(LONGLONG nPos, BOOL bNotify = FALSE);
 	LONGLONG GetPos(BOOL bLimits = TRUE) CONST;
 	BOOL SetSel(INT nStartPos, INT nStopPos);
-	BOOL GetSel(INT &nStartPos, INT &nStopPos) CONST;
+	BOOL GetSel(INT& nStartPos, INT& nStopPos) CONST;
 	DWORD GetSel() CONST;
 
 	VOID EnableMinusZero(BOOL bEnable = TRUE);
@@ -255,7 +256,7 @@ protected:
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
-	afx_msg void OnKillFocus(CWnd *pNewWnd);
+	afx_msg void OnKillFocus(CWnd* pNewWnd);
 	afx_msg LRESULT OnFont(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnNumber(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnSetBase(WPARAM wParam, LPARAM lParam);
@@ -273,23 +274,23 @@ protected:
 };
 
 // Specify the associated helper functions
-__declspec(dllexport) BOOL Numberedit_SetBase(CWnd *pCtrl, UINT nBase, UINT nDigits);
-__declspec(dllexport) BOOL Numberedit_GetBase(CWnd *pCtrl, UINT &nBase, UINT &nDigits);
-__declspec(dllexport) BOOL Numberedit_SetRange(CWnd *pCtrl, LONGLONG nMin, LONGLONG nMax);
-__declspec(dllexport) BOOL Numberedit_GetRange(CWnd *pCtrl, LONGLONG &nMin, LONGLONG &nMax);
-__declspec(dllexport) BOOL Numberedit_SetPos(CWnd *pCtrl, LONGLONG nPos, BOOL bNotify = FALSE);
-__declspec(dllexport) LONGLONG Numberedit_GetPos(CWnd *pCtrl, BOOL bLimits = TRUE);
-__declspec(dllexport) BOOL Numberedit_SetSel(CWnd *pCtrl, INT nStartPos, INT nStopPos);
-__declspec(dllexport) BOOL Numberedit_GetSel(CWnd *pCtrl, INT &nStartPos, INT &nStopPos);
-__declspec(dllexport) DWORD Numberedit_GetSel(CWnd *pCtrl);
-__declspec(dllexport) BOOL Numberedit_Check(CWnd *pCtrl);
+__declspec(dllexport) BOOL Numberedit_SetBase(CWnd* pCtrl, UINT nBase, UINT nDigits);
+__declspec(dllexport) BOOL Numberedit_GetBase(CWnd* pCtrl, UINT& nBase, UINT& nDigits);
+__declspec(dllexport) BOOL Numberedit_SetRange(CWnd* pCtrl, LONGLONG nMin, LONGLONG nMax);
+__declspec(dllexport) BOOL Numberedit_GetRange(CWnd* pCtrl, LONGLONG& nMin, LONGLONG& nMax);
+__declspec(dllexport) BOOL Numberedit_SetPos(CWnd* pCtrl, LONGLONG nPos, BOOL bNotify = FALSE);
+__declspec(dllexport) LONGLONG Numberedit_GetPos(CWnd* pCtrl, BOOL bLimits = TRUE);
+__declspec(dllexport) BOOL Numberedit_SetSel(CWnd* pCtrl, INT nStartPos, INT nStopPos);
+__declspec(dllexport) BOOL Numberedit_GetSel(CWnd* pCtrl, INT& nStartPos, INT& nStopPos);
+__declspec(dllexport) DWORD Numberedit_GetSel(CWnd* pCtrl);
+__declspec(dllexport) BOOL Numberedit_Check(CWnd* pCtrl);
 
 // Specify the associated inline definitions
 inline BOOL CNumberEdit::SetBase(UINT nBase, UINT nDigits)
 {
 	return(Numberedit_SetBase(CNumberEdit::FromHandle(GetSafeHwnd()), nBase, nDigits));
 }
-inline BOOL CNumberEdit::GetBase(UINT &nBase, UINT &nDigits) CONST
+inline BOOL CNumberEdit::GetBase(UINT& nBase, UINT& nDigits) CONST
 {
 	return(Numberedit_GetBase(CNumberEdit::FromHandle(GetSafeHwnd()), nBase, nDigits));
 }
@@ -297,7 +298,7 @@ inline BOOL CNumberEdit::SetRange(LONGLONG nMin, LONGLONG nMax)
 {
 	return(Numberedit_SetRange(CNumberEdit::FromHandle(GetSafeHwnd()), nMin, nMax));
 }
-inline BOOL CNumberEdit::GetRange(LONGLONG &nMin, LONGLONG &nMax) CONST
+inline BOOL CNumberEdit::GetRange(LONGLONG& nMin, LONGLONG& nMax) CONST
 {
 	return(Numberedit_GetRange(CNumberEdit::FromHandle(GetSafeHwnd()), nMin, nMax));
 }
@@ -313,7 +314,7 @@ inline BOOL CNumberEdit::SetSel(INT nStartPos, INT nStopPos)
 {
 	return(Numberedit_SetSel(CNumberEdit::FromHandle(GetSafeHwnd()), nStartPos, nStopPos));
 }
-inline BOOL CNumberEdit::GetSel(INT &nStartPos, INT &nStopPos) CONST
+inline BOOL CNumberEdit::GetSel(INT& nStartPos, INT& nStopPos) CONST
 {
 	return(Numberedit_GetSel(CNumberEdit::FromHandle(GetSafeHwnd()), nStartPos, nStopPos));
 }
@@ -351,7 +352,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceNumberEdit)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -402,7 +403,7 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle = ES_LEFT | WS_BORDER | WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle = ES_LEFT | WS_BORDER | WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -416,7 +417,7 @@ public:
 	BOOL SetPos(INT nPos, BOOL bNotify = FALSE);
 	INT GetPos() CONST;
 	BOOL SetSel(INT nStartPos, INT nStopPos);
-	VOID GetSel(INT &nStartPos, INT &nStopPos) CONST;
+	VOID GetSel(INT& nStartPos, INT& nStopPos) CONST;
 	DWORD GetSel() CONST;
 
 	VOID EnableAutoCompletion(BOOL bEnable = TRUE);
@@ -445,7 +446,7 @@ protected:
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
-	afx_msg void OnKillFocus(CWnd *pNewWnd);
+	afx_msg void OnKillFocus(CWnd* pNewWnd);
 	afx_msg LRESULT OnFont(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnText(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnAddText(WPARAM wParam, LPARAM lParam);
@@ -501,9 +502,9 @@ inline BOOL CTextEdit::SetSel(INT nStartPos, INT nStopPos)
 {
 	return((BOOL)SendMessage(TEM_SETSEL, nStartPos, nStopPos));
 }
-inline VOID CTextEdit::GetSel(INT &nStartPos, INT &nStopPos) CONST
+inline VOID CTextEdit::GetSel(INT& nStartPos, INT& nStopPos) CONST
 {
-	::SendMessage(GetSafeHwnd(), TEM_GETSEL, (WPARAM)&nStartPos, (LPARAM)&nStopPos);
+	::SendMessage(GetSafeHwnd(), TEM_GETSEL, (WPARAM)& nStartPos, (LPARAM)& nStopPos);
 }
 inline DWORD CTextEdit::GetSel() CONST
 {
@@ -539,7 +540,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceTextEdit)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -581,7 +582,7 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
 
 	VOID SetRenderType(UINT nType = DPLCODEEDIT_TYPE_DEFAULT);
 	UINT GetRenderType() CONST;
@@ -593,10 +594,10 @@ protected:
 	VOID RenderCode();
 
 public:
-	static VOID RenderCode(CRichEditCtrl *pEdit, CFont *pFont, UINT nType = DPLCODEEDIT_TYPE_DEFAULT, BOOL bSelection = TRUE);
+	static VOID RenderCode(CRichEditCtrl* pEdit, CFont* pFont, UINT nType = DPLCODEEDIT_TYPE_DEFAULT, BOOL bSelection = TRUE);
 private:
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat);
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph);
 
 	// Overrides
 	// ClassWizard generated virtual function overrides
@@ -643,7 +644,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceDPLCodeEdit)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -680,7 +681,7 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -689,10 +690,10 @@ protected:
 	VOID RenderCode();
 
 public:
-	static VOID RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection = TRUE);
+	static VOID RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection = TRUE);
 private:
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat);
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph);
 
 	// Overrides
 	// ClassWizard generated virtual function overrides
@@ -739,7 +740,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceMDLCodeEdit)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -780,7 +781,7 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -789,10 +790,10 @@ protected:
 	VOID RenderCode();
 
 public:
-	static VOID RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection = TRUE);
+	static VOID RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection = TRUE);
 private:
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat);
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph);
 
 	// Overrides
 	// ClassWizard generated virtual function overrides
@@ -839,7 +840,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceTPLCodeEdit)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -876,7 +877,7 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -885,10 +886,10 @@ protected:
 	VOID RenderCode();
 
 public:
-	static VOID RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection = TRUE);
+	static VOID RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection = TRUE);
 private:
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat);
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph);
 
 	// Overrides
 	// ClassWizard generated virtual function overrides
@@ -935,7 +936,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceScriptCodeEdit)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -972,7 +973,7 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -981,10 +982,10 @@ protected:
 	VOID RenderCode();
 
 public:
-	static VOID RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection = TRUE);
+	static VOID RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection = TRUE);
 private:
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat);
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph);
 
 	// Overrides
 	// ClassWizard generate virtual function overrides
@@ -1030,7 +1031,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceTCSequenceXmlEdit)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -1067,7 +1068,7 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -1076,10 +1077,10 @@ protected:
 	VOID RenderCode();
 
 public:
-	static VOID RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection = TRUE);
+	static VOID RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection = TRUE);
 private:
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat);
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph);
 
 	// Overrides
 	// ClassWizard generate virtual function overrides
@@ -1125,7 +1126,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceANDXmlEdit)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -1162,7 +1163,7 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -1171,10 +1172,10 @@ protected:
 	VOID RenderCode();
 
 public:
-	static VOID RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection = TRUE);
+	static VOID RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection = TRUE);
 private:
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat);
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph);
 
 	// Overrides
 	// ClassWizard generate virtual function overrides
@@ -1220,7 +1221,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceGRDXmlEdit)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -1257,7 +1258,7 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle = ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -1266,10 +1267,10 @@ protected:
 	VOID RenderCode();
 
 public:
-	static VOID RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection = TRUE);
+	static VOID RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection = TRUE);
 private:
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat);
-	static VOID RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat);
+	static VOID RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph);
 
 	// Overrides
 	// ClassWizard generate virtual function overrides
@@ -1315,7 +1316,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourcePODXmlEdit)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -1342,6 +1343,7 @@ class AFX_EXT_CLASS CSimpleListBox : public CListBox
 
 	// Construction
 public:
+	CSimpleListBox();
 
 	// Attributes
 protected:
@@ -1351,7 +1353,7 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle = LBS_DISABLENOSCROLL | LBS_NOINTEGRALHEIGHT | LBS_SORT | WS_BORDER | WS_VISIBLE);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle = LBS_DISABLENOSCROLL | LBS_NOINTEGRALHEIGHT | LBS_SORT | WS_BORDER | WS_VISIBLE);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -1368,7 +1370,7 @@ public:
 protected:
 	//{{AFX_MSG(CSimpleListBox)
 	afx_msg BOOL OnNcCreate(LPCREATESTRUCT lpCreateStruct);
-	afx_msg void OnSetFocus(CWnd *pOldWnd);
+	afx_msg void OnSetFocus(CWnd* pOldWnd);
 	afx_msg void OnEnable(BOOL bEnable);
 	//}}AFX_MSG
 
@@ -1400,7 +1402,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceSimpleListBox)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -1439,6 +1441,7 @@ class AFX_EXT_CLASS CColorsComboBox : public CComboBox
 
 	// Construction
 public:
+	CColorsComboBox();
 
 	// Attributes
 protected:
@@ -1446,7 +1449,7 @@ protected:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle = WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle = WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -1543,7 +1546,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceColorsComboBox)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -1585,6 +1588,7 @@ class AFX_EXT_CLASS CLineStylesComboBox : public CComboBox
 
 	// Construction
 public:
+	CLineStylesComboBox();
 
 	// Attributes
 protected:
@@ -1592,7 +1596,7 @@ protected:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle = WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle = WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -1688,7 +1692,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceLineStylesComboBox)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -1730,6 +1734,7 @@ class AFX_EXT_CLASS CLineSymbolsComboBox : public CComboBox
 
 	// Construction
 public:
+	CLineSymbolsComboBox();
 
 	// Attributes
 protected:
@@ -1737,7 +1742,7 @@ protected:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle = WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle = WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -1833,7 +1838,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceLineSymbolsComboBox)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -1880,6 +1885,7 @@ class AFX_EXT_CLASS CHatchesComboBox : public CComboBox
 
 	// Construction
 public:
+	CHatchesComboBox();
 
 	// Attributes
 protected:
@@ -1887,7 +1893,7 @@ protected:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle = WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle = WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -1983,7 +1989,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceHatchesComboBox)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -2020,12 +2026,12 @@ private:
 	typedef struct tagFONTINFO {
 		DWORD  dwType;
 		LOGFONT  logFont;
-	} FONTINFO, *PFONTINFO, *LPFONTINFO;
+	} FONTINFO, * PFONTINFO, * LPFONTINFO;
 	typedef struct tagFONTENUMINFO {
 		HDC  hDC;
 		HWND  hWnd;
 		DWORD  dwTypes;
-	} FONTENUMINFO, *PFONTENUMINFO, *LPFONTENUMINFO;
+	} FONTENUMINFO, * PFONTENUMINFO, * LPFONTENUMINFO;
 protected:
 	DWORD  m_dwStyle;
 private:
@@ -2036,14 +2042,14 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle = CBS_SIMPLE | CBS_AUTOHSCROLL | CBS_DISABLENOSCROLL | CBS_NOINTEGRALHEIGHT | CBS_SORT | WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle = CBS_SIMPLE | CBS_AUTOHSCROLL | CBS_DISABLENOSCROLL | CBS_NOINTEGRALHEIGHT | CBS_SORT | WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
 
-	INT Dir(DWORD dwFlags = CF_EFFECTS | CF_SCREENFONTS, BOOL bSymbolCharSets = FALSE, CDC *pDC = NULL);
+	INT Dir(DWORD dwFlags = CF_EFFECTS | CF_SCREENFONTS, BOOL bSymbolCharSets = FALSE, CDC* pDC = NULL);
 
-	static INT CALLBACK EnumFontsProc(CONST LOGFONT *pLogFont, CONST TEXTMETRIC *pTextMetric, DWORD dwFontType, LPARAM pData);
+	static INT CALLBACK EnumFontsProc(CONST LOGFONT* pLogFont, CONST TEXTMETRIC* pTextMetric, DWORD dwFontType, LPARAM pData);
 
 	// Overrides
 	// ClassWizard generated virtual function overrides
@@ -2071,7 +2077,7 @@ protected:
 };
 
 // Specify the associated inline definitions
-inline INT CFontsComboBox::Dir(DWORD dwFlags, BOOL bSymbolCharSets, CDC *pDC)
+inline INT CFontsComboBox::Dir(DWORD dwFlags, BOOL bSymbolCharSets, CDC* pDC)
 {
 	return((INT)SendMessage(FCB_DIR, (dwFlags & 0x7FFFFFFF) | ((bSymbolCharSets) ? 0x80000000 : 0), (LPARAM)((AfxIsValidAddress(pDC, sizeof(CDC))) ? pDC->GetSafeHdc() : (HDC)NULL)));
 }
@@ -2101,7 +2107,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceFontsComboBox)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -2161,7 +2167,7 @@ private:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle = WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle = WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -2258,7 +2264,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResourceAlignmentComboBox)
 protected:
-	virtual WNDPROC *GetSuperWndProcAddr();
+	virtual WNDPROC* GetSuperWndProcAddr();
 	virtual void PostNcDestroy();
 	//}}AFX_VIRTUAL
 
@@ -2353,7 +2359,7 @@ protected:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle = ES_LEFT | WS_VISIBLE | WS_TABSTOP);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle = ES_LEFT | WS_VISIBLE | WS_TABSTOP);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
@@ -2361,27 +2367,27 @@ public:
 	BOOL SetPos(LONGLONG nPos);
 	LONGLONG GetPos() CONST;
 	BOOL SetBase(UINT nBase, UINT nDigits = 0);
-	BOOL GetBase(UINT &nBase, UINT &nDigits) CONST;
+	BOOL GetBase(UINT& nBase, UINT& nDigits) CONST;
 	BOOL SetRange(LONGLONG nMin, LONGLONG nMax);
-	BOOL GetRange(LONGLONG &nMin, LONGLONG &nMax) CONST;
-	BOOL SetAccel(INT nAccel, CONST UDACCEL *pAccel);
-	UINT GetAccel(INT nAccel, UDACCEL *pAccel) CONST;
+	BOOL GetRange(LONGLONG& nMin, LONGLONG& nMax) CONST;
+	BOOL SetAccel(INT nAccel, CONST UDACCEL* pAccel);
+	UINT GetAccel(INT nAccel, UDACCEL* pAccel) CONST;
 
 	BOOL SetSel(INT nStartPos, INT nStopPos);
-	BOOL GetSel(INT &nStartPos, INT &nStopPos) CONST;
+	BOOL GetSel(INT& nStartPos, INT& nStopPos) CONST;
 
 private:
-	INT CalcIndent();
+	VOID RecalcLayout(INT cx, INT cy);
 
 	// Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CSpinBox)
 public:
 	virtual void UpdateUI();
-	virtual void UpdateUI(CONST POINT &point);
+	virtual void UpdateUI(CONST POINT& point);
 protected:
 	virtual BOOL OnCommand(WPARAM wParam, LPARAM lParam);
-	virtual BOOL OnNotify(WPARAM wParam, LPARAM lParam, LRESULT *pResult);
+	virtual BOOL OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult);
 	//}}AFX_VIRTUAL
 
 	// Implementation
@@ -2393,10 +2399,10 @@ protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg BOOL OnNcCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg BOOL OnEraseBkgnd(CDC *pDC);
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg void OnEnable(BOOL bEnable);
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
-	afx_msg void OnSetFocus(CWnd *pOldWnd);
+	afx_msg void OnSetFocus(CWnd* pOldWnd);
 	afx_msg void OnTimer(UINT_PTR nTimerID);
 	afx_msg LRESULT OnSetPos(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnGetPos(WPARAM wParam, LPARAM lParam);
@@ -2418,16 +2424,16 @@ protected:
 };
 
 // Specify the associated helper functions
-__declspec(dllexport) BOOL Spinbox_SetPos(CWnd *pCtrl, LONGLONG nPos);
-__declspec(dllexport) LONGLONG Spinbox_GetPos(CWnd *pCtrl);
-__declspec(dllexport) BOOL Spinbox_SetBase(CWnd *pCtrl, UINT nBase, UINT nDigits);
-__declspec(dllexport) BOOL Spinbox_GetBase(CWnd *pCtrl, UINT &nBase, UINT &nDigits);
-__declspec(dllexport) BOOL Spinbox_SetRange(CWnd *pCtrl, LONGLONG nMin, LONGLONG nMax);
-__declspec(dllexport) BOOL Spinbox_GetRange(CWnd *pCtrl, LONGLONG &nMin, LONGLONG &nMax);
-__declspec(dllexport) BOOL Spinbox_SetAccel(CWnd *pCtrl, INT nAccel, CONST UDACCEL *pAccel);
-__declspec(dllexport) UINT Spinbox_GetAccel(CWnd *pCtrl, INT nAccel, UDACCEL *pAccel);
-__declspec(dllexport) BOOL Spinbox_SetSel(CWnd *pCtrl, INT nStartPos, INT nStopPos);
-__declspec(dllexport) BOOL Spinbox_GetSel(CWnd *pCtrl, INT &nStartPos, INT &nStopPos);
+__declspec(dllexport) BOOL Spinbox_SetPos(CWnd* pCtrl, LONGLONG nPos);
+__declspec(dllexport) LONGLONG Spinbox_GetPos(CWnd* pCtrl);
+__declspec(dllexport) BOOL Spinbox_SetBase(CWnd* pCtrl, UINT nBase, UINT nDigits);
+__declspec(dllexport) BOOL Spinbox_GetBase(CWnd* pCtrl, UINT& nBase, UINT& nDigits);
+__declspec(dllexport) BOOL Spinbox_SetRange(CWnd* pCtrl, LONGLONG nMin, LONGLONG nMax);
+__declspec(dllexport) BOOL Spinbox_GetRange(CWnd* pCtrl, LONGLONG& nMin, LONGLONG& nMax);
+__declspec(dllexport) BOOL Spinbox_SetAccel(CWnd* pCtrl, INT nAccel, CONST UDACCEL* pAccel);
+__declspec(dllexport) UINT Spinbox_GetAccel(CWnd* pCtrl, INT nAccel, UDACCEL* pAccel);
+__declspec(dllexport) BOOL Spinbox_SetSel(CWnd* pCtrl, INT nStartPos, INT nStopPos);
+__declspec(dllexport) BOOL Spinbox_GetSel(CWnd* pCtrl, INT& nStartPos, INT& nStopPos);
 
 // Specify the associated inline definitions
 inline BOOL CSpinBox::SetPos(LONGLONG nPos)
@@ -2442,7 +2448,7 @@ inline BOOL CSpinBox::SetBase(UINT nBase, UINT nDigits)
 {
 	return(Spinbox_SetBase(CSpinBox::FromHandle(GetSafeHwnd()), nBase, nDigits));
 }
-inline BOOL CSpinBox::GetBase(UINT &nBase, UINT &nDigits) CONST
+inline BOOL CSpinBox::GetBase(UINT& nBase, UINT& nDigits) CONST
 {
 	return(Spinbox_GetBase(CSpinBox::FromHandle(GetSafeHwnd()), nBase, nDigits));
 }
@@ -2450,15 +2456,15 @@ inline BOOL CSpinBox::SetRange(LONGLONG nMin, LONGLONG nMax)
 {
 	return(Spinbox_SetRange(CSpinBox::FromHandle(GetSafeHwnd()), nMin, nMax));
 }
-inline BOOL CSpinBox::GetRange(LONGLONG &nMin, LONGLONG &nMax) CONST
+inline BOOL CSpinBox::GetRange(LONGLONG& nMin, LONGLONG& nMax) CONST
 {
 	return(Spinbox_GetRange(CSpinBox::FromHandle(GetSafeHwnd()), nMin, nMax));
 }
-inline BOOL CSpinBox::SetAccel(INT nAccel, CONST UDACCEL *pAccel)
+inline BOOL CSpinBox::SetAccel(INT nAccel, CONST UDACCEL* pAccel)
 {
 	return(Spinbox_SetAccel(CSpinBox::FromHandle(GetSafeHwnd()), nAccel, pAccel));
 }
-inline UINT CSpinBox::GetAccel(INT nAccel, UDACCEL *pAccel) CONST
+inline UINT CSpinBox::GetAccel(INT nAccel, UDACCEL* pAccel) CONST
 {
 	return(Spinbox_GetAccel(CSpinBox::FromHandle(GetSafeHwnd()), nAccel, pAccel));
 }
@@ -2466,7 +2472,7 @@ inline BOOL CSpinBox::SetSel(INT nStartPos, INT nStopPos)
 {
 	return(Spinbox_SetSel(CSpinBox::FromHandle(GetSafeHwnd()), nStartPos, nStopPos));
 }
-inline BOOL CSpinBox::GetSel(INT &nStartPos, INT &nStopPos) CONST
+inline BOOL CSpinBox::GetSel(INT& nStartPos, INT& nStopPos) CONST
 {
 	return(Spinbox_GetSel(CSpinBox::FromHandle(GetSafeHwnd()), nStartPos, nStopPos));
 }
@@ -2567,30 +2573,30 @@ protected:
 
 	// Operations
 public:
-	BOOL Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle = TSBXS_ANY_TIME | TSBXS_UTC_TIME | WS_VISIBLE | WS_TABSTOP, LPCTSTR pszFormat = NULL, CONST CTimeTag &tStartTime = 0, CONST CTimeTag &StopTime = 0);
+	BOOL Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle = TSBXS_ANY_TIME | TSBXS_UTC_TIME | WS_VISIBLE | WS_TABSTOP, LPCTSTR pszFormat = NULL, CONST CTimeTag& tStartTime = 0, CONST CTimeTag & StopTime = 0);
 
 	static BOOL RegisterClass();
 	static BOOL UnregisterClass();
 
-	VOID SetTime(CONST CTimeTag &tTime);
-	VOID SetTime(CONST CTimeKey &tTime);
-	BOOL GetTime(CTimeTag &tTime) CONST;
-	BOOL GetTime(CTimeKey &tTime) CONST;
+	VOID SetTime(CONST CTimeTag& tTime);
+	VOID SetTime(CONST CTimeKey& tTime);
+	BOOL GetTime(CTimeTag& tTime) CONST;
+	BOOL GetTime(CTimeKey& tTime) CONST;
 	CTimeKey GetTime() CONST;
-	BOOL SetRange(CONST CTimeTag &tStartTime, CONST CTimeTag &tStopTime);
-	BOOL SetRange(CONST CTimeKey &tStartTime, CONST CTimeKey &tStopTime);
-	BOOL GetRange(CTimeTag &tStartTime, CTimeTag &tStopTime) CONST;
-	BOOL GetRange(CTimeKey &tStartTime, CTimeKey &tStopTime) CONST;
+	BOOL SetRange(CONST CTimeTag& tStartTime, CONST CTimeTag& tStopTime);
+	BOOL SetRange(CONST CTimeKey& tStartTime, CONST CTimeKey& tStopTime);
+	BOOL GetRange(CTimeTag& tStartTime, CTimeTag& tStopTime) CONST;
+	BOOL GetRange(CTimeKey& tStartTime, CTimeKey& tStopTime) CONST;
 	BOOL SetSel(INT nStartPos, INT nStopPos);
-	BOOL GetSel(INT &nStartPos, INT &nStopPos) CONST;
+	BOOL GetSel(INT& nStartPos, INT& nStopPos) CONST;
 
 protected:
 	VOID EnableAutoCompletion(BOOL bEnable = TRUE);
 	BOOL IsAutoCompletionEnabled() CONST;
 
 	INT TranslateSubFormat(LPCTSTR pszFormat) CONST;
-	BOOL TranslateSubFormatDelimiter(LPCTSTR pszFormat, CString &szDelimiter) CONST;
-	BOOL TranslateSubFormatPosition(LPCTSTR pszFormat, CONST RECT &rect, CRect &rSubFormat);
+	BOOL TranslateSubFormatDelimiter(LPCTSTR pszFormat, CString& szDelimiter) CONST;
+	BOOL TranslateSubFormatPosition(LPCTSTR pszFormat, CONST RECT& rect, CRect& rSubFormat);
 
 private:
 	BOOL ShowSubControls(BOOL bShow = TRUE);
@@ -2611,13 +2617,13 @@ public:
 	virtual VOID SetTime();
 public:
 	virtual void UpdateUI();
-	virtual void UpdateUI(CONST POINT &point);
+	virtual void UpdateUI(CONST POINT& point);
 protected:
 	virtual LONGLONG EnumSubFormatLimits(INT nSubFormatID) CONST;
-	virtual INT EnumSubFormatLimits(INT nSubFormatID, CStringArray &szNames) CONST;
+	virtual INT EnumSubFormatLimits(INT nSubFormatID, CStringArray& szNames) CONST;
 protected:
 	virtual BOOL OnCommand(WPARAM wParam, LPARAM lParam);
-	virtual BOOL OnNotify(WPARAM wParam, LPARAM lParam, LRESULT *pResult);
+	virtual BOOL OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult);
 	//}}AFX_VIRTUAL
 
 	// Implementation
@@ -2629,12 +2635,12 @@ protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg BOOL OnNcCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg HBRUSH OnCtlColor(CDC *pDC, CWnd *pWnd, UINT nCtlColor);
-	afx_msg BOOL OnEraseBkgnd(CDC *pDC);
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg void OnEnable(BOOL bEnable);
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
-	afx_msg void OnSetFocus(CWnd *pOldWnd);
+	afx_msg void OnSetFocus(CWnd* pOldWnd);
 	afx_msg void OnTimer(UINT_PTR nTimerID);
 	afx_msg LRESULT OnSetTime(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnGetTime(WPARAM wParam, LPARAM lParam);
@@ -2652,37 +2658,37 @@ protected:
 };
 
 // Specify the associated helper functions
-__declspec(dllexport) VOID Timespinbox_SetTime(CWnd *pCtrl);
-__declspec(dllexport) VOID Timespinbox_SetTime(CWnd *pCtrl, CONST CTimeTag &tTime);
-__declspec(dllexport) VOID Timespinbox_SetTime(CWnd *pCtrl, CONST CTimeKey &tTime);
-__declspec(dllexport) CTimeKey Timespinbox_GetTime(CWnd *pCtrl);
-__declspec(dllexport) BOOL Timespinbox_GetTime(CWnd *pCtrl, CTimeTag &tTime);
-__declspec(dllexport) BOOL Timespinbox_GetTime(CWnd *pCtrl, CTimeKey &tTime);
-__declspec(dllexport) BOOL Timespinbox_SetRange(CWnd *pCtrl, CONST CTimeTag &tStartTime, CONST CTimeTag &tStopTime);
-__declspec(dllexport) BOOL Timespinbox_SetRange(CWnd *pCtrl, CONST CTimeKey &tStartTime, CONST CTimeKey &tStopTime);
-__declspec(dllexport) BOOL Timespinbox_GetRange(CWnd *pCtrl, CTimeTag &tStartTime, CTimeTag &tStopTime);
-__declspec(dllexport) BOOL Timespinbox_GetRange(CWnd *pCtrl, CTimeKey &tStartTime, CTimeKey &tStopTime);
-__declspec(dllexport) BOOL Timespinbox_SetSel(CWnd *pCtrl, INT nStartPos, INT nStopPos);
-__declspec(dllexport) BOOL Timespinbox_GetSel(CWnd *pCtrl, INT &nStartPos, INT &nStopPos);
+__declspec(dllexport) VOID Timespinbox_SetTime(CWnd* pCtrl);
+__declspec(dllexport) VOID Timespinbox_SetTime(CWnd* pCtrl, CONST CTimeTag& tTime);
+__declspec(dllexport) VOID Timespinbox_SetTime(CWnd* pCtrl, CONST CTimeKey& tTime);
+__declspec(dllexport) CTimeKey Timespinbox_GetTime(CWnd* pCtrl);
+__declspec(dllexport) BOOL Timespinbox_GetTime(CWnd* pCtrl, CTimeTag& tTime);
+__declspec(dllexport) BOOL Timespinbox_GetTime(CWnd* pCtrl, CTimeKey& tTime);
+__declspec(dllexport) BOOL Timespinbox_SetRange(CWnd* pCtrl, CONST CTimeTag& tStartTime, CONST CTimeTag& tStopTime);
+__declspec(dllexport) BOOL Timespinbox_SetRange(CWnd* pCtrl, CONST CTimeKey& tStartTime, CONST CTimeKey& tStopTime);
+__declspec(dllexport) BOOL Timespinbox_GetRange(CWnd* pCtrl, CTimeTag& tStartTime, CTimeTag& tStopTime);
+__declspec(dllexport) BOOL Timespinbox_GetRange(CWnd* pCtrl, CTimeKey& tStartTime, CTimeKey& tStopTime);
+__declspec(dllexport) BOOL Timespinbox_SetSel(CWnd* pCtrl, INT nStartPos, INT nStopPos);
+__declspec(dllexport) BOOL Timespinbox_GetSel(CWnd* pCtrl, INT& nStartPos, INT& nStopPos);
 
 // Specify the associated inline definitions
 inline VOID CTimeSpinBox::SetTime()
 {
 	return(Timespinbox_SetTime(CTimeSpinBox::FromHandle(GetSafeHwnd())));
 }
-inline VOID CTimeSpinBox::SetTime(CONST CTimeTag &tTime)
+inline VOID CTimeSpinBox::SetTime(CONST CTimeTag& tTime)
 {
 	return(Timespinbox_SetTime(CTimeSpinBox::FromHandle(GetSafeHwnd()), tTime));
 }
-inline VOID CTimeSpinBox::SetTime(CONST CTimeKey &tTime)
+inline VOID CTimeSpinBox::SetTime(CONST CTimeKey& tTime)
 {
 	return(Timespinbox_SetTime(CTimeSpinBox::FromHandle(GetSafeHwnd()), tTime));
 }
-inline BOOL CTimeSpinBox::GetTime(CTimeTag &tTime) CONST
+inline BOOL CTimeSpinBox::GetTime(CTimeTag& tTime) CONST
 {
 	return(Timespinbox_GetTime(CTimeSpinBox::FromHandle(GetSafeHwnd()), tTime));
 }
-inline BOOL CTimeSpinBox::GetTime(CTimeKey &tTime) CONST
+inline BOOL CTimeSpinBox::GetTime(CTimeKey& tTime) CONST
 {
 	return(Timespinbox_GetTime(CTimeSpinBox::FromHandle(GetSafeHwnd()), tTime));
 }
@@ -2690,19 +2696,19 @@ inline CTimeKey CTimeSpinBox::GetTime() CONST
 {
 	return(Timespinbox_GetTime(CTimeSpinBox::FromHandle(GetSafeHwnd())));
 }
-inline BOOL CTimeSpinBox::SetRange(CONST CTimeTag &tStartTime, CONST CTimeTag &tStopTime)
+inline BOOL CTimeSpinBox::SetRange(CONST CTimeTag& tStartTime, CONST CTimeTag& tStopTime)
 {
 	return(Timespinbox_SetRange(CTimeSpinBox::FromHandle(GetSafeHwnd()), tStartTime, tStopTime));
 }
-inline BOOL CTimeSpinBox::SetRange(CONST CTimeKey &tStartTime, CONST CTimeKey &tStopTime)
+inline BOOL CTimeSpinBox::SetRange(CONST CTimeKey& tStartTime, CONST CTimeKey& tStopTime)
 {
 	return(Timespinbox_SetRange(CTimeSpinBox::FromHandle(GetSafeHwnd()), tStartTime, tStopTime));
 }
-inline BOOL CTimeSpinBox::GetRange(CTimeTag &tStartTime, CTimeTag &tStopTime) CONST
+inline BOOL CTimeSpinBox::GetRange(CTimeTag& tStartTime, CTimeTag& tStopTime) CONST
 {
 	return(Timespinbox_GetRange(CTimeSpinBox::FromHandle(GetSafeHwnd()), tStartTime, tStopTime));
 }
-inline BOOL CTimeSpinBox::GetRange(CTimeKey &tStartTime, CTimeKey &tStopTime) CONST
+inline BOOL CTimeSpinBox::GetRange(CTimeKey& tStartTime, CTimeKey& tStopTime) CONST
 {
 	return(Timespinbox_GetRange(CTimeSpinBox::FromHandle(GetSafeHwnd()), tStartTime, tStopTime));
 }
@@ -2710,7 +2716,7 @@ inline BOOL CTimeSpinBox::SetSel(INT nStartPos, INT nStopPos)
 {
 	return(Timespinbox_SetSel(CTimeSpinBox::FromHandle(GetSafeHwnd()), nStartPos, nStopPos));
 }
-inline BOOL CTimeSpinBox::GetSel(INT &nStartPos, INT &nStopPos) CONST
+inline BOOL CTimeSpinBox::GetSel(INT& nStartPos, INT& nStopPos) CONST
 {
 	return(Timespinbox_GetSel(CTimeSpinBox::FromHandle(GetSafeHwnd()), nStartPos, nStopPos));
 }
@@ -2759,35 +2765,35 @@ protected:
 /////////////////////////////////////////////////////////////////////////////
 // Listbox helpers
 
-__declspec(dllexport) BOOL Listbox_SetText(CWnd *pCtrl, INT nItem, LPCTSTR pszText);
-__declspec(dllexport) CString Listbox_GetText(CWnd *pCtrl, INT nItem);
+__declspec(dllexport) BOOL Listbox_SetText(CWnd* pCtrl, INT nItem, LPCTSTR pszText);
+__declspec(dllexport) CString Listbox_GetText(CWnd* pCtrl, INT nItem);
 
 /////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////
 // Combobox helpers
 
-__declspec(dllexport) BOOL Combobox_SetText(CWnd *pCtrl, INT nItem, LPCTSTR pszText);
-__declspec(dllexport) CString Combobox_GetText(CWnd *pCtrl, INT nItem);
+__declspec(dllexport) BOOL Combobox_SetText(CWnd* pCtrl, INT nItem, LPCTSTR pszText);
+__declspec(dllexport) CString Combobox_GetText(CWnd* pCtrl, INT nItem);
 
 /////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////
 // Listview helpers
 
-__declspec(dllexport) BOOL Listview_InsertColumn(CWnd *pCtrl, INT nColumn, LPCTSTR pszColumn, INT nWidth);
-__declspec(dllexport) BOOL Listview_SetColumn(CWnd *pCtrl, INT nColumn, LPCTSTR pszColumn, INT nWidth = -1);
-__declspec(dllexport) BOOL Listview_GetColumn(CWnd *pCtrl, INT nColumn, CString &szColumn, INT &nWidth);
-__declspec(dllexport) BOOL Listview_DeleteColumn(CWnd *pCtrl, INT nColumn);
-__declspec(dllexport) BOOL Listview_InsertText(CWnd *pCtrl, INT nItem, LPCTSTR pszText);
-__declspec(dllexport) BOOL Listview_SetText(CWnd *pCtrl, INT nItem, INT nSubItem, LPCTSTR pszText);
-__declspec(dllexport) CString Listview_GetText(CWnd *pCtrl, INT nItem, INT nSubItem);
-__declspec(dllexport) BOOL Listview_SetCurText(CWnd *pCtrl, INT nItem);
-__declspec(dllexport) INT Listview_GetCurText(CWnd *pCtrl);
-__declspec(dllexport) BOOL Listview_SetSelText(CWnd *pCtrl, CONST CUIntArray &nItems);
-__declspec(dllexport) BOOL Listview_IsSelText(CWnd *pCtrl, INT nItem);
-__declspec(dllexport) INT Listview_GetSelText(CWnd *pCtrl, CUIntArray &nItems);
-__declspec(dllexport) BOOL Listview_DeleteText(CWnd *pCtrl, INT nItem);
+__declspec(dllexport) BOOL Listview_InsertColumn(CWnd* pCtrl, INT nColumn, LPCTSTR pszColumn, INT nWidth);
+__declspec(dllexport) BOOL Listview_SetColumn(CWnd* pCtrl, INT nColumn, LPCTSTR pszColumn, INT nWidth = -1);
+__declspec(dllexport) BOOL Listview_GetColumn(CWnd* pCtrl, INT nColumn, CString& szColumn, INT& nWidth);
+__declspec(dllexport) BOOL Listview_DeleteColumn(CWnd* pCtrl, INT nColumn);
+__declspec(dllexport) BOOL Listview_InsertText(CWnd* pCtrl, INT nItem, LPCTSTR pszText);
+__declspec(dllexport) BOOL Listview_SetText(CWnd* pCtrl, INT nItem, INT nSubItem, LPCTSTR pszText);
+__declspec(dllexport) CString Listview_GetText(CWnd* pCtrl, INT nItem, INT nSubItem);
+__declspec(dllexport) BOOL Listview_SetCurText(CWnd* pCtrl, INT nItem);
+__declspec(dllexport) INT Listview_GetCurText(CWnd* pCtrl);
+__declspec(dllexport) BOOL Listview_SetSelText(CWnd* pCtrl, CONST CUIntArray& nItems);
+__declspec(dllexport) BOOL Listview_IsSelText(CWnd* pCtrl, INT nItem);
+__declspec(dllexport) INT Listview_GetSelText(CWnd* pCtrl, CUIntArray& nItems);
+__declspec(dllexport) BOOL Listview_DeleteText(CWnd* pCtrl, INT nItem);
 
 /////////////////////////////////////////////////////////////////////////////
 

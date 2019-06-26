@@ -31,7 +31,7 @@ BOOL CMimicsControls::RegisterMimicsControls()
 {
 	CHAR  szName[64];
 	HMODULE  hModule;
-	HRESULT(STDAPICALLTYPE *RegisterMimicsControlsProc)();
+	HRESULT(STDAPICALLTYPE * RegisterMimicsControlsProc)();
 
 	if ((hModule = AfxLoadLibrary(STRING(IDS_FILENAME_MIMICSMODULE))))
 	{
@@ -40,7 +40,7 @@ BOOL CMimicsControls::RegisterMimicsControls()
 #else
 		WideCharToMultiByte(CP_ACP, 0, STRING(IDS_EXPORTINTERFACE_REGISTERMIMICSCONTROLS), -1, szName, sizeof(szName) / sizeof(CHAR), (LPCSTR)NULL, (LPBOOL)NULL);
 #endif
-		if ((RegisterMimicsControlsProc = (HRESULT(STDAPICALLTYPE *)()) GetProcAddress(hModule, szName)))
+		if ((RegisterMimicsControlsProc = (HRESULT(STDAPICALLTYPE*)()) GetProcAddress(hModule, szName)))
 		{
 			if (RegisterMimicsControlsProc() == NOERROR)
 			{
@@ -57,7 +57,7 @@ BOOL CMimicsControls::UnregisterMimicsControls()
 {
 	CHAR  szName[64];
 	HMODULE  hModule;
-	HRESULT(STDAPICALLTYPE *UnregisterMimicsControlsProc)();
+	HRESULT(STDAPICALLTYPE * UnregisterMimicsControlsProc)();
 
 	if ((hModule = AfxLoadLibrary(STRING(IDS_FILENAME_MIMICSMODULE))))
 	{
@@ -66,7 +66,7 @@ BOOL CMimicsControls::UnregisterMimicsControls()
 #else
 		WideCharToMultiByte(CP_ACP, 0, STRING(IDS_EXPORTINTERFACE_UNREGISTERMIMICSCONTROLS), -1, szName, sizeof(szName) / sizeof(CHAR), (LPCSTR)NULL, (LPBOOL)NULL);
 #endif
-		if ((UnregisterMimicsControlsProc = (HRESULT(STDAPICALLTYPE *)()) GetProcAddress(hModule, szName)))
+		if ((UnregisterMimicsControlsProc = (HRESULT(STDAPICALLTYPE*)()) GetProcAddress(hModule, szName)))
 		{
 			if (UnregisterMimicsControlsProc() == NOERROR)
 			{
@@ -135,21 +135,21 @@ BOOL CCustomControls::UnregisterCustomControls()
 	return bSuccess;
 }
 
-CRuntimeClass *CCustomControls::GetCustomControlBaseClass(CRuntimeClass *pClass)
+CRuntimeClass* CCustomControls::GetCustomControlBaseClass(CRuntimeClass* pClass)
 {
-	return((AfxIsValidAddress(pClass, sizeof(CRuntimeClass), FALSE)) ? pClass->m_pfnGetBaseClass() : (CRuntimeClass *)NULL);
+	return((AfxIsValidAddress(pClass, sizeof(CRuntimeClass), FALSE)) ? pClass->m_pfnGetBaseClass() : (CRuntimeClass*)NULL);
 }
 
-CFont *CCustomControls::GetCustomControlFont(CONST CWnd *pControl)
+CFont* CCustomControls::GetCustomControlFont(CONST CWnd* pControl)
 {
-	CFont  *pFont[2];
+	CFont* pFont[2];
 	CFontTools  cFontTools;
 
 	if (IsWindow(pControl->GetSafeHwnd()))
 	{
 		if ((pFont[0] = pControl->GetFont())) return pFont[0];
 		if ((pFont[0] = pControl->GetParent()->GetFont())) return pFont[0];
-		if ((pFont[0] = new CFont) != (CFont *)NULL)
+		if ((pFont[0] = new CFont) != (CFont*)NULL)
 		{
 			if (cFontTools.QueryDefaultFont(pFont[0]))
 			{
@@ -171,7 +171,12 @@ CFont *CCustomControls::GetCustomControlFont(CONST CWnd *pControl)
 
 IMPLEMENT_DYNCREATE(CSimpleEdit, CEdit)
 
-BOOL CSimpleEdit::Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle)
+CSimpleEdit::CSimpleEdit()
+{
+	m_dwStyle = 0;
+}
+
+BOOL CSimpleEdit::Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle)
 {
 	if (CEdit::Create((MAKELONG((m_dwStyle = ((LOWORD(dwStyle) & (ES_MULTILINE | ES_LEFT | ES_CENTER | ES_RIGHT | ES_LOWERCASE | ES_UPPERCASE | ES_AUTOHSCROLL | ES_AUTOVSCROLL | ES_OEMCONVERT)) & ~(ES_NOHIDESEL | ES_PASSWORD | ES_WANTRETURN))), HIWORD(dwStyle)) | WS_CHILD) & ~WS_TABSTOP, rect, pParentWnd, nID))
 	{
@@ -188,7 +193,7 @@ BOOL CSimpleEdit::RegisterClass()
 	CString  szClass;
 	CString  szBaseClass;
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CSimpleEdit  cSimpleEdit;
 
 	if ((pClass = cSimpleEdit.GetRuntimeClass()))
@@ -207,7 +212,7 @@ BOOL CSimpleEdit::RegisterClass()
 			if (_tcsstr(szClass, szBaseClass.Mid(cPos))) break;
 			continue;
 		}
-		if (cPos < cbClassName  &&  GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
+		if (cPos < cbClassName && GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
 		{
 			CResourceSimpleEdit::m_lpfnSuperWndProc = (WNDPROC)sWndClass.lpfnWndProc;
 			if (!GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
@@ -229,7 +234,7 @@ BOOL CSimpleEdit::UnregisterClass()
 	INT  cbClassName;
 	CString  szClass;
 	CString  szBaseClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CSimpleEdit  cSimpleEdit;
 
 	if ((pClass = cSimpleEdit.GetRuntimeClass()))
@@ -280,14 +285,14 @@ BOOL CSimpleEdit::OnNcCreate(LPCREATESTRUCT lpCreateStruct)
 	return CEdit::OnNcCreate(lpCreateStruct);
 }
 
-BOOL CSimpleEdit::OnSetCursor(CWnd *pWnd, UINT nHitTest, UINT message)
+BOOL CSimpleEdit::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
 	SetCursor(LoadCursor((HINSTANCE)NULL, IDC_ARROW));
 	GetParent()->SendMessage(WM_SETCURSOR, (WPARAM)GetParent()->GetSafeHwnd(), MAKELPARAM(nHitTest, message));
 	return TRUE;
 }
 
-void CSimpleEdit::OnSetFocus(CWnd *pOldWnd)
+void CSimpleEdit::OnSetFocus(CWnd* pOldWnd)
 {
 	return;
 }
@@ -337,7 +342,7 @@ CResourceSimpleEdit::CResourceSimpleEdit(HWND hWnd) : CSimpleEdit()
 
 LRESULT CALLBACK CResourceSimpleEdit::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceSimpleEdit  *pResourceSimpleEdit;
+	CResourceSimpleEdit* pResourceSimpleEdit;
 
 	if ((pResourceSimpleEdit = new CResourceSimpleEdit(hWnd)))
 	{
@@ -347,7 +352,7 @@ LRESULT CALLBACK CResourceSimpleEdit::WndProcHook(HWND hWnd, UINT message, WPARA
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceSimpleEdit::GetSuperWndProcAddr()
+WNDPROC* CResourceSimpleEdit::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -382,12 +387,13 @@ CNumberEdit::CNumberEdit() : CEdit()
 {
 	m_nBase = 10;
 	m_nDigits = 0;
+	m_dwStyle = 0;
 	m_nMin = m_nMax = 0;
 	m_bMinusZero = FALSE;
 	m_bAutoCompletion = TRUE;
 }
 
-BOOL CNumberEdit::Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle, BOOL bMinusZero)
+BOOL CNumberEdit::Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle, BOOL bMinusZero)
 {
 	if (CEdit::Create(MAKELONG((m_dwStyle = ((LOWORD(dwStyle) & (ES_LEFT | ES_CENTER | ES_RIGHT | ES_NOHIDESEL | ES_OEMCONVERT)) & ~(ES_AUTOHSCROLL | ES_AUTOVSCROLL | ES_LOWERCASE | ES_UPPERCASE | ES_NUMBER | ES_PASSWORD | ES_READONLY | ES_WANTRETURN)) | ES_MULTILINE), HIWORD(dwStyle)) | WS_CHILD, rect, pParentWnd, nID))
 	{
@@ -405,7 +411,7 @@ BOOL CNumberEdit::RegisterClass()
 	CString  szClass;
 	CString  szBaseClass;
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CNumberEdit  cNumberEdit;
 
 	if ((pClass = cNumberEdit.GetRuntimeClass()))
@@ -424,7 +430,7 @@ BOOL CNumberEdit::RegisterClass()
 			if (_tcsstr(szClass, szBaseClass.Mid(cPos))) break;
 			continue;
 		}
-		if (cPos < cbClassName  &&  GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
+		if (cPos < cbClassName && GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
 		{
 			CResourceNumberEdit::m_lpfnSuperWndProc = (WNDPROC)sWndClass.lpfnWndProc;
 			if (!GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
@@ -446,7 +452,7 @@ BOOL CNumberEdit::UnregisterClass()
 	INT  cbClassName;
 	CString  szClass;
 	CString  szBaseClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CNumberEdit  cNumberEdit;
 
 	if ((pClass = cNumberEdit.GetRuntimeClass()))
@@ -500,7 +506,7 @@ BOOL CNumberEdit::IsAutoCompletionEnabled() CONST
 
 VOID CNumberEdit::Format()
 {
-	CWnd  *pWnd;
+	CWnd* pWnd;
 	CRect  rNumberEdit;
 	CRect  rFormatArea;
 
@@ -592,17 +598,17 @@ UINT CNumberEdit::OnGetDlgCode()
 
 void CNumberEdit::OnMouseMove(UINT nFlags, CPoint point)
 {
-	CSpinBox  *pSpinBox;
-	CTimeSpinBox  *pTimeSpinBox;
+	CSpinBox* pSpinBox;
+	CTimeSpinBox* pTimeSpinBox;
 
-	if ((pSpinBox = (GetParent()->IsKindOf(RUNTIME_CLASS(CSpinBox))) ? (CSpinBox *)GetParent() : (CSpinBox *)NULL)) pSpinBox->UpdateUI();
-	if ((pTimeSpinBox = (GetParent()->IsKindOf(RUNTIME_CLASS(CTimeSpinBox))) ? (CTimeSpinBox *)GetParent() : (CTimeSpinBox *)NULL)) pTimeSpinBox->UpdateUI();
+	if ((pSpinBox = (GetParent()->IsKindOf(RUNTIME_CLASS(CSpinBox))) ? (CSpinBox*)GetParent() : (CSpinBox*)NULL)) pSpinBox->UpdateUI();
+	if ((pTimeSpinBox = (GetParent()->IsKindOf(RUNTIME_CLASS(CTimeSpinBox))) ? (CTimeSpinBox*)GetParent() : (CTimeSpinBox*)NULL)) pTimeSpinBox->UpdateUI();
 	CEdit::OnMouseMove(nFlags, point);
 }
 
 void CNumberEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
-	CWnd  *pWnd[2];
+	CWnd* pWnd[2];
 	LONGLONG  nPos;
 
 	switch (nChar)
@@ -631,6 +637,10 @@ void CNumberEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	{ nPos = m_nMax;
 	break;
 	}
+	default:
+	{ nPos = 0;
+	break;
+	}
 	}
 	if (nChar == VK_NEXT || nChar == VK_PRIOR || nChar == VK_UP || nChar == VK_DOWN || nChar == VK_HOME || nChar == VK_END)
 	{
@@ -640,7 +650,7 @@ void CNumberEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 	if (nChar == VK_LEFT || nChar == VK_RIGHT)
 	{
-		if ((GetParent()->GetStyle() & WS_TABSTOP) && LOWORD(GetSel()) == HIWORD(GetSel()) && ((nChar == VK_LEFT  &&  !LOWORD(GetSel())) || (nChar == VK_RIGHT  &&  LOWORD(GetSel()) == GetWindowTextLength())))
+		if ((GetParent()->GetStyle() & WS_TABSTOP) && LOWORD(GetSel()) == HIWORD(GetSel()) && ((nChar == VK_LEFT && !LOWORD(GetSel())) || (nChar == VK_RIGHT && LOWORD(GetSel()) == GetWindowTextLength())))
 		{
 			if ((pWnd[0] = GetParent()->GetDlgItem((nChar == VK_RIGHT) ? (GetDlgCtrlID() + 1) : (GetDlgCtrlID() - 1))) && pWnd[0]->IsKindOf(RUNTIME_CLASS(CEdit)))
 			{
@@ -716,7 +726,7 @@ void CNumberEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 }
 
-void CNumberEdit::OnKillFocus(CWnd *pNewWnd)
+void CNumberEdit::OnKillFocus(CWnd* pNewWnd)
 {
 	if (IsAutoCompletionEnabled() && !Check()) SetPos(GetPos(FALSE), TRUE);
 	CEdit::OnKillFocus(pNewWnd);
@@ -769,15 +779,15 @@ LRESULT CNumberEdit::OnSetBase(WPARAM wParam, LPARAM lParam)
 
 LRESULT CNumberEdit::OnGetBase(WPARAM wParam, LPARAM lParam)
 {
-	*((UINT *)wParam) = m_nBase;
-	*((UINT *)lParam) = m_nDigits;
+	*((UINT*)wParam) = m_nBase;
+	*((UINT*)lParam) = m_nDigits;
 	return((m_nBase == 2 || m_nBase == 8 || m_nBase == 10 || m_nBase == 16) ? TRUE : FALSE);
 }
 
 LRESULT CNumberEdit::OnSetRange(WPARAM wParam, LPARAM lParam)
 {
-	LONGLONG  nMin = (*(LONGLONG *)wParam);
-	LONGLONG  nMax = (*(LONGLONG *)lParam);
+	LONGLONG  nMin = (*(LONGLONG*)wParam);
+	LONGLONG  nMax = (*(LONGLONG*)lParam);
 
 	if ((m_nBase == 10 || nMin >= 0) && nMin <= nMax)
 	{
@@ -794,8 +804,8 @@ LRESULT CNumberEdit::OnSetRange(WPARAM wParam, LPARAM lParam)
 
 LRESULT CNumberEdit::OnGetRange(WPARAM wParam, LPARAM lParam)
 {
-	*((LONGLONG *)wParam) = m_nMin;
-	*((LONGLONG *)lParam) = m_nMax;
+	*((LONGLONG*)wParam) = m_nMin;
+	*((LONGLONG*)lParam) = m_nMax;
 	return((m_nMin <= m_nMax) ? TRUE : FALSE);
 }
 
@@ -805,7 +815,7 @@ LRESULT CNumberEdit::OnSetPos(WPARAM wParam, LPARAM lParam)
 	CString  szText;
 	BOOL  bMinusZero;
 	CStringTools  cStringTools;
-	LONGLONG  nPos = (*(LONGLONG *)lParam);
+	LONGLONG  nPos = (*(LONGLONG*)lParam);
 
 	for (GetWindowText(szText), nPos = (!(bMinusZero = (((szText == cStringTools.ConvertLongIntToPaddedString(0, m_nDigits, m_nBase) && nPos == -1) || (szText == cStringTools.ConvertLongIntToPaddedString(-1, m_nDigits + 1, m_nBase) && nPos == 0)) && m_bMinusZero))) ? nPos : 0; m_nMin <= nPos && m_nMax >= nPos; )
 	{
@@ -845,20 +855,20 @@ LRESULT CNumberEdit::OnGetPos(WPARAM wParam, LPARAM lParam)
 	{
 		if (_istdigit((szChar = szPos[szPos.GetLength() - 1])))
 		{
-			nPos += (__toascii(szChar) - __toascii(szDigit[0].GetAt(0)))*nBase;
+			nPos += ((LONGLONG)__toascii(szChar) - (LONGLONG)__toascii(szDigit[0].GetAt(0))) * nBase;
 			nBase *= m_nBase;
 			continue;
 		}
 		if (_istxdigit(szChar))
 		{
-			nPos += (__toascii(szChar) - __toascii(szDigit[1].GetAt(0)) + 10)*nBase;
+			nPos += ((LONGLONG)__toascii(szChar) - (LONGLONG)__toascii(szDigit[1].GetAt(0)) + 10) * nBase;
 			nBase *= 16;
 			continue;
 		}
 		nPos = -nPos;
 		break;
 	}
-	*((LONGLONG *)lParam) = nPos = (wParam) ? min(max(nPos, m_nMin), m_nMax) : nPos;
+	*((LONGLONG*)lParam) = nPos = (wParam) ? min(max(nPos, m_nMin), m_nMax) : nPos;
 	return 0;
 }
 
@@ -872,9 +882,9 @@ LRESULT CNumberEdit::OnGetSel(WPARAM wParam, LPARAM lParam)
 {
 	DWORD  dwSel[2];
 
-	SendMessage(EM_GETSEL, (WPARAM)&dwSel[0], (LPARAM)&dwSel[1]);
-	*((INT *)wParam) = (INT)dwSel[0];
-	*((INT *)lParam) = (INT)dwSel[1];
+	SendMessage(EM_GETSEL, (WPARAM)& dwSel[0], (LPARAM)& dwSel[1]);
+	*((INT*)wParam) = (INT)dwSel[0];
+	*((INT*)lParam) = (INT)dwSel[1];
 	return((dwSel[0] < dwSel[1]) ? TRUE : FALSE);
 }
 
@@ -888,58 +898,58 @@ LRESULT CNumberEdit::OnCheck(WPARAM wParam, LPARAM lParam)
 	nPos = GetPos(FALSE);
 	GetWindowText(szNumber);
 	szSign = cStringTools.ConvertIntToString(-1);
-	return(!szNumber.IsEmpty() && szNumber != szSign.GetAt(0) && (!m_nDigits || ((szNumber.GetAt(0) == szSign.GetAt(0) && szNumber.GetLength() > (INT) m_nDigits) || (szNumber.GetAt(0) != szSign.GetAt(0) && szNumber.GetLength() == m_nDigits))) && nPos >= m_nMin  &&  nPos <= m_nMax);
+	return(!szNumber.IsEmpty() && szNumber != szSign.GetAt(0) && (!m_nDigits || ((szNumber.GetAt(0) == szSign.GetAt(0) && szNumber.GetLength() > (INT)m_nDigits) || (szNumber.GetAt(0) != szSign.GetAt(0) && szNumber.GetLength() == m_nDigits))) && nPos >= m_nMin && nPos <= m_nMax);
 }
 
 // Numberedit helpers
-BOOL Numberedit_SetBase(CWnd *pCtrl, UINT nBase, UINT nDigits)
+BOOL Numberedit_SetBase(CWnd* pCtrl, UINT nBase, UINT nDigits)
 {
 	return((BOOL)pCtrl->SendMessage(NEM_SETBASE, (WPARAM)nBase, (LPARAM)nDigits));
 }
 
-BOOL Numberedit_GetBase(CWnd *pCtrl, UINT &nBase, UINT &nDigits)
+BOOL Numberedit_GetBase(CWnd* pCtrl, UINT& nBase, UINT& nDigits)
 {
-	return((BOOL)pCtrl->SendMessage(NEM_GETBASE, (WPARAM)&nBase, (LPARAM)&nDigits));
+	return((BOOL)pCtrl->SendMessage(NEM_GETBASE, (WPARAM)& nBase, (LPARAM)& nDigits));
 }
 
-BOOL Numberedit_SetRange(CWnd *pCtrl, LONGLONG nMin, LONGLONG nMax)
+BOOL Numberedit_SetRange(CWnd* pCtrl, LONGLONG nMin, LONGLONG nMax)
 {
-	return((BOOL)pCtrl->SendMessage(NEM_SETRANGE, (WPARAM)&nMin, (LPARAM)&nMax));
+	return((BOOL)pCtrl->SendMessage(NEM_SETRANGE, (WPARAM)& nMin, (LPARAM)& nMax));
 }
 
-BOOL Numberedit_GetRange(CWnd *pCtrl, LONGLONG &nMin, LONGLONG &nMax)
+BOOL Numberedit_GetRange(CWnd* pCtrl, LONGLONG& nMin, LONGLONG& nMax)
 {
-	return((BOOL)pCtrl->SendMessage(NEM_GETRANGE, (WPARAM)&nMin, (LPARAM)&nMax));
+	return((BOOL)pCtrl->SendMessage(NEM_GETRANGE, (WPARAM)& nMin, (LPARAM)& nMax));
 }
 
-BOOL Numberedit_SetPos(CWnd *pCtrl, LONGLONG nPos, BOOL bNotify)
+BOOL Numberedit_SetPos(CWnd* pCtrl, LONGLONG nPos, BOOL bNotify)
 {
-	return((BOOL)pCtrl->SendMessage(NEM_SETPOS, bNotify, (LPARAM)&nPos));
+	return((BOOL)pCtrl->SendMessage(NEM_SETPOS, bNotify, (LPARAM)& nPos));
 }
 
-LONGLONG Numberedit_GetPos(CWnd *pCtrl, BOOL bLimits)
+LONGLONG Numberedit_GetPos(CWnd* pCtrl, BOOL bLimits)
 {
 	LONGLONG  nPos;
 
-	pCtrl->SendMessage(NEM_GETPOS, bLimits, (LPARAM)&nPos);
+	pCtrl->SendMessage(NEM_GETPOS, bLimits, (LPARAM)& nPos);
 	return nPos;
 }
 
-BOOL Numberedit_SetSel(CWnd *pCtrl, INT nStartPos, INT nStopPos)
+BOOL Numberedit_SetSel(CWnd* pCtrl, INT nStartPos, INT nStopPos)
 {
 	return((BOOL)pCtrl->SendMessage(NEM_SETSEL, nStartPos, nStopPos));
 }
 
-BOOL Numberedit_GetSel(CWnd *pCtrl, INT &nStartPos, INT &nStopPos)
+BOOL Numberedit_GetSel(CWnd* pCtrl, INT& nStartPos, INT& nStopPos)
 {
-	return((BOOL)pCtrl->SendMessage(NEM_GETSEL, (WPARAM)&nStartPos, (LPARAM)&nStopPos));
+	return((BOOL)pCtrl->SendMessage(NEM_GETSEL, (WPARAM)& nStartPos, (LPARAM)& nStopPos));
 }
-DWORD Numberedit_GetSel(CWnd *pCtrl)
+DWORD Numberedit_GetSel(CWnd* pCtrl)
 {
 	return((DWORD)pCtrl->SendMessage(EM_GETSEL));
 }
 
-BOOL Numberedit_Check(CWnd *pCtrl)
+BOOL Numberedit_Check(CWnd* pCtrl)
 {
 	return((BOOL)pCtrl->SendMessage(NEM_CHECK));
 }
@@ -959,7 +969,7 @@ CResourceNumberEdit::CResourceNumberEdit(HWND hWnd) : CNumberEdit()
 
 LRESULT CALLBACK CResourceNumberEdit::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceNumberEdit  *pResourceNumberEdit;
+	CResourceNumberEdit* pResourceNumberEdit;
 
 	if ((pResourceNumberEdit = new CResourceNumberEdit(hWnd)))
 	{
@@ -969,7 +979,7 @@ LRESULT CALLBACK CResourceNumberEdit::WndProcHook(HWND hWnd, UINT message, WPARA
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceNumberEdit::GetSuperWndProcAddr()
+WNDPROC* CResourceNumberEdit::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -1002,10 +1012,11 @@ IMPLEMENT_DYNCREATE(CTextEdit, CEdit)
 
 CTextEdit::CTextEdit() : CEdit()
 {
+	m_dwStyle = 0;
 	m_bAutoCompletion = TRUE;
 }
 
-BOOL CTextEdit::Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle)
+BOOL CTextEdit::Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle)
 {
 	if (CEdit::Create(MAKELONG((m_dwStyle = ((LOWORD(dwStyle) & (ES_LEFT | ES_CENTER | ES_RIGHT | ES_NUMBER | ES_LOWERCASE | ES_UPPERCASE | ES_NOHIDESEL | ES_OEMCONVERT)) & ~(ES_AUTOHSCROLL | ES_AUTOVSCROLL | ES_PASSWORD | ES_READONLY | ES_WANTRETURN)) | ES_MULTILINE), HIWORD(dwStyle)) | WS_CHILD, rect, pParentWnd, nID))
 	{
@@ -1022,7 +1033,7 @@ BOOL CTextEdit::RegisterClass()
 	CString  szClass;
 	CString  szBaseClass;
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CTextEdit  cTextEdit;
 
 	if ((pClass = cTextEdit.GetRuntimeClass()))
@@ -1041,7 +1052,7 @@ BOOL CTextEdit::RegisterClass()
 			if (_tcsstr(szClass, szBaseClass.Mid(cPos))) break;
 			continue;
 		}
-		if (cPos < cbClassName  &&  GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
+		if (cPos < cbClassName && GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
 		{
 			CResourceTextEdit::m_lpfnSuperWndProc = (WNDPROC)sWndClass.lpfnWndProc;
 			if (!GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
@@ -1063,7 +1074,7 @@ BOOL CTextEdit::UnregisterClass()
 	INT  cbClassName;
 	CString  szClass;
 	CString  szBaseClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CTextEdit  cTextEdit;
 
 	if ((pClass = cTextEdit.GetRuntimeClass()))
@@ -1099,7 +1110,7 @@ BOOL CTextEdit::IsAutoCompletionEnabled() CONST
 
 VOID CTextEdit::Format()
 {
-	CWnd  *pWnd;
+	CWnd* pWnd;
 	CRect  rTextEdit;
 	CRect  rFormatArea;
 
@@ -1181,18 +1192,18 @@ UINT CTextEdit::OnGetDlgCode()
 
 void CTextEdit::OnMouseMove(UINT nFlags, CPoint point)
 {
-	CSpinBox  *pSpinBox;
-	CTimeSpinBox  *pTimeSpinBox;
+	CSpinBox* pSpinBox;
+	CTimeSpinBox* pTimeSpinBox;
 
-	if ((pSpinBox = (GetParent()->IsKindOf(RUNTIME_CLASS(CSpinBox))) ? (CSpinBox *)GetParent() : (CSpinBox *)NULL)) pSpinBox->UpdateUI();
-	if ((pTimeSpinBox = (GetParent()->IsKindOf(RUNTIME_CLASS(CTimeSpinBox))) ? (CTimeSpinBox *)GetParent() : (CTimeSpinBox *)NULL)) pTimeSpinBox->UpdateUI();
+	if ((pSpinBox = (GetParent()->IsKindOf(RUNTIME_CLASS(CSpinBox))) ? (CSpinBox*)GetParent() : (CSpinBox*)NULL)) pSpinBox->UpdateUI();
+	if ((pTimeSpinBox = (GetParent()->IsKindOf(RUNTIME_CLASS(CTimeSpinBox))) ? (CTimeSpinBox*)GetParent() : (CTimeSpinBox*)NULL)) pTimeSpinBox->UpdateUI();
 	CEdit::OnMouseMove(nFlags, point);
 }
 
 void CTextEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	INT  nPos;
-	CWnd  *pWnd[2];
+	CWnd* pWnd[2];
 
 	switch (nChar)
 	{
@@ -1214,6 +1225,10 @@ void CTextEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	{ nPos = (INT)m_szNames.GetSize() - 1;
 	break;
 	}
+	default:
+	{ nPos = 0;
+	break;
+	}
 	}
 	if (nChar == VK_NEXT || nChar == VK_PRIOR || nChar == VK_UP || nChar == VK_DOWN || nChar == VK_HOME || nChar == VK_END)
 	{
@@ -1223,7 +1238,7 @@ void CTextEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 	if (nChar == VK_LEFT || nChar == VK_RIGHT)
 	{
-		if ((GetParent()->GetStyle() & WS_TABSTOP) && LOWORD(GetSel()) == HIWORD(GetSel()) && ((nChar == VK_LEFT  &&  !LOWORD(GetSel())) || (nChar == VK_RIGHT  &&  LOWORD(GetSel()) == GetWindowTextLength())))
+		if ((GetParent()->GetStyle() & WS_TABSTOP) && LOWORD(GetSel()) == HIWORD(GetSel()) && ((nChar == VK_LEFT && !LOWORD(GetSel())) || (nChar == VK_RIGHT && LOWORD(GetSel()) == GetWindowTextLength())))
 		{
 			if ((pWnd[0] = GetParent()->GetDlgItem((nChar == VK_RIGHT) ? (GetDlgCtrlID() + 1) : (GetDlgCtrlID() - 1))) && pWnd[0]->IsKindOf(RUNTIME_CLASS(CEdit)))
 			{
@@ -1299,7 +1314,7 @@ void CTextEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 }
 
-void CTextEdit::OnKillFocus(CWnd *pNewWnd)
+void CTextEdit::OnKillFocus(CWnd* pNewWnd)
 {
 	if (IsAutoCompletionEnabled() && !Check()) SetPos(GetPos(), TRUE);
 	CEdit::OnKillFocus(pNewWnd);
@@ -1445,10 +1460,10 @@ LRESULT CTextEdit::OnSetSel(WPARAM wParam, LPARAM lParam)
 
 LRESULT CTextEdit::OnGetSel(WPARAM wParam, LPARAM lParam)
 {
-	INT  *nSel[2];
+	INT* nSel[2];
 	DWORD  dwSel[2];
 
-	SendMessage(EM_GETSEL, (WPARAM)&dwSel[0], (LPARAM)&dwSel[1]);
+	SendMessage(EM_GETSEL, (WPARAM)& dwSel[0], (LPARAM)& dwSel[1]);
 	*(nSel[0] = (LPINT)wParam) = (INT)dwSel[0];
 	*(nSel[1] = (LPINT)lParam) = (INT)dwSel[1];
 	return 0;
@@ -1477,7 +1492,7 @@ CResourceTextEdit::CResourceTextEdit(HWND hWnd) : CTextEdit()
 
 LRESULT CALLBACK CResourceTextEdit::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceTextEdit  *pResourceTextEdit;
+	CResourceTextEdit* pResourceTextEdit;
 
 	if ((pResourceTextEdit = new CResourceTextEdit(hWnd)))
 	{
@@ -1487,7 +1502,7 @@ LRESULT CALLBACK CResourceTextEdit::WndProcHook(HWND hWnd, UINT message, WPARAM 
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceTextEdit::GetSuperWndProcAddr()
+WNDPROC* CResourceTextEdit::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -1521,10 +1536,11 @@ IMPLEMENT_DYNCREATE(CDPLCodeEdit, CRichEditCtrl)
 CDPLCodeEdit::CDPLCodeEdit() : CRichEditCtrl()
 {
 	m_nType = DPLCODEEDIT_TYPE_DEFAULT;
+	m_dwStyle = 0;
 	m_bSelection = TRUE;
 }
 
-BOOL CDPLCodeEdit::Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle)
+BOOL CDPLCodeEdit::Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle)
 {
 	if (CRichEditCtrl::Create((m_dwStyle = dwStyle) | WS_CHILD, rect, pParentWnd, nID))
 	{
@@ -1538,7 +1554,7 @@ BOOL CDPLCodeEdit::RegisterClass()
 {
 	CString  szClass[2];
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CDPLCodeEdit  cDPLCodeEdit;
 
 	if ((pClass = cDPLCodeEdit.GetRuntimeClass()))
@@ -1568,7 +1584,7 @@ BOOL CDPLCodeEdit::RegisterClass()
 BOOL CDPLCodeEdit::UnregisterClass()
 {
 	CString  szClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CDPLCodeEdit  cDPLCodeEdit;
 
 	if ((pClass = cDPLCodeEdit.GetRuntimeClass()))
@@ -1602,7 +1618,7 @@ VOID CDPLCodeEdit::RenderCode()
 {
 	RenderCode(this, CCustomControls::GetCustomControlFont(this), m_nType, m_bSelection);
 }
-VOID CDPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, UINT nType, BOOL bSelection)
+VOID CDPLCodeEdit::RenderCode(CRichEditCtrl* pEdit, CFont* pFont, UINT nType, BOOL bSelection)
 {
 	INT  nPos;
 	INT  nCount;
@@ -1616,22 +1632,22 @@ VOID CDPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, UINT nType, BO
 	LPTSTR  pszKeyword;
 	LPTSTR  pszComment[3];
 	LPTSTR  pszCodeBuffer;
-	IRichEditOle  *pIRichEditOle;
-	ITextDocument  *pITextDocument;
+	IRichEditOle* pIRichEditOle;
+	ITextDocument* pITextDocument;
 	CHARFORMAT2  cFormat[5];
 	PARAFORMAT2  cParagraph;
 	CFontTools  cFontTools;
 	LOGFONT  lfFont;
 
-	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle *)NULL))
+	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle*)NULL))
 	{
-		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_IDPLCodeDocument, (LPVOID *)&pITextDocument)))
+		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_IDPLCodeDocument, (LPVOID*)& pITextDocument)))
 		{
 			pFont->GetLogFont(&lfFont);
 			pEdit->GetSel(nSelPos[0], nSelPos[1]);
 			pITextDocument->Freeze(&lFreezeCount);
-			pITextDocument->Undo(tomSuspend, NULL);
-			pITextDocument->Redo(tomSuspend, NULL);
+			pITextDocument->Undo(tomSuspend, (long*)NULL);
+			pITextDocument->Redo(tomSuspend, (long*)NULL);
 			cFormat[0].cbSize = sizeof(cFormat[0]);
 			cFormat[1].cbSize = sizeof(cFormat[1]);
 			cFormat[2].cbSize = sizeof(cFormat[2]);
@@ -1663,7 +1679,7 @@ VOID CDPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, UINT nType, BO
 			cFormat[2].yOffset = 0;
 			cFormat[3].yOffset = 0;
 			cFormat[4].yOffset = 0;
-			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, (pEdit->GetWindowTextLength() + 1)*sizeof(TCHAR))))
+			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, ((SIZE_T)pEdit->GetWindowTextLength() + 1) * sizeof(TCHAR))))
 			{
 				for (cParagraph.cbSize = sizeof(cParagraph), cParagraph.dwMask = PFM_SPACEBEFORE | PFM_SPACEAFTER, cParagraph.dySpaceBefore = cParagraph.dySpaceAfter = 0, RenderCode(pEdit, 0, -1, &cFormat[0], &cParagraph), pEdit->GetWindowText(pszCodeBuffer, pEdit->GetWindowTextLength() + 1); (pszPos = _tcsstr(pszCodeBuffer, CString(CR))); )
 				{
@@ -1710,9 +1726,9 @@ VOID CDPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, UINT nType, BO
 				}
 				if (nType == DPLCODEEDIT_TYPE_DEFAULT || nType == DPLCODEEDIT_TYPE_PLAIN)
 				{
-					for (nKeyword = MINDERIVEDPARAMETERLANGUAGEEXTENDEDKEYWORD; nKeyword <= MAXDERIVEDPARAMETERLANGUAGEEXTENDEDKEYWORD; nKeyword++)
+					for (nKeyword = MINDERIVEDPARAMETERLANGUAGEEXTENDEDKEYWORD, nLength = lstrlen(pszCodeBuffer); nKeyword <= MAXDERIVEDPARAMETERLANGUAGEEXTENDEDKEYWORD; nKeyword++)
 					{
-						for (nPos = 0, nLength = lstrlen(pszCodeBuffer); nPos < nLength; )
+						for (nPos = 0; nPos < nLength; )
 						{
 							if ((pszKeyword = _tcsstr(&pszCodeBuffer[nPos], STRING(nKeyword))))
 							{
@@ -1784,9 +1800,9 @@ VOID CDPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, UINT nType, BO
 				}
 				if (nType == DPLCODEEDIT_TYPE_OL)
 				{
-					for (nKeyword = MINDERIVEDPARAMETEROLEXTENDEDKEYWORD; nKeyword <= MAXDERIVEDPARAMETEROLEXTENDEDKEYWORD; nKeyword++)
+					for (nKeyword = MINDERIVEDPARAMETEROLEXTENDEDKEYWORD, nLength = lstrlen(pszCodeBuffer); nKeyword <= MAXDERIVEDPARAMETEROLEXTENDEDKEYWORD; nKeyword++)
 					{
-						for (nPos = 0, nLength = lstrlen(pszCodeBuffer); nPos < nLength; )
+						for (nPos = 0; nPos < nLength; )
 						{
 							if ((pszKeyword = _tcsstr(&pszCodeBuffer[nPos], STRING(nKeyword))))
 							{
@@ -1843,20 +1859,20 @@ VOID CDPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, UINT nType, BO
 				pEdit->SendMessage(EM_SETSEL, nSelPos[0], nSelPos[1]);
 				break;
 			}
-			pITextDocument->Undo(tomResume, NULL);
-			pITextDocument->Redo(tomResume, NULL);
+			pITextDocument->Undo(tomResume, (long*)NULL);
+			pITextDocument->Redo(tomResume, (long*)NULL);
 			pITextDocument->Unfreeze(&lFreezeCount);
 			pITextDocument->Release();
 		}
 		pIRichEditOle->Release();
 	}
 }
-VOID CDPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat)
+VOID CDPLCodeEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)pFormat);
 }
-VOID CDPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph)
+VOID CDPLCodeEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETPARAFORMAT, (WPARAM)NULL, (LPARAM)pParagraph);
@@ -1934,7 +1950,7 @@ CResourceDPLCodeEdit::CResourceDPLCodeEdit(HWND hWnd) : CDPLCodeEdit()
 
 LRESULT CALLBACK CResourceDPLCodeEdit::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceDPLCodeEdit  *pResourceDPLCodeEdit;
+	CResourceDPLCodeEdit* pResourceDPLCodeEdit;
 
 	if ((pResourceDPLCodeEdit = new CResourceDPLCodeEdit(hWnd)))
 	{
@@ -1944,7 +1960,7 @@ LRESULT CALLBACK CResourceDPLCodeEdit::WndProcHook(HWND hWnd, UINT message, WPAR
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceDPLCodeEdit::GetSuperWndProcAddr()
+WNDPROC* CResourceDPLCodeEdit::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -1977,10 +1993,11 @@ IMPLEMENT_DYNCREATE(CMDLCodeEdit, CRichEditCtrl)
 
 CMDLCodeEdit::CMDLCodeEdit() : CRichEditCtrl()
 {
+	m_dwStyle = 0;
 	m_bSelection = TRUE;
 }
 
-BOOL CMDLCodeEdit::Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle)
+BOOL CMDLCodeEdit::Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle)
 {
 	if (CRichEditCtrl::Create((m_dwStyle = dwStyle) | WS_CHILD, rect, pParentWnd, nID))
 	{
@@ -1994,7 +2011,7 @@ BOOL CMDLCodeEdit::RegisterClass()
 {
 	CString  szClass[2];
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CMDLCodeEdit  cMDLCodeEdit;
 
 	if ((pClass = cMDLCodeEdit.GetRuntimeClass()))
@@ -2024,7 +2041,7 @@ BOOL CMDLCodeEdit::RegisterClass()
 BOOL CMDLCodeEdit::UnregisterClass()
 {
 	CString  szClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CMDLCodeEdit  cMDLCodeEdit;
 
 	if ((pClass = cMDLCodeEdit.GetRuntimeClass()))
@@ -2044,7 +2061,7 @@ VOID CMDLCodeEdit::RenderCode()
 {
 	RenderCode(this, CCustomControls::GetCustomControlFont(this), m_bSelection);
 }
-VOID CMDLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection)
+VOID CMDLCodeEdit::RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection)
 {
 	INT  nPos;
 	INT  nCount;
@@ -2058,22 +2075,22 @@ VOID CMDLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelectio
 	LPTSTR  pszKeyword;
 	LPTSTR  pszComment[3];
 	LPTSTR  pszCodeBuffer;
-	IRichEditOle  *pIRichEditOle;
-	ITextDocument  *pITextDocument;
+	IRichEditOle* pIRichEditOle;
+	ITextDocument* pITextDocument;
 	CHARFORMAT2  cFormat[5];
 	PARAFORMAT2  cParagraph;
 	CFontTools  cFontTools;
 	LOGFONT  lfFont;
 
-	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle *)NULL))
+	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle*)NULL))
 	{
-		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_IMDLCodeDocument, (LPVOID *)&pITextDocument)))
+		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_IMDLCodeDocument, (LPVOID*)& pITextDocument)))
 		{
 			pFont->GetLogFont(&lfFont);
 			pEdit->GetSel(nSelPos[0], nSelPos[1]);
 			pITextDocument->Freeze(&lFreezeCount);
-			pITextDocument->Undo(tomSuspend, NULL);
-			pITextDocument->Redo(tomSuspend, NULL);
+			pITextDocument->Undo(tomSuspend, (long*)NULL);
+			pITextDocument->Redo(tomSuspend, (long*)NULL);
 			cFormat[0].cbSize = sizeof(cFormat[0]);
 			cFormat[1].cbSize = sizeof(cFormat[1]);
 			cFormat[2].cbSize = sizeof(cFormat[2]);
@@ -2105,7 +2122,7 @@ VOID CMDLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelectio
 			cFormat[2].yOffset = 0;
 			cFormat[3].yOffset = 0;
 			cFormat[4].yOffset = 0;
-			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, (pEdit->GetWindowTextLength() + 1)*sizeof(TCHAR))))
+			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, ((SIZE_T)pEdit->GetWindowTextLength() + 1) * sizeof(TCHAR))))
 			{
 				for (cParagraph.cbSize = sizeof(cParagraph), cParagraph.dwMask = PFM_SPACEBEFORE | PFM_SPACEAFTER, cParagraph.dySpaceBefore = cParagraph.dySpaceAfter = 0, RenderCode(pEdit, 0, -1, &cFormat[0], &cParagraph), pEdit->GetWindowText(pszCodeBuffer, pEdit->GetWindowTextLength() + 1); (pszPos = _tcsstr(pszCodeBuffer, CString(CR))); )
 				{
@@ -2136,7 +2153,7 @@ VOID CMDLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelectio
 								}
 								if (pszName[0] == STRINGCHAR(IDS_MIMICSDESCRIPTIONLANGUAGE_SYMBOL_DELIMITER) && lstrlen(pszName) > lstrlen(STRING(IDS_MIMICSDESCRIPTIONLANGUAGE_SYMBOL_DELIMITER)) && _tcscspn(pszName + lstrlen(STRING(IDS_MIMICSDESCRIPTIONLANGUAGE_SYMBOL_DELIMITER)), STRING(IDS_MIMICSDESCRIPTIONLANGUAGE_SYMBOL_DELIMITER)) < (size_t)lstrlen(pszName) - 1)
 								{
-									RenderCode(pEdit, (INT)(pszName - pszCodeBuffer), (INT)((pszName - pszCodeBuffer) + _tcscspn(pszName + lstrlen(STRING(IDS_MIMICSDESCRIPTIONLANGUAGE_SYMBOL_DELIMITER)), STRING(IDS_MIMICSDESCRIPTIONLANGUAGE_SYMBOL_DELIMITER)) + 2 * lstrlen(STRING(IDS_MIMICSDESCRIPTIONLANGUAGE_SYMBOL_DELIMITER))), &cFormat[2]);
+									RenderCode(pEdit, (INT)(pszName - pszCodeBuffer), (INT)((pszName - pszCodeBuffer) + _tcscspn(pszName + lstrlen(STRING(IDS_MIMICSDESCRIPTIONLANGUAGE_SYMBOL_DELIMITER)), STRING(IDS_MIMICSDESCRIPTIONLANGUAGE_SYMBOL_DELIMITER)) + 2 * (size_t)lstrlen(STRING(IDS_MIMICSDESCRIPTIONLANGUAGE_SYMBOL_DELIMITER))), &cFormat[2]);
 									break;
 								}
 								break;
@@ -2146,9 +2163,9 @@ VOID CMDLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelectio
 						break;
 					}
 				}
-				for (nKeyword = MINMIMICSDESCRIPTIONLANGUAGEEXTENDEDKEYWORD; nKeyword <= MAXMIMICSDESCRIPTIONLANGUAGEEXTENDEDKEYWORD; nKeyword++)
+				for (nKeyword = MINMIMICSDESCRIPTIONLANGUAGEEXTENDEDKEYWORD, nLength = lstrlen(pszCodeBuffer); nKeyword <= MAXMIMICSDESCRIPTIONLANGUAGEEXTENDEDKEYWORD; nKeyword++)
 				{
-					for (nPos = 0, nLength = lstrlen(pszCodeBuffer); nPos < nLength; )
+					for (nPos = 0; nPos < nLength; )
 					{
 						if ((pszKeyword = _tcsstr(&pszCodeBuffer[nPos], STRING(nKeyword))))
 						{
@@ -2224,20 +2241,20 @@ VOID CMDLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelectio
 				pEdit->SendMessage(EM_SETSEL, nSelPos[0], nSelPos[1]);
 				break;
 			}
-			pITextDocument->Undo(tomResume, NULL);
-			pITextDocument->Redo(tomResume, NULL);
+			pITextDocument->Undo(tomResume, (long*)NULL);
+			pITextDocument->Redo(tomResume, (long*)NULL);
 			pITextDocument->Unfreeze(&lFreezeCount);
 			pITextDocument->Release();
 		}
 		pIRichEditOle->Release();
 	}
 }
-VOID CMDLCodeEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat)
+VOID CMDLCodeEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)pFormat);
 }
-VOID CMDLCodeEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph)
+VOID CMDLCodeEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETPARAFORMAT, (WPARAM)NULL, (LPARAM)pParagraph);
@@ -2315,7 +2332,7 @@ CResourceMDLCodeEdit::CResourceMDLCodeEdit(HWND hWnd) : CMDLCodeEdit()
 
 LRESULT CALLBACK CResourceMDLCodeEdit::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceMDLCodeEdit  *pResourceMDLCodeEdit;
+	CResourceMDLCodeEdit* pResourceMDLCodeEdit;
 
 	if ((pResourceMDLCodeEdit = new CResourceMDLCodeEdit(hWnd)))
 	{
@@ -2325,7 +2342,7 @@ LRESULT CALLBACK CResourceMDLCodeEdit::WndProcHook(HWND hWnd, UINT message, WPAR
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceMDLCodeEdit::GetSuperWndProcAddr()
+WNDPROC* CResourceMDLCodeEdit::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -2358,10 +2375,11 @@ IMPLEMENT_DYNCREATE(CTPLCodeEdit, CRichEditCtrl)
 
 CTPLCodeEdit::CTPLCodeEdit() : CRichEditCtrl()
 {
+	m_dwStyle = 0;
 	m_bSelection = TRUE;
 }
 
-BOOL CTPLCodeEdit::Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle)
+BOOL CTPLCodeEdit::Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle)
 {
 	if (CRichEditCtrl::Create((m_dwStyle = dwStyle) | WS_CHILD, rect, pParentWnd, nID))
 	{
@@ -2375,7 +2393,7 @@ BOOL CTPLCodeEdit::RegisterClass()
 {
 	CString  szClass[2];
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CTPLCodeEdit  cTPLCodeEdit;
 
 	if ((pClass = cTPLCodeEdit.GetRuntimeClass()))
@@ -2405,7 +2423,7 @@ BOOL CTPLCodeEdit::RegisterClass()
 BOOL CTPLCodeEdit::UnregisterClass()
 {
 	CString  szClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CTPLCodeEdit  cTPLCodeEdit;
 
 	if ((pClass = cTPLCodeEdit.GetRuntimeClass()))
@@ -2425,7 +2443,7 @@ VOID CTPLCodeEdit::RenderCode()
 {
 	RenderCode(this, CCustomControls::GetCustomControlFont(this), m_bSelection);
 }
-VOID CTPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection)
+VOID CTPLCodeEdit::RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection)
 {
 	INT  nPos;
 	INT  nCount;
@@ -2439,22 +2457,22 @@ VOID CTPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelectio
 	LPTSTR  pszKeyword;
 	LPTSTR  pszComment[3];
 	LPTSTR  pszCodeBuffer;
-	IRichEditOle  *pIRichEditOle;
-	ITextDocument  *pITextDocument;
+	IRichEditOle* pIRichEditOle;
+	ITextDocument* pITextDocument;
 	CHARFORMAT2  cFormat[5];
 	PARAFORMAT2  cParagraph;
 	CFontTools  cFontTools;
 	LOGFONT  lfFont;
 
-	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle *)NULL))
+	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle*)NULL))
 	{
-		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_ITPLCodeDocument, (LPVOID *)&pITextDocument)))
+		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_ITPLCodeDocument, (LPVOID*)& pITextDocument)))
 		{
 			pFont->GetLogFont(&lfFont);
 			pEdit->GetSel(nSelPos[0], nSelPos[1]);
 			pITextDocument->Freeze(&lFreezeCount);
-			pITextDocument->Undo(tomSuspend, NULL);
-			pITextDocument->Redo(tomSuspend, NULL);
+			pITextDocument->Undo(tomSuspend, (long*)NULL);
+			pITextDocument->Redo(tomSuspend, (long*)NULL);
 			cFormat[0].cbSize = sizeof(cFormat[0]);
 			cFormat[1].cbSize = sizeof(cFormat[1]);
 			cFormat[2].cbSize = sizeof(cFormat[2]);
@@ -2486,7 +2504,7 @@ VOID CTPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelectio
 			cFormat[2].yOffset = 0;
 			cFormat[3].yOffset = 0;
 			cFormat[4].yOffset = 0;
-			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, (pEdit->GetWindowTextLength() + 1)*sizeof(TCHAR))))
+			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, ((SIZE_T)pEdit->GetWindowTextLength() + 1) * sizeof(TCHAR))))
 			{
 				for (cParagraph.cbSize = sizeof(cParagraph), cParagraph.dwMask = PFM_SPACEBEFORE | PFM_SPACEAFTER, cParagraph.dySpaceBefore = cParagraph.dySpaceAfter = 0, RenderCode(pEdit, 0, -1, &cFormat[0], &cParagraph), pEdit->GetWindowText(pszCodeBuffer, pEdit->GetWindowTextLength() + 1); (pszPos = _tcsstr(pszCodeBuffer, CString(CR))); )
 				{
@@ -2517,7 +2535,7 @@ VOID CTPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelectio
 								}
 								if (pszName[0] == STRINGCHAR(IDS_TELECOMMANDPROCEDURELANGUAGE_SYMBOL_DELIMITER) && lstrlen(pszName) > lstrlen(STRING(IDS_TELECOMMANDPROCEDURELANGUAGE_SYMBOL_DELIMITER)) && _tcscspn(pszName + lstrlen(STRING(IDS_TELECOMMANDPROCEDURELANGUAGE_SYMBOL_DELIMITER)), STRING(IDS_TELECOMMANDPROCEDURELANGUAGE_SYMBOL_DELIMITER)) < (size_t)lstrlen(pszName) - 1)
 								{
-									RenderCode(pEdit, (INT)(pszName - pszCodeBuffer), (INT)((pszName - pszCodeBuffer) + _tcscspn(pszName + lstrlen(STRING(IDS_TELECOMMANDPROCEDURELANGUAGE_SYMBOL_DELIMITER)), STRING(IDS_TELECOMMANDPROCEDURELANGUAGE_SYMBOL_DELIMITER)) + 2 * lstrlen(STRING(IDS_TELECOMMANDPROCEDURELANGUAGE_SYMBOL_DELIMITER))), &cFormat[2]);
+									RenderCode(pEdit, (INT)(pszName - pszCodeBuffer), (INT)((pszName - pszCodeBuffer) + _tcscspn(pszName + lstrlen(STRING(IDS_TELECOMMANDPROCEDURELANGUAGE_SYMBOL_DELIMITER)), STRING(IDS_TELECOMMANDPROCEDURELANGUAGE_SYMBOL_DELIMITER)) + 2 * (size_t)lstrlen(STRING(IDS_TELECOMMANDPROCEDURELANGUAGE_SYMBOL_DELIMITER))), &cFormat[2]);
 									break;
 								}
 								break;
@@ -2527,9 +2545,9 @@ VOID CTPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelectio
 						break;
 					}
 				}
-				for (nKeyword = MINTELECOMMANDPROCEDURELANGUAGEEXTENDEDKEYWORD; nKeyword <= MAXTELECOMMANDPROCEDURELANGUAGEEXTENDEDKEYWORD; nKeyword++)
+				for (nKeyword = MINTELECOMMANDPROCEDURELANGUAGEEXTENDEDKEYWORD, nLength = lstrlen(pszCodeBuffer); nKeyword <= MAXTELECOMMANDPROCEDURELANGUAGEEXTENDEDKEYWORD; nKeyword++)
 				{
-					for (nPos = 0, nLength = lstrlen(pszCodeBuffer); nPos < nLength; )
+					for (nPos = 0; nPos < nLength; )
 					{
 						if ((pszKeyword = _tcsstr(&pszCodeBuffer[nPos], STRING(nKeyword))))
 						{
@@ -2605,20 +2623,20 @@ VOID CTPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelectio
 				pEdit->SendMessage(EM_SETSEL, nSelPos[0], nSelPos[1]);
 				break;
 			}
-			pITextDocument->Undo(tomResume, NULL);
-			pITextDocument->Redo(tomResume, NULL);
+			pITextDocument->Undo(tomResume, (long*)NULL);
+			pITextDocument->Redo(tomResume, (long*)NULL);
 			pITextDocument->Unfreeze(&lFreezeCount);
 			pITextDocument->Release();
 		}
 		pIRichEditOle->Release();
 	}
 }
-VOID CTPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat)
+VOID CTPLCodeEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)pFormat);
 }
-VOID CTPLCodeEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph)
+VOID CTPLCodeEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETPARAFORMAT, (WPARAM)NULL, (LPARAM)pParagraph);
@@ -2696,7 +2714,7 @@ CResourceTPLCodeEdit::CResourceTPLCodeEdit(HWND hWnd) : CTPLCodeEdit()
 
 LRESULT CALLBACK CResourceTPLCodeEdit::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceTPLCodeEdit  *pResourceTPLCodeEdit;
+	CResourceTPLCodeEdit* pResourceTPLCodeEdit;
 
 	if ((pResourceTPLCodeEdit = new CResourceTPLCodeEdit(hWnd)))
 	{
@@ -2706,7 +2724,7 @@ LRESULT CALLBACK CResourceTPLCodeEdit::WndProcHook(HWND hWnd, UINT message, WPAR
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceTPLCodeEdit::GetSuperWndProcAddr()
+WNDPROC* CResourceTPLCodeEdit::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -2739,10 +2757,11 @@ IMPLEMENT_DYNCREATE(CScriptCodeEdit, CRichEditCtrl)
 
 CScriptCodeEdit::CScriptCodeEdit() : CRichEditCtrl()
 {
+	m_dwStyle = 0;
 	m_bSelection = TRUE;
 }
 
-BOOL CScriptCodeEdit::Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle)
+BOOL CScriptCodeEdit::Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle)
 {
 	if (CRichEditCtrl::Create((m_dwStyle = dwStyle) | WS_CHILD, rect, pParentWnd, nID))
 	{
@@ -2756,7 +2775,7 @@ BOOL CScriptCodeEdit::RegisterClass()
 {
 	CString  szClass[2];
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CScriptCodeEdit  cScriptCodeEdit;
 
 	if ((pClass = cScriptCodeEdit.GetRuntimeClass()))
@@ -2786,7 +2805,7 @@ BOOL CScriptCodeEdit::RegisterClass()
 BOOL CScriptCodeEdit::UnregisterClass()
 {
 	CString  szClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CScriptCodeEdit  cScriptCodeEdit;
 
 	if ((pClass = cScriptCodeEdit.GetRuntimeClass()))
@@ -2806,7 +2825,7 @@ VOID CScriptCodeEdit::RenderCode()
 {
 	RenderCode(this, CCustomControls::GetCustomControlFont(this), m_bSelection);
 }
-VOID CScriptCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection)
+VOID CScriptCodeEdit::RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection)
 {
 	INT  nPos;
 	INT  nCount;
@@ -2819,22 +2838,22 @@ VOID CScriptCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelec
 	LPTSTR  pszKeyword;
 	LPTSTR  pszComment[3];
 	LPTSTR  pszCodeBuffer;
-	IRichEditOle  *pIRichEditOle;
-	ITextDocument  *pITextDocument;
+	IRichEditOle* pIRichEditOle;
+	ITextDocument* pITextDocument;
 	CHARFORMAT2  cFormat[3];
 	PARAFORMAT2  cParagraph;
 	CFontTools  cFontTools;
 	LOGFONT  lfFont;
 
-	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle *)NULL))
+	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle*)NULL))
 	{
-		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_IScriptCodeDocument, (LPVOID *)&pITextDocument)))
+		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_IScriptCodeDocument, (LPVOID*)& pITextDocument)))
 		{
 			pFont->GetLogFont(&lfFont);
 			pEdit->GetSel(nSelPos[0], nSelPos[1]);
 			pITextDocument->Freeze(&lFreezeCount);
-			pITextDocument->Undo(tomSuspend, NULL);
-			pITextDocument->Redo(tomSuspend, NULL);
+			pITextDocument->Undo(tomSuspend, (long*)NULL);
+			pITextDocument->Redo(tomSuspend, (long*)NULL);
 			cFormat[0].cbSize = sizeof(cFormat[0]);
 			cFormat[1].cbSize = sizeof(cFormat[1]);
 			cFormat[2].cbSize = sizeof(cFormat[2]);
@@ -2854,7 +2873,7 @@ VOID CScriptCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelec
 			cFormat[0].yOffset = 0;
 			cFormat[1].yOffset = 0;
 			cFormat[2].yOffset = 0;
-			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, (pEdit->GetWindowTextLength() + 1)*sizeof(TCHAR))))
+			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, ((SIZE_T)pEdit->GetWindowTextLength() + 1) * sizeof(TCHAR))))
 			{
 				for (cParagraph.cbSize = sizeof(cParagraph), cParagraph.dwMask = PFM_SPACEBEFORE | PFM_SPACEAFTER, cParagraph.dySpaceBefore = cParagraph.dySpaceAfter = 0, RenderCode(pEdit, 0, -1, &cFormat[0], &cParagraph), pEdit->GetWindowText(pszCodeBuffer, pEdit->GetWindowTextLength() + 1); (pszPos = _tcsstr(pszCodeBuffer, CString(CR))); )
 				{
@@ -2865,9 +2884,9 @@ VOID CScriptCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelec
 					}
 					break;
 				}
-				for (nKeyword = MINSCRIPTLANGUAGEKEYWORD; nKeyword <= MAXSCRIPTLANGUAGEKEYWORD; nKeyword++)
+				for (nKeyword = MINSCRIPTLANGUAGEKEYWORD, nLength = lstrlen(pszCodeBuffer); nKeyword <= MAXSCRIPTLANGUAGEKEYWORD; nKeyword++)
 				{
-					for (nPos = 0, nLength = lstrlen(pszCodeBuffer); nPos < nLength; )
+					for (nPos = 0; nPos < nLength; )
 					{
 						if ((pszKeyword = _tcsstr(&pszCodeBuffer[nPos], STRING(nKeyword))))
 						{
@@ -2943,20 +2962,20 @@ VOID CScriptCodeEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelec
 				pEdit->SendMessage(EM_SETSEL, nSelPos[0], nSelPos[1]);
 				break;
 			}
-			pITextDocument->Undo(tomResume, NULL);
-			pITextDocument->Redo(tomResume, NULL);
+			pITextDocument->Undo(tomResume, (long*)NULL);
+			pITextDocument->Redo(tomResume, (long*)NULL);
 			pITextDocument->Unfreeze(&lFreezeCount);
 			pITextDocument->Release();
 		}
 		pIRichEditOle->Release();
 	}
 }
-VOID CScriptCodeEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat)
+VOID CScriptCodeEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)pFormat);
 }
-VOID CScriptCodeEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph)
+VOID CScriptCodeEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETPARAFORMAT, (WPARAM)NULL, (LPARAM)pParagraph);
@@ -3033,7 +3052,7 @@ CResourceScriptCodeEdit::CResourceScriptCodeEdit(HWND hWnd) : CScriptCodeEdit()
 
 LRESULT CALLBACK CResourceScriptCodeEdit::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceScriptCodeEdit  *pResourceScriptCodeEdit;
+	CResourceScriptCodeEdit* pResourceScriptCodeEdit;
 
 	if ((pResourceScriptCodeEdit = new CResourceScriptCodeEdit(hWnd)))
 	{
@@ -3043,7 +3062,7 @@ LRESULT CALLBACK CResourceScriptCodeEdit::WndProcHook(HWND hWnd, UINT message, W
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceScriptCodeEdit::GetSuperWndProcAddr()
+WNDPROC* CResourceScriptCodeEdit::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -3076,10 +3095,11 @@ IMPLEMENT_DYNCREATE(CTCSequenceXmlEdit, CRichEditCtrl)
 
 CTCSequenceXmlEdit::CTCSequenceXmlEdit() : CRichEditCtrl()
 {
+	m_dwStyle = 0;
 	m_bSelection = TRUE;
 }
 
-BOOL CTCSequenceXmlEdit::Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle)
+BOOL CTCSequenceXmlEdit::Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle)
 {
 	if (CRichEditCtrl::Create((m_dwStyle = dwStyle) | WS_CHILD, rect, pParentWnd, nID))
 	{
@@ -3093,7 +3113,7 @@ BOOL CTCSequenceXmlEdit::RegisterClass()
 {
 	CString  szClass[2];
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CTCSequenceXmlEdit  cTCSequenceXmlEdit;
 
 	if ((pClass = cTCSequenceXmlEdit.GetRuntimeClass()))
@@ -3123,7 +3143,7 @@ BOOL CTCSequenceXmlEdit::RegisterClass()
 BOOL CTCSequenceXmlEdit::UnregisterClass()
 {
 	CString  szClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CTCSequenceXmlEdit  cTCSequenceXmlEdit;
 
 	if ((pClass = cTCSequenceXmlEdit.GetRuntimeClass()))
@@ -3143,7 +3163,7 @@ VOID CTCSequenceXmlEdit::RenderCode()
 {
 	RenderCode(this, CCustomControls::GetCustomControlFont(this), m_bSelection);
 }
-VOID CTCSequenceXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection)
+VOID CTCSequenceXmlEdit::RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection)
 {
 	INT  nPos;
 	INT  nCount;
@@ -3162,22 +3182,22 @@ VOID CTCSequenceXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSe
 	LPTSTR  pszAttribute;
 	LPTSTR  pszCodeBuffer;
 	CString  szKeyword[3];
-	IRichEditOle  *pIRichEditOle;
-	ITextDocument  *pITextDocument;
+	IRichEditOle* pIRichEditOle;
+	ITextDocument* pITextDocument;
 	CHARFORMAT2  cFormat[4];
 	PARAFORMAT2  cParagraph;
 	CFontTools  cFontTools;
 	LOGFONT  lfFont;
 
-	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle *)NULL))
+	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle*)NULL))
 	{
-		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_ITCProcedureXmlDocument, (LPVOID *)&pITextDocument)))
+		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_ITCProcedureXmlDocument, (LPVOID*)& pITextDocument)))
 		{
 			pFont->GetLogFont(&lfFont);
 			pEdit->GetSel(nSelPos[0], nSelPos[1]);
 			pITextDocument->Freeze(&lFreezeCount);
-			pITextDocument->Undo(tomSuspend, NULL);
-			pITextDocument->Redo(tomSuspend, NULL);
+			pITextDocument->Undo(tomSuspend, (long*)NULL);
+			pITextDocument->Redo(tomSuspend, (long*)NULL);
 			cFormat[0].cbSize = sizeof(cFormat[0]);
 			cFormat[1].cbSize = sizeof(cFormat[1]);
 			cFormat[2].cbSize = sizeof(cFormat[2]);
@@ -3203,7 +3223,7 @@ VOID CTCSequenceXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSe
 			cFormat[1].yOffset = 0;
 			cFormat[2].yOffset = 0;
 			cFormat[3].yOffset = 0;
-			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, (pEdit->GetWindowTextLength() + 1)*sizeof(TCHAR))))
+			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, ((SIZE_T)pEdit->GetWindowTextLength() + 1) * sizeof(TCHAR))))
 			{
 				for (cParagraph.cbSize = sizeof(cParagraph), cParagraph.dwMask = PFM_SPACEBEFORE | PFM_SPACEAFTER, cParagraph.dySpaceBefore = cParagraph.dySpaceAfter = 0, RenderCode(pEdit, 0, -1, &cFormat[0], &cParagraph), pEdit->GetWindowText(pszCodeBuffer, pEdit->GetWindowTextLength() + 1); (pszPos[0] = _tcsstr(pszCodeBuffer, CString(CR))); )
 				{
@@ -3268,20 +3288,20 @@ VOID CTCSequenceXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSe
 				pEdit->SendMessage(EM_SETSEL, nSelPos[0], nSelPos[1]);
 				break;
 			}
-			pITextDocument->Undo(tomResume, NULL);
-			pITextDocument->Redo(tomResume, NULL);
+			pITextDocument->Undo(tomResume, (long*)NULL);
+			pITextDocument->Redo(tomResume, (long*)NULL);
 			pITextDocument->Unfreeze(&lFreezeCount);
 			pITextDocument->Release();
 		}
 		pIRichEditOle->Release();
 	}
 }
-VOID CTCSequenceXmlEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat)
+VOID CTCSequenceXmlEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)pFormat);
 }
-VOID CTCSequenceXmlEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph)
+VOID CTCSequenceXmlEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETPARAFORMAT, (WPARAM)NULL, (LPARAM)pParagraph);
@@ -3359,7 +3379,7 @@ CResourceTCSequenceXmlEdit::CResourceTCSequenceXmlEdit(HWND hWnd) : CTCSequenceX
 
 LRESULT CALLBACK CResourceTCSequenceXmlEdit::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceTCSequenceXmlEdit  *pResourceTCSequenceXmlEdit;
+	CResourceTCSequenceXmlEdit* pResourceTCSequenceXmlEdit;
 
 	if ((pResourceTCSequenceXmlEdit = new CResourceTCSequenceXmlEdit(hWnd)))
 	{
@@ -3369,7 +3389,7 @@ LRESULT CALLBACK CResourceTCSequenceXmlEdit::WndProcHook(HWND hWnd, UINT message
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceTCSequenceXmlEdit::GetSuperWndProcAddr()
+WNDPROC* CResourceTCSequenceXmlEdit::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -3402,10 +3422,11 @@ IMPLEMENT_DYNCREATE(CANDXmlEdit, CRichEditCtrl)
 
 CANDXmlEdit::CANDXmlEdit() : CRichEditCtrl()
 {
+	m_dwStyle = 0;
 	m_bSelection = TRUE;
 }
 
-BOOL CANDXmlEdit::Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle)
+BOOL CANDXmlEdit::Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle)
 {
 	if (CRichEditCtrl::Create((m_dwStyle = dwStyle) | WS_CHILD, rect, pParentWnd, nID))
 	{
@@ -3419,7 +3440,7 @@ BOOL CANDXmlEdit::RegisterClass()
 {
 	CString  szClass[2];
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CANDXmlEdit  cANDXmlEdit;
 
 	if ((pClass = cANDXmlEdit.GetRuntimeClass()))
@@ -3449,7 +3470,7 @@ BOOL CANDXmlEdit::RegisterClass()
 BOOL CANDXmlEdit::UnregisterClass()
 {
 	CString  szClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CANDXmlEdit  cANDXmlEdit;
 
 	if ((pClass = cANDXmlEdit.GetRuntimeClass()))
@@ -3469,7 +3490,7 @@ VOID CANDXmlEdit::RenderCode()
 {
 	RenderCode(this, CCustomControls::GetCustomControlFont(this), m_bSelection);
 }
-VOID CANDXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection)
+VOID CANDXmlEdit::RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection)
 {
 	INT  nPos;
 	INT  nCount;
@@ -3488,22 +3509,22 @@ VOID CANDXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection
 	LPTSTR  pszAttribute;
 	LPTSTR  pszCodeBuffer;
 	CString  szKeyword[3];
-	IRichEditOle  *pIRichEditOle;
-	ITextDocument  *pITextDocument;
+	IRichEditOle* pIRichEditOle;
+	ITextDocument* pITextDocument;
 	CHARFORMAT2  cFormat[4];
 	PARAFORMAT2  cParagraph;
 	CFontTools  cFontTools;
 	LOGFONT  lfFont;
 
-	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle *)NULL))
+	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle*)NULL))
 	{
-		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_IANDXmlDocument, (LPVOID *)&pITextDocument)))
+		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_IANDXmlDocument, (LPVOID*)& pITextDocument)))
 		{
 			pFont->GetLogFont(&lfFont);
 			pEdit->GetSel(nSelPos[0], nSelPos[1]);
 			pITextDocument->Freeze(&lFreezeCount);
-			pITextDocument->Undo(tomSuspend, NULL);
-			pITextDocument->Redo(tomSuspend, NULL);
+			pITextDocument->Undo(tomSuspend, (long*)NULL);
+			pITextDocument->Redo(tomSuspend, (long*)NULL);
 			cFormat[0].cbSize = sizeof(cFormat[0]);
 			cFormat[1].cbSize = sizeof(cFormat[1]);
 			cFormat[2].cbSize = sizeof(cFormat[2]);
@@ -3529,7 +3550,7 @@ VOID CANDXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection
 			cFormat[1].yOffset = 0;
 			cFormat[2].yOffset = 0;
 			cFormat[3].yOffset = 0;
-			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, (pEdit->GetWindowTextLength() + 1)*sizeof(TCHAR))))
+			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, ((SIZE_T)pEdit->GetWindowTextLength() + 1) * sizeof(TCHAR))))
 			{
 				for (cParagraph.cbSize = sizeof(cParagraph), cParagraph.dwMask = PFM_SPACEBEFORE | PFM_SPACEAFTER, cParagraph.dySpaceBefore = cParagraph.dySpaceAfter = 0, RenderCode(pEdit, 0, -1, &cFormat[0], &cParagraph), pEdit->GetWindowText(pszCodeBuffer, pEdit->GetWindowTextLength() + 1); (pszPos[0] = _tcsstr(pszCodeBuffer, CString(CR))); )
 				{
@@ -3594,20 +3615,20 @@ VOID CANDXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection
 				pEdit->SendMessage(EM_SETSEL, nSelPos[0], nSelPos[1]);
 				break;
 			}
-			pITextDocument->Undo(tomResume, NULL);
-			pITextDocument->Redo(tomResume, NULL);
+			pITextDocument->Undo(tomResume, (long*)NULL);
+			pITextDocument->Redo(tomResume, (long*)NULL);
 			pITextDocument->Unfreeze(&lFreezeCount);
 			pITextDocument->Release();
 		}
 		pIRichEditOle->Release();
 	}
 }
-VOID CANDXmlEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat)
+VOID CANDXmlEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)pFormat);
 }
-VOID CANDXmlEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph)
+VOID CANDXmlEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETPARAFORMAT, (WPARAM)NULL, (LPARAM)pParagraph);
@@ -3685,7 +3706,7 @@ CResourceANDXmlEdit::CResourceANDXmlEdit(HWND hWnd) : CANDXmlEdit()
 
 LRESULT CALLBACK CResourceANDXmlEdit::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceANDXmlEdit  *pResourceANDXmlEdit;
+	CResourceANDXmlEdit* pResourceANDXmlEdit;
 
 	if ((pResourceANDXmlEdit = new CResourceANDXmlEdit(hWnd)))
 	{
@@ -3695,7 +3716,7 @@ LRESULT CALLBACK CResourceANDXmlEdit::WndProcHook(HWND hWnd, UINT message, WPARA
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceANDXmlEdit::GetSuperWndProcAddr()
+WNDPROC* CResourceANDXmlEdit::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -3728,10 +3749,11 @@ IMPLEMENT_DYNCREATE(CGRDXmlEdit, CRichEditCtrl)
 
 CGRDXmlEdit::CGRDXmlEdit() : CRichEditCtrl()
 {
+	m_dwStyle = 0;
 	m_bSelection = TRUE;
 }
 
-BOOL CGRDXmlEdit::Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle)
+BOOL CGRDXmlEdit::Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle)
 {
 	if (CRichEditCtrl::Create((m_dwStyle = dwStyle) | WS_CHILD, rect, pParentWnd, nID))
 	{
@@ -3745,7 +3767,7 @@ BOOL CGRDXmlEdit::RegisterClass()
 {
 	CString  szClass[2];
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CGRDXmlEdit  cGRDXmlEdit;
 
 	if ((pClass = cGRDXmlEdit.GetRuntimeClass()))
@@ -3775,7 +3797,7 @@ BOOL CGRDXmlEdit::RegisterClass()
 BOOL CGRDXmlEdit::UnregisterClass()
 {
 	CString  szClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CGRDXmlEdit  cGRDXmlEdit;
 
 	if ((pClass = cGRDXmlEdit.GetRuntimeClass()))
@@ -3795,7 +3817,7 @@ VOID CGRDXmlEdit::RenderCode()
 {
 	RenderCode(this, CCustomControls::GetCustomControlFont(this), m_bSelection);
 }
-VOID CGRDXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection)
+VOID CGRDXmlEdit::RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection)
 {
 	INT  nPos;
 	INT  nCount;
@@ -3814,22 +3836,22 @@ VOID CGRDXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection
 	LPTSTR  pszAttribute;
 	LPTSTR  pszCodeBuffer;
 	CString  szKeyword[3];
-	IRichEditOle  *pIRichEditOle;
-	ITextDocument  *pITextDocument;
+	IRichEditOle* pIRichEditOle;
+	ITextDocument* pITextDocument;
 	CHARFORMAT2  cFormat[4];
 	PARAFORMAT2  cParagraph;
 	CFontTools  cFontTools;
 	LOGFONT  lfFont;
 
-	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle *)NULL))
+	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle*)NULL))
 	{
-		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_IGRDXmlDocument, (LPVOID *)&pITextDocument)))
+		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_IGRDXmlDocument, (LPVOID*)& pITextDocument)))
 		{
 			pFont->GetLogFont(&lfFont);
 			pEdit->GetSel(nSelPos[0], nSelPos[1]);
 			pITextDocument->Freeze(&lFreezeCount);
-			pITextDocument->Undo(tomSuspend, NULL);
-			pITextDocument->Redo(tomSuspend, NULL);
+			pITextDocument->Undo(tomSuspend, (long*)NULL);
+			pITextDocument->Redo(tomSuspend, (long*)NULL);
 			cFormat[0].cbSize = sizeof(cFormat[0]);
 			cFormat[1].cbSize = sizeof(cFormat[1]);
 			cFormat[2].cbSize = sizeof(cFormat[2]);
@@ -3855,7 +3877,7 @@ VOID CGRDXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection
 			cFormat[1].yOffset = 0;
 			cFormat[2].yOffset = 0;
 			cFormat[3].yOffset = 0;
-			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, (pEdit->GetWindowTextLength() + 1)*sizeof(TCHAR))))
+			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, ((SIZE_T)pEdit->GetWindowTextLength() + 1) * sizeof(TCHAR))))
 			{
 				for (cParagraph.cbSize = sizeof(cParagraph), cParagraph.dwMask = PFM_SPACEBEFORE | PFM_SPACEAFTER, cParagraph.dySpaceBefore = cParagraph.dySpaceAfter = 0, RenderCode(pEdit, 0, -1, &cFormat[0], &cParagraph), pEdit->GetWindowText(pszCodeBuffer, pEdit->GetWindowTextLength() + 1); (pszPos[0] = _tcsstr(pszCodeBuffer, CString(CR))); )
 				{
@@ -3920,20 +3942,20 @@ VOID CGRDXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection
 				pEdit->SendMessage(EM_SETSEL, nSelPos[0], nSelPos[1]);
 				break;
 			}
-			pITextDocument->Undo(tomResume, NULL);
-			pITextDocument->Redo(tomResume, NULL);
+			pITextDocument->Undo(tomResume, (long*)NULL);
+			pITextDocument->Redo(tomResume, (long*)NULL);
 			pITextDocument->Unfreeze(&lFreezeCount);
 			pITextDocument->Release();
 		}
 		pIRichEditOle->Release();
 	}
 }
-VOID CGRDXmlEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat)
+VOID CGRDXmlEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)pFormat);
 }
-VOID CGRDXmlEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph)
+VOID CGRDXmlEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETPARAFORMAT, (WPARAM)NULL, (LPARAM)pParagraph);
@@ -4011,7 +4033,7 @@ CResourceGRDXmlEdit::CResourceGRDXmlEdit(HWND hWnd) : CGRDXmlEdit()
 
 LRESULT CALLBACK CResourceGRDXmlEdit::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceGRDXmlEdit  *pResourceGRDXmlEdit;
+	CResourceGRDXmlEdit* pResourceGRDXmlEdit;
 
 	if ((pResourceGRDXmlEdit = new CResourceGRDXmlEdit(hWnd)))
 	{
@@ -4021,7 +4043,7 @@ LRESULT CALLBACK CResourceGRDXmlEdit::WndProcHook(HWND hWnd, UINT message, WPARA
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceGRDXmlEdit::GetSuperWndProcAddr()
+WNDPROC* CResourceGRDXmlEdit::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -4054,10 +4076,11 @@ IMPLEMENT_DYNCREATE(CPODXmlEdit, CRichEditCtrl)
 
 CPODXmlEdit::CPODXmlEdit() : CRichEditCtrl()
 {
+	m_dwStyle = 0;
 	m_bSelection = TRUE;
 }
 
-BOOL CPODXmlEdit::Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle)
+BOOL CPODXmlEdit::Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle)
 {
 	if (CRichEditCtrl::Create((m_dwStyle = dwStyle) | WS_CHILD, rect, pParentWnd, nID))
 	{
@@ -4071,7 +4094,7 @@ BOOL CPODXmlEdit::RegisterClass()
 {
 	CString  szClass[2];
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CPODXmlEdit  cPODXmlEdit;
 
 	if ((pClass = cPODXmlEdit.GetRuntimeClass()))
@@ -4101,7 +4124,7 @@ BOOL CPODXmlEdit::RegisterClass()
 BOOL CPODXmlEdit::UnregisterClass()
 {
 	CString  szClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CPODXmlEdit  cPODXmlEdit;
 
 	if ((pClass = cPODXmlEdit.GetRuntimeClass()))
@@ -4121,7 +4144,7 @@ VOID CPODXmlEdit::RenderCode()
 {
 	RenderCode(this, CCustomControls::GetCustomControlFont(this), m_bSelection);
 }
-VOID CPODXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection)
+VOID CPODXmlEdit::RenderCode(CRichEditCtrl* pEdit, CFont* pFont, BOOL bSelection)
 {
 	INT  nPos;
 	INT  nCount;
@@ -4140,22 +4163,22 @@ VOID CPODXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection
 	LPTSTR  pszAttribute;
 	LPTSTR  pszCodeBuffer;
 	CString  szKeyword[3];
-	IRichEditOle  *pIRichEditOle;
-	ITextDocument  *pITextDocument;
+	IRichEditOle* pIRichEditOle;
+	ITextDocument* pITextDocument;
 	CHARFORMAT2  cFormat[4];
 	PARAFORMAT2  cParagraph;
 	CFontTools  cFontTools;
 	LOGFONT  lfFont;
 
-	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle *)NULL))
+	if ((pIRichEditOle = (IsWindow(pEdit->GetSafeHwnd())) ? pEdit->GetIRichEditOle() : (IRichEditOle*)NULL))
 	{
-		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_IPODXmlDocument, (LPVOID *)&pITextDocument)))
+		if (SUCCEEDED(pIRichEditOle->QueryInterface(IID_IPODXmlDocument, (LPVOID*)& pITextDocument)))
 		{
 			pFont->GetLogFont(&lfFont);
 			pEdit->GetSel(nSelPos[0], nSelPos[1]);
 			pITextDocument->Freeze(&lFreezeCount);
-			pITextDocument->Undo(tomSuspend, NULL);
-			pITextDocument->Redo(tomSuspend, NULL);
+			pITextDocument->Undo(tomSuspend, (long*)NULL);
+			pITextDocument->Redo(tomSuspend, (long*)NULL);
 			cFormat[0].cbSize = sizeof(cFormat[0]);
 			cFormat[1].cbSize = sizeof(cFormat[1]);
 			cFormat[2].cbSize = sizeof(cFormat[2]);
@@ -4181,7 +4204,7 @@ VOID CPODXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection
 			cFormat[1].yOffset = 0;
 			cFormat[2].yOffset = 0;
 			cFormat[3].yOffset = 0;
-			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, (pEdit->GetWindowTextLength() + 1)*sizeof(TCHAR))))
+			if ((pszCodeBuffer = (LPTSTR)GlobalAlloc(GPTR, ((SIZE_T)pEdit->GetWindowTextLength() + 1) * sizeof(TCHAR))))
 			{
 				for (cParagraph.cbSize = sizeof(cParagraph), cParagraph.dwMask = PFM_SPACEBEFORE | PFM_SPACEAFTER, cParagraph.dySpaceBefore = cParagraph.dySpaceAfter = 0, RenderCode(pEdit, 0, -1, &cFormat[0], &cParagraph), pEdit->GetWindowText(pszCodeBuffer, pEdit->GetWindowTextLength() + 1); (pszPos[0] = _tcsstr(pszCodeBuffer, CString(CR))); )
 				{
@@ -4246,20 +4269,20 @@ VOID CPODXmlEdit::RenderCode(CRichEditCtrl *pEdit, CFont *pFont, BOOL bSelection
 				pEdit->SendMessage(EM_SETSEL, nSelPos[0], nSelPos[1]);
 				break;
 			}
-			pITextDocument->Undo(tomResume, NULL);
-			pITextDocument->Redo(tomResume, NULL);
+			pITextDocument->Undo(tomResume, (long*)NULL);
+			pITextDocument->Redo(tomResume, (long*)NULL);
 			pITextDocument->Unfreeze(&lFreezeCount);
 			pITextDocument->Release();
 		}
 		pIRichEditOle->Release();
 	}
 }
-VOID CPODXmlEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat)
+VOID CPODXmlEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)pFormat);
 }
-VOID CPODXmlEdit::RenderCode(CRichEditCtrl *pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2 *pFormat, CONST PARAFORMAT2 *pParagraph)
+VOID CPODXmlEdit::RenderCode(CRichEditCtrl* pEdit, INT nStartPos, INT nStopPos, CONST CHARFORMAT2* pFormat, CONST PARAFORMAT2* pParagraph)
 {
 	pEdit->SendMessage(EM_SETSEL, nStartPos, nStopPos);
 	pEdit->SendMessage(EM_SETPARAFORMAT, (WPARAM)NULL, (LPARAM)pParagraph);
@@ -4337,7 +4360,7 @@ CResourcePODXmlEdit::CResourcePODXmlEdit(HWND hWnd) : CPODXmlEdit()
 
 LRESULT CALLBACK CResourcePODXmlEdit::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourcePODXmlEdit  *pResourcePODXmlEdit;
+	CResourcePODXmlEdit* pResourcePODXmlEdit;
 
 	if ((pResourcePODXmlEdit = new CResourcePODXmlEdit(hWnd)))
 	{
@@ -4347,7 +4370,7 @@ LRESULT CALLBACK CResourcePODXmlEdit::WndProcHook(HWND hWnd, UINT message, WPARA
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourcePODXmlEdit::GetSuperWndProcAddr()
+WNDPROC* CResourcePODXmlEdit::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -4378,7 +4401,12 @@ BOOL CResourcePODXmlEdit::OnNcCreate(LPCREATESTRUCT lpCreateStruct)
 
 IMPLEMENT_DYNCREATE(CSimpleListBox, CListBox)
 
-BOOL CSimpleListBox::Create(CWnd *pParentWnd, CONST RECT &rect, INT nID, DWORD dwStyle)
+CSimpleListBox::CSimpleListBox()
+{
+	m_dwStyle = 0;
+}
+
+BOOL CSimpleListBox::Create(CWnd* pParentWnd, CONST RECT& rect, INT nID, DWORD dwStyle)
 {
 	if (CListBox::Create((MAKELONG((m_dwStyle = ((LOWORD(dwStyle) & (LBS_DISABLENOSCROLL | LBS_HASSTRINGS | LBS_MULTICOLUMN | LBS_NOINTEGRALHEIGHT | LBS_NOREDRAW | LBS_NOTIFY | LBS_OWNERDRAWFIXED | LBS_OWNERDRAWVARIABLE | LBS_SORT | LBS_USETABSTOPS)) & ~(LBS_EXTENDEDSEL | LBS_MULTIPLESEL | LBS_WANTKEYBOARDINPUT)) | LBS_NOSEL), HIWORD(dwStyle)) | WS_CHILD | WS_VSCROLL) & ~WS_TABSTOP, rect, pParentWnd, nID))
 	{
@@ -4395,7 +4423,7 @@ BOOL CSimpleListBox::RegisterClass()
 	CString  szClass;
 	CString  szBaseClass;
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CSimpleListBox  cSimpleListBox;
 
 	if ((pClass = cSimpleListBox.GetRuntimeClass()))
@@ -4414,7 +4442,7 @@ BOOL CSimpleListBox::RegisterClass()
 			if (_tcsstr(szClass, szBaseClass.Mid(cPos))) break;
 			continue;
 		}
-		if (cPos < cbClassName  &&  GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
+		if (cPos < cbClassName && GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
 		{
 			CResourceSimpleListBox::m_lpfnSuperWndProc = (WNDPROC)sWndClass.lpfnWndProc;
 			if (!GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
@@ -4436,7 +4464,7 @@ BOOL CSimpleListBox::UnregisterClass()
 	INT  cbClassName;
 	CString  szClass;
 	CString  szBaseClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CSimpleListBox  cSimpleListBox;
 
 	if ((pClass = cSimpleListBox.GetRuntimeClass()))
@@ -4481,7 +4509,7 @@ BOOL CSimpleListBox::OnNcCreate(LPCREATESTRUCT lpCreateStruct)
 	return CListBox::OnNcCreate(lpCreateStruct);
 }
 
-void CSimpleListBox::OnSetFocus(CWnd *pOldWnd)
+void CSimpleListBox::OnSetFocus(CWnd* pOldWnd)
 {
 	return;
 }
@@ -4522,7 +4550,7 @@ CResourceSimpleListBox::CResourceSimpleListBox(HWND hWnd) : CSimpleListBox()
 
 LRESULT CALLBACK CResourceSimpleListBox::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceSimpleListBox  *pResourceSimpleListBox;
+	CResourceSimpleListBox* pResourceSimpleListBox;
 
 	if ((pResourceSimpleListBox = new CResourceSimpleListBox(hWnd)))
 	{
@@ -4532,7 +4560,7 @@ LRESULT CALLBACK CResourceSimpleListBox::WndProcHook(HWND hWnd, UINT message, WP
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceSimpleListBox::GetSuperWndProcAddr()
+WNDPROC* CResourceSimpleListBox::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -4563,7 +4591,12 @@ BOOL CResourceSimpleListBox::OnNcCreate(LPCREATESTRUCT lpCreateStruct)
 
 IMPLEMENT_DYNCREATE(CColorsComboBox, CComboBox)
 
-BOOL CColorsComboBox::Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle)
+CColorsComboBox::CColorsComboBox()
+{
+	m_dwStyle = 0;
+}
+
+BOOL CColorsComboBox::Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle)
 {
 	return CComboBox::Create(MAKELONG((m_dwStyle = ((LOWORD(dwStyle) & (CCBS_STANDARD | CCBS_CUSTOM | CBS_DISABLENOSCROLL | CBS_NOINTEGRALHEIGHT | CBS_SORT)) & ~(CBS_SIMPLE | CBS_DROPDOWN | CBS_OWNERDRAWFIXED | CBS_AUTOHSCROLL | CBS_HASSTRINGS | CBS_LOWERCASE | CBS_UPPERCASE | CBS_OEMCONVERT)) | CBS_DROPDOWNLIST | CBS_OWNERDRAWVARIABLE), HIWORD(dwStyle)) | WS_CHILD | WS_VSCROLL, rect, pParentWnd, nID);
 }
@@ -4575,7 +4608,7 @@ BOOL CColorsComboBox::RegisterClass()
 	CString  szClass;
 	CString  szBaseClass;
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CColorsComboBox  cColorsComboBox;
 
 	if ((pClass = cColorsComboBox.GetRuntimeClass()))
@@ -4594,7 +4627,7 @@ BOOL CColorsComboBox::RegisterClass()
 			if (_tcsstr(szClass, szBaseClass.Mid(cPos))) break;
 			continue;
 		}
-		if (cPos < cbClassName  &&  GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
+		if (cPos < cbClassName && GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
 		{
 			CResourceColorsComboBox::m_lpfnSuperWndProc = (WNDPROC)sWndClass.lpfnWndProc;
 			if (!GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
@@ -4616,7 +4649,7 @@ BOOL CColorsComboBox::UnregisterClass()
 	INT  cbClassName;
 	CString  szClass;
 	CString  szBaseClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CColorsComboBox  cColorsComboBox;
 
 	if ((pClass = cColorsComboBox.GetRuntimeClass()))
@@ -4642,8 +4675,8 @@ BOOL CColorsComboBox::UnregisterClass()
 
 void CColorsComboBox::MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct)
 {
-	CDC  *pDC;
-	CFont  *pOldFont;
+	CDC* pDC;
+	CFont* pOldFont;
 	TEXTMETRIC  tmFont;
 
 	if ((pDC = GetDC()))
@@ -4661,7 +4694,7 @@ void CColorsComboBox::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
 	CDC  cDC;
 	INT  nBkMode;
-	CFont  *pOldFont;
+	CFont* pOldFont;
 	CRect  rItemArea;
 	CBrush  cBkBrush;
 	CBrush  cItemBrush;
@@ -4685,7 +4718,7 @@ void CColorsComboBox::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 					rItemArea.DeflateRect(2 * GetSystemMetrics(SM_CXBORDER), 2 * GetSystemMetrics(SM_CYBORDER));
 					if ((GetStyle() & CCBS_CUSTOM) && lpDrawItemStruct->itemID == (UINT)GetCount() - 1)
 					{
-						if ((pOldFont = (CFont *)cDC.SelectObject(CCustomControls::GetCustomControlFont(this))))
+						if ((pOldFont = (CFont*)cDC.SelectObject(CCustomControls::GetCustomControlFont(this))))
 						{
 							if (cDC.GetTextMetrics(&tmFont))
 							{
@@ -4870,7 +4903,7 @@ CResourceColorsComboBox::CResourceColorsComboBox(HWND hWnd) : CColorsComboBox()
 
 LRESULT CALLBACK CResourceColorsComboBox::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceColorsComboBox  *pResourceColorsComboBox;
+	CResourceColorsComboBox* pResourceColorsComboBox;
 
 	if ((pResourceColorsComboBox = new CResourceColorsComboBox(hWnd)))
 	{
@@ -4880,7 +4913,7 @@ LRESULT CALLBACK CResourceColorsComboBox::WndProcHook(HWND hWnd, UINT message, W
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceColorsComboBox::GetSuperWndProcAddr()
+WNDPROC* CResourceColorsComboBox::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -4911,7 +4944,12 @@ BOOL CResourceColorsComboBox::OnNcCreate(LPCREATESTRUCT lpCreateStruct)
 
 IMPLEMENT_DYNCREATE(CLineStylesComboBox, CComboBox)
 
-BOOL CLineStylesComboBox::Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle)
+CLineStylesComboBox::CLineStylesComboBox()
+{
+	m_dwStyle = 0;
+}
+
+BOOL CLineStylesComboBox::Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle)
 {
 	return CComboBox::Create(MAKELONG((m_dwStyle = ((LOWORD(dwStyle) & (CBS_DISABLENOSCROLL | CBS_NOINTEGRALHEIGHT | CBS_SORT)) & ~(CBS_SIMPLE | CBS_DROPDOWN | CBS_OWNERDRAWFIXED | CBS_AUTOHSCROLL | CBS_HASSTRINGS | CBS_LOWERCASE | CBS_UPPERCASE | CBS_OEMCONVERT)) | CBS_DROPDOWNLIST | CBS_OWNERDRAWVARIABLE), HIWORD(dwStyle)) | WS_CHILD | WS_VSCROLL, rect, pParentWnd, nID);
 }
@@ -4923,7 +4961,7 @@ BOOL CLineStylesComboBox::RegisterClass()
 	CString  szClass;
 	CString  szBaseClass;
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CLineStylesComboBox  cLineStylesComboBox;
 
 	if ((pClass = cLineStylesComboBox.GetRuntimeClass()))
@@ -4942,7 +4980,7 @@ BOOL CLineStylesComboBox::RegisterClass()
 			if (_tcsstr(szClass, szBaseClass.Mid(cPos))) break;
 			continue;
 		}
-		if (cPos < cbClassName  &&  GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
+		if (cPos < cbClassName && GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
 		{
 			CResourceLineStylesComboBox::m_lpfnSuperWndProc = (WNDPROC)sWndClass.lpfnWndProc;
 			if (!GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
@@ -4964,7 +5002,7 @@ BOOL CLineStylesComboBox::UnregisterClass()
 	INT  cbClassName;
 	CString  szClass;
 	CString  szBaseClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CLineStylesComboBox  cLineStylesComboBox;
 
 	if ((pClass = cLineStylesComboBox.GetRuntimeClass()))
@@ -4990,8 +5028,8 @@ BOOL CLineStylesComboBox::UnregisterClass()
 
 void CLineStylesComboBox::MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct)
 {
-	CDC  *pDC;
-	CFont  *pOldFont;
+	CDC* pDC;
+	CFont* pOldFont;
 	TEXTMETRIC  tmFont;
 
 	if ((pDC = GetDC()))
@@ -5033,7 +5071,7 @@ void CLineStylesComboBox::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 					sPenBrush.lbStyle = BS_SOLID;
 					sPenBrush.lbHatch = (ULONG_PTR)NULL;
 					sPenBrush.lbColor = (lpDrawItemStruct->itemState & ODS_SELECTED) ? GetSysColor(COLOR_HIGHLIGHTTEXT) : GetSysColor(COLOR_WINDOWTEXT);
-					if ((hPen = ExtCreatePen((DWORD)(PS_GEOMETRIC | PS_ENDCAP_FLAT | lpDrawItemStruct->itemData), 2, &sPenBrush, 0, (CONST DWORD *) NULL)))
+					if ((hPen = ExtCreatePen((DWORD)(PS_GEOMETRIC | PS_ENDCAP_FLAT | lpDrawItemStruct->itemData), 2, &sPenBrush, 0, (CONST DWORD*) NULL)))
 					{
 						if ((hOldPen = (HPEN)SelectObject(lpDrawItemStruct->hDC, hPen)) != (HPEN)NULL)
 						{
@@ -5142,7 +5180,7 @@ CResourceLineStylesComboBox::CResourceLineStylesComboBox(HWND hWnd) : CLineStyle
 
 LRESULT CALLBACK CResourceLineStylesComboBox::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceLineStylesComboBox  *pResourceLineStylesComboBox;
+	CResourceLineStylesComboBox* pResourceLineStylesComboBox;
 
 	if ((pResourceLineStylesComboBox = new CResourceLineStylesComboBox(hWnd)))
 	{
@@ -5152,7 +5190,7 @@ LRESULT CALLBACK CResourceLineStylesComboBox::WndProcHook(HWND hWnd, UINT messag
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceLineStylesComboBox::GetSuperWndProcAddr()
+WNDPROC* CResourceLineStylesComboBox::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -5183,7 +5221,12 @@ BOOL CResourceLineStylesComboBox::OnNcCreate(LPCREATESTRUCT lpCreateStruct)
 
 IMPLEMENT_DYNCREATE(CLineSymbolsComboBox, CComboBox)
 
-BOOL CLineSymbolsComboBox::Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle)
+CLineSymbolsComboBox::CLineSymbolsComboBox()
+{
+	m_dwStyle = 0;
+}
+
+BOOL CLineSymbolsComboBox::Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle)
 {
 	return CComboBox::Create(MAKELONG((m_dwStyle = ((LOWORD(dwStyle) & (CBS_DISABLENOSCROLL | CBS_NOINTEGRALHEIGHT | CBS_SORT)) & ~(CBS_SIMPLE | CBS_DROPDOWN | CBS_OWNERDRAWFIXED | CBS_AUTOHSCROLL | CBS_HASSTRINGS | CBS_LOWERCASE | CBS_UPPERCASE | CBS_OEMCONVERT)) | CBS_DROPDOWNLIST | CBS_OWNERDRAWVARIABLE), HIWORD(dwStyle)) | WS_CHILD | WS_VSCROLL, rect, pParentWnd, nID);
 }
@@ -5195,7 +5238,7 @@ BOOL CLineSymbolsComboBox::RegisterClass()
 	CString  szClass;
 	CString  szBaseClass;
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CLineSymbolsComboBox  cLineSymbolsComboBox;
 
 	if ((pClass = cLineSymbolsComboBox.GetRuntimeClass()))
@@ -5214,7 +5257,7 @@ BOOL CLineSymbolsComboBox::RegisterClass()
 			if (_tcsstr(szClass, szBaseClass.Mid(cPos))) break;
 			continue;
 		}
-		if (cPos < cbClassName  &&  GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
+		if (cPos < cbClassName && GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
 		{
 			CResourceLineSymbolsComboBox::m_lpfnSuperWndProc = (WNDPROC)sWndClass.lpfnWndProc;
 			if (!GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
@@ -5236,7 +5279,7 @@ BOOL CLineSymbolsComboBox::UnregisterClass()
 	INT  cbClassName;
 	CString  szClass;
 	CString  szBaseClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CLineSymbolsComboBox  cLineSymbolsComboBox;
 
 	if ((pClass = cLineSymbolsComboBox.GetRuntimeClass()))
@@ -5262,8 +5305,8 @@ BOOL CLineSymbolsComboBox::UnregisterClass()
 
 void CLineSymbolsComboBox::MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct)
 {
-	CDC  *pDC;
-	CFont  *pOldFont;
+	CDC* pDC;
+	CFont* pOldFont;
 	TEXTMETRIC  tmFont;
 
 	if ((pDC = GetDC()))
@@ -5309,7 +5352,7 @@ void CLineSymbolsComboBox::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 					sPenBrush.lbStyle = BS_SOLID;
 					sPenBrush.lbHatch = (ULONG_PTR)NULL;
 					sPenBrush.lbColor = (lpDrawItemStruct->itemState & ODS_SELECTED) ? GetSysColor(COLOR_HIGHLIGHTTEXT) : GetSysColor(COLOR_WINDOWTEXT);
-					if ((hPen = ExtCreatePen(PS_GEOMETRIC | PS_ENDCAP_FLAT | PS_SOLID, (nWidth = 2), &sPenBrush, 0, (CONST DWORD *) NULL)))
+					if ((hPen = ExtCreatePen(PS_GEOMETRIC | PS_ENDCAP_FLAT | PS_SOLID, (nWidth = 2), &sPenBrush, 0, (CONST DWORD*) NULL)))
 					{
 						if ((hOldPen = (HPEN)SelectObject(lpDrawItemStruct->hDC, hPen)) != (HPEN)NULL)
 						{
@@ -5455,7 +5498,7 @@ CResourceLineSymbolsComboBox::CResourceLineSymbolsComboBox(HWND hWnd) : CLineSym
 
 LRESULT CALLBACK CResourceLineSymbolsComboBox::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceLineSymbolsComboBox  *pResourceLineSymbolsComboBox;
+	CResourceLineSymbolsComboBox* pResourceLineSymbolsComboBox;
 
 	if ((pResourceLineSymbolsComboBox = new CResourceLineSymbolsComboBox(hWnd)))
 	{
@@ -5465,7 +5508,7 @@ LRESULT CALLBACK CResourceLineSymbolsComboBox::WndProcHook(HWND hWnd, UINT messa
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceLineSymbolsComboBox::GetSuperWndProcAddr()
+WNDPROC* CResourceLineSymbolsComboBox::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -5496,7 +5539,12 @@ BOOL CResourceLineSymbolsComboBox::OnNcCreate(LPCREATESTRUCT lpCreateStruct)
 
 IMPLEMENT_DYNCREATE(CHatchesComboBox, CComboBox)
 
-BOOL CHatchesComboBox::Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle)
+CHatchesComboBox::CHatchesComboBox()
+{
+	m_dwStyle = 0;
+}
+
+BOOL CHatchesComboBox::Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle)
 {
 	return CComboBox::Create(MAKELONG((m_dwStyle = ((LOWORD(dwStyle) & (CBS_DISABLENOSCROLL | CBS_NOINTEGRALHEIGHT | CBS_SORT)) & ~(CBS_SIMPLE | CBS_DROPDOWN | CBS_OWNERDRAWFIXED | CBS_AUTOHSCROLL | CBS_HASSTRINGS | CBS_LOWERCASE | CBS_UPPERCASE | CBS_OEMCONVERT)) | CBS_DROPDOWNLIST | CBS_OWNERDRAWVARIABLE), HIWORD(dwStyle)) | WS_CHILD | WS_VSCROLL, rect, pParentWnd, nID);
 }
@@ -5508,7 +5556,7 @@ BOOL CHatchesComboBox::RegisterClass()
 	CString  szClass;
 	CString  szBaseClass;
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CHatchesComboBox  cHatchesComboBox;
 
 	if ((pClass = cHatchesComboBox.GetRuntimeClass()))
@@ -5527,7 +5575,7 @@ BOOL CHatchesComboBox::RegisterClass()
 			if (_tcsstr(szClass, szBaseClass.Mid(cPos))) break;
 			continue;
 		}
-		if (cPos < cbClassName  &&  GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
+		if (cPos < cbClassName && GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
 		{
 			CResourceHatchesComboBox::m_lpfnSuperWndProc = (WNDPROC)sWndClass.lpfnWndProc;
 			if (!GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
@@ -5549,7 +5597,7 @@ BOOL CHatchesComboBox::UnregisterClass()
 	INT  cbClassName;
 	CString  szClass;
 	CString  szBaseClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CHatchesComboBox  cHatchesComboBox;
 
 	if ((pClass = cHatchesComboBox.GetRuntimeClass()))
@@ -5575,8 +5623,8 @@ BOOL CHatchesComboBox::UnregisterClass()
 
 void CHatchesComboBox::MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct)
 {
-	CDC  *pDC;
-	CFont  *pOldFont;
+	CDC* pDC;
+	CFont* pOldFont;
 	TEXTMETRIC  tmFont;
 
 	if ((pDC = GetDC()))
@@ -5742,7 +5790,7 @@ CResourceHatchesComboBox::CResourceHatchesComboBox(HWND hWnd) : CHatchesComboBox
 
 LRESULT CALLBACK CResourceHatchesComboBox::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceHatchesComboBox  *pResourceHatchesComboBox;
+	CResourceHatchesComboBox* pResourceHatchesComboBox;
 
 	if ((pResourceHatchesComboBox = new CResourceHatchesComboBox(hWnd)))
 	{
@@ -5752,7 +5800,7 @@ LRESULT CALLBACK CResourceHatchesComboBox::WndProcHook(HWND hWnd, UINT message, 
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceHatchesComboBox::GetSuperWndProcAddr()
+WNDPROC* CResourceHatchesComboBox::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -5785,11 +5833,13 @@ IMPLEMENT_DYNCREATE(CFontsComboBox, CComboBox)
 
 CFontsComboBox::CFontsComboBox() : CComboBox()
 {
+	m_dwStyle = 0;
+	m_nItem = 0;
 	m_hPrinterFontBitmap = (HBITMAP)NULL;
 	m_hTrueTypeFontBitmap = (HBITMAP)NULL;
 }
 
-BOOL CFontsComboBox::Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle)
+BOOL CFontsComboBox::Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle)
 {
 	if (CComboBox::Create(MAKELONG((m_dwStyle = ((LOWORD(dwStyle) & (CBS_SIMPLE | CBS_DROPDOWN | CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | CBS_DISABLENOSCROLL | CBS_NOINTEGRALHEIGHT | CBS_SORT | CBS_OEMCONVERT)) & ~(CBS_OWNERDRAWFIXED | CBS_UPPERCASE | CBS_LOWERCASE)) | CBS_OWNERDRAWVARIABLE | CBS_HASSTRINGS), HIWORD(dwStyle)) | WS_CHILD | WS_VSCROLL, rect, pParentWnd, nID))
 	{
@@ -5806,7 +5856,7 @@ BOOL CFontsComboBox::RegisterClass()
 	CString  szClass;
 	CString  szBaseClass;
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CFontsComboBox  cFontsComboBox;
 
 	if ((pClass = cFontsComboBox.GetRuntimeClass()))
@@ -5825,7 +5875,7 @@ BOOL CFontsComboBox::RegisterClass()
 			if (_tcsstr(szClass, szBaseClass.Mid(cPos))) break;
 			continue;
 		}
-		if (cPos < cbClassName  &&  GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
+		if (cPos < cbClassName && GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
 		{
 			CResourceFontsComboBox::m_lpfnSuperWndProc = (WNDPROC)sWndClass.lpfnWndProc;
 			if (!GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
@@ -5847,7 +5897,7 @@ BOOL CFontsComboBox::UnregisterClass()
 	INT  cbClassName;
 	CString  szClass;
 	CString  szBaseClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CFontsComboBox  cFontsComboBox;
 
 	if ((pClass = cFontsComboBox.GetRuntimeClass()))
@@ -5873,8 +5923,8 @@ BOOL CFontsComboBox::UnregisterClass()
 
 void CFontsComboBox::MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct)
 {
-	CDC  *pDC;
-	CFont  *pOldFont;
+	CDC* pDC;
+	CFont* pOldFont;
 	BITMAP  sFont[2];
 	TEXTMETRIC  tmFont;
 
@@ -5895,10 +5945,10 @@ void CFontsComboBox::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 	CDC  cBitmapDC;
 	INT  nOldColor;
 	INT  nOldBkMode;
-	CFont  *pOldFont;
+	CFont* pOldFont;
 	CBrush  cBkBrush;
 	BITMAP  sFont[2];
-	CBitmap  *pOldBitmap;
+	CBitmap* pOldBitmap;
 	PFONTINFO  pFontInfo = (PFONTINFO)lpDrawItemStruct->itemData;
 
 	if (cDC.Attach(lpDrawItemStruct->hDC))
@@ -5969,10 +6019,10 @@ void CFontsComboBox::DeleteItem(LPDELETEITEMSTRUCT lpDeleteItemStruct)
 	GlobalFree(pFontInfo);
 }
 
-INT CALLBACK CFontsComboBox::EnumFontsProc(CONST LOGFONT *pLogFont, CONST TEXTMETRIC *pTextMetric, DWORD dwFontType, LPARAM pData)
+INT CALLBACK CFontsComboBox::EnumFontsProc(CONST LOGFONT* pLogFont, CONST TEXTMETRIC* pTextMetric, DWORD dwFontType, LPARAM pData)
 {
 	INT  nIndex;
-	CWnd  *pWnd;
+	CWnd* pWnd;
 	PFONTINFO  pFontInfo;
 	PFONTENUMINFO  pFontEnumInfo = (PFONTENUMINFO)pData;
 
@@ -6048,7 +6098,7 @@ void CFontsComboBox::OnEnable(BOOL bEnable)
 			SetItemDataPtr(nItem, pFontInfo);
 		}
 	}
-	for (m_nItem = (bEnable && GetCount()) ? SetCurSel(m_nItem) : GetCurSel(); !bEnable && GetCount() > 0; DeleteString(0)) m_pItems.AddTail((CObject *)GetItemDataPtr(0));
+	for (m_nItem = (bEnable && GetCount()) ? SetCurSel(m_nItem) : GetCurSel(); !bEnable && GetCount() > 0; DeleteString(0)) m_pItems.AddTail((CObject*)GetItemDataPtr(0));
 	CComboBox::OnEnable(bEnable);
 }
 
@@ -6059,7 +6109,7 @@ LRESULT CFontsComboBox::OnDir(WPARAM wParam, LPARAM lParam)
 	ResetContent();
 	if ((sFontEnumInfo.hDC = (!(sFontEnumInfo.dwTypes & CF_PRINTERFONTS)) ? ::GetDC(sFontEnumInfo.hWnd) : sFontEnumInfo.hDC))
 	{
-		EnumFontFamilies(sFontEnumInfo.hDC, (LPCTSTR)NULL, EnumFontsProc, (LPARAM)&sFontEnumInfo);
+		EnumFontFamilies(sFontEnumInfo.hDC, (LPCTSTR)NULL, EnumFontsProc, (LPARAM)& sFontEnumInfo);
 		if (!(sFontEnumInfo.dwTypes & CF_PRINTERFONTS)) ::ReleaseDC(sFontEnumInfo.hWnd, sFontEnumInfo.hDC);
 		return GetCount();
 	}
@@ -6090,7 +6140,7 @@ CResourceFontsComboBox::CResourceFontsComboBox(HWND hWnd) : CFontsComboBox()
 
 LRESULT CALLBACK CResourceFontsComboBox::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceFontsComboBox  *pResourceFontsComboBox;
+	CResourceFontsComboBox* pResourceFontsComboBox;
 
 	if ((pResourceFontsComboBox = new CResourceFontsComboBox(hWnd)))
 	{
@@ -6100,7 +6150,7 @@ LRESULT CALLBACK CResourceFontsComboBox::WndProcHook(HWND hWnd, UINT message, WP
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceFontsComboBox::GetSuperWndProcAddr()
+WNDPROC* CResourceFontsComboBox::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -6133,6 +6183,7 @@ IMPLEMENT_DYNCREATE(CAlignmentComboBox, CComboBox)
 
 CAlignmentComboBox::CAlignmentComboBox() : CComboBox()
 {
+	m_dwStyle = 0;
 	m_hImageBitmap[AL_HLEFTVTOP] = (HBITMAP)NULL;
 	m_hImageBitmap[AL_HLEFTVCENTER] = (HBITMAP)NULL;
 	m_hImageBitmap[AL_HLEFTVBOTTOM] = (HBITMAP)NULL;
@@ -6144,7 +6195,7 @@ CAlignmentComboBox::CAlignmentComboBox() : CComboBox()
 	m_hImageBitmap[AL_HRIGHTVBOTTOM] = (HBITMAP)NULL;
 }
 
-BOOL CAlignmentComboBox::Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle)
+BOOL CAlignmentComboBox::Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle)
 {
 	return CComboBox::Create(MAKELONG((m_dwStyle = ((LOWORD(dwStyle) & (ALCBS_LEFT | ALCBS_CENTER | ALCBS_RIGHT | CBS_DISABLENOSCROLL | CBS_NOINTEGRALHEIGHT | CBS_SORT)) & ~(CBS_SIMPLE | CBS_DROPDOWN | CBS_OWNERDRAWFIXED | CBS_AUTOHSCROLL | CBS_HASSTRINGS | CBS_LOWERCASE | CBS_UPPERCASE | CBS_OEMCONVERT)) | CBS_DROPDOWNLIST | CBS_OWNERDRAWVARIABLE), HIWORD(dwStyle)) | WS_CHILD | WS_VSCROLL, rect, pParentWnd, nID);
 }
@@ -6156,7 +6207,7 @@ BOOL CAlignmentComboBox::RegisterClass()
 	CString  szClass;
 	CString  szBaseClass;
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CAlignmentComboBox  cAlignmentComboBox;
 
 	if ((pClass = cAlignmentComboBox.GetRuntimeClass()))
@@ -6175,7 +6226,7 @@ BOOL CAlignmentComboBox::RegisterClass()
 			if (_tcsstr(szClass, szBaseClass.Mid(cPos))) break;
 			continue;
 		}
-		if (cPos < cbClassName  &&  GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
+		if (cPos < cbClassName && GetClassInfo((HINSTANCE)NULL, szBaseClass.Mid(cPos), &sWndClass))
 		{
 			CResourceAlignmentComboBox::m_lpfnSuperWndProc = (WNDPROC)sWndClass.lpfnWndProc;
 			if (!GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
@@ -6197,7 +6248,7 @@ BOOL CAlignmentComboBox::UnregisterClass()
 	INT  cbClassName;
 	CString  szClass;
 	CString  szBaseClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CAlignmentComboBox  cAlignmentComboBox;
 
 	if ((pClass = cAlignmentComboBox.GetRuntimeClass()))
@@ -6223,8 +6274,8 @@ BOOL CAlignmentComboBox::UnregisterClass()
 
 void CAlignmentComboBox::MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct)
 {
-	CDC  *pDC;
-	CFont  *pOldFont;
+	CDC* pDC;
+	CFont* pOldFont;
 	TEXTMETRIC  tmFont;
 	BITMAP  sImage;
 
@@ -6245,7 +6296,7 @@ void CAlignmentComboBox::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 	CDC  cMemDC;
 	CRect  rImage;
 	CBrush  cBkBrush;
-	CBitmap  *pOldBitmap;
+	CBitmap* pOldBitmap;
 	BITMAP  sImage;
 
 	if (cDC.Attach(lpDrawItemStruct->hDC))
@@ -6259,7 +6310,7 @@ void CAlignmentComboBox::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 			}
 			if (!(lpDrawItemStruct->itemState & ODS_DISABLED))
 			{
-				if (lpDrawItemStruct->itemID >= (UINT)AL_HLEFTVTOP  &&  lpDrawItemStruct->itemID <= (UINT)AL_HRIGHTVBOTTOM)
+				if (lpDrawItemStruct->itemID >= (UINT)AL_HLEFTVTOP && lpDrawItemStruct->itemID <= (UINT)AL_HRIGHTVBOTTOM)
 				{
 					if (cMemDC.CreateCompatibleDC(&cDC))
 					{
@@ -6435,7 +6486,7 @@ CResourceAlignmentComboBox::CResourceAlignmentComboBox(HWND hWnd) : CAlignmentCo
 
 LRESULT CALLBACK CResourceAlignmentComboBox::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceAlignmentComboBox  *pResourceAlignmentComboBox;
+	CResourceAlignmentComboBox* pResourceAlignmentComboBox;
 
 	if ((pResourceAlignmentComboBox = new CResourceAlignmentComboBox(hWnd)))
 	{
@@ -6445,7 +6496,7 @@ LRESULT CALLBACK CResourceAlignmentComboBox::WndProcHook(HWND hWnd, UINT message
 	return ::DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-WNDPROC *CResourceAlignmentComboBox::GetSuperWndProcAddr()
+WNDPROC* CResourceAlignmentComboBox::GetSuperWndProcAddr()
 {
 	return &m_lpfnSuperWndProc;
 }
@@ -6492,11 +6543,11 @@ END_MESSAGE_MAP()
 
 void CSpinButtons::OnMouseMove(UINT nFlags, CPoint point)
 {
-	CSpinBox  *pSpinBox;
-	CTimeSpinBox  *pTimeSpinBox;
+	CSpinBox* pSpinBox;
+	CTimeSpinBox* pTimeSpinBox;
 
-	if ((pSpinBox = (GetParent()->IsKindOf(RUNTIME_CLASS(CSpinBox))) ? (CSpinBox *)GetParent() : (CSpinBox *)NULL)) pSpinBox->UpdateUI();
-	if ((pTimeSpinBox = (GetParent()->IsKindOf(RUNTIME_CLASS(CTimeSpinBox))) ? (CTimeSpinBox *)GetParent() : (CTimeSpinBox *)NULL)) pTimeSpinBox->UpdateUI();
+	if ((pSpinBox = (GetParent()->IsKindOf(RUNTIME_CLASS(CSpinBox))) ? (CSpinBox*)GetParent() : (CSpinBox*)NULL)) pSpinBox->UpdateUI();
+	if ((pTimeSpinBox = (GetParent()->IsKindOf(RUNTIME_CLASS(CTimeSpinBox))) ? (CTimeSpinBox*)GetParent() : (CTimeSpinBox*)NULL)) pTimeSpinBox->UpdateUI();
 	CSpinButtonCtrl::OnMouseMove(nFlags, point);
 }
 
@@ -6508,11 +6559,12 @@ IMPLEMENT_DYNCREATE(CSpinBox, CWnd)
 
 CSpinBox::CSpinBox() : CWnd()
 {
+	m_dwStyle = 0;
 	m_bState[0] = FALSE;
 	m_bState[1] = FALSE;
 }
 
-BOOL CSpinBox::Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle)
+BOOL CSpinBox::Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle)
 {
 	return CWnd::Create((LPCTSTR)NULL, EMPTYSTRING, MAKELONG((((m_dwStyle = ((LOWORD(dwStyle) & (ES_LEFT | ES_CENTER | ES_RIGHT | ES_NOHIDESEL | ES_OEMCONVERT)) & ~(ES_AUTOHSCROLL | ES_AUTOVSCROLL | ES_LOWERCASE | ES_UPPERCASE | ES_NUMBER | ES_PASSWORD | ES_READONLY | ES_WANTRETURN)))) ? NULL : NULL), HIWORD(dwStyle)) | WS_CHILD, rect, pParentWnd, nID);
 }
@@ -6524,7 +6576,7 @@ BOOL CSpinBox::RegisterClass()
 	CString  szClass;
 	CString  szBaseClass;
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CSpinBox  cSpinBox;
 
 	if ((pClass = cSpinBox.GetRuntimeClass()))
@@ -6543,7 +6595,7 @@ BOOL CSpinBox::RegisterClass()
 			if (szClass.Mid(cPos, 1) != szBaseClass.Mid(cPos, 1)) break;
 			continue;
 		}
-		if (cPos < cbClassName  &&  !GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
+		if (cPos < cbClassName && !GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
 		{
 			sWndClass.lpszClassName = (LPCTSTR)szClass;
 			sWndClass.lpfnWndProc = CResourceSpinBox::WndProcHook;
@@ -6566,7 +6618,7 @@ BOOL CSpinBox::UnregisterClass()
 	INT  cbClassName;
 	CString  szClass;
 	CString  szBaseClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CSpinBox  cSpinBox;
 
 	if ((pClass = cSpinBox.GetRuntimeClass()))
@@ -6602,7 +6654,7 @@ void CSpinBox::UpdateUI()
 		}
 	}
 }
-void CSpinBox::UpdateUI(CONST POINT &point)
+void CSpinBox::UpdateUI(CONST POINT& point)
 {
 	CRect  rSpinBox;
 	BOOL  bState;
@@ -6624,24 +6676,37 @@ void CSpinBox::UpdateUI(CONST POINT &point)
 	}
 }
 
-INT CSpinBox::CalcIndent()
+VOID CSpinBox::RecalcLayout(INT cx, INT cy)
 {
-	CDC  *pDC;
-	CFont  *pOldFont;
+	CDC* pDC;
+	CRect  rEditCtrl;
+	CRect  rSpinCtrl;
+	CFont* pOldFont;
 	TEXTMETRIC  tmFont;
 
 	if ((pDC = GetDC()))
 	{
 		if ((pOldFont = pDC->SelectObject(GetFont())))
 		{
-			pDC->GetTextMetrics(&tmFont);
+			for (pDC->GetTextMetrics(&tmFont), rEditCtrl.SetRect(tmFont.tmAveCharWidth, (cy - tmFont.tmHeight + 1) / 2, cx - 2 * tmFont.tmAveCharWidth, (cy - tmFont.tmHeight + 1) / 2 + tmFont.tmHeight), rSpinCtrl.SetRect(cx - 3 * cy / 4 + (3 * cy / 4) % 2, 0, cx, cy); (GetWindowLongPtr(GetSafeHwnd(), GWL_EXSTYLE) & WS_EX_CLIENTEDGE) != WS_EX_CLIENTEDGE; )
+			{
+				rEditCtrl.DeflateRect(0, GetSystemMetrics(SM_CYBORDER));
+				rSpinCtrl.DeflateRect(0, GetSystemMetrics(SM_CYBORDER));
+				rSpinCtrl.OffsetRect(-GetSystemMetrics(SM_CXBORDER), 0);
+				break;
+			}
+			if (IsWindow(m_wndEditCtrl.GetSafeHwnd()))
+			{
+				m_wndEditCtrl.MoveWindow(rEditCtrl.left, rEditCtrl.top, rSpinCtrl.left - rEditCtrl.left, rEditCtrl.Height());
+			}
+			if (IsWindow(m_wndSpinCtrl.GetSafeHwnd()))
+			{
+				m_wndSpinCtrl.MoveWindow(rSpinCtrl);
+			}
 			pDC->SelectObject(pOldFont);
-			ReleaseDC(pDC);
-			return tmFont.tmAveCharWidth;
 		}
 		ReleaseDC(pDC);
 	}
-	return 0;
 }
 
 BEGIN_MESSAGE_MAP(CSpinBox, CWnd)
@@ -6676,20 +6741,13 @@ END_MESSAGE_MAP()
 
 int CSpinBox::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-	CRect  rSpinCtrl;
-
 	if (CWnd::OnCreate(lpCreateStruct) != -1)
 	{
 		if (m_wndSpinCtrl.Create(UDS_NOTHOUSANDS | ((IsWindowEnabled()) ? (WS_CHILD | WS_VISIBLE) : (WS_CHILD | WS_DISABLED | WS_VISIBLE)), CRect(0, 0, 0, 0), this, 0) && m_wndEditCtrl.Create(this, CRect(0, 0, 0, 0), m_wndSpinCtrl.GetDlgCtrlID() + 1, m_dwStyle | ((IsWindowEnabled()) ? (WS_CHILD | WS_VISIBLE) : WS_CHILD) | (lpCreateStruct->style & WS_TABSTOP)))
 		{
-			for (SetWindowPos(&m_wndEditCtrl, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE), SetFont(CCustomControls::GetCustomControlFont(this)), rSpinCtrl.SetRect(lpCreateStruct->cx - 3 * lpCreateStruct->cy / 4 + (3 * lpCreateStruct->cy / 4) % 2, 0, lpCreateStruct->cx, lpCreateStruct->cy); (GetWindowLongPtr(GetSafeHwnd(), GWL_EXSTYLE) & WS_EX_CLIENTEDGE) != WS_EX_CLIENTEDGE; )
-			{
-				rSpinCtrl.DeflateRect(0, GetSystemMetrics(SM_CYBORDER));
-				rSpinCtrl.OffsetRect(-GetSystemMetrics(SM_CXBORDER), 0);
-				break;
-			}
-			m_wndEditCtrl.MoveWindow(CalcIndent(), rSpinCtrl.top, lpCreateStruct->cx - CalcIndent() - rSpinCtrl.Width(), rSpinCtrl.Height());
-			m_wndSpinCtrl.MoveWindow(rSpinCtrl);
+			SetWindowPos(&m_wndEditCtrl, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
+			SetFont(CCustomControls::GetCustomControlFont(this));
+			RecalcLayout(lpCreateStruct->cx, lpCreateStruct->cy);
 			return 0;
 		}
 	}
@@ -6708,23 +6766,11 @@ BOOL CSpinBox::OnNcCreate(LPCREATESTRUCT lpCreateStruct)
 
 void CSpinBox::OnSize(UINT nType, int cx, int cy)
 {
-	CRect  rSpinCtrl;
-
-	if (IsWindow(m_wndSpinCtrl.GetSafeHwnd()) && IsWindow(m_wndEditCtrl.GetSafeHwnd()))
-	{
-		for (m_wndSpinCtrl.GetWindowRect(rSpinCtrl), rSpinCtrl.SetRect(cx - rSpinCtrl.Width(), 0, cx, cy); (GetWindowLongPtr(GetSafeHwnd(), GWL_EXSTYLE) & WS_EX_CLIENTEDGE) != WS_EX_CLIENTEDGE; )
-		{
-			rSpinCtrl.DeflateRect(0, GetSystemMetrics(SM_CYBORDER));
-			rSpinCtrl.OffsetRect(-GetSystemMetrics(SM_CXBORDER), 0);
-			break;
-		}
-		m_wndEditCtrl.MoveWindow(CalcIndent(), rSpinCtrl.top, cx - CalcIndent() - rSpinCtrl.Width(), rSpinCtrl.Height());
-		m_wndSpinCtrl.MoveWindow(rSpinCtrl);
-	}
+	RecalcLayout(cx, cy);
 	CWnd::OnSize(nType, cx, cy);
 }
 
-BOOL CSpinBox::OnEraseBkgnd(CDC *pDC)
+BOOL CSpinBox::OnEraseBkgnd(CDC* pDC)
 {
 	HTHEME  hTheme;
 	CBrush  cBkgndBrush;
@@ -6759,7 +6805,7 @@ void CSpinBox::OnMouseMove(UINT nFlags, CPoint point)
 	CWnd::OnMouseMove(nFlags, point);
 }
 
-void CSpinBox::OnSetFocus(CWnd *pOldWnd)
+void CSpinBox::OnSetFocus(CWnd* pOldWnd)
 {
 	m_wndEditCtrl.SetSel(0, -1);
 	m_wndEditCtrl.SetFocus();
@@ -6811,13 +6857,13 @@ BOOL CSpinBox::OnCommand(WPARAM wParam, LPARAM lParam)
 	return FALSE;
 }
 
-BOOL CSpinBox::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT *pResult)
+BOOL CSpinBox::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {
-	NMUPDOWN  *pNotifyInfo = (NMUPDOWN *)lParam;
+	NMUPDOWN* pNotifyInfo = (NMUPDOWN*)lParam;
 
 	if (pNotifyInfo->hdr.code == UDN_DELTAPOS)
 	{
-		m_wndEditCtrl.SetPos(m_wndEditCtrl.GetPos() - pNotifyInfo->iDelta, TRUE);
+		m_wndEditCtrl.SetPos(m_wndEditCtrl.GetPos() - (LONGLONG)pNotifyInfo->iDelta, TRUE);
 		m_wndEditCtrl.SetSel(0, -1);
 		m_wndEditCtrl.SetFocus();
 		return TRUE;
@@ -6906,57 +6952,57 @@ void CSpinBox::OnDestroy()
 }
 
 // SpinBox helpers
-BOOL Spinbox_SetPos(CWnd *pCtrl, LONGLONG nPos)
+BOOL Spinbox_SetPos(CWnd* pCtrl, LONGLONG nPos)
 {
-	return((BOOL)pCtrl->SendMessage(SBXM_SETPOS, (WPARAM)NULL, (LPARAM)&nPos));
+	return((BOOL)pCtrl->SendMessage(SBXM_SETPOS, (WPARAM)NULL, (LPARAM)& nPos));
 }
 
-LONGLONG Spinbox_GetPos(CWnd *pCtrl)
+LONGLONG Spinbox_GetPos(CWnd* pCtrl)
 {
 	LONGLONG nPos;
 
-	pCtrl->SendMessage(SBXM_GETPOS, TRUE, (LPARAM)&nPos);
+	pCtrl->SendMessage(SBXM_GETPOS, TRUE, (LPARAM)& nPos);
 	return nPos;
 }
 
-BOOL Spinbox_SetBase(CWnd *pCtrl, UINT nBase, UINT nDigits)
+BOOL Spinbox_SetBase(CWnd* pCtrl, UINT nBase, UINT nDigits)
 {
 	return((BOOL)pCtrl->SendMessage(SBXM_SETBASE, nBase, nDigits));
 }
 
-BOOL Spinbox_GetBase(CWnd *pCtrl, UINT &nBase, UINT &nDigits)
+BOOL Spinbox_GetBase(CWnd* pCtrl, UINT& nBase, UINT& nDigits)
 {
-	return((BOOL)pCtrl->SendMessage(SBXM_GETBASE, (WPARAM)&nBase, (LPARAM)&nDigits));
+	return((BOOL)pCtrl->SendMessage(SBXM_GETBASE, (WPARAM)& nBase, (LPARAM)& nDigits));
 }
 
-BOOL Spinbox_SetRange(CWnd *pCtrl, LONGLONG nMin, LONGLONG nMax)
+BOOL Spinbox_SetRange(CWnd* pCtrl, LONGLONG nMin, LONGLONG nMax)
 {
-	return((BOOL)pCtrl->SendMessage(SBXM_SETRANGE, (WPARAM)&nMin, (LPARAM)&nMax));
+	return((BOOL)pCtrl->SendMessage(SBXM_SETRANGE, (WPARAM)& nMin, (LPARAM)& nMax));
 }
 
-BOOL Spinbox_GetRange(CWnd *pCtrl, LONGLONG &nMin, LONGLONG &nMax)
+BOOL Spinbox_GetRange(CWnd* pCtrl, LONGLONG& nMin, LONGLONG& nMax)
 {
-	return((BOOL)pCtrl->SendMessage(SBXM_GETRANGE, (WPARAM)&nMin, (LPARAM)&nMax));
+	return((BOOL)pCtrl->SendMessage(SBXM_GETRANGE, (WPARAM)& nMin, (LPARAM)& nMax));
 }
 
-BOOL Spinbox_SetAccel(CWnd *pCtrl, INT nAccel, CONST UDACCEL *pAccel)
+BOOL Spinbox_SetAccel(CWnd* pCtrl, INT nAccel, CONST UDACCEL* pAccel)
 {
 	return((BOOL)pCtrl->SendMessage(SBXM_SETACCEL, nAccel, (LPARAM)pAccel));
 }
 
-UINT Spinbox_GetAccel(CWnd *pCtrl, INT nAccel, UDACCEL *pAccel)
+UINT Spinbox_GetAccel(CWnd* pCtrl, INT nAccel, UDACCEL* pAccel)
 {
 	return((UINT)pCtrl->SendMessage(SBXM_GETACCEL, nAccel, (LPARAM)pAccel));
 }
 
-BOOL Spinbox_SetSel(CWnd *pCtrl, INT nStartPos, INT nStopPos)
+BOOL Spinbox_SetSel(CWnd* pCtrl, INT nStartPos, INT nStopPos)
 {
 	return((BOOL)pCtrl->SendMessage(SBXM_SETSEL, nStartPos, nStopPos));
 }
 
-BOOL Spinbox_GetSel(CWnd *pCtrl, INT &nStartPos, INT &nStopPos)
+BOOL Spinbox_GetSel(CWnd* pCtrl, INT& nStartPos, INT& nStopPos)
 {
-	return((BOOL)pCtrl->SendMessage(SBXM_GETSEL, (WPARAM)&nStartPos, (LPARAM)&nStopPos));
+	return((BOOL)pCtrl->SendMessage(SBXM_GETSEL, (WPARAM)& nStartPos, (LPARAM)& nStopPos));
 }
 
 
@@ -6972,7 +7018,7 @@ CResourceSpinBox::CResourceSpinBox(HWND hWnd) : CSpinBox()
 
 LRESULT CALLBACK CResourceSpinBox::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceSpinBox  *pResourceSpinBox;
+	CResourceSpinBox* pResourceSpinBox;
 
 	if ((pResourceSpinBox = new CResourceSpinBox(hWnd)))
 	{
@@ -7010,15 +7056,14 @@ IMPLEMENT_DYNCREATE(CTimeSpinBox, CWnd)
 
 CTimeSpinBox::CTimeSpinBox() : CWnd()
 {
+	m_dwStyle = 0;
+	m_tStartTime = m_tStopTime = 0;
 	m_tTime = 1000000 * CTime::GetCurrentTime().GetTime();
-	m_tStartTime = 0;
-	m_tStopTime = 0;
-	m_bState[0] = FALSE;
-	m_bState[1] = FALSE;
+	m_bState[0] = m_bState[1] = FALSE;
 	m_bVisible = TRUE;
 }
 
-BOOL CTimeSpinBox::Create(CWnd *pParentWnd, CONST RECT &rect, UINT nID, DWORD dwStyle, LPCTSTR pszFormat, CONST CTimeTag &tStartTime, CONST CTimeTag &tStopTime)
+BOOL CTimeSpinBox::Create(CWnd* pParentWnd, CONST RECT& rect, UINT nID, DWORD dwStyle, LPCTSTR pszFormat, CONST CTimeTag& tStartTime, CONST CTimeTag& tStopTime)
 {
 	for (m_tStartTime = tStartTime, m_tStopTime = tStopTime; CWnd::Create((LPCTSTR)NULL, (AfxIsValidString(pszFormat)) ? pszFormat : EMPTYSTRING, MAKELONG((((m_dwStyle = LOWORD(dwStyle) & (TSBXS_ANY_TIME | TSBXS_PAST_TIME | TSBXS_FUTURE_TIME | TSBXS_UTC_TIME | TSBXS_SPAN_TIME | TSBXS_HIDE_TIME))) ? NULL : NULL), HIWORD(dwStyle)) | WS_CHILD, rect, pParentWnd, nID); ) return TRUE;
 	return FALSE;
@@ -7031,7 +7076,7 @@ BOOL CTimeSpinBox::RegisterClass()
 	CString  szClass;
 	CString  szBaseClass;
 	WNDCLASS  sWndClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CTimeSpinBox  cTimeSpinBox;
 
 	if ((pClass = cTimeSpinBox.GetRuntimeClass()))
@@ -7050,7 +7095,7 @@ BOOL CTimeSpinBox::RegisterClass()
 			if (szClass.Mid(cPos, 1) != szBaseClass.Mid(cPos, 1)) break;
 			continue;
 		}
-		if (cPos < cbClassName  &&  !GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
+		if (cPos < cbClassName && !GetClassInfo((sWndClass.hInstance = GetModuleHandle((LPCTSTR)NULL)), (szClass = szClass.Mid(cPos)), &sWndClass))
 		{
 			sWndClass.lpszClassName = (LPCTSTR)szClass;
 			sWndClass.lpfnWndProc = CResourceTimeSpinBox::WndProcHook;
@@ -7073,7 +7118,7 @@ BOOL CTimeSpinBox::UnregisterClass()
 	INT  cbClassName;
 	CString  szClass;
 	CString  szBaseClass;
-	CRuntimeClass  *pClass;
+	CRuntimeClass* pClass;
 	CTimeSpinBox  cTimeSpinBox;
 
 	if ((pClass = cTimeSpinBox.GetRuntimeClass()))
@@ -7101,17 +7146,17 @@ VOID CTimeSpinBox::EnableAutoCompletion(BOOL bEnable)
 {
 	INT  nCtrl;
 	INT  nCtrls;
-	CTextEdit  *pTextEditCtrl;
-	CNumberEdit  *pNumberEditCtrl;
+	CTextEdit* pTextEditCtrl;
+	CNumberEdit* pNumberEditCtrl;
 
 	for (nCtrl = 0, nCtrls = (INT)m_pwndEditCtrls.GetSize(); nCtrl < nCtrls; nCtrl++)
 	{
-		if ((pNumberEditCtrl = (IsSubFormatNumericalEditCtrl(m_nCtrlFormat.GetAt(nCtrl))) ? (CNumberEdit *)m_pwndEditCtrls.GetAt(nCtrl) : (CNumberEdit *)NULL))
+		if ((pNumberEditCtrl = (IsSubFormatNumericalEditCtrl(m_nCtrlFormat.GetAt(nCtrl))) ? (CNumberEdit*)m_pwndEditCtrls.GetAt(nCtrl) : (CNumberEdit*)NULL))
 		{
 			pNumberEditCtrl->EnableAutoCompletion(bEnable);
 			continue;
 		}
-		if ((pTextEditCtrl = (!IsSubFormatNumericalEditCtrl(m_nCtrlFormat.GetAt(nCtrl))) ? (CTextEdit *)m_pwndEditCtrls.GetAt(nCtrl) : (CTextEdit *)NULL))
+		if ((pTextEditCtrl = (!IsSubFormatNumericalEditCtrl(m_nCtrlFormat.GetAt(nCtrl))) ? (CTextEdit*)m_pwndEditCtrls.GetAt(nCtrl) : (CTextEdit*)NULL))
 		{
 			pTextEditCtrl->EnableAutoCompletion(bEnable);
 			continue;
@@ -7123,17 +7168,17 @@ BOOL CTimeSpinBox::IsAutoCompletionEnabled() CONST
 {
 	INT  nCtrl;
 	INT  nCtrls;
-	CTextEdit  *pTextEditCtrl;
-	CNumberEdit  *pNumberEditCtrl;
+	CTextEdit* pTextEditCtrl;
+	CNumberEdit* pNumberEditCtrl;
 
 	for (nCtrl = 0, nCtrls = (INT)m_pwndEditCtrls.GetSize(); nCtrl < nCtrls; nCtrl++)
 	{
-		if ((pNumberEditCtrl = (IsSubFormatNumericalEditCtrl(m_nCtrlFormat.GetAt(nCtrl))) ? (CNumberEdit *)m_pwndEditCtrls.GetAt(nCtrl) : (CNumberEdit *)NULL))
+		if ((pNumberEditCtrl = (IsSubFormatNumericalEditCtrl(m_nCtrlFormat.GetAt(nCtrl))) ? (CNumberEdit*)m_pwndEditCtrls.GetAt(nCtrl) : (CNumberEdit*)NULL))
 		{
 			if (pNumberEditCtrl->IsAutoCompletionEnabled()) break;
 			continue;
 		}
-		if ((pTextEditCtrl = (!IsSubFormatNumericalEditCtrl(m_nCtrlFormat.GetAt(nCtrl))) ? (CTextEdit *)m_pwndEditCtrls.GetAt(nCtrl) : (CTextEdit *)NULL))
+		if ((pTextEditCtrl = (!IsSubFormatNumericalEditCtrl(m_nCtrlFormat.GetAt(nCtrl))) ? (CTextEdit*)m_pwndEditCtrls.GetAt(nCtrl) : (CTextEdit*)NULL))
 		{
 			if (pTextEditCtrl->IsAutoCompletionEnabled()) break;
 			continue;
@@ -7155,7 +7200,7 @@ INT CTimeSpinBox::TranslateSubFormat(LPCTSTR pszFormat) CONST
 	return((nSubFormatID <= MAXTIMETAGSUBFORMAT) ? nSubFormatID : -1);
 }
 
-BOOL CTimeSpinBox::TranslateSubFormatDelimiter(LPCTSTR pszFormat, CString &szDelimiter) CONST
+BOOL CTimeSpinBox::TranslateSubFormatDelimiter(LPCTSTR pszFormat, CString& szDelimiter) CONST
 {
 	CString  szFormat(pszFormat);
 
@@ -7167,14 +7212,14 @@ BOOL CTimeSpinBox::TranslateSubFormatDelimiter(LPCTSTR pszFormat, CString &szDel
 	return !szDelimiter.IsEmpty();
 }
 
-BOOL CTimeSpinBox::TranslateSubFormatPosition(LPCTSTR pszFormat, CONST RECT &rect, CRect &rSubFormat)
+BOOL CTimeSpinBox::TranslateSubFormatPosition(LPCTSTR pszFormat, CONST RECT& rect, CRect& rSubFormat)
 {
-	CDC  *pDC;
+	CDC* pDC;
 	INT  nWidth;
 	INT  nSubFormat;
 	INT  nSubFormats;
 	INT  nSubFormatID;
-	CFont  *pOldFont;
+	CFont* pOldFont;
 	CRect  rTimeSpinBox;
 	CSize  sizeSubFormat[2];
 	CStringArray  szSubFormats;
@@ -7260,7 +7305,7 @@ LONGLONG CTimeSpinBox::EnumSubFormatLimits(INT nSubFormatID) CONST
 	}
 	return MAKETIMESPINBOXLIMITS(LOWORD(m_tTime.EnumSubFormatLimits(nSubFormatID, (m_dwStyle & TSBXS_UTC_TIME) ? TRUE : FALSE)), HIWORD(m_tTime.EnumSubFormatLimits(nSubFormatID, (m_dwStyle & TSBXS_UTC_TIME) ? TRUE : FALSE)));
 }
-INT CTimeSpinBox::EnumSubFormatLimits(INT nSubFormatID, CStringArray &szNames) CONST
+INT CTimeSpinBox::EnumSubFormatLimits(INT nSubFormatID, CStringArray& szNames) CONST
 {
 	return m_tTime.EnumSubFormatLimits(nSubFormatID, szNames, (m_dwStyle & TSBXS_UTC_TIME) ? TRUE : FALSE);
 }
@@ -7269,13 +7314,13 @@ BOOL CTimeSpinBox::ShowSubControls(BOOL bShow)
 {
 	INT  nCtrl[2];
 	INT  nCtrls[2];
-	CWnd  *pCtrl[2];
+	CWnd* pCtrl[2];
 
 	if (m_dwStyle & TSBXS_HIDE_TIME)
 	{
 		for (nCtrl[0] = 0, nCtrls[0] = (m_bVisible != bShow) ? (INT)m_pwndEditCtrls.GetSize() : 0; nCtrl[0] < nCtrls[0]; nCtrl[0]++)
 		{
-			if ((pCtrl[0] = (CWnd *)m_pwndEditCtrls.GetAt(nCtrl[0])))
+			if ((pCtrl[0] = (CWnd*)m_pwndEditCtrls.GetAt(nCtrl[0])))
 			{
 				pCtrl[0]->ShowWindow((bShow) ? SW_SHOWNA : SW_HIDE);
 				continue;
@@ -7284,7 +7329,7 @@ BOOL CTimeSpinBox::ShowSubControls(BOOL bShow)
 		}
 		for (nCtrl[1] = 0, nCtrls[1] = (m_bVisible != bShow) ? (INT)m_pwndStaticCtrls.GetSize() : 0; nCtrl[1] < nCtrls[1]; nCtrl[1]++)
 		{
-			if ((pCtrl[1] = (CWnd *)m_pwndStaticCtrls.GetAt(nCtrl[1])))
+			if ((pCtrl[1] = (CWnd*)m_pwndStaticCtrls.GetAt(nCtrl[1])))
 			{
 				pCtrl[1]->ShowWindow((bShow) ? SW_SHOWNA : SW_HIDE);
 				continue;
@@ -7352,7 +7397,7 @@ void CTimeSpinBox::UpdateUI()
 		}
 	}
 }
-void CTimeSpinBox::UpdateUI(CONST POINT &point)
+void CTimeSpinBox::UpdateUI(CONST POINT& point)
 {
 	BOOL  bState;
 	CRect  rSpinBox;
@@ -7376,8 +7421,8 @@ void CTimeSpinBox::UpdateUI(CONST POINT &point)
 
 INT CTimeSpinBox::CalcIndent()
 {
-	CDC  *pDC;
-	CFont  *pOldFont;
+	CDC* pDC;
+	CFont* pOldFont;
 	TEXTMETRIC  tmFont;
 
 	if ((pDC = GetDC()))
@@ -7431,12 +7476,12 @@ int CTimeSpinBox::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CRect  rEditCtrl;
 	CRect  rSpinCtrl;
 	CRect  rStaticCtrl;
-	CEdit  *pEditCtrl;
+	CEdit* pEditCtrl;
 	CString  szDelimiter;
 	CString  szTimeFormat;
-	CStatic  *pStaticCtrl;
-	CTextEdit  *pTextEditCtrl;
-	CNumberEdit  *pNumberEditCtrl;
+	CStatic* pStaticCtrl;
+	CTextEdit* pTextEditCtrl;
+	CNumberEdit* pNumberEditCtrl;
 
 	if (CWnd::OnCreate(lpCreateStruct) != -1)
 	{
@@ -7489,7 +7534,7 @@ int CTimeSpinBox::OnCreate(LPCREATESTRUCT lpCreateStruct)
 					}
 					break;
 				}
-				if ((pStaticCtrl = (TranslateSubFormatDelimiter(szTimeFormat, szDelimiter) && TranslateSubFormatPosition(szDelimiter, rSubCtrl, rStaticCtrl)) ? new CStatic : (CStatic *)NULL))
+				if ((pStaticCtrl = (TranslateSubFormatDelimiter(szTimeFormat, szDelimiter) && TranslateSubFormatPosition(szDelimiter, rSubCtrl, rStaticCtrl)) ? new CStatic : (CStatic*)NULL))
 				{
 					if (pStaticCtrl->Create(szDelimiter, SS_SIMPLE | ((IsWindowEnabled()) ? (WS_CHILD | WS_CLIPSIBLINGS | WS_VISIBLE) : (WS_CHILD | WS_CLIPSIBLINGS)), rStaticCtrl, this))
 					{
@@ -7517,7 +7562,7 @@ int CTimeSpinBox::OnCreate(LPCREATESTRUCT lpCreateStruct)
 			}
 			for (; m_pwndEditCtrls.GetSize() > 0; m_pwndEditCtrls.RemoveAt(0))
 			{
-				if ((pEditCtrl = (CEdit *)m_pwndEditCtrls.GetAt(0)))
+				if ((pEditCtrl = (CEdit*)m_pwndEditCtrls.GetAt(0)))
 				{
 					pEditCtrl->DestroyWindow();
 					delete pEditCtrl;
@@ -7525,7 +7570,7 @@ int CTimeSpinBox::OnCreate(LPCREATESTRUCT lpCreateStruct)
 			}
 			for (; m_pwndStaticCtrls.GetSize() > 0; m_pwndStaticCtrls.RemoveAt(0))
 			{
-				if ((pStaticCtrl = (CStatic *)m_pwndStaticCtrls.GetAt(0)))
+				if ((pStaticCtrl = (CStatic*)m_pwndStaticCtrls.GetAt(0)))
 				{
 					pStaticCtrl->DestroyWindow();
 					delete pStaticCtrl;
@@ -7554,8 +7599,8 @@ void CTimeSpinBox::OnSize(UINT nType, int cx, int cy)
 	CRect  rEditCtrl;
 	CRect  rSpinCtrl;
 	CRect  rStaticCtrl;
-	CEdit  *pEditCtrl;
-	CStatic  *pStaticCtrl;
+	CEdit* pEditCtrl;
+	CStatic* pStaticCtrl;
 
 	if (IsWindow(m_wndSpinCtrl.GetSafeHwnd()))
 	{
@@ -7569,7 +7614,7 @@ void CTimeSpinBox::OnSize(UINT nType, int cx, int cy)
 	}
 	for (nCtrl = 0, nCtrls = (INT)m_pwndEditCtrls.GetSize(); nCtrl < nCtrls; nCtrl++)
 	{
-		if ((pEditCtrl = (CEdit *)m_pwndEditCtrls.GetAt(nCtrl)))
+		if ((pEditCtrl = (CEdit*)m_pwndEditCtrls.GetAt(nCtrl)))
 		{
 			pEditCtrl->GetWindowRect(rEditCtrl);
 			ScreenToClient(rEditCtrl);
@@ -7579,7 +7624,7 @@ void CTimeSpinBox::OnSize(UINT nType, int cx, int cy)
 	}
 	for (nCtrl = 0, nCtrls = (INT)m_pwndStaticCtrls.GetSize(); nCtrl < nCtrls; nCtrl++)
 	{
-		if ((pStaticCtrl = (CStatic *)m_pwndStaticCtrls.GetAt(nCtrl)))
+		if ((pStaticCtrl = (CStatic*)m_pwndStaticCtrls.GetAt(nCtrl)))
 		{
 			pStaticCtrl->GetWindowRect(rStaticCtrl);
 			ScreenToClient(rStaticCtrl);
@@ -7590,12 +7635,12 @@ void CTimeSpinBox::OnSize(UINT nType, int cx, int cy)
 	CWnd::OnSize(nType, cx, cy);
 }
 
-HBRUSH CTimeSpinBox::OnCtlColor(CDC *pDC, CWnd *pWnd, UINT nCtlColor)
+HBRUSH CTimeSpinBox::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	return((IsWindowEnabled() && nCtlColor == CTLCOLOR_STATIC) ? (HBRUSH)GetParent()->SendMessage(WM_CTLCOLOREDIT, (WPARAM)pDC->GetSafeHdc(), (LPARAM)pWnd->GetSafeHwnd()) : CWnd::OnCtlColor(pDC, pWnd, nCtlColor));
 }
 
-BOOL CTimeSpinBox::OnEraseBkgnd(CDC *pDC)
+BOOL CTimeSpinBox::OnEraseBkgnd(CDC* pDC)
 {
 	HTHEME  hTheme;
 	CBrush  cBkgndBrush;
@@ -7620,12 +7665,12 @@ void CTimeSpinBox::OnEnable(BOOL bEnable)
 {
 	INT  nCtrl;
 	INT  nCtrls;
-	CEdit  *pEditCtrl;
-	CStatic  *pStaticCtrl;
+	CEdit* pEditCtrl;
+	CStatic* pStaticCtrl;
 
 	for (nCtrl = 0, nCtrls = (INT)m_pwndEditCtrls.GetSize(), Invalidate(TRUE); nCtrl < nCtrls; nCtrl++)
 	{
-		if ((pEditCtrl = (CEdit *)m_pwndEditCtrls.GetAt(nCtrl)))
+		if ((pEditCtrl = (CEdit*)m_pwndEditCtrls.GetAt(nCtrl)))
 		{
 			pEditCtrl->ShowWindow((bEnable) ? SW_SHOWNA : SW_HIDE);
 			continue;
@@ -7633,7 +7678,7 @@ void CTimeSpinBox::OnEnable(BOOL bEnable)
 	}
 	for (nCtrl = 0, nCtrls = (INT)m_pwndStaticCtrls.GetSize(); nCtrl < nCtrls; nCtrl++)
 	{
-		if ((pStaticCtrl = (CStatic *)m_pwndStaticCtrls.GetAt(nCtrl)))
+		if ((pStaticCtrl = (CStatic*)m_pwndStaticCtrls.GetAt(nCtrl)))
 		{
 			pStaticCtrl->ShowWindow((bEnable) ? SW_SHOWNA : SW_HIDE);
 			continue;
@@ -7655,11 +7700,11 @@ void CTimeSpinBox::OnLButtonDblClk(UINT nFlags, CPoint point)
 	CWnd::OnLButtonDblClk(nFlags, point);
 }
 
-void CTimeSpinBox::OnSetFocus(CWnd *pOldWnd)
+void CTimeSpinBox::OnSetFocus(CWnd* pOldWnd)
 {
-	CEdit  *pEditCtrl;
+	CEdit* pEditCtrl;
 
-	for (ShowSubControls(); (pEditCtrl = (m_pwndEditCtrls.GetSize() > 0) ? (CEdit *)m_pwndEditCtrls.GetAt(0) : (CEdit *)NULL); )
+	for (ShowSubControls(); (pEditCtrl = (m_pwndEditCtrls.GetSize() > 0) ? (CEdit*)m_pwndEditCtrls.GetAt(0) : (CEdit*)NULL); )
 	{
 		pEditCtrl->SetSel(0, -1);
 		pEditCtrl->SetFocus();
@@ -7684,7 +7729,7 @@ BOOL CTimeSpinBox::OnCommand(WPARAM wParam, LPARAM lParam)
 {
 	INT  nCtrl;
 	INT  nCtrls;
-	CWnd  *pCtrl;
+	CWnd* pCtrl;
 	CTimeTag  tTime;
 
 	if (HIWORD(wParam) == EN_SETFOCUS)
@@ -7698,7 +7743,7 @@ BOOL CTimeSpinBox::OnCommand(WPARAM wParam, LPARAM lParam)
 	}
 	if (HIWORD(wParam) == EN_KILLFOCUS)
 	{
-		if (CWnd::GetFocus() != this  &&  !IsChild(CWnd::GetFocus()))
+		if (CWnd::GetFocus() != this && !IsChild(CWnd::GetFocus()))
 		{
 			for (GetParent()->SendMessage(WM_COMMAND, MAKEWPARAM(GetDlgCtrlID(), TSBXN_KILLFOCUS), (LPARAM)GetSafeHwnd()), m_bState[0] = FALSE; IsThemeActive(); )
 			{
@@ -7707,7 +7752,7 @@ BOOL CTimeSpinBox::OnCommand(WPARAM wParam, LPARAM lParam)
 			}
 			for (nCtrl = 0, nCtrls = ((m_dwStyle & TSBXS_HIDE_TIME) && m_bVisible) ? (INT)m_pwndEditCtrls.GetSize() : 0; nCtrl < nCtrls; nCtrl++)
 			{
-				if ((pCtrl = (CWnd *)m_pwndEditCtrls.GetAt(nCtrl)))
+				if ((pCtrl = (CWnd*)m_pwndEditCtrls.GetAt(nCtrl)))
 				{
 					if (!pCtrl->GetWindowTextLength())
 					{
@@ -7734,15 +7779,15 @@ BOOL CTimeSpinBox::OnCommand(WPARAM wParam, LPARAM lParam)
 	return FALSE;
 }
 
-BOOL CTimeSpinBox::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT *pResult)
+BOOL CTimeSpinBox::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {
 	INT  nCtrl;
 	INT  nCtrls;
 	INT  nFormat;
-	CEdit  *pEditCtrl;
-	CTextEdit  *pTextEditCtrl;
-	CNumberEdit  *pNumberEditCtrl;
-	NMUPDOWN  *pNotifyInfo = (NMUPDOWN *)lParam;
+	CEdit* pEditCtrl;
+	CTextEdit* pTextEditCtrl;
+	CNumberEdit* pNumberEditCtrl;
+	NMUPDOWN* pNotifyInfo = (NMUPDOWN*)lParam;
 
 	if (pNotifyInfo->hdr.code == UDN_DELTAPOS)
 	{
@@ -7750,7 +7795,7 @@ BOOL CTimeSpinBox::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT *pResult)
 		{
 			if (!CWnd::GetFocus() || !IsChild(CWnd::GetFocus()))
 			{
-				if ((pEditCtrl = (CEdit *)m_pwndEditCtrls.GetAt(0)))
+				if ((pEditCtrl = (CEdit*)m_pwndEditCtrls.GetAt(0)))
 				{
 					pEditCtrl->SetSel(0, -1);
 					pEditCtrl->SetFocus();
@@ -7758,7 +7803,7 @@ BOOL CTimeSpinBox::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT *pResult)
 			}
 			if (IsSubFormatNumericalEditCtrl((nFormat = m_nCtrlFormat.GetAt(nCtrl))))
 			{
-				if ((pNumberEditCtrl = (CNumberEdit *)m_pwndEditCtrls.GetAt(nCtrl)) && CWnd::GetFocus() == (CWnd *)pNumberEditCtrl)
+				if ((pNumberEditCtrl = (CNumberEdit*)m_pwndEditCtrls.GetAt(nCtrl)) && CWnd::GetFocus() == (CWnd*)pNumberEditCtrl)
 				{
 					pNumberEditCtrl->SetPos(pNumberEditCtrl->GetPos() - pNotifyInfo->iDelta, TRUE);
 					pNumberEditCtrl->SetSel(0, -1);
@@ -7767,7 +7812,7 @@ BOOL CTimeSpinBox::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT *pResult)
 				}
 				continue;
 			}
-			if ((pTextEditCtrl = (CTextEdit *)m_pwndEditCtrls.GetAt(nCtrl)) && CWnd::GetFocus() == (CWnd *)pTextEditCtrl)
+			if ((pTextEditCtrl = (CTextEdit*)m_pwndEditCtrls.GetAt(nCtrl)) && CWnd::GetFocus() == (CWnd*)pTextEditCtrl)
 			{
 				pTextEditCtrl->SetPos(pTextEditCtrl->GetPos() - pNotifyInfo->iDelta, TRUE);
 				pTextEditCtrl->SetSel(0, -1);
@@ -7790,12 +7835,12 @@ LRESULT CTimeSpinBox::OnSetTime(WPARAM wParam, LPARAM lParam)
 	CString  szNumber;
 	TIMETAG  tTime[2];
 	CTimeTag  tTimeTag;
-	CTextEdit  *pTextEditCtrl;
-	CNumberEdit  *pNumberEditCtrl;
+	CTextEdit* pTextEditCtrl;
+	CNumberEdit* pNumberEditCtrl;
 	CStringArray  szCtrlFormatNames;
 	CStringTools  cStringTools;
 
-	for (CopyMemory(&tTime[0], (LPCVOID)lParam, sizeof(tTime[0])), ShowSubControls(((m_dwStyle & TSBXS_SPAN_TIME) || tTime[0] > 0) ? TRUE : FALSE), tTime[0] = ((m_dwStyle & TSBXS_SPAN_TIME) == 0) ? abs(tTime[0]) : ((!wParam) ? tTime[0] : 0), tTime[1] = tTimeTag.GetTime(), tTime[0] = ((m_dwStyle & TSBXS_SPAN_TIME) == 0 && !tTime[0]) ? tTime[1] : tTime[0]; m_dwStyle & TSBXS_PAST_TIME; )
+	for (CopyMemory(&tTime[0], (LPCVOID)lParam, sizeof(tTime[0])), ShowSubControls(((m_dwStyle& TSBXS_SPAN_TIME) || tTime[0] > 0) ? TRUE : FALSE), tTime[0] = ((m_dwStyle & TSBXS_SPAN_TIME) == 0) ? abs(tTime[0]) : ((!wParam) ? tTime[0] : 0), tTime[1] = tTimeTag.GetTime(), tTime[0] = ((m_dwStyle & TSBXS_SPAN_TIME) == 0 && !tTime[0]) ? tTime[1] : tTime[0]; m_dwStyle & TSBXS_PAST_TIME; )
 	{
 		tTime[0] = (tTime[0] > 0) ? ((tTime[0] > tTime[1]) ? tTime[1] : tTime[0]) : tTime[0];
 		break;
@@ -7814,7 +7859,7 @@ LRESULT CTimeSpinBox::OnSetTime(WPARAM wParam, LPARAM lParam)
 	{
 		if (IsSubFormatNumericalEditCtrl((nSubFormatID = m_nCtrlFormat.GetAt(nCtrl))))
 		{
-			if ((pNumberEditCtrl = (CNumberEdit *)m_pwndEditCtrls.GetAt(nCtrl)))
+			if ((pNumberEditCtrl = (CNumberEdit*)m_pwndEditCtrls.GetAt(nCtrl)))
 			{
 				nLimits[0] = TIMESPINBOXLOWLIMIT(EnumSubFormatLimits(nSubFormatID));
 				nLimits[1] = TIMESPINBOXHIGHLIMIT(EnumSubFormatLimits(nSubFormatID));
@@ -7826,7 +7871,7 @@ LRESULT CTimeSpinBox::OnSetTime(WPARAM wParam, LPARAM lParam)
 				continue;
 			}
 		}
-		if ((pTextEditCtrl = (CTextEdit *)m_pwndEditCtrls.GetAt(nCtrl)))
+		if ((pTextEditCtrl = (CTextEdit*)m_pwndEditCtrls.GetAt(nCtrl)))
 		{
 			for (EnumSubFormatLimits(nSubFormatID, szCtrlFormatNames), pTextEditCtrl->ResetText(); szCtrlFormatNames.GetSize() > 0; szCtrlFormatNames.RemoveAt(0))
 			{
@@ -7857,8 +7902,8 @@ LRESULT CTimeSpinBox::OnGetTime(WPARAM wParam, LPARAM lParam)
 	TIMETAG  tTime[2];
 	SYSTEMTIME  tFlagTime;
 	SYSTEMTIME  tActualTime;
-	CNumberEdit  *pNumberEditCtrl;
-	CTextEdit  *pTextEditCtrl;
+	CNumberEdit* pNumberEditCtrl;
+	CTextEdit* pTextEditCtrl;
 
 	for (nSubFormatID = (!m_bVisible) ? (MAXTIMETAGSUBFORMAT + 1) : MINTIMETAGSUBFORMAT, tActualTime.wYear = m_tTime.GetYear(), tActualTime.wMonth = m_tTime.GetMonth(), tActualTime.wDayOfWeek = m_tTime.GetDayOfWeek() - 1, tActualTime.wDay = m_tTime.GetDay(), tActualTime.wHour = m_tTime.GetHour(), tActualTime.wMinute = m_tTime.GetMinute(), tActualTime.wSecond = m_tTime.GetSecond(), tActualTime.wMilliseconds = m_tTime.GetMilliSeconds(), tFlagTime.wYear = (WORD)-1, tFlagTime.wMonth = (WORD)-1, tFlagTime.wDayOfWeek = (WORD)-1, tFlagTime.wDay = (WORD)-1, tFlagTime.wHour = (WORD)-1, tFlagTime.wMinute = (WORD)-1, tFlagTime.wSecond = (WORD)-1, tFlagTime.wMilliseconds = (WORD)-1, wMicroseconds = (WORD)-1, nDays = nHour = nMinute = nSecond = nMilliseconds = nMicroseconds = 0, bCorrection = bMinusZero = FALSE; nSubFormatID <= MAXTIMETAGSUBFORMAT; nSubFormatID++)
 	{
@@ -7867,29 +7912,39 @@ LRESULT CTimeSpinBox::OnGetTime(WPARAM wParam, LPARAM lParam)
 			if (nSubFormatID == (INT)m_nCtrlFormat.GetAt(nCtrl)) break;
 			continue;
 		}
-		if (nCtrl < nCtrls  &&  IsSubFormatNumericalEditCtrl(nSubFormatID))
+		if (nCtrl < nCtrls && IsSubFormatNumericalEditCtrl(nSubFormatID))
 		{
-			if ((pNumberEditCtrl = (CNumberEdit *)m_pwndEditCtrls.GetAt(nCtrl)) && pNumberEditCtrl->Check())
+			if ((pNumberEditCtrl = (CNumberEdit*)m_pwndEditCtrls.GetAt(nCtrl)) && pNumberEditCtrl->Check())
 			{
 				if (nSubFormatID == IDS_TIMEKEY_SUBFORMAT_YEAR)
 				{
-					if (CWnd::GetFocus() == (CWnd *)pNumberEditCtrl || tFlagTime.wYear == (WORD)-1) tActualTime.wYear = tFlagTime.wYear = (WORD)pNumberEditCtrl->GetPos();
+					if (CWnd::GetFocus() == (CWnd*)pNumberEditCtrl || tFlagTime.wYear == (WORD)-1)
+					{
+						tActualTime.wYear = tFlagTime.wYear = (WORD)pNumberEditCtrl->GetPos();
+					}
 					continue;
 				}
 				if (nSubFormatID == IDS_TIMEKEY_SUBFORMAT_YEAROFCENTURY)
 				{
-					if (CWnd::GetFocus() == (CWnd *)pNumberEditCtrl || tFlagTime.wYear == (WORD)-1) tActualTime.wYear = tFlagTime.wYear = (WORD)pNumberEditCtrl->GetPos() + 100 * (tActualTime.wYear / 100);
+					if (CWnd::GetFocus() == (CWnd*)pNumberEditCtrl || tFlagTime.wYear == (WORD)-1)
+					{
+						tActualTime.wYear = tFlagTime.wYear = (WORD)pNumberEditCtrl->GetPos() + 100 * (tActualTime.wYear / 100);
+					}
 					continue;
 				}
 				if (nSubFormatID == IDS_TIMEKEY_SUBFORMAT_MONTH)
 				{
-					if (CWnd::GetFocus() == (CWnd *)pNumberEditCtrl || tFlagTime.wMonth == (WORD)-1) tActualTime.wMonth = tFlagTime.wMonth = (WORD)pNumberEditCtrl->GetPos();
+					if (CWnd::GetFocus() == (CWnd*)pNumberEditCtrl || tFlagTime.wMonth == (WORD)-1)
+					{
+						tActualTime.wMonth = tFlagTime.wMonth = (WORD)pNumberEditCtrl->GetPos();
+					}
 					continue;
 				}
 				if (nSubFormatID == IDS_TIMEKEY_SUBFORMAT_WEEKOFYEAR)
 				{
 					CTimeTag  tTimeConversion(CTimeTag(tActualTime).GetTime() + (pNumberEditCtrl->GetPos() - _ttoi64(CTimeTag(tActualTime).Format(nSubFormatID))) * 1000000 * (TIMETAG)SECONDSPERWEEK);
-					if (CWnd::GetFocus() == (CWnd *)pNumberEditCtrl || (tFlagTime.wMonth == (WORD)-1 && tFlagTime.wDay == (WORD)-1) || (tActualTime.wMonth == (WORD)tTimeConversion.GetMonth() && tFlagTime.wDay == (WORD)-1))
+
+					if (CWnd::GetFocus() == (CWnd*)pNumberEditCtrl || (tFlagTime.wMonth == (WORD)-1 && tFlagTime.wDay == (WORD)-1) || (tActualTime.wMonth == (WORD)tTimeConversion.GetMonth() && tFlagTime.wDay == (WORD)-1))
 					{
 						tActualTime.wMonth = tFlagTime.wMonth = tTimeConversion.GetMonth();
 						tActualTime.wDay = tFlagTime.wDay = tTimeConversion.GetDay();
@@ -7899,7 +7954,8 @@ LRESULT CTimeSpinBox::OnGetTime(WPARAM wParam, LPARAM lParam)
 				if (nSubFormatID == IDS_TIMEKEY_SUBFORMAT_DAYOFYEAR)
 				{
 					CTimeTag  tTimeConversion(tActualTime.wYear, (INT)pNumberEditCtrl->GetPos(), 0, 0, 0, 0, 0);
-					if (CWnd::GetFocus() == (CWnd *)pNumberEditCtrl || (tFlagTime.wMonth == (WORD)-1 && tFlagTime.wDay == (WORD)-1) || (tActualTime.wMonth == (WORD)tTimeConversion.GetMonth() && tFlagTime.wDay == (WORD)-1))
+
+					if (CWnd::GetFocus() == (CWnd*)pNumberEditCtrl || (tFlagTime.wMonth == (WORD)-1 && tFlagTime.wDay == (WORD)-1) || (tActualTime.wMonth == (WORD)tTimeConversion.GetMonth() && tFlagTime.wDay == (WORD)-1))
 					{
 						tActualTime.wMonth = tFlagTime.wMonth = tTimeConversion.GetMonth();
 						tActualTime.wDay = tFlagTime.wDay = tTimeConversion.GetDay();
@@ -7908,13 +7964,14 @@ LRESULT CTimeSpinBox::OnGetTime(WPARAM wParam, LPARAM lParam)
 				}
 				if (nSubFormatID == IDS_TIMEKEY_SUBFORMAT_DAYOFMONTH)
 				{
-					if (CWnd::GetFocus() == (CWnd *)pNumberEditCtrl || tFlagTime.wDay == (WORD)-1) tActualTime.wDay = tFlagTime.wDay = (WORD)pNumberEditCtrl->GetPos();
+					if (CWnd::GetFocus() == (CWnd*)pNumberEditCtrl || tFlagTime.wDay == (WORD)-1) tActualTime.wDay = tFlagTime.wDay = (WORD)pNumberEditCtrl->GetPos();
 					continue;
 				}
 				if (nSubFormatID == IDS_TIMEKEY_SUBFORMAT_DAYOFWEEK)
 				{
 					CTimeTag  tTimeConversion(CTimeTag(tActualTime).GetTime() + (pNumberEditCtrl->GetPos() - CTimeTag(tActualTime).GetDayOfWeek()) * 1000000 * (TIMETAG)SECONDSPERDAY);
-					if (CWnd::GetFocus() == (CWnd *)pNumberEditCtrl || (tFlagTime.wMonth == (WORD)-1 && tFlagTime.wDay == (WORD)-1) || (tActualTime.wMonth == (WORD)tTimeConversion.GetMonth() && tFlagTime.wDay == (WORD)-1))
+
+					if (CWnd::GetFocus() == (CWnd*)pNumberEditCtrl || (tFlagTime.wMonth == (WORD)-1 && tFlagTime.wDay == (WORD)-1) || (tActualTime.wMonth == (WORD)tTimeConversion.GetMonth() && tFlagTime.wDay == (WORD)-1))
 					{
 						tActualTime.wDayOfWeek = tFlagTime.wDayOfWeek = tTimeConversion.GetDayOfWeek() - 1;
 						tActualTime.wMonth = tFlagTime.wMonth = tTimeConversion.GetMonth();
@@ -7963,17 +8020,18 @@ LRESULT CTimeSpinBox::OnGetTime(WPARAM wParam, LPARAM lParam)
 		}
 		if (nCtrl < nCtrls)
 		{
-			if ((pTextEditCtrl = (CTextEdit *)m_pwndEditCtrls.GetAt(nCtrl)) && pTextEditCtrl->Check())
+			if ((pTextEditCtrl = (CTextEdit*)m_pwndEditCtrls.GetAt(nCtrl)) && pTextEditCtrl->Check())
 			{
 				if (nSubFormatID == IDS_TIMEKEY_SUBFORMAT_MONTHNAME || nSubFormatID == IDS_TIMEKEY_SUBFORMAT_MONTHMNEMONIC)
 				{
-					if (CWnd::GetFocus() == (CWnd *)pTextEditCtrl || tFlagTime.wMonth == (WORD)-1) tActualTime.wMonth = tFlagTime.wMonth = pTextEditCtrl->GetPos() + 1;
+					if (CWnd::GetFocus() == (CWnd*)pTextEditCtrl || tFlagTime.wMonth == (WORD)-1) tActualTime.wMonth = tFlagTime.wMonth = pTextEditCtrl->GetPos() + 1;
 					continue;
 				}
 				if (nSubFormatID == IDS_TIMEKEY_SUBFORMAT_WEEKDAYNAME || nSubFormatID == IDS_TIMEKEY_SUBFORMAT_WEEKDAYMNEMONIC)
 				{
-					CTimeTag  tTimeConversion(CTimeTag(tActualTime).GetTime() + (pTextEditCtrl->GetPos() % DAYSPERWEEK - (CTimeTag(tActualTime).GetDayOfWeek() + Thursday) % DAYSPERWEEK) * 1000000 * (TIMETAG)SECONDSPERDAY);
-					if (CWnd::GetFocus() == (CWnd *)pTextEditCtrl || (tFlagTime.wMonth == (WORD)-1 && tFlagTime.wDay == (WORD)-1) || (tActualTime.wMonth == tTimeConversion.GetMonth() && tFlagTime.wDay == (WORD)-1))
+					CTimeTag  tTimeConversion(CTimeTag(tActualTime).GetTime() + ((TIMETAG)pTextEditCtrl->GetPos() % DAYSPERWEEK - ((TIMETAG)CTimeTag(tActualTime).GetDayOfWeek() + Thursday) % DAYSPERWEEK) * 1000000 * (TIMETAG)SECONDSPERDAY);
+
+					if (CWnd::GetFocus() == (CWnd*)pTextEditCtrl || (tFlagTime.wMonth == (WORD)-1 && tFlagTime.wDay == (WORD)-1) || (tActualTime.wMonth == tTimeConversion.GetMonth() && tFlagTime.wDay == (WORD)-1))
 					{
 						tActualTime.wDayOfWeek = tFlagTime.wDayOfWeek = tTimeConversion.GetDayOfWeek() - 1;
 						tActualTime.wMonth = tFlagTime.wMonth = tTimeConversion.GetMonth();
@@ -7983,7 +8041,7 @@ LRESULT CTimeSpinBox::OnGetTime(WPARAM wParam, LPARAM lParam)
 				}
 				if (nSubFormatID == IDS_TIMEKEY_SUBFORMAT_MERIDIANINDICATOR)
 				{
-					if (CWnd::GetFocus() == (CWnd *)pTextEditCtrl) tActualTime.wHour = tFlagTime.wHour = (pTextEditCtrl->GetPos() > 0) ? ((tActualTime.wHour < TIMESPINBOXHIGHLIMIT(EnumSubFormatLimits(IDS_TIMEKEY_SUBFORMAT_MERIDIANHOUR))) ? (tActualTime.wHour + TIMESPINBOXHIGHLIMIT(EnumSubFormatLimits(IDS_TIMEKEY_SUBFORMAT_MERIDIANHOUR))) : tActualTime.wHour) : ((tActualTime.wHour == TIMESPINBOXHIGHLIMIT(EnumSubFormatLimits(IDS_TIMEKEY_SUBFORMAT_MERIDIANHOUR))) ? (tActualTime.wHour - TIMESPINBOXHIGHLIMIT(EnumSubFormatLimits(IDS_TIMEKEY_SUBFORMAT_MERIDIANHOUR))) : tActualTime.wHour);
+					if (CWnd::GetFocus() == (CWnd*)pTextEditCtrl) tActualTime.wHour = tFlagTime.wHour = (pTextEditCtrl->GetPos() > 0) ? ((tActualTime.wHour < TIMESPINBOXHIGHLIMIT(EnumSubFormatLimits(IDS_TIMEKEY_SUBFORMAT_MERIDIANHOUR))) ? (tActualTime.wHour + TIMESPINBOXHIGHLIMIT(EnumSubFormatLimits(IDS_TIMEKEY_SUBFORMAT_MERIDIANHOUR))) : tActualTime.wHour) : ((tActualTime.wHour == TIMESPINBOXHIGHLIMIT(EnumSubFormatLimits(IDS_TIMEKEY_SUBFORMAT_MERIDIANHOUR))) ? (tActualTime.wHour - TIMESPINBOXHIGHLIMIT(EnumSubFormatLimits(IDS_TIMEKEY_SUBFORMAT_MERIDIANHOUR))) : tActualTime.wHour);
 					continue;
 				}
 			}
@@ -8000,7 +8058,7 @@ LRESULT CTimeSpinBox::OnGetTime(WPARAM wParam, LPARAM lParam)
 		}
 		if (m_dwStyle & TSBXS_SPAN_TIME)
 		{
-			CopyMemory((LPVOID)lParam, &(tTime[0] = (nDays >= 0 && nHour >= 0 && nMinute >= 0 && nSecond >= 0 && nMilliseconds >= 0 && nMicroseconds >= 0 && !bMinusZero) ? (1000000 * (nDays*(TIMETAG)SECONDSPERDAY + nHour*(TIMETAG)SECONDSPERHOUR + nMinute*(TIMETAG)SECONDSPERMINUTE + nSecond) + 1000 * nMilliseconds + nMicroseconds) : (-1000000 * (abs(nDays)*(TIMETAG)SECONDSPERDAY + abs(nHour)*(TIMETAG)SECONDSPERHOUR + abs(nMinute)*(TIMETAG)SECONDSPERMINUTE + abs(nSecond)) - 1000 * abs(nMilliseconds) - abs(nMicroseconds))), sizeof(TIMETAG));
+			CopyMemory((LPVOID)lParam, &(tTime[0] = (nDays >= 0 && nHour >= 0 && nMinute >= 0 && nSecond >= 0 && nMilliseconds >= 0 && nMicroseconds >= 0 && !bMinusZero) ? (1000000 * ((TIMETAG)nDays * SECONDSPERDAY + (TIMETAG)nHour * SECONDSPERHOUR + (TIMETAG)nMinute * SECONDSPERMINUTE + (TIMETAG)nSecond) + 1000 * (TIMETAG)nMilliseconds + (TIMETAG)nMicroseconds) : (-1000000 * ((TIMETAG)abs(nDays) * SECONDSPERDAY + (TIMETAG)abs(nHour) * SECONDSPERHOUR + (TIMETAG)abs(nMinute) * SECONDSPERMINUTE + (TIMETAG)abs(nSecond)) - 1000 * (TIMETAG)abs(nMilliseconds) - (TIMETAG)abs(nMicroseconds))), sizeof(TIMETAG));
 			return TRUE;
 		}
 		for (tTime[1] = (m_dwStyle & TSBXS_UTC_TIME) ? (CTimeTag(tActualTime).GetTime() - CTimeTag(tActualTime).GetBias()) : CTimeTag(tActualTime).GetTime(), tTime[1] += (wMicroseconds != (WORD)-1) ? wMicroseconds : 0, tTime[1] = (!m_bVisible) ? -m_tTime.GetTime() : tTime[1]; !m_bVisible || tTime[1] > 0; )
@@ -8020,18 +8078,24 @@ LRESULT CTimeSpinBox::OnSetRange(WPARAM wParam, LPARAM lParam)
 	INT  nCtrls;
 	INT  nOffset;
 	BOOL  bFirstCtrl;
-	CWnd  *pCtrl[2];
+	CWnd* pCtrl[2];
 	CRect  rCtrl[2];
 	TIMETAG  tTime[2];
 	CTimeTag  tTimeTag[2];
-	CNumberEdit  *pNumberEditCtrl;
+	CNumberEdit* pNumberEditCtrl;
 
 	for (CopyMemory(&tTime[0], (LPCVOID)wParam, sizeof(tTime[0])), CopyMemory(&tTime[1], (LPCVOID)lParam, sizeof(tTime[1])), GetTime(tTimeTag[0]); (m_dwStyle & TSBXS_PAST_TIME) && (m_dwStyle & TSBXS_SPAN_TIME) == 0; )
 	{
 		if (tTimeTag[1].GetTime() >= tTime[1] && tTime[0] < tTime[1])
 		{
-			if (tTimeTag[0].GetTime() < tTime[0]) SetTime(CTimeTag(tTime[0]));
-			if (tTimeTag[0].GetTime() > tTime[1]) SetTime(CTimeTag(tTime[1]));
+			if (tTimeTag[0].GetTime() < tTime[0])
+			{
+				SetTime(CTimeTag(tTime[0]));
+			}
+			if (tTimeTag[0].GetTime() > tTime[1])
+			{
+				SetTime(CTimeTag(tTime[1]));
+			}
 			m_tStartTime = tTime[0];
 			m_tStopTime = tTime[1];
 			return TRUE;
@@ -8042,8 +8106,14 @@ LRESULT CTimeSpinBox::OnSetRange(WPARAM wParam, LPARAM lParam)
 	{
 		if (tTimeTag[1].GetTime() <= tTime[0] && tTime[0] < tTime[1])
 		{
-			if (tTimeTag[0].GetTime() < tTime[0]) SetTime(CTimeTag(tTime[0]));
-			if (tTimeTag[0].GetTime() > tTime[1]) SetTime(CTimeTag(tTime[1]));
+			if (tTimeTag[0].GetTime() < tTime[0])
+			{
+				SetTime(CTimeTag(tTime[0]));
+			}
+			if (tTimeTag[0].GetTime() > tTime[1])
+			{
+				SetTime(CTimeTag(tTime[1]));
+			}
 			m_tStartTime = tTime[0];
 			m_tStopTime = tTime[1];
 			return TRUE;
@@ -8051,11 +8121,17 @@ LRESULT CTimeSpinBox::OnSetRange(WPARAM wParam, LPARAM lParam)
 	}
 	if (tTime[0] <= tTime[1])
 	{
-		if (tTimeTag[0].GetTime() < tTime[0]) SetTime(CTimeTag(tTime[0]));
-		if (tTimeTag[0].GetTime() > tTime[1]) SetTime(CTimeTag(tTime[1]));
+		if (tTimeTag[0].GetTime() < tTime[0])
+		{
+			SetTime(CTimeTag(tTime[0]));
+		}
+		if (tTimeTag[0].GetTime() > tTime[1])
+		{
+			SetTime(CTimeTag(tTime[1]));
+		}
 		for (nCtrl = 0, nCtrls = (INT)m_nCtrlFormat.GetSize(), m_tStartTime = tTime[0], m_tStopTime = tTime[1]; nCtrl < nCtrls; nCtrl++)
 		{
-			if ((pCtrl[0] = pCtrl[1] = (m_nCtrlFormat.GetAt(nCtrl) == IDS_TIMEKEY_SUBFORMAT_DAYS) ? GetDlgItem(m_wndSpinCtrl.GetDlgCtrlID() + nCtrl + 1) : (CWnd *)NULL))
+			if ((pCtrl[0] = pCtrl[1] = (m_nCtrlFormat.GetAt(nCtrl) == IDS_TIMEKEY_SUBFORMAT_DAYS) ? GetDlgItem(m_wndSpinCtrl.GetDlgCtrlID() + nCtrl + 1) : (CWnd*)NULL))
 			{
 				for (pCtrl[0]->GetWindowRect(rCtrl[0]); TranslateSubFormatPosition(STRING(m_nCtrlFormat.GetAt(nCtrl)), CRect(0, 0, 0, 0), rCtrl[1]) && (nOffset = rCtrl[1].Width() - rCtrl[0].Width()) != 0; )
 				{
@@ -8072,7 +8148,7 @@ LRESULT CTimeSpinBox::OnSetRange(WPARAM wParam, LPARAM lParam)
 		}
 		for (nCtrl = 0, bFirstCtrl = TRUE; nCtrl < nCtrls; nCtrl++)
 		{
-			if ((pNumberEditCtrl = (IsSubFormatNumericalEditCtrl(m_nCtrlFormat.GetAt(nCtrl))) ? (CNumberEdit *)GetDlgItem(m_wndSpinCtrl.GetDlgCtrlID() + nCtrl + 1) : (CNumberEdit *)NULL))
+			if ((pNumberEditCtrl = (IsSubFormatNumericalEditCtrl(m_nCtrlFormat.GetAt(nCtrl))) ? (CNumberEdit*)GetDlgItem(m_wndSpinCtrl.GetDlgCtrlID() + nCtrl + 1) : (CNumberEdit*)NULL))
 			{
 				pNumberEditCtrl->EnableMinusZero((m_tStartTime < 0) ? bFirstCtrl : FALSE);
 				bFirstCtrl = FALSE;
@@ -8100,9 +8176,9 @@ LRESULT CTimeSpinBox::OnSetSel(WPARAM wParam, LPARAM lParam)
 {
 	INT  nCtrl;
 	INT  nCtrls;
-	CEdit  *pEditCtrl;
+	CEdit* pEditCtrl;
 
-	for (nCtrl = HIWORD(wParam), nCtrls = (INT)m_pwndEditCtrls.GetSize(); (pEditCtrl = (nCtrl >= 0 && nCtrl < nCtrls) ? (CEdit *)m_pwndEditCtrls.GetAt(nCtrl) : (CEdit *)NULL); )
+	for (nCtrl = HIWORD(wParam), nCtrls = (INT)m_pwndEditCtrls.GetSize(); (pEditCtrl = (nCtrl >= 0 && nCtrl < nCtrls) ? (CEdit*)m_pwndEditCtrls.GetAt(nCtrl) : (CEdit*)NULL); )
 	{
 		pEditCtrl->SetSel(LOWORD(wParam), LOWORD(lParam));
 		pEditCtrl->SetFocus();
@@ -8115,12 +8191,12 @@ LRESULT CTimeSpinBox::OnGetSel(WPARAM wParam, LPARAM lParam)
 {
 	INT  nCtrl;
 	INT  nCtrls;
-	INT  *nSel[2];
-	CEdit  *pEditCtrl;
+	INT* nSel[2];
+	CEdit* pEditCtrl;
 
 	for (nCtrl = 0, nCtrls = (INT)m_pwndEditCtrls.GetSize(); nCtrl < nCtrls; nCtrl++)
 	{
-		if ((pEditCtrl = (CEdit *)m_pwndEditCtrls.GetAt(nCtrl)) && CWnd::GetFocus() == (CWnd *)pEditCtrl)
+		if ((pEditCtrl = (CEdit*)m_pwndEditCtrls.GetAt(nCtrl)) && CWnd::GetFocus() == (CWnd*)pEditCtrl)
 		{
 			*(nSel[0] = (LPINT)wParam) = MAKELONG(LOWORD(pEditCtrl->GetSel()), nCtrl);
 			*(nSel[1] = (LPINT)lParam) = MAKELONG(HIWORD(pEditCtrl->GetSel()), nCtrl);
@@ -8143,9 +8219,9 @@ LRESULT CTimeSpinBox::OnSetFont(WPARAM wParam, LPARAM lParam)
 	LOGFONT  lfFont;
 	CString  szDelimiter;
 	CString  szTimeFormat;
-	CStatic  *pStaticCtrl;
-	CTextEdit  *pTextEditCtrl;
-	CNumberEdit  *pNumberEditCtrl;
+	CStatic* pStaticCtrl;
+	CTextEdit* pTextEditCtrl;
+	CNumberEdit* pNumberEditCtrl;
 
 	for (m_cFont.DeleteObject(); GetObject((HGDIOBJ)wParam, sizeof(LOGFONT), &lfFont) > 0 && m_cFont.CreateFontIndirect(&lfFont); )
 	{
@@ -8155,7 +8231,7 @@ LRESULT CTimeSpinBox::OnSetFont(WPARAM wParam, LPARAM lParam)
 			{
 				if (IsSubFormatNumericalEditCtrl(nFormat))
 				{
-					if ((pNumberEditCtrl = (CNumberEdit *)GetDlgItem(nCtrlID)))
+					if ((pNumberEditCtrl = (CNumberEdit*)GetDlgItem(nCtrlID)))
 					{
 						szTimeFormat = szTimeFormat.Mid(lstrlen(STRING(nFormat)));
 						pNumberEditCtrl->MoveWindow(rEditCtrl, LOWORD(lParam));
@@ -8168,7 +8244,7 @@ LRESULT CTimeSpinBox::OnSetFont(WPARAM wParam, LPARAM lParam)
 				}
 				if (IsSubFormatEditCtrl(nFormat))
 				{
-					if ((pTextEditCtrl = (CTextEdit *)GetDlgItem(nCtrlID)))
+					if ((pTextEditCtrl = (CTextEdit*)GetDlgItem(nCtrlID)))
 					{
 						szTimeFormat = szTimeFormat.Mid(lstrlen(STRING(nFormat)));
 						pTextEditCtrl->MoveWindow(rEditCtrl, LOWORD(lParam));
@@ -8180,7 +8256,7 @@ LRESULT CTimeSpinBox::OnSetFont(WPARAM wParam, LPARAM lParam)
 				}
 				break;
 			}
-			if ((pStaticCtrl = (TranslateSubFormatDelimiter(szTimeFormat, szDelimiter) && TranslateSubFormatPosition(szDelimiter, rSubCtrl, rStaticCtrl) && nStaticCtrl < m_pwndStaticCtrls.GetSize()) ? (CStatic *)m_pwndStaticCtrls.GetAt(nStaticCtrl) : (CStatic *)NULL))
+			if ((pStaticCtrl = (TranslateSubFormatDelimiter(szTimeFormat, szDelimiter) && TranslateSubFormatPosition(szDelimiter, rSubCtrl, rStaticCtrl) && nStaticCtrl < m_pwndStaticCtrls.GetSize()) ? (CStatic*)m_pwndStaticCtrls.GetAt(nStaticCtrl) : (CStatic*)NULL))
 			{
 				szTimeFormat = szTimeFormat.Mid(szDelimiter.GetLength());
 				pStaticCtrl->MoveWindow(rStaticCtrl, LOWORD(lParam));
@@ -8210,12 +8286,12 @@ void CTimeSpinBox::OnClose()
 
 void CTimeSpinBox::OnDestroy()
 {
-	CEdit  *pEditCtrl;
-	CStatic  *pStaticCtrl;
+	CEdit* pEditCtrl;
+	CStatic* pStaticCtrl;
 
 	for (; m_pwndEditCtrls.GetSize() > 0; m_pwndEditCtrls.RemoveAt(0), m_nCtrlFormat.RemoveAt(0))
 	{
-		if ((pEditCtrl = (CEdit *)m_pwndEditCtrls.GetAt(0)))
+		if ((pEditCtrl = (CEdit*)m_pwndEditCtrls.GetAt(0)))
 		{
 			pEditCtrl->DestroyWindow();
 			delete pEditCtrl;
@@ -8223,7 +8299,7 @@ void CTimeSpinBox::OnDestroy()
 	}
 	for (; m_pwndStaticCtrls.GetSize() > 0; m_pwndStaticCtrls.RemoveAt(0))
 	{
-		if ((pStaticCtrl = (CStatic *)m_pwndStaticCtrls.GetAt(0)))
+		if ((pStaticCtrl = (CStatic*)m_pwndStaticCtrls.GetAt(0)))
 		{
 			pStaticCtrl->DestroyWindow();
 			delete pStaticCtrl;
@@ -8234,47 +8310,47 @@ void CTimeSpinBox::OnDestroy()
 }
 
 // TimeSpinBox helpers
-VOID Timespinbox_SetTime(CWnd *pCtrl)
+VOID Timespinbox_SetTime(CWnd* pCtrl)
 {
 	TIMETAG  t = CTimeTag().GetTime();
 
-	pCtrl->SendMessage(TSBXM_SETTIME, TRUE, (LPARAM)&t);
+	pCtrl->SendMessage(TSBXM_SETTIME, TRUE, (LPARAM)& t);
 }
-VOID Timespinbox_SetTime(CWnd *pCtrl, CONST CTimeTag &tTime)
+VOID Timespinbox_SetTime(CWnd* pCtrl, CONST CTimeTag& tTime)
 {
 	TIMETAG  t = tTime.GetTime();
 
-	pCtrl->SendMessage(TSBXM_SETTIME, (WPARAM)NULL, (LPARAM)&t);
+	pCtrl->SendMessage(TSBXM_SETTIME, (WPARAM)NULL, (LPARAM)& t);
 }
-VOID Timespinbox_SetTime(CWnd *pCtrl, CONST CTimeKey &tTime)
+VOID Timespinbox_SetTime(CWnd* pCtrl, CONST CTimeKey& tTime)
 {
 	TIMETAG  t = 1000000 * tTime.GetTime();
 
-	pCtrl->SendMessage(TSBXM_SETTIME, (WPARAM)NULL, (LPARAM)&t);
+	pCtrl->SendMessage(TSBXM_SETTIME, (WPARAM)NULL, (LPARAM)& t);
 }
 
-CTimeKey Timespinbox_GetTime(CWnd *pCtrl)
+CTimeKey Timespinbox_GetTime(CWnd* pCtrl)
 {
 	TIMETAG  t;
 
-	return((pCtrl->SendMessage(TSBXM_GETTIME, (WPARAM)NULL, (LPARAM)&t)) ? (t / 1000000) : 0);
+	return((pCtrl->SendMessage(TSBXM_GETTIME, (WPARAM)NULL, (LPARAM)& t)) ? (t / 1000000) : 0);
 }
-BOOL Timespinbox_GetTime(CWnd *pCtrl, CTimeTag &tTime)
+BOOL Timespinbox_GetTime(CWnd* pCtrl, CTimeTag& tTime)
 {
 	TIMETAG  t;
 
-	if (pCtrl->SendMessage(TSBXM_GETTIME, (WPARAM)NULL, (LPARAM)&t))
+	if (pCtrl->SendMessage(TSBXM_GETTIME, (WPARAM)NULL, (LPARAM)& t))
 	{
 		tTime = t;
 		return TRUE;
 	}
 	return FALSE;
 }
-BOOL Timespinbox_GetTime(CWnd *pCtrl, CTimeKey &tTime)
+BOOL Timespinbox_GetTime(CWnd* pCtrl, CTimeKey& tTime)
 {
 	TIMETAG  t;
 
-	if (pCtrl->SendMessage(TSBXM_GETTIME, (WPARAM)NULL, (LPARAM)&t))
+	if (pCtrl->SendMessage(TSBXM_GETTIME, (WPARAM)NULL, (LPARAM)& t))
 	{
 		tTime = t / 1000000;
 		return TRUE;
@@ -8282,24 +8358,24 @@ BOOL Timespinbox_GetTime(CWnd *pCtrl, CTimeKey &tTime)
 	return FALSE;
 }
 
-BOOL Timespinbox_SetRange(CWnd *pCtrl, CONST CTimeTag &tStartTime, CONST CTimeTag &tStopTime)
+BOOL Timespinbox_SetRange(CWnd* pCtrl, CONST CTimeTag& tStartTime, CONST CTimeTag& tStopTime)
 {
 	TIMETAG  t[2] = { tStartTime.GetTime(),tStopTime.GetTime() };
 
-	return((BOOL)pCtrl->SendMessage(TSBXM_SETRANGE, (WPARAM)&t[0], (LPARAM)&t[1]));
+	return((BOOL)pCtrl->SendMessage(TSBXM_SETRANGE, (WPARAM)& t[0], (LPARAM)& t[1]));
 }
-BOOL Timespinbox_SetRange(CWnd *pCtrl, CONST CTimeKey &tStartTime, CONST CTimeKey &tStopTime)
+BOOL Timespinbox_SetRange(CWnd* pCtrl, CONST CTimeKey& tStartTime, CONST CTimeKey& tStopTime)
 {
 	TIMETAG  t[2] = { 1000000 * tStartTime.GetTime(),1000000 * tStopTime.GetTime() };
 
-	return((BOOL)pCtrl->SendMessage(TSBXM_SETRANGE, (WPARAM)&t[0], (LPARAM)&t[1]));
+	return((BOOL)pCtrl->SendMessage(TSBXM_SETRANGE, (WPARAM)& t[0], (LPARAM)& t[1]));
 }
 
-BOOL Timespinbox_GetRange(CWnd *pCtrl, CTimeTag &tStartTime, CTimeTag &tStopTime)
+BOOL Timespinbox_GetRange(CWnd* pCtrl, CTimeTag& tStartTime, CTimeTag& tStopTime)
 {
 	TIMETAG  t[2];
 
-	if (pCtrl->SendMessage(TSBXM_GETRANGE, (WPARAM)&t[0], (LPARAM)&t[1]))
+	if (pCtrl->SendMessage(TSBXM_GETRANGE, (WPARAM)& t[0], (LPARAM)& t[1]))
 	{
 		tStartTime = t[0];
 		tStopTime = t[1];
@@ -8307,11 +8383,11 @@ BOOL Timespinbox_GetRange(CWnd *pCtrl, CTimeTag &tStartTime, CTimeTag &tStopTime
 	}
 	return FALSE;
 }
-BOOL Timespinbox_GetRange(CWnd *pCtrl, CTimeKey &tStartTime, CTimeKey &tStopTime)
+BOOL Timespinbox_GetRange(CWnd* pCtrl, CTimeKey& tStartTime, CTimeKey& tStopTime)
 {
 	TIMETAG  t[2];
 
-	if (pCtrl->SendMessage(TSBXM_GETRANGE, (WPARAM)&t[0], (LPARAM)&t[1]))
+	if (pCtrl->SendMessage(TSBXM_GETRANGE, (WPARAM)& t[0], (LPARAM)& t[1]))
 	{
 		tStartTime = t[0] / 1000000;
 		tStopTime = t[1] / 1000000;
@@ -8320,14 +8396,14 @@ BOOL Timespinbox_GetRange(CWnd *pCtrl, CTimeKey &tStartTime, CTimeKey &tStopTime
 	return FALSE;
 }
 
-BOOL Timespinbox_SetSel(CWnd *pCtrl, INT nStartPos, INT nStopPos)
+BOOL Timespinbox_SetSel(CWnd* pCtrl, INT nStartPos, INT nStopPos)
 {
 	return((BOOL)pCtrl->SendMessage(TSBXM_SETSEL, nStartPos, nStopPos));
 }
 
-BOOL Timespinbox_GetSel(CWnd *pCtrl, INT &nStartPos, INT &nStopPos)
+BOOL Timespinbox_GetSel(CWnd* pCtrl, INT& nStartPos, INT& nStopPos)
 {
-	return((BOOL)pCtrl->SendMessage(TSBXM_GETSEL, (WPARAM)&nStartPos, (LPARAM)&nStopPos));
+	return((BOOL)pCtrl->SendMessage(TSBXM_GETSEL, (WPARAM)& nStartPos, (LPARAM)& nStopPos));
 }
 
 
@@ -8343,7 +8419,7 @@ CResourceTimeSpinBox::CResourceTimeSpinBox(HWND hWnd) : CTimeSpinBox()
 
 LRESULT CALLBACK CResourceTimeSpinBox::WndProcHook(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	CResourceTimeSpinBox  *pResourceTimeSpinBox;
+	CResourceTimeSpinBox* pResourceTimeSpinBox;
 
 	if ((pResourceTimeSpinBox = new CResourceTimeSpinBox(hWnd)))
 	{
@@ -8377,7 +8453,7 @@ BOOL CResourceTimeSpinBox::OnNcCreate(LPCREATESTRUCT lpCreateStruct)
 /////////////////////////////////////////////////////////////////////////////
 // ListBox helpers
 
-BOOL Listbox_SetText(CWnd *pCtrl, INT nItem, LPCTSTR pszText)
+BOOL Listbox_SetText(CWnd* pCtrl, INT nItem, LPCTSTR pszText)
 {
 	INT  nIndex;
 
@@ -8401,7 +8477,7 @@ BOOL Listbox_SetText(CWnd *pCtrl, INT nItem, LPCTSTR pszText)
 	return FALSE;
 }
 
-CString Listbox_GetText(CWnd *pCtrl, INT nItem)
+CString Listbox_GetText(CWnd* pCtrl, INT nItem)
 {
 	INT  nLength;
 	CString  szText;
@@ -8433,7 +8509,7 @@ CString Listbox_GetText(CWnd *pCtrl, INT nItem)
 /////////////////////////////////////////////////////////////////////////////
 // ComboBox helpers
 
-BOOL Combobox_SetText(CWnd *pCtrl, INT nItem, LPCTSTR pszText)
+BOOL Combobox_SetText(CWnd* pCtrl, INT nItem, LPCTSTR pszText)
 {
 	INT  nIndex;
 
@@ -8457,7 +8533,7 @@ BOOL Combobox_SetText(CWnd *pCtrl, INT nItem, LPCTSTR pszText)
 	return FALSE;
 }
 
-CString Combobox_GetText(CWnd *pCtrl, INT nItem)
+CString Combobox_GetText(CWnd* pCtrl, INT nItem)
 {
 	INT  nLength;
 	CString  szText;
@@ -8489,7 +8565,7 @@ CString Combobox_GetText(CWnd *pCtrl, INT nItem)
 /////////////////////////////////////////////////////////////////////////////
 // ListView helpers
 
-BOOL Listview_InsertColumn(CWnd *pCtrl, INT nColumn, LPCTSTR pszColumn, INT nWidth)
+BOOL Listview_InsertColumn(CWnd* pCtrl, INT nColumn, LPCTSTR pszColumn, INT nWidth)
 {
 	LVCOLUMN  sColumn;
 
@@ -8498,10 +8574,10 @@ BOOL Listview_InsertColumn(CWnd *pCtrl, INT nColumn, LPCTSTR pszColumn, INT nWid
 	sColumn.cx = nWidth;
 	sColumn.pszText = (LPTSTR)pszColumn;
 	sColumn.cchTextMax = lstrlen(pszColumn) + 1;
-	return((pCtrl->SendMessage(LVM_INSERTCOLUMN, nColumn, (LPARAM)&sColumn) >= 0) ? TRUE : FALSE);
+	return((pCtrl->SendMessage(LVM_INSERTCOLUMN, nColumn, (LPARAM)& sColumn) >= 0) ? TRUE : FALSE);
 }
 
-BOOL Listview_SetColumn(CWnd *pCtrl, INT nColumn, LPCTSTR pszColumn, INT nWidth)
+BOOL Listview_SetColumn(CWnd* pCtrl, INT nColumn, LPCTSTR pszColumn, INT nWidth)
 {
 	LVCOLUMN  sColumn;
 
@@ -8509,10 +8585,10 @@ BOOL Listview_SetColumn(CWnd *pCtrl, INT nColumn, LPCTSTR pszColumn, INT nWidth)
 	sColumn.cx = (nWidth >= 0) ? nWidth : 0;
 	sColumn.pszText = (LPTSTR)pszColumn;
 	sColumn.cchTextMax = lstrlen(pszColumn) + 1;
-	return((pCtrl->SendMessage(LVM_SETCOLUMN, nColumn, (LPARAM)&sColumn)) ? TRUE : FALSE);
+	return((pCtrl->SendMessage(LVM_SETCOLUMN, nColumn, (LPARAM)& sColumn)) ? TRUE : FALSE);
 }
 
-BOOL Listview_GetColumn(CWnd *pCtrl, INT nColumn, CString &szColumn, INT &nWidth)
+BOOL Listview_GetColumn(CWnd* pCtrl, INT nColumn, CString& szColumn, INT& nWidth)
 {
 	LVCOLUMN  sColumn;
 	TCHAR  szText[1024];
@@ -8520,7 +8596,7 @@ BOOL Listview_GetColumn(CWnd *pCtrl, INT nColumn, CString &szColumn, INT &nWidth
 	sColumn.mask = LVCF_TEXT | LVCF_WIDTH;
 	sColumn.pszText = (LPTSTR)szText;
 	sColumn.cchTextMax = sizeof(szText) / sizeof(TCHAR) - 1;
-	if (pCtrl->SendMessage(LVM_GETCOLUMN, nColumn, (LPARAM)&sColumn))
+	if (pCtrl->SendMessage(LVM_GETCOLUMN, nColumn, (LPARAM)& sColumn))
 	{
 		szColumn = sColumn.pszText;
 		nWidth = sColumn.cx;
@@ -8529,12 +8605,12 @@ BOOL Listview_GetColumn(CWnd *pCtrl, INT nColumn, CString &szColumn, INT &nWidth
 	return FALSE;
 }
 
-BOOL Listview_DeleteColumn(CWnd *pCtrl, INT nColumn)
+BOOL Listview_DeleteColumn(CWnd* pCtrl, INT nColumn)
 {
 	return((pCtrl->SendMessage(LVM_DELETECOLUMN, nColumn)) ? TRUE : FALSE);
 }
 
-BOOL Listview_InsertText(CWnd *pCtrl, INT nItem, LPCTSTR pszText)
+BOOL Listview_InsertText(CWnd* pCtrl, INT nItem, LPCTSTR pszText)
 {
 	LVITEM  sItem;
 
@@ -8543,10 +8619,10 @@ BOOL Listview_InsertText(CWnd *pCtrl, INT nItem, LPCTSTR pszText)
 	sItem.mask = LVIF_TEXT;
 	sItem.pszText = (LPTSTR)pszText;
 	sItem.cchTextMax = lstrlen(pszText) + 1;
-	return((pCtrl->SendMessage(LVM_INSERTITEM, (WPARAM)NULL, (LPARAM)&sItem) >= 0) ? TRUE : FALSE);
+	return((pCtrl->SendMessage(LVM_INSERTITEM, (WPARAM)NULL, (LPARAM)& sItem) >= 0) ? TRUE : FALSE);
 }
 
-BOOL Listview_SetText(CWnd *pCtrl, INT nItem, INT nSubItem, LPCTSTR pszText)
+BOOL Listview_SetText(CWnd* pCtrl, INT nItem, INT nSubItem, LPCTSTR pszText)
 {
 	LVITEM  sItem;
 
@@ -8555,10 +8631,10 @@ BOOL Listview_SetText(CWnd *pCtrl, INT nItem, INT nSubItem, LPCTSTR pszText)
 	sItem.mask = LVIF_TEXT;
 	sItem.pszText = (LPTSTR)pszText;
 	sItem.cchTextMax = lstrlen(pszText) + 1;
-	return((pCtrl->SendMessage(LVM_SETITEM, (WPARAM)NULL, (LPARAM)&sItem)) ? TRUE : FALSE);
+	return((pCtrl->SendMessage(LVM_SETITEM, (WPARAM)NULL, (LPARAM)& sItem)) ? TRUE : FALSE);
 }
 
-CString Listview_GetText(CWnd *pCtrl, INT nItem, INT nSubItem)
+CString Listview_GetText(CWnd* pCtrl, INT nItem, INT nSubItem)
 {
 	LVITEM  sItem;
 	TCHAR  szText[1024];
@@ -8568,10 +8644,10 @@ CString Listview_GetText(CWnd *pCtrl, INT nItem, INT nSubItem)
 	sItem.mask = LVIF_TEXT;
 	sItem.pszText = szText;
 	sItem.cchTextMax = sizeof(szText) / sizeof(TCHAR) - 1;
-	return((pCtrl->SendMessage(LVM_GETITEM, (WPARAM)NULL, (LPARAM)&sItem)) ? sItem.pszText : EMPTYSTRING);
+	return((pCtrl->SendMessage(LVM_GETITEM, (WPARAM)NULL, (LPARAM)& sItem)) ? sItem.pszText : EMPTYSTRING);
 }
 
-BOOL Listview_SetCurText(CWnd *pCtrl, INT nItem)
+BOOL Listview_SetCurText(CWnd* pCtrl, INT nItem)
 {
 	INT  nIndex;
 	INT  nCount;
@@ -8584,12 +8660,12 @@ BOOL Listview_SetCurText(CWnd *pCtrl, INT nItem)
 		sItem.mask = LVIF_STATE;
 		sItem.stateMask = LVIS_SELECTED | LVIS_FOCUSED;
 		sItem.state = (nIndex == nItem) ? (LVIS_SELECTED | LVIS_FOCUSED) : 0;
-		if (!pCtrl->SendMessage(LVM_SETITEM, (WPARAM)NULL, (LPARAM)&sItem)) break;
+		if (!pCtrl->SendMessage(LVM_SETITEM, (WPARAM)NULL, (LPARAM)& sItem)) break;
 	}
 	return((nIndex == nCount) ? TRUE : FALSE);
 }
 
-INT Listview_GetCurText(CWnd *pCtrl)
+INT Listview_GetCurText(CWnd* pCtrl)
 {
 	INT  nIndex;
 	INT  nCount;
@@ -8601,12 +8677,12 @@ INT Listview_GetCurText(CWnd *pCtrl)
 		sItem.iSubItem = 0;
 		sItem.mask = LVIF_STATE;
 		sItem.stateMask = LVIS_SELECTED;
-		if (pCtrl->SendMessage(LVM_GETITEM, (WPARAM)NULL, (LPARAM)&sItem) && sItem.state == LVIS_SELECTED) break;
+		if (pCtrl->SendMessage(LVM_GETITEM, (WPARAM)NULL, (LPARAM)& sItem) && sItem.state == LVIS_SELECTED) break;
 	}
 	return((nIndex < nCount) ? nIndex : -1);
 }
 
-BOOL Listview_SetSelText(CWnd *pCtrl, CONST CUIntArray &nItems)
+BOOL Listview_SetSelText(CWnd* pCtrl, CONST CUIntArray& nItems)
 {
 	INT  nIndex[2];
 	INT  nCount[2];
@@ -8624,12 +8700,12 @@ BOOL Listview_SetSelText(CWnd *pCtrl, CONST CUIntArray &nItems)
 		sItem.mask = LVIF_STATE;
 		sItem.stateMask = LVIS_SELECTED | LVIS_FOCUSED;
 		sItem.state = (nIndex[1] < nCount[1]) ? (LVIS_SELECTED | LVIS_FOCUSED) : 0;
-		if (!pCtrl->SendMessage(LVM_SETITEM, (WPARAM)NULL, (LPARAM)&sItem)) break;
+		if (!pCtrl->SendMessage(LVM_SETITEM, (WPARAM)NULL, (LPARAM)& sItem)) break;
 	}
 	return((nIndex[0] == nCount[0]) ? TRUE : FALSE);
 }
 
-BOOL Listview_IsSelText(CWnd *pCtrl, INT nItem)
+BOOL Listview_IsSelText(CWnd* pCtrl, INT nItem)
 {
 	LVITEM  sItem;
 
@@ -8637,10 +8713,10 @@ BOOL Listview_IsSelText(CWnd *pCtrl, INT nItem)
 	sItem.iSubItem = 0;
 	sItem.mask = LVIF_STATE;
 	sItem.stateMask = LVIS_SELECTED;
-	return((pCtrl->SendMessage(LVM_GETITEM, (WPARAM)NULL, (LPARAM)&sItem) && sItem.state == LVIS_SELECTED) ? TRUE : FALSE);
+	return((pCtrl->SendMessage(LVM_GETITEM, (WPARAM)NULL, (LPARAM)& sItem) && sItem.state == LVIS_SELECTED) ? TRUE : FALSE);
 }
 
-INT Listview_GetSelText(CWnd *pCtrl, CUIntArray &nItems)
+INT Listview_GetSelText(CWnd* pCtrl, CUIntArray& nItems)
 {
 	INT  nIndex;
 	INT  nCount;
@@ -8648,7 +8724,7 @@ INT Listview_GetSelText(CWnd *pCtrl, CUIntArray &nItems)
 
 	for (nIndex = 0, nCount = (INT)pCtrl->SendMessage(LVM_GETITEMCOUNT), nItems.RemoveAll(); nIndex < nCount; nIndex++)
 	{
-		for (sItem.iItem = nIndex, sItem.iSubItem = 0, sItem.mask = LVIF_STATE, sItem.stateMask = LVIS_SELECTED; pCtrl->SendMessage(LVM_GETITEM, (WPARAM)NULL, (LPARAM)&sItem) && sItem.state == LVIS_SELECTED; )
+		for (sItem.iItem = nIndex, sItem.iSubItem = 0, sItem.mask = LVIF_STATE, sItem.stateMask = LVIS_SELECTED; pCtrl->SendMessage(LVM_GETITEM, (WPARAM)NULL, (LPARAM)& sItem) && sItem.state == LVIS_SELECTED; )
 		{
 			nItems.Add(nIndex);
 			break;
@@ -8657,7 +8733,7 @@ INT Listview_GetSelText(CWnd *pCtrl, CUIntArray &nItems)
 	return((INT)nItems.GetSize());
 }
 
-BOOL Listview_DeleteText(CWnd *pCtrl, INT nItem)
+BOOL Listview_DeleteText(CWnd* pCtrl, INT nItem)
 {
 	return((pCtrl->SendMessage(LVM_DELETEITEM, nItem)) ? TRUE : FALSE);
 }

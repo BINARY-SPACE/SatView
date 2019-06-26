@@ -4,10 +4,17 @@
 //* Copyright (c) Microsoft Corporation. All Rights Reserved.          *`
 //**********************************************************************`
 #pragma once
-//+
-// Provider SatView™ Event Count 395
-//+
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Provider "SatView™" event count 395
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Provider GUID = d65a14e7-cffb-4fd2-9ce7-09d029565e60
 EXTERN_C __declspec(selectany) const GUID SATVIEW_EVENTLOGPROVIDER = {0xd65a14e7, 0xcffb, 0x4fd2, {0x9c, 0xe7, 0x09, 0xd0, 0x29, 0x56, 0x5e, 0x60}};
+
+#ifndef SATVIEW_EVENTLOGPROVIDER_Traits
+#define SATVIEW_EVENTLOGPROVIDER_Traits NULL
+#endif // SATVIEW_EVENTLOGPROVIDER_Traits
 
 //
 // Channel
@@ -819,6 +826,7 @@ EXTERN_C __declspec(selectany) const EVENT_DESCRIPTOR SPACECRAFT_NOERROR = {0x18
 #define SPACECRAFT_NOERROR_value 0x18a
 EXTERN_C __declspec(selectany) const EVENT_DESCRIPTOR USER_NOERROR = {0x18b, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0};
 #define USER_NOERROR_value 0x18b
+
 #define MSG_SatView__event_1_message         0x00000001L
 #define MSG_SatView__event_2_message         0x00000002L
 #define MSG_SatView__event_3_message         0x00000003L
