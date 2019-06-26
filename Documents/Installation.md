@@ -10,7 +10,7 @@
 **Lib**=\Program Files (x86)\Windows Kits\10\Lib\10.0.***XXXXX***.0\ucrt\x64<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\Program Files (x86)\Windows Kits\10\Lib\10.0.***XXXXX***.0\um\x64<br />
 Note: ***XXXXX*** = Windows® 10 SDK Version (e.g. 18362)
 - Clone the repository by selecting the 'Open in Visual Studio' option and call it 'SatView'
-- Close Microsoft® Visual Studio® 2017 and reopen it under the 'Administrator' account (right-click and select 'Run as administrator')
+- Close Microsoft® Visual Studio® 2019 and reopen it under the 'Administrator' account (right-click and select 'Run as administrator')
 - Open the downloaded repository and load the available solution file 'SatView (GitHub)' inside the 'Source' folder
 - Exclude either the projects '**SCOS-2000**' & '**Satellite (SCOS-2000)**' or '**ALTEL**' & '**Satellite (ALTEL)**' from the solution  depending on the database standard selected (read the [coding guidelines](Coding.md))
 - Rename the project '**Satellite (SCOS-2000)**' or '**Satellite (ALTEL)**' (including the contained classes and the resulting output file) to the name of the satellite to be supported
