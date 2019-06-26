@@ -23,8 +23,8 @@ Read the [SatView™ Brochure](/Brochures/SatView™%20Brochure.pdf) to learn mo
 - 5+ Mbps Internet
 
 #### Software:
-- Microsoft® Windows® 10 Professional/Enterprise or Microsoft® Server® 2016
-- Microsoft® SQL Server® 2017
+- Microsoft® Windows® 10 Professional/Enterprise or Microsoft® Server® 2019
+- Microsoft® SQL Server® 2019
 - Microsoft® Visual Studio® 2019 (Version 16.1.4 or later)
 
 ### Installation<br />
