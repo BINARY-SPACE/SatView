@@ -1117,11 +1117,11 @@ VOID CTextEdit::Format()
 	for (; (pWnd = GetParent()) && (pWnd->IsKindOf(RUNTIME_CLASS(CSpinBox)) || pWnd->IsKindOf(RUNTIME_CLASS(CTimeSpinBox))); )
 	{
 		SetMargins(0, 0);
-		break;
+		return;
 	}
 	GetRect(rFormatArea);
 	GetClientRect(rTextEdit);
-	rFormatArea.SetRect(rFormatArea.left, (rTextEdit.Height() - rFormatArea.Height()) / 2, rFormatArea.right, (rTextEdit.Height() - rFormatArea.Height()) / 2 + rFormatArea.Height());
+	rFormatArea.SetRect(rFormatArea.left, (rTextEdit.Height() - rFormatArea.Height()) / 2 + 1, rFormatArea.right, (rTextEdit.Height() - rFormatArea.Height()) / 2 + rFormatArea.Height() + 1);
 	SetRect(rFormatArea);
 }
 
@@ -6688,9 +6688,8 @@ VOID CSpinBox::RecalcLayout(INT cx, INT cy)
 	{
 		if ((pOldFont = pDC->SelectObject(GetFont())))
 		{
-			for (pDC->GetTextMetrics(&tmFont), rEditCtrl.SetRect(tmFont.tmAveCharWidth, (cy - tmFont.tmHeight + 1) / 2, cx - 2 * tmFont.tmAveCharWidth, (cy - tmFont.tmHeight + 1) / 2 + tmFont.tmHeight), rSpinCtrl.SetRect(cx - 3 * cy / 4 + (3 * cy / 4) % 2, 0, cx, cy); (GetWindowLongPtr(GetSafeHwnd(), GWL_EXSTYLE) & WS_EX_CLIENTEDGE) != WS_EX_CLIENTEDGE; )
+			for (pDC->GetTextMetrics(&tmFont), rEditCtrl.SetRect(tmFont.tmAveCharWidth, (cy - tmFont.tmHeight) / 2, cx - 2 * tmFont.tmAveCharWidth, (cy - tmFont.tmHeight) / 2 + tmFont.tmHeight), rSpinCtrl.SetRect(cx - 3 * cy / 4 + (3 * cy / 4) % 2, 0, cx, cy); (GetWindowLongPtr(GetSafeHwnd(), GWL_EXSTYLE) & WS_EX_CLIENTEDGE) != WS_EX_CLIENTEDGE; )
 			{
-				rEditCtrl.DeflateRect(0, GetSystemMetrics(SM_CYBORDER));
 				rSpinCtrl.DeflateRect(0, GetSystemMetrics(SM_CYBORDER));
 				rSpinCtrl.OffsetRect(-GetSystemMetrics(SM_CXBORDER), 0);
 				break;
