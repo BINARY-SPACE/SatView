@@ -1110,13 +1110,13 @@ TIMETAG CTimeTag::ParseTime(LPCTSTR pszTimeTag, LPCTSTR pszFormat, BOOL bUTC) CO
 				}
 				if (nSubFormatID == IDS_TIMEKEY_SUBFORMAT_MICROSECOND)
 				{
-					if ((nMicroSeconds = _ttoi(szTimeSubkeys.GetAt(nTimeSubkey))) >= LOWORD(EnumSubFormatLimits(nSubFormatID, TRUE)) && nMicroSeconds <= 1000 * HIWORD(EnumSubFormatLimits(nSubFormatID, TRUE)))
+					if ((nMicroSeconds = _ttoi(szTimeSubkeys.GetAt(nTimeSubkey))) >= LOWORD(EnumSubFormatLimits(nSubFormatID, TRUE)) && nMicroSeconds <= 1000 * HIWORD(EnumSubFormatLimits(nSubFormatID, TRUE)) + HIWORD(EnumSubFormatLimits(nSubFormatID, TRUE)))
 					{
 						nMilliSeconds = nMicroSeconds / 1000;
 						nMicroSeconds = nMicroSeconds % 1000;
 						break;
 					}
-					if (nMicroSeconds >= -1000 * (INT)HIWORD(EnumSubFormatLimits(nSubFormatID, TRUE)) && nMicroSeconds <= -(INT)LOWORD(EnumSubFormatLimits(nSubFormatID, TRUE)))
+					if (nMicroSeconds >= -1000 * HIWORD(EnumSubFormatLimits(nSubFormatID, TRUE)) - HIWORD(EnumSubFormatLimits(nSubFormatID, TRUE)) && nMicroSeconds <= -LOWORD(EnumSubFormatLimits(nSubFormatID, TRUE)))
 					{
 						nMilliSeconds = nMicroSeconds / 1000;
 						nMicroSeconds = nMicroSeconds % 1000;
