@@ -7262,6 +7262,7 @@ BOOL CTimeSpinBox::TranslateSubFormatPosition(LPCTSTR pszFormat, CONST RECT& rec
 LONGLONG CTimeSpinBox::EnumSubFormatLimits(INT nSubFormatID) CONST
 {
 	INT  nLimits[3];
+	CTimeTag  tTime;
 	BOOL  bSubFormatIDs[6];
 
 	if (m_dwStyle & TSBXS_SPAN_TIME)
@@ -7302,7 +7303,7 @@ LONGLONG CTimeSpinBox::EnumSubFormatLimits(INT nSubFormatID) CONST
 			return MAKETIMESPINBOXLIMITS(nLimits[1], nLimits[2]);
 		}
 	}
-	return MAKETIMESPINBOXLIMITS(LOWORD(m_tTime.EnumSubFormatLimits(nSubFormatID, (m_dwStyle & TSBXS_UTC_TIME) ? TRUE : FALSE)), HIWORD(m_tTime.EnumSubFormatLimits(nSubFormatID, (m_dwStyle & TSBXS_UTC_TIME) ? TRUE : FALSE)));
+	return((GetTime(tTime)) ? MAKETIMESPINBOXLIMITS(LOWORD(tTime.EnumSubFormatLimits(nSubFormatID, (m_dwStyle & TSBXS_UTC_TIME) ? TRUE : FALSE)), HIWORD(tTime.EnumSubFormatLimits(nSubFormatID, (m_dwStyle & TSBXS_UTC_TIME) ? TRUE : FALSE))) : MAKETIMESPINBOXLIMITS(LOWORD(m_tTime.EnumSubFormatLimits(nSubFormatID, (m_dwStyle & TSBXS_UTC_TIME) ? TRUE : FALSE)), HIWORD(m_tTime.EnumSubFormatLimits(nSubFormatID, (m_dwStyle & TSBXS_UTC_TIME) ? TRUE : FALSE))));
 }
 INT CTimeSpinBox::EnumSubFormatLimits(INT nSubFormatID, CStringArray& szNames) CONST
 {
@@ -7728,8 +7729,12 @@ BOOL CTimeSpinBox::OnCommand(WPARAM wParam, LPARAM lParam)
 {
 	INT  nCtrl;
 	INT  nCtrls;
-	CWnd* pCtrl;
+	INT  nSubFormatID;
+	INT  nLimits[2];
 	CTimeTag  tTime;
+	CWnd* pCtrl;
+	CNumberEdit* pNumberEditCtrl;
+	CStringTools  cStringTools;
 
 	if (HIWORD(wParam) == EN_SETFOCUS)
 	{
@@ -7767,6 +7772,19 @@ BOOL CTimeSpinBox::OnCommand(WPARAM wParam, LPARAM lParam)
 	}
 	if (HIWORD(wParam) == EN_CHANGE)
 	{
+		for (nCtrl = 0, nCtrls = (GetTime(tTime)) ? (INT)m_pwndEditCtrls.GetSize() : 0; nCtrl < nCtrls; nCtrl++)
+		{
+			if (IsSubFormatNumericalEditCtrl((nSubFormatID = m_nCtrlFormat.GetAt(nCtrl))))
+			{
+				if ((pNumberEditCtrl = (CNumberEdit*)m_pwndEditCtrls.GetAt(nCtrl)))
+				{
+					nLimits[0] = TIMESPINBOXLOWLIMIT(EnumSubFormatLimits(nSubFormatID));
+					nLimits[1] = TIMESPINBOXHIGHLIMIT(EnumSubFormatLimits(nSubFormatID));
+					pNumberEditCtrl->SetBase(10, (!IsTimespanSubFormatID(nSubFormatID, TRUE)) ? max(cStringTools.ConvertIntToString(nLimits[0]).GetLength(), cStringTools.ConvertIntToString(nLimits[1]).GetLength()) : 0);
+					pNumberEditCtrl->SetRange(nLimits[0], nLimits[1]);
+				}
+			}
+		}
 		GetParent()->SendMessage(WM_COMMAND, MAKEWPARAM(GetDlgCtrlID(), TSBXN_CHANGE), (LPARAM)GetSafeHwnd());
 		return TRUE;
 	}
