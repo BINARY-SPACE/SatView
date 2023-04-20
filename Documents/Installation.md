@@ -15,10 +15,11 @@ Note: ***XX.XX.XXXXX*** = Microsoft® Visual Studio® Version (e.g. 14.35.32215)
 - Open the downloaded repository and load the available solution file 'SatView (GitHub)' inside the 'Source' folder
 - Exclude either the projects '**SCOS-2000**' & '**Satellite (SCOS-2000)**' or '**ALTEL**' & '**Satellite (ALTEL)**' from the solution depending on the database standard selected (read the [coding guidelines](Coding.md))
 - Rename the project '**Satellite (SCOS-2000)**' or '**Satellite (ALTEL)**' (including the contained classes and the resulting output file) to the name of the satellite to be supported
-- Open the file called 'messages.man' in the '**Library**' project and modify the absolute paths associated with the '**resourceFileName**' and '**messageFileName**' entries to point to the resulting output file 'SatView.dll' (e.g. 'resourceFileName="..\SatView\x64\Release\SatView.dll"')
+- Open the file called 'messages.man' in the '**Library**' project and modify the absolute paths associated with the '**resourceFileName**' and '**messageFileName**' entries to point to the resulting output file 'SatView.dll' (e.g. 'resourceFileName="..\SatView\Library\x64\Release\SatView.dll"')
 - Complete the coding for the projects '**SCOS-2000**' or '**ALTEL**' and the associated (renamed) spacecraft project
 - Code the data I/O interface driver (read the [coding guidelines](Coding.md))
 - Compile the solution
+- **It is stronly advised to contact BINARY SPACE at this point for further instructions.**
 - Launch the '**SatView™ Editor**' for the first time, register the satellite name and enter the password for the 'Administrator' account (Note: The password for the 'Administrator' account of SatView™ must be identical to the one for the OS and the SQL Server® 'sa' account)
 - Start building the database (consult the help file '**Editor.chm**' in order to learn how to create & modify databases)
 - Integrate the system into your ground segment (some significant coding effort required!) and launch the '**SatView™ Desktop**' to monitor & control the spacecraft
