@@ -1148,9 +1148,6 @@
     <None Include="Help\SatView_Desktop_Help_PFLP_Service.htm">
       <Filter>HTML Help Topics</Filter>
     </None>
-    <None Include="Help\SatView_Desktop_Help_PFLP_Service_ClientAddresses_Dialog_Box.htm">
-      <Filter>HTML Help Topics</Filter>
-    </None>
     <None Include="Help\SatView_Desktop_Help_PFLP_Service_Clients_Dialog_Box.htm">
       <Filter>HTML Help Topics</Filter>
     </None>
