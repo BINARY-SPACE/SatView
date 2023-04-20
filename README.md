@@ -20,12 +20,12 @@ Read the [SatView™ Brochure](/Brochures/SatView™%20Brochure.pdf) to learn mo
 - 3+ GHz Intel® Processor (4+ Cores)
 - 1920x1280 (or higher) resolution Monitor(s)
 - 1+ TB Hard disk
-- 5+ Mbps Internet
+- 10+ Mbps Internet
 
 #### Software:
 - Microsoft® Windows® 10 Professional/Enterprise or Microsoft® Server® 2019
-- Microsoft® SQL Server® 2017
-- Microsoft® Visual Studio® 2019 (Version 16.1.4 or later)
+- Microsoft® SQL Server® 2022
+- Microsoft® Visual Studio® 2022 (Version 17.5.4 or later)
 
 ### Installation<br />
 Follow this [installation guide](/Documents/Installation.md) in order to get the development environment downloaded and set-up.
