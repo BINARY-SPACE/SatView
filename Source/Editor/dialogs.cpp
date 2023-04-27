@@ -63,13 +63,25 @@ END_MESSAGE_MAP()
 
 BOOL CWelcomeDialog::OnInitDialog()
 {
+	INT  nAccount;
+	INT  nAccounts;
 	CString  szText;
 	CString  szTitle;
 	CString  szFormat[2];
+	CAccounts  cAccounts;
+	CUserToken  cUserToken;
+	CStringArray  szAccounts;
 	CVersionInfo  cVersionInfo;
 	CHourglassCursor  cCursor;
 
 	CLocaleDialog::OnInitDialog();
+	for (nAccount = 0, nAccounts = cAccounts.EnumUsers(szAccounts, TRUE); nAccount < nAccounts; nAccount++)
+	{
+		if (cUserToken.SetUserName(szAccounts.GetAt(nAccount)) && cUserToken.IsAdministrator())
+		{
+			SendDlgItemMessage(IDC_WELCOME_USERNAME, CB_INSERTSTRING, -1, (LPARAM)(LPCTSTR)cUserToken.GetUserName());
+		}
+	}
 	for (SetForegroundWindow(), GetWindowText(szFormat[0]), GetDlgItem(IDC_WELCOME_TEXT)->GetWindowText(szFormat[1]); !szFormat[0].IsEmpty() && !szFormat[1].IsEmpty(); )
 	{
 		szTitle.Format(szFormat[0], (LPCTSTR)cVersionInfo.QueryProductName());
@@ -87,6 +99,7 @@ BOOL CWelcomeDialog::OnInitDialog()
 	GetDlgItem(IDC_WELCOME_SPACECRAFTNAME)->EnableWindow();
 	GetDlgItem(IDC_WELCOME_PASSWORD_STATIC)->EnableWindow();
 	GetDlgItem(IDC_WELCOME_PASSWORD)->EnableWindow();
+	GetDlgItem(IDC_WELCOME_USERNAME)->SetFocus();
 	return TRUE;
 }
 
@@ -102,7 +115,6 @@ void CWelcomeDialog::OnEditchangePassword()
 
 void CWelcomeDialog::OnOK()
 {
-	HANDLE  hAccount;
 	CString  szUserName;
 	CString  szPassword;
 	CString  szSpacecraft;
@@ -113,22 +125,13 @@ void CWelcomeDialog::OnOK()
 	GetDlgItem(IDC_WELCOME_USERNAME)->GetWindowText(szUserName);
 	GetDlgItem(IDC_WELCOME_PASSWORD)->GetWindowText(szPassword);
 	GetDlgItem(IDC_WELCOME_SPACECRAFTNAME)->GetWindowText(szSpacecraft);
-	if (!LogonUser(szUserName, (LPCTSTR)NULL, szPassword, LOGON32_LOGON_NEW_CREDENTIALS, LOGON32_PROVIDER_WINNT50, &hAccount))
-	{
-		GetDlgItem(IDC_WELCOME_PASSWORD)->SetWindowText(EMPTYSTRING);
-		GetDlgItem(IDC_WELCOME_PASSWORD)->SetFocus();
-		GetDlgItem(IDOK)->EnableWindow(Check());
-		CAudioDevice::AlertBySound();
-		return;
-	}
-	for (RevertToSelf(), CloseHandle(hAccount); cAccountToken.SetSpacecraftName(szSpacecraft) && cAccountToken.SetUserName(szUserName) && cAccountToken.SetPassword(szPassword); )
+	if (cAccountToken.SetSpacecraftName(szSpacecraft) && cAccountToken.SetUserName(szUserName) && cAccountToken.SetPassword(szPassword))
 	{
 		if (cUserAccounts.WriteAccount(&cAccountToken) && cUserAccounts.SetActiveAccount(&cAccountToken))
 		{
 			EndDialog(IDOK);
 			return;
 		}
-		break;
 	}
 	GetDlgItem(IDC_WELCOME_PASSWORD)->SetWindowText(EMPTYSTRING);
 	GetDlgItem(IDC_WELCOME_PASSWORD)->SetFocus();
@@ -320,7 +323,7 @@ BOOL CLoginDialog::EnumUsers()
 		{
 			for (nUser[1] = 0, nUsers[1] = cAccounts.EnumUsers(szUsers, TRUE); nUser[1] < nUsers[1]; nUser[1]++)
 			{
-				if (cUserToken.SetUserName(szUsers.GetAt(nUser[1])) && cUserToken.IsAdministrator(TRUE))
+				if (cUserToken.SetUserName(szUsers.GetAt(nUser[1])) && cUserToken.IsAdministrator())
 				{
 					SendDlgItemMessage(IDC_LOGIN_USERNAME, CB_ADDSTRING, (WPARAM)NULL, (LPARAM)(LPCTSTR)szUsers.GetAt(nUser[1]));
 					continue;
@@ -505,7 +508,6 @@ void CLoginDialog::OnOK()
 {
 	INT  nUser;
 	INT  nUsers;
-	HANDLE  hLogin;
 	CString  szUser;
 	CString  szServer;
 	CString  szDatabase;
@@ -551,7 +553,7 @@ void CLoginDialog::OnOK()
 			}
 		}
 		GetDlgItem(IDC_LOGIN_DATABASE_PASSWORD)->SetWindowText(EMPTYSTRING);
-		GetDlgItem(IDC_LOGIN_DATABASE_NAME)->SetFocus();
+		GetDlgItem(IDC_LOGIN_DATABASE_PASSWORD)->SetFocus();
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
 		CAudioDevice::AlertBySound();
 		return;
@@ -560,25 +562,16 @@ void CLoginDialog::OnOK()
 	GetDlgItem(IDC_LOGIN_DATABASE_NAME)->GetWindowText(szDatabase);
 	GetDlgItem(IDC_LOGIN_SPACECRAFTNAME)->GetWindowText(szSpacecraft);
 	GetDlgItem(IDC_LOGIN_DATABASE_PASSWORD)->GetWindowText(szPassword);
-	if (!LogonUser(szUser, (LPCTSTR)NULL, szPassword, LOGON32_LOGON_NEW_CREDENTIALS, LOGON32_PROVIDER_WINNT50, &hLogin))
-	{
-		GetDlgItem(IDC_LOGIN_DATABASE_PASSWORD)->SetWindowText(EMPTYSTRING);
-		GetDlgItem(IDC_LOGIN_DATABASE_PASSWORD)->SetFocus();
-		CAudioDevice::AlertBySound();
-		return;
-	}
-	if ((cAccountToken.SetSpacecraftName(szSpacecraft) || IsDlgButtonChecked(IDC_LOGIN_SPACECRAFTSUPPORT)) && cAccountToken.SetUserName(szUser) && (!cUserAccounts.FindAccount(&cAccountToken) || cUserAccounts.ReadAccount(&cAccountToken)) && (cAccountToken.SetDatabase(szDatabase) || IsDlgButtonChecked(IDC_LOGIN_SPACECRAFTSUPPORT)) && cAccountToken.SetPassword(szPassword))
+	if ((cAccountToken.SetSpacecraftName(szSpacecraft) || IsDlgButtonChecked(IDC_LOGIN_SPACECRAFTSUPPORT)) && cAccountToken.SetUserName(szUser) && (!cUserAccounts.FindAccount(&cAccountToken) || (cUserAccounts.ReadAccount(&cAccountToken) && cAccountToken.GetPassword() == szPassword)) && (cAccountToken.SetDatabase(szDatabase) || IsDlgButtonChecked(IDC_LOGIN_SPACECRAFTSUPPORT)) && cAccountToken.SetPassword(szPassword))
 	{
 		SetAccount(&cAccountToken);
-		CloseHandle(hLogin);
 		EndDialog(IDOK);
 		return;
 	}
 	GetDlgItem(IDC_LOGIN_DATABASE_PASSWORD)->SetWindowText(EMPTYSTRING);
-	GetDlgItem(IDC_LOGIN_DATABASE_NAME)->SetFocus();
+	GetDlgItem(IDC_LOGIN_DATABASE_PASSWORD)->SetFocus();
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	CAudioDevice::AlertBySound();
-	CloseHandle(hLogin);
 }
 
 void CLoginDialog::OnCancel()
