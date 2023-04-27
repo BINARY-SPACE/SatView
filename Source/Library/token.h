@@ -144,7 +144,7 @@ public:
 	BOOL SetUserName(LPCTSTR pszUserName = NULL);
 	CString GetUserName() CONST;
 
-	BOOL IsAdministrator(BOOL bUnique = FALSE) CONST;
+	BOOL IsAdministrator() CONST;
 
 	CUserToken &operator=(CONST CString &szUserName);
 	CUserToken &operator=(LPCTSTR pszUserName);

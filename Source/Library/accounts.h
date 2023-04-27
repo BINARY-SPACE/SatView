@@ -247,6 +247,8 @@ public:
 	BOOL CheckPrivilege(UINT nPrivilege) CONST;
 	BOOL LookupPrivilege(UINT nPrivilege, CString &szPrivilege) CONST;
 
+	BOOL IsAdministrator(BOOL bUnique = FALSE) CONST;
+
 	VOID Copy(CONST CAccountToken *pAccountToken);
 	BOOL Compare(CONST CAccountToken *pAccountToken) CONST;
 
@@ -427,7 +429,6 @@ protected:
 	// Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CAccountsApp)
-	virtual BOOL InitInstance();
 	//}}AFX_VIRTUAL
 
 	// Implementation

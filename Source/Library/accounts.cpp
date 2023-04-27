@@ -371,7 +371,7 @@ INT CAccountToken::GetDefaultPrivileges(UINT nProfile, CUIntArray &nPrivileges) 
 		nPrivileges.Add(PRIVILEGE_TOOLSEMAILOPTIONS_BROWSE);
 		return((INT)nPrivileges.GetSize());
 	}
-	if ((nProfile == PRIVILEGE_PROFILE_DEFAULT  &&  !IsAdministrator()) || nProfile == PRIVILEGE_PROFILE_USERS)
+	if ((nProfile == PRIVILEGE_PROFILE_DEFAULT  &&  !CUserToken::IsAdministrator()) || nProfile == PRIVILEGE_PROFILE_USERS)
 	{
 		nPrivileges.Add(PRIVILEGE_ACCOUNTS_BROWSE);
 		nPrivileges.Add(PRIVILEGE_ACCOUNTS_REMOTEBROWSE);
@@ -664,6 +664,22 @@ BOOL CAccountToken::LookupPrivilege(UINT nPrivilege, CString &szPrivilege) CONST
 	if (nPrivilege >= FIRSTPRIVILEGE  &&  nPrivilege <= LASTPRIVILEGE)
 	{
 		szPrivilege = STRING(MINPRIVILEGE + nPrivilege - FIRSTPRIVILEGE);
+		return TRUE;
+	}
+	return FALSE;
+}
+
+BOOL CAccountToken::IsAdministrator(BOOL bUnique) CONST
+{
+	CAccountToken  cAccountToken;
+	CUserAccounts  cUserAccounts;
+
+	if (CUserToken::IsAdministrator())
+	{
+		if (bUnique)
+		{
+			return((cUserAccounts.ReadAccount(&cAccountToken)) ? (cAccountToken.GetUserName() == GetUserName()) : FALSE);
+		}
 		return TRUE;
 	}
 	return FALSE;
@@ -1476,77 +1492,6 @@ CAccountsApp::~CAccountsApp()
 {
 	if (m_pAccountToken != (CAccountToken *)NULL) delete m_pAccountToken;
 	delete m_pCriticalSection;
-}
-
-BOOL CAccountsApp::InitInstance()
-{
-	INT  nUser;
-	INT  nUsers;
-	INT  nAccount;
-	INT  nAccounts;
-	DWORD  cbUser;
-	TCHAR  szUser[UNLEN + 1];
-	CString  szAccount[3];
-	CString  szModuleName;
-	CUserToken  cUserToken;
-	CStringArray  szUsers;
-	CStringArray  szSubKeys;
-	CModuleToken  cModuleToken;
-	CUserAccounts  cUserAccounts;
-	CAccountToken  *pAccountToken;
-	CAccountTokens  pAccountTokens;
-	CComputerToken  cComputerToken;
-	PROCESS_INFORMATION  sProcessInfo;
-	STARTUPINFO  sStartupInfo;
-	CRegistry  cRegistry;
-	CAccounts  cUsers;
-	HANDLE  hAccount;
-
-	if (CLocaleApp::InitInstance())
-	{
-		if (GetUserName(szUser, &(cbUser = sizeof(szUser) / sizeof(TCHAR))) > 0)
-		{
-			for (cUserToken.SetUserName(szUser); !cUserToken.IsAdministrator(); )
-			{
-				for (nAccount = 0, nAccounts = cUserAccounts.EnumAccounts(pAccountTokens); nAccount < nAccounts; nAccount++)
-				{
-					for (nUser = 0, nUsers = ((pAccountToken = pAccountTokens.GetAt(nAccount)) && pAccountToken->IsAdministrator()) ? cUsers.EnumUsers(szUsers) : 0; nUser < nUsers; nUser++)
-					{
-						for (cUserToken.SetUserName(szUsers.GetAt(nUser)); cUserToken.IsAdministrator() && LogonUser(cUserToken.GetUserName(), (LPCTSTR)NULL, pAccountToken->GetPassword(), LOGON32_LOGON_NEW_CREDENTIALS, LOGON32_PROVIDER_WINNT50, &hAccount); )
-						{
-							if (cRegistry.EnumUserSubKeys(STRING(IDS_REG_SUBKEYPART_ROOTKEY) + GetAppRegKey(), szSubKeys) >= 0)
-							{
-								ZeroMemory(&sStartupInfo, sizeof(STARTUPINFO));
-								sStartupInfo.cb = sizeof(sStartupInfo);
-#ifndef UNICODE
-								MultiByteToWideChar(CP_ACP, 0, szUsers.GetAt(nUser), -1, szAccount[0].GetBufferSetLength(szUsers.GetAt(nUser).GetLength()), szUsers.GetAt(nUser).GetLength() + 1);
-								MultiByteToWideChar(CP_ACP, 0, pAccountToken->GetPassword(), -1, szAccount[1].GetBufferSetLength(pAccountToken->GetPassword().GetLength()), pAccountToken->GetPassword().GetLength() + 1);
-								MultiByteToWideChar(CP_ACP, 0, cComputerToken.GetComputerName(), -1, szAccount[2].GetBufferSetLength(cComputerToken.GetComputerName().GetLength()), cComputerToken.GetComputerName().GetLength() + 1);
-								MultiByteToWideChar(CP_ACP, 0, cModuleToken.GetModuleFileName(), -1, szModuleName.GetBufferSetLength(cModuleToken.GetModuleFileName().GetLength()), cModuleToken.GetModuleFileName().GetLength() + 1);
-								szAccount[0].ReleaseBuffer();
-								szAccount[1].ReleaseBuffer();
-								szAccount[2].ReleaseBuffer();
-								szModuleName.ReleaseBuffer();
-#else
-								szAccount[0] = szUsers.GetAt(nUser);
-								szAccount[1] = pAccountToken->GetPassword();
-								szAccount[2] = cComputerToken.GetComputerName();
-								szModuleName = cModuleToken.GetModuleFileName();
-#endif
-								for (RevertToSelf(), CloseHandle(hAccount); CreateProcessWithLogonW(szAccount[0], szAccount[2], szAccount[1], LOGON_WITH_PROFILE, szModuleName, (LPWSTR)NULL, 0, (LPVOID)NULL, (LPCWSTR)NULL, &sStartupInfo, &sProcessInfo); ) return FALSE;
-							}
-							RevertToSelf();
-							CloseHandle(hAccount);
-							break;
-						}
-					}
-				}
-				return FALSE;
-			}
-			return TRUE;
-		}
-	}
-	return FALSE;
 }
 
 BOOL CAccountsApp::RegisterApp()

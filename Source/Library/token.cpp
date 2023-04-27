@@ -268,7 +268,7 @@ CString CUserToken::GetUserName() CONST
 	return m_szUserName;
 }
 
-BOOL CUserToken::IsAdministrator(BOOL bUnique) CONST
+BOOL CUserToken::IsAdministrator() CONST
 {
 	INT  nUser;
 	INT  nUsers;
@@ -290,14 +290,7 @@ BOOL CUserToken::IsAdministrator(BOOL bUnique) CONST
 			{
 				if (LookupAccountSid((LPCTSTR)NULL, pSid, pszGroup, &cbGroup, pszDomain, &cbDomain, &sSidUse))
 				{
-					if (!_tcsncmp(pszGroup, GetUserName(), GetUserName().GetLength()))
-					{
-						GlobalFree(pszDomain);
-						GlobalFree(pszGroup);
-						LocalFree(pSid);
-						return TRUE;
-					}
-					for (nUser = 0, nUsers = (!bUnique) ? cAccounts.EnumGroupMembers(pszGroup, szUsers) : 0; nUser < nUsers; nUser++)
+					for (nUser = 0, nUsers = cAccounts.EnumGroupMembers(pszGroup, szUsers); nUser < nUsers; nUser++)
 					{
 						if (!szUsers.GetAt(nUser).CompareNoCase(GetUserName())) break;
 						continue;
