@@ -181,12 +181,12 @@ public:
 
 	// Operations
 public:
-	CDatabaseEngine *GetDatabaseEngine() CONST;
-	CTMProcessEngine *GetTMProcessEngine() CONST;
-	CTCProcessEngine *GetTCProcessEngine() CONST;
-	CMemoryDumpsServiceEngine *GetMemoryDumpsServiceEngine() CONST;
-	CTPEPServiceEngine *GetTPEPServiceEngine() CONST;
-	CPFLPServiceEngine *GetPFLPServiceEngine() CONST;
+	virtual CALTELDatabaseEngine *GetDatabaseEngine() CONST;
+	virtual CALTELTMProcessEngine *GetTMProcessEngine() CONST;
+	virtual CALTELTCProcessEngine *GetTCProcessEngine() CONST;
+	virtual CALTELMemoryDumpsServiceEngine *GetMemoryDumpsServiceEngine() CONST;
+	virtual CALTELTPEPServiceEngine *GetTPEPServiceEngine() CONST;
+	virtual CALTELPFLPServiceEngine *GetPFLPServiceEngine() CONST;
 
 	static CSatelliteALTELLibraryApp *GetLibraryApp();
 
@@ -211,29 +211,29 @@ protected:
 
 // Specify the associated inline definitions
 #ifdef SATELLITEALTELENVIRONMENT
-inline CDatabaseEngine *GetDatabaseEngine()
+inline CSatelliteALTELDatabaseEngine *GetDatabaseEngine()
 {
-	return(CSatelliteALTELLibraryApp::GetLibraryApp()->GetDatabaseEngine());
+	return((CSatelliteALTELDatabaseEngine *)CSatelliteALTELLibraryApp::GetLibraryApp()->GetDatabaseEngine());
 }
-inline CTMProcessEngine *GetTMProcessEngine()
+inline CSatelliteALTELTMProcessEngine *GetTMProcessEngine()
 {
-	return(CSatelliteALTELLibraryApp::GetLibraryApp()->GetTMProcessEngine());
+	return((CSatelliteALTELTMProcessEngine *)CSatelliteALTELLibraryApp::GetLibraryApp()->GetTMProcessEngine());
 }
-inline CTCProcessEngine *GetTCProcessEngine()
+inline CSatelliteALTELTCProcessEngine *GetTCProcessEngine()
 {
-	return(CSatelliteALTELLibraryApp::GetLibraryApp()->GetTCProcessEngine());
+	return((CSatelliteALTELTCProcessEngine *)CSatelliteALTELLibraryApp::GetLibraryApp()->GetTCProcessEngine());
 }
-inline CMemoryDumpsServiceEngine *GetMemoryDumpsServiceEngine()
+inline CSatelliteALTELMemoryDumpsServiceEngine *GetMemoryDumpsServiceEngine()
 {
-	return(CSatelliteALTELLibraryApp::GetLibraryApp()->GetMemoryDumpsServiceEngine());
+	return((CSatelliteALTELMemoryDumpsServiceEngine *)CSatelliteALTELLibraryApp::GetLibraryApp()->GetMemoryDumpsServiceEngine());
 }
-inline CTPEPServiceEngine *GetTPEPServiceEngine()
+inline CSatelliteALTELTPEPServiceEngine *GetTPEPServiceEngine()
 {
-	return(CSatelliteALTELLibraryApp::GetLibraryApp()->GetTPEPServiceEngine());
+	return((CSatelliteALTELTPEPServiceEngine *)CSatelliteALTELLibraryApp::GetLibraryApp()->GetTPEPServiceEngine());
 }
-inline CPFLPServiceEngine *GetPFLPServiceEngine()
+inline CSatelliteALTELPFLPServiceEngine *GetPFLPServiceEngine()
 {
-	return(CSatelliteALTELLibraryApp::GetLibraryApp()->GetPFLPServiceEngine());
+	return((CSatelliteALTELPFLPServiceEngine *)CSatelliteALTELLibraryApp::GetLibraryApp()->GetPFLPServiceEngine());
 }
 inline LPCTSTR STRING(INT nID)
 {
@@ -256,6 +256,7 @@ inline HINSTANCE GetLibraryInstance()
 // Specify the associated export definitions
 extern "C"
 {
+	__declspec(dllexport) CDatabaseEngine* GetStandardDatabaseEngineProc();
 	__declspec(dllexport) CDatabaseEngine *GetDatabaseEngineProc();
 	__declspec(dllexport) CTMProcessEngine *GetTMProcessEngineProc();
 	__declspec(dllexport) CTCProcessEngine *GetTCProcessEngineProc();

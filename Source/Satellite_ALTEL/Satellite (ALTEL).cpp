@@ -132,32 +132,32 @@ int CSatelliteALTELLibraryApp::ExitInstance()
 	return CALTELLibraryApp::ExitInstance();
 }
 
-CDatabaseEngine *CSatelliteALTELLibraryApp::GetDatabaseEngine() CONST
+CALTELDatabaseEngine *CSatelliteALTELLibraryApp::GetDatabaseEngine() CONST
 {
 	return(&cSatelliteALTELLibraryApp.m_cDatabaseEngine);
 }
 
-CTMProcessEngine *CSatelliteALTELLibraryApp::GetTMProcessEngine() CONST
+CALTELTMProcessEngine *CSatelliteALTELLibraryApp::GetTMProcessEngine() CONST
 {
 	return(&cSatelliteALTELLibraryApp.m_cTMProcessEngine);
 }
 
-CTCProcessEngine *CSatelliteALTELLibraryApp::GetTCProcessEngine() CONST
+CALTELTCProcessEngine *CSatelliteALTELLibraryApp::GetTCProcessEngine() CONST
 {
 	return(&cSatelliteALTELLibraryApp.m_cTCProcessEngine);
 }
 
-CMemoryDumpsServiceEngine *CSatelliteALTELLibraryApp::GetMemoryDumpsServiceEngine() CONST
+CALTELMemoryDumpsServiceEngine *CSatelliteALTELLibraryApp::GetMemoryDumpsServiceEngine() CONST
 {
 	return(&cSatelliteALTELLibraryApp.m_cMemoryDumpsServiceEngine);
 }
 
-CTPEPServiceEngine *CSatelliteALTELLibraryApp::GetTPEPServiceEngine() CONST
+CALTELTPEPServiceEngine *CSatelliteALTELLibraryApp::GetTPEPServiceEngine() CONST
 {
 	return(&cSatelliteALTELLibraryApp.m_cTPEPServiceEngine);
 }
 
-CPFLPServiceEngine *CSatelliteALTELLibraryApp::GetPFLPServiceEngine() CONST
+CALTELPFLPServiceEngine *CSatelliteALTELLibraryApp::GetPFLPServiceEngine() CONST
 {
 	return(&cSatelliteALTELLibraryApp.m_cPFLPServiceEngine);
 }
@@ -167,6 +167,10 @@ CSatelliteALTELLibraryApp *CSatelliteALTELLibraryApp::GetLibraryApp()
 	return(&cSatelliteALTELLibraryApp);
 }
 
+__declspec(dllexport) CDatabaseEngine *GetStandardDatabaseEngineProc()
+{
+	return GetDatabaseEngine();
+}
 __declspec(dllexport) CDatabaseEngine *GetDatabaseEngineProc()
 {
 	return GetDatabaseEngine();
