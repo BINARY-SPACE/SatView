@@ -69,13 +69,9 @@ public:
 
 	// Operations
 private:
-	CString ConvertText(LPCTSTR pszText) CONST;
-
 	// Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CIODeviceToolBarComboBoxButton)
-protected:
-	virtual void OnDraw(CDC *pDC, const CRect &rect, CMFCToolBarImages *pImages, BOOL bHorz = TRUE, BOOL bCustomizeMode = FALSE, BOOL bHighlight = FALSE, BOOL bDrawBorder = TRUE, BOOL bGrayDisabledButtons = TRUE);
 	//}}AFX_VIRTUAL
 };
 

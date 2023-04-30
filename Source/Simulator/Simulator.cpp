@@ -70,28 +70,6 @@ CIODeviceToolBarComboBoxButton::CIODeviceToolBarComboBoxButton(UINT uiID, int iI
 	return;
 }
 
-CString CIODeviceToolBarComboBoxButton::ConvertText(LPCTSTR pszText) CONST
-{
-	INT  nPos[2];
-	CString  szText(pszText);
-
-	for (nPos[0] = 0; (nPos[1] = szText.Mid(nPos[0]).Find(STRING(IDS_DEVICENAME_SPECIALCHAR))) >= 0; nPos[0] += nPos[1] + 1)
-	{
-		szText = szText.Left(nPos[0] + nPos[1] + 1) + STRING(IDS_DEVICENAME_SPECIALCHAR) + szText.Mid(nPos[0] + nPos[1] + 1);
-		nPos[1]++;
-	}
-	return szText;
-}
-
-void CIODeviceToolBarComboBoxButton::OnDraw(CDC *pDC, const CRect &rect, CMFCToolBarImages *pImages, BOOL bHorz, BOOL bCustomizeMode, BOOL bHighlight, BOOL bDrawBorder, BOOL bGrayDisabledButtons)
-{
-	CString  szItem;
-
-	m_strEdit = ConvertText((szItem = m_strEdit));
-	CMFCToolBarComboBoxButton::OnDraw(pDC, rect, pImages, bHorz, bCustomizeMode, bHighlight, bDrawBorder, bGrayDisabledButtons);
-	m_strEdit = szItem;
-}
-
 
 /////////////////////////////////////////////////////////////////////////////
 // CIODevicesToolBar
