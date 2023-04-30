@@ -132,32 +132,32 @@ int CSatelliteSCOS2000LibraryApp::ExitInstance()
 	return CSCOS2000LibraryApp::ExitInstance();
 }
 
-CDatabaseEngine *CSatelliteSCOS2000LibraryApp::GetDatabaseEngine() CONST
+CSCOS2000DatabaseEngine *CSatelliteSCOS2000LibraryApp::GetDatabaseEngine() CONST
 {
 	return(&cSatelliteSCOS2000LibraryApp.m_cDatabaseEngine);
 }
 
-CTMProcessEngine *CSatelliteSCOS2000LibraryApp::GetTMProcessEngine() CONST
+CSCOS2000TMProcessEngine *CSatelliteSCOS2000LibraryApp::GetTMProcessEngine() CONST
 {
 	return(&cSatelliteSCOS2000LibraryApp.m_cTMProcessEngine);
 }
 
-CTCProcessEngine *CSatelliteSCOS2000LibraryApp::GetTCProcessEngine() CONST
+CSCOS2000TCProcessEngine *CSatelliteSCOS2000LibraryApp::GetTCProcessEngine() CONST
 {
 	return(&cSatelliteSCOS2000LibraryApp.m_cTCProcessEngine);
 }
 
-CMemoryDumpsServiceEngine *CSatelliteSCOS2000LibraryApp::GetMemoryDumpsServiceEngine() CONST
+CSCOS2000MemoryDumpsServiceEngine *CSatelliteSCOS2000LibraryApp::GetMemoryDumpsServiceEngine() CONST
 {
 	return(&cSatelliteSCOS2000LibraryApp.m_cMemoryDumpsServiceEngine);
 }
 
-CTPEPServiceEngine *CSatelliteSCOS2000LibraryApp::GetTPEPServiceEngine() CONST
+CSCOS2000TPEPServiceEngine *CSatelliteSCOS2000LibraryApp::GetTPEPServiceEngine() CONST
 {
 	return(&cSatelliteSCOS2000LibraryApp.m_cTPEPServiceEngine);
 }
 
-CPFLPServiceEngine *CSatelliteSCOS2000LibraryApp::GetPFLPServiceEngine() CONST
+CSCOS2000PFLPServiceEngine *CSatelliteSCOS2000LibraryApp::GetPFLPServiceEngine() CONST
 {
 	return(&cSatelliteSCOS2000LibraryApp.m_cPFLPServiceEngine);
 }
@@ -167,6 +167,10 @@ CSatelliteSCOS2000LibraryApp *CSatelliteSCOS2000LibraryApp::GetLibraryApp()
 	return(&cSatelliteSCOS2000LibraryApp);
 }
 
+__declspec(dllexport) CDatabaseEngine* GetStandardDatabaseEngineProc()
+{
+	return GetDatabaseEngine();
+}
 __declspec(dllexport) CDatabaseEngine *GetDatabaseEngineProc()
 {
 	return GetDatabaseEngine();

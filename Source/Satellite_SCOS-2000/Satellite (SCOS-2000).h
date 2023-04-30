@@ -181,12 +181,12 @@ public:
 
 	// Operations
 public:
-	CDatabaseEngine *GetDatabaseEngine() CONST;
-	CTMProcessEngine *GetTMProcessEngine() CONST;
-	CTCProcessEngine *GetTCProcessEngine() CONST;
-	CMemoryDumpsServiceEngine *GetMemoryDumpsServiceEngine() CONST;
-	CTPEPServiceEngine *GetTPEPServiceEngine() CONST;
-	CPFLPServiceEngine *GetPFLPServiceEngine() CONST;
+	virtual CSCOS2000DatabaseEngine *GetDatabaseEngine() CONST;
+	virtual CSCOS2000TMProcessEngine *GetTMProcessEngine() CONST;
+	virtual CSCOS2000TCProcessEngine *GetTCProcessEngine() CONST;
+	virtual CSCOS2000MemoryDumpsServiceEngine *GetMemoryDumpsServiceEngine() CONST;
+	virtual CSCOS2000TPEPServiceEngine *GetTPEPServiceEngine() CONST;
+	virtual CSCOS2000PFLPServiceEngine *GetPFLPServiceEngine() CONST;
 
 	static CSatelliteSCOS2000LibraryApp *GetLibraryApp();
 
@@ -211,29 +211,29 @@ protected:
 
 // Specify the associated inline definitions
 #ifdef SATELLITESCOS2000ENVIRONMENT
-inline CDatabaseEngine *GetDatabaseEngine()
+inline CSatelliteSCOS2000DatabaseEngine *GetDatabaseEngine()
 {
-	return(CSatelliteSCOS2000LibraryApp::GetLibraryApp()->GetDatabaseEngine());
+	return((CSatelliteSCOS2000DatabaseEngine *)CSatelliteSCOS2000LibraryApp::GetLibraryApp()->GetDatabaseEngine());
 }
-inline CTMProcessEngine *GetTMProcessEngine()
+inline CSatelliteSCOS2000TMProcessEngine *GetTMProcessEngine()
 {
-	return(CSatelliteSCOS2000LibraryApp::GetLibraryApp()->GetTMProcessEngine());
+	return((CSatelliteSCOS2000TMProcessEngine *)CSatelliteSCOS2000LibraryApp::GetLibraryApp()->GetTMProcessEngine());
 }
-inline CTCProcessEngine *GetTCProcessEngine()
+inline CSatelliteSCOS2000TCProcessEngine *GetTCProcessEngine()
 {
-	return(CSatelliteSCOS2000LibraryApp::GetLibraryApp()->GetTCProcessEngine());
+	return((CSatelliteSCOS2000TCProcessEngine *)CSatelliteSCOS2000LibraryApp::GetLibraryApp()->GetTCProcessEngine());
 }
-inline CMemoryDumpsServiceEngine *GetMemoryDumpsServiceEngine()
+inline CSatelliteSCOS2000MemoryDumpsServiceEngine *GetMemoryDumpsServiceEngine()
 {
-	return(CSatelliteSCOS2000LibraryApp::GetLibraryApp()->GetMemoryDumpsServiceEngine());
+	return((CSatelliteSCOS2000MemoryDumpsServiceEngine *)CSatelliteSCOS2000LibraryApp::GetLibraryApp()->GetMemoryDumpsServiceEngine());
 }
-inline CTPEPServiceEngine *GetTPEPServiceEngine()
+inline CSatelliteSCOS2000TPEPServiceEngine *GetTPEPServiceEngine()
 {
-	return(CSatelliteSCOS2000LibraryApp::GetLibraryApp()->GetTPEPServiceEngine());
+	return((CSatelliteSCOS2000TPEPServiceEngine *)CSatelliteSCOS2000LibraryApp::GetLibraryApp()->GetTPEPServiceEngine());
 }
-inline CPFLPServiceEngine *GetPFLPServiceEngine()
+inline CSatelliteSCOS2000PFLPServiceEngine *GetPFLPServiceEngine()
 {
-	return(CSatelliteSCOS2000LibraryApp::GetLibraryApp()->GetPFLPServiceEngine());
+	return((CSatelliteSCOS2000PFLPServiceEngine *)CSatelliteSCOS2000LibraryApp::GetLibraryApp()->GetPFLPServiceEngine());
 }
 inline LPCTSTR STRING(INT nID)
 {
@@ -256,6 +256,7 @@ inline HINSTANCE GetLibraryInstance()
 // Specify the associated export definitions
 extern "C"
 {
+	__declspec(dllexport) CDatabaseEngine* GetStandardDatabaseEngineProc();
 	__declspec(dllexport) CDatabaseEngine *GetDatabaseEngineProc();
 	__declspec(dllexport) CTMProcessEngine *GetTMProcessEngineProc();
 	__declspec(dllexport) CTCProcessEngine *GetTCProcessEngineProc();
