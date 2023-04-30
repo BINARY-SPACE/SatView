@@ -201,7 +201,7 @@ public:
 	virtual BOOL DeleteGRD(LPCTSTR pszName);
 	virtual BOOL DeletePOD(LPCTSTR pszName);
 
-private:
+protected:
 	BOOL SaveTMPackets();
 	BOOL SaveTCPackets();
 	BOOL SaveTCFunctions();
@@ -1989,7 +1989,7 @@ public:
 	virtual BOOL CheckTableData(CONST CDatabaseTableView *pView, CONST CPODLayout *pPODLayout, BOOL bModified = FALSE, BOOL bExist = FALSE) CONST;
 	virtual BOOL CheckTableData(CONST CDatabaseTableView *pView, CONST CPODLayout *pPODLayout, CStringArray &szIssues) CONST;
 
-private:
+protected:
 	VOID UpdateTable(CDatabaseTableView *pView, CONST CDatabaseTMNumCalTable *pDatabaseTMNumCalTable, BOOL bDelete = FALSE);
 	VOID UpdateTable(CDatabaseTableView *pView, CONST CDatabaseTMTxtCalTable *pDatabaseTMTxtCalTable, BOOL bDelete = FALSE);
 	VOID UpdateTable(CDatabaseTableView *pView, CONST CDatabaseTCNumCalTable *pDatabaseTCNumCalTable, BOOL bDelete = FALSE);
@@ -2001,7 +2001,7 @@ public:
 
 	virtual BOOL UsesDBMSTables(ULONGLONG nComponent) CONST;
 
-private:
+protected:
 	INT ConstructTMPacketTableContents(CONST CDatabaseTableView *pView, CStringArray &szContents) CONST;
 	INT ConstructTMPacketTableContents(CONST CDatabaseTableView *pView, CONST CDatabaseTMPacket *pDatabaseTMPacket, CStringArray &szContents) CONST;
 	INT ConstructTMPacketTableContents(CONST CDatabaseTableView *pView, LPCTSTR pszTag, CStringArray &szContents, CUIntArray &nFormats, CUIntArray &nIDs, CStringArray &szDescriptions, CStringArray &szDataTypes) CONST;
@@ -2246,7 +2246,7 @@ private:
 
 	INT CalcTableColumnWidth(CONST CStringArray &szItems) CONST;
 
-private:
+protected:
 	VOID ShowCompileMessages(CALTELDatabaseRecordset *pRecordset);
 	BOOL ShowCompileMessage(LPCTSTR pszMessage, BOOL bTimestamp = TRUE, BOOL bAudition = FALSE);
 	BOOL ShowCompileMessage(LPCTSTR pszName, LPCTSTR pszInfo, ULONGLONG nComponent, LPCTSTR pszMessage, BOOL bWarning, BOOL bTimestamp = TRUE, BOOL bAudition = FALSE);
@@ -2309,10 +2309,10 @@ public:
 	~CALTELTPEPServiceEngine();
 
 	// Attributes
-private:
+protected:
 	CUIntArray  m_pAPIDs;
 	CUIntArray  m_pAPIDSequenceCounts;
-private:
+protected:
 	CCriticalSection  *m_pCriticalSection;
 
 	// Operators
@@ -2329,7 +2329,7 @@ public:
 
 	virtual BOOL GenerateTPEPRandomData(CONST CDatabaseEngine *pDatabase, CTPEPConnection *pConnection, CTMEnvironment *pTMEnvironment);
 
-private:
+protected:
 	BOOL Lock();
 	BOOL Unlock();
 };
@@ -2366,11 +2366,11 @@ public:
 	CALTELTMProcessInfo();
 
 	// Attributes
-private:
+protected:
 	BOOL  m_bOBRT;
 	UINT  m_nOBRT;
 	TIMETAG  m_tOBRT[2];
-private:
+protected:
 	LONG  m_tError;
 	LONG  m_tDelta;
 private:
@@ -2407,7 +2407,7 @@ public:
 	CALTELTMProcessEngine();
 
 	// Attributes
-private:
+protected:
 	UINT  m_nTMServiceLevel;
 
 	// Operations
@@ -2446,7 +2446,7 @@ public:
 	virtual BOOL AllocateTMProcessInfo(CTMEnvironment *pTMEnvironment) CONST;
 	virtual BOOL FreeTMProcessInfo(CTMEnvironment *pTMEnvironment) CONST;
 
-private:
+protected:
 	BOOL UpdateTMPacketCache(CTMEnvironment *pTMEnvironment) CONST;
 
 	VOID ProcessTMParameter(CONST CDatabaseEngine *pDatabase, CTMEnvironment *pTMEnvironment, CONST CDatabaseTMParameter *pDatabaseTMParameter, CONST CDatabaseTMPacketParameter *pDatabaseTMPacketParameter, ULONGLONG nValue) CONST;
@@ -2469,7 +2469,7 @@ public:
 	~CALTELTCProcessInfo();
 
 	// Attributes
-private:
+protected:
 	BOOL  m_bOBRT;
 	UINT  m_nOBRT;
 	TIMETAG  m_tOBRT[2];
@@ -2510,15 +2510,14 @@ public:
 	CALTELTCProcessEngine();
 
 	// Attributes
-private:
+protected:
 	UINT  m_nTCServiceLevel;
-	BOOL  m_bDebugging;
-private:
 	CTimeSpan  m_tTCFunctionExecutionTimeOffset[2];
 	CTimeSpan  m_tTCFunctionParameterTimeOffset[2];
-private:
 	WORD  m_wTCPacketCRC16Table[256];
 	DWORD  m_dwTCPacketCRC32Table[256];
+protected:
+	BOOL  m_bDebugging;
 
 	// Operations
 public:
@@ -2595,7 +2594,7 @@ public:
 	virtual BOOL AllocateTCProcessInfo(CTCEnvironment *pTCEnvironment) CONST;
 	virtual BOOL FreeTCProcessInfo(CTCEnvironment *pTCEnvironment) CONST;
 
-private:
+protected:
 	BOOL Generate2ndStep(CONST CDatabaseTCFunction *pDatabaseTCFunction, CONST CDatabaseTCPacket *pDatabaseTCPacket, CDatabaseTCFunctions &pDatabaseTCFunctions, CDatabaseTCPackets &pDatabaseTCPackets) CONST;
 
 	VOID CheckTCFunctionPreexecutionParameterValues(CONST CDatabaseEngine *pDatabase, CONST CDatabaseTCPreExeGroupParameter *pDatabaseTCPreExeGroupParameter, CONST CTMParameter *pTMParameter, CStringArray &szParameters) CONST;
@@ -2631,7 +2630,7 @@ class AFX_EXT_CLASS CALTELLibraryApp : public CLibraryApp
 public:
 
 	// Attributes
-public:
+private:
 	CALTELDatabaseEngine  m_cDatabaseEngine;
 	CALTELTMProcessEngine  m_cTMProcessEngine;
 	CALTELTCProcessEngine  m_cTCProcessEngine;
@@ -2641,14 +2640,14 @@ public:
 
 	// Operations
 public:
-	CALTELDatabaseEngine *GetDatabaseEngine() CONST;
-	CALTELTMProcessEngine *GetTMProcessEngine() CONST;
-	CALTELTCProcessEngine *GetTCProcessEngine() CONST;
-	CALTELMemoryDumpsServiceEngine *GetMemoryDumpsServiceEngine() CONST;
-	CALTELTPEPServiceEngine *GetTPEPServiceEngine() CONST;
-	CALTELPFLPServiceEngine *GetPFLPServiceEngine() CONST;
+	virtual CALTELDatabaseEngine* GetDatabaseEngine() CONST;
+	virtual CALTELTMProcessEngine* GetTMProcessEngine() CONST;
+	virtual CALTELTCProcessEngine* GetTCProcessEngine() CONST;
+	virtual CALTELMemoryDumpsServiceEngine* GetMemoryDumpsServiceEngine() CONST;
+	virtual CALTELTPEPServiceEngine* GetTPEPServiceEngine() CONST;
+	virtual CALTELPFLPServiceEngine* GetPFLPServiceEngine() CONST;
 
-	static CALTELLibraryApp *GetLibraryApp();
+	static CALTELLibraryApp* GetLibraryApp();
 
 	// Overrides
 	// ClassWizard generated virtual function overrides
@@ -2671,27 +2670,27 @@ protected:
 
 // Specify the associated inline definitions
 #ifdef ALTELENVIRONMENT
-inline CALTELDatabaseEngine *GetDatabaseEngine()
+inline CALTELDatabaseEngine* GetDatabaseEngine()
 {
 	return(CALTELLibraryApp::GetLibraryApp()->GetDatabaseEngine());
 }
-inline CALTELTMProcessEngine *GetTMProcessEngine()
+inline CALTELTMProcessEngine* GetTMProcessEngine()
 {
 	return(CALTELLibraryApp::GetLibraryApp()->GetTMProcessEngine());
 }
-inline CALTELTCProcessEngine *GetTCProcessEngine()
+inline CALTELTCProcessEngine* GetTCProcessEngine()
 {
 	return(CALTELLibraryApp::GetLibraryApp()->GetTCProcessEngine());
 }
-inline CALTELMemoryDumpsServiceEngine *GetMemoryDumpsServiceEngine()
+inline CALTELMemoryDumpsServiceEngine* GetMemoryDumpsServiceEngine()
 {
 	return(CALTELLibraryApp::GetLibraryApp()->GetMemoryDumpsServiceEngine());
 }
-inline CALTELTPEPServiceEngine *GetTPEPServiceEngine()
+inline CALTELTPEPServiceEngine* GetTPEPServiceEngine()
 {
 	return(CALTELLibraryApp::GetLibraryApp()->GetTPEPServiceEngine());
 }
-inline CALTELPFLPServiceEngine *GetPFLPServiceEngine()
+inline CALTELPFLPServiceEngine* GetPFLPServiceEngine()
 {
 	return(CALTELLibraryApp::GetLibraryApp()->GetPFLPServiceEngine());
 }
@@ -2712,18 +2711,6 @@ inline HINSTANCE GetLibraryInstance()
 	return(CALTELLibraryApp::GetLibraryApp()->GetLibraryInstance());
 }
 #endif
-
-// Specify the associated export definitions
-extern "C"
-{
-	__declspec(dllexport) CDatabaseEngine *GetStandardDatabaseEngineProc();
-	__declspec(dllexport) CDatabaseEngine *GetDatabaseEngineProc();
-	__declspec(dllexport) CTMProcessEngine *GetTMProcessEngineProc();
-	__declspec(dllexport) CTCProcessEngine *GetTCProcessEngineProc();
-	__declspec(dllexport) CMemoryDumpsServiceEngine *GetMemoryDumpsServiceEngineProc();
-	__declspec(dllexport) CTPEPServiceEngine *GetTPEPServiceEngineProc();
-	__declspec(dllexport) CPFLPServiceEngine *GetPFLPServiceEngineProc();
-}
 
 /////////////////////////////////////////////////////////////////////////////
 

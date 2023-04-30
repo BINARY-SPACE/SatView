@@ -70701,68 +70701,39 @@ int CALTELLibraryApp::ExitInstance()
 	return CLibraryApp::ExitInstance();
 }
 
-CALTELDatabaseEngine *CALTELLibraryApp::GetDatabaseEngine() CONST
+CALTELDatabaseEngine* CALTELLibraryApp::GetDatabaseEngine() CONST
 {
 	return(&cALTELLibraryApp.m_cDatabaseEngine);
 }
 
-CALTELTMProcessEngine *CALTELLibraryApp::GetTMProcessEngine() CONST
+CALTELTMProcessEngine* CALTELLibraryApp::GetTMProcessEngine() CONST
 {
 	return(&cALTELLibraryApp.m_cTMProcessEngine);
 }
 
-CALTELTCProcessEngine *CALTELLibraryApp::GetTCProcessEngine() CONST
+CALTELTCProcessEngine* CALTELLibraryApp::GetTCProcessEngine() CONST
 {
 	return(&cALTELLibraryApp.m_cTCProcessEngine);
 }
 
-CALTELMemoryDumpsServiceEngine *CALTELLibraryApp::GetMemoryDumpsServiceEngine() CONST
+CALTELMemoryDumpsServiceEngine* CALTELLibraryApp::GetMemoryDumpsServiceEngine() CONST
 {
 	return(&cALTELLibraryApp.m_cMemoryDumpsServiceEngine);
 }
 
-CALTELTPEPServiceEngine *CALTELLibraryApp::GetTPEPServiceEngine() CONST
+CALTELTPEPServiceEngine* CALTELLibraryApp::GetTPEPServiceEngine() CONST
 {
 	return(&cALTELLibraryApp.m_cTPEPServiceEngine);
 }
 
-CALTELPFLPServiceEngine *CALTELLibraryApp::GetPFLPServiceEngine() CONST
+CALTELPFLPServiceEngine* CALTELLibraryApp::GetPFLPServiceEngine() CONST
 {
 	return(&cALTELLibraryApp.m_cPFLPServiceEngine);
 }
 
-CALTELLibraryApp *CALTELLibraryApp::GetLibraryApp()
+CALTELLibraryApp* CALTELLibraryApp::GetLibraryApp()
 {
 	return(&cALTELLibraryApp);
-}
-
-__declspec(dllexport) CDatabaseEngine *GetStandardDatabaseEngineProc()
-{
-	return GetDatabaseEngine();
-}
-__declspec(dllexport) CDatabaseEngine *GetDatabaseEngineProc()
-{
-	return GetDatabaseEngine();
-}
-__declspec(dllexport) CTMProcessEngine *GetTMProcessEngineProc()
-{
-	return GetTMProcessEngine();
-}
-__declspec(dllexport) CTCProcessEngine *GetTCProcessEngineProc()
-{
-	return GetTCProcessEngine();
-}
-__declspec(dllexport) CMemoryDumpsServiceEngine *GetMemoryDumpsServiceEngineProc()
-{
-	return GetMemoryDumpsServiceEngine();
-}
-__declspec(dllexport) CTPEPServiceEngine *GetTPEPServiceEngineProc()
-{
-	return GetTPEPServiceEngine();
-}
-__declspec(dllexport) CPFLPServiceEngine *GetPFLPServiceEngineProc()
-{
-	return GetPFLPServiceEngine();
 }
 
 BEGIN_MESSAGE_MAP(CALTELLibraryApp, CLibraryApp)
