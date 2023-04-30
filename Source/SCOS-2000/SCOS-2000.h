@@ -258,7 +258,7 @@ public:
 	virtual BOOL DeleteGRD(LPCTSTR pszName);
 	virtual BOOL DeletePOD(LPCTSTR pszName);
 
-private:
+protected:
 	BOOL SaveVersions();
 	BOOL SaveTMPackets();
 	BOOL SaveTCPackets();
@@ -2205,7 +2205,7 @@ public:
 	virtual BOOL CheckTableData(CONST CDatabaseTableView *pView, CONST CPODLayout *pPODLayout, BOOL bModified = FALSE, BOOL bExist = FALSE) CONST;
 	virtual BOOL CheckTableData(CONST CDatabaseTableView *pView, CONST CPODLayout *pPODLayout, CStringArray &szIssues) CONST;
 
-private:
+protected:
 	VOID UpdateTable(CDatabaseTableView *pView, CONST CDatabaseTCNumOolTable *pDatabaseTCNumOolTable, BOOL bDelete = FALSE);
 	VOID UpdateTable(CDatabaseTableView *pView, CONST CDatabaseTCTxtOolTable *pDatabaseTCTxtOolTable, BOOL bDelete = FALSE);
 	BOOL UpdateTable(CONST CDatabaseTCNumOolTable *pDatabaseTCNumOolTable, CDatabaseTCTxtOolTable *pDatabaseTCTxtOolTable) CONST;
@@ -2217,7 +2217,7 @@ public:
 
 	virtual BOOL UsesDBMSTables(ULONGLONG nComponent) CONST;
 
-private:
+protected:
 	INT ConstructTMPacketTableContents(CONST CDatabaseTableView *pView, CStringArray &szContents) CONST;
 	INT ConstructTMPacketTableContents(CONST CDatabaseTableView *pView, CONST CDatabaseTMPacket *pDatabaseTMPacket, CStringArray &szContents) CONST;
 	INT ConstructTMPacketTableContents(CONST CDatabaseTableView *pView, LPCTSTR pszTag, CStringArray &szContents, CUIntArray &nFormats, CUIntArray &nIDs, CStringArray &szDescriptions, CStringArray &szDataTypes) CONST;
@@ -2479,7 +2479,7 @@ private:
 
 	INT CalcTableColumnWidth(CONST CStringArray &szItems) CONST;
 
-private:
+protected:
 	VOID ShowCompileMessages(CSCOS2000DatabaseRecordset *pRecordset);
 	BOOL ShowCompileMessage(LPCTSTR pszMessage, BOOL bTimestamp = TRUE, BOOL bAudition = FALSE);
 	BOOL ShowCompileMessage(LPCTSTR pszName, LPCTSTR pszInfo, ULONGLONG nComponent, LPCTSTR pszMessage, BOOL bWarning, BOOL bTimestamp = TRUE, BOOL bAudition = FALSE);
@@ -2542,10 +2542,10 @@ public:
 	~CSCOS2000TPEPServiceEngine();
 
 	// Attributes
-private:
+protected:
 	CUIntArray  m_pAPIDs;
 	CUIntArray  m_pAPIDSequenceCounts;
-private:
+protected:
 	CCriticalSection  *m_pCriticalSection;
 
 	// Operators
@@ -2562,7 +2562,7 @@ public:
 
 	virtual BOOL GenerateTPEPRandomData(CONST CDatabaseEngine *pDatabase, CTPEPConnection *pConnection, CTMEnvironment *pTMEnvironment);
 
-private:
+protected:
 	BOOL Lock();
 	BOOL Unlock();
 };
@@ -2599,11 +2599,11 @@ public:
 	CSCOS2000TMProcessInfo();
 
 	// Attributes
-private:
+protected:
 	BOOL  m_bOBRT;
 	UINT  m_nOBRT;
 	TIMETAG  m_tOBRT[2];
-private:
+protected:
 	LONG  m_tError;
 	LONG  m_tDelta;
 private:
@@ -2647,14 +2647,13 @@ protected:
 	UINT  m_nVCFrameCounter[8];
 	UINT  m_nVCDataCount[8];
 	UINT  m_nVCDataLength[8];
+	WORD  m_wTCPacketCRC16Table[256];
 	DWORD  m_dwCommandLinkControlWord;
 	CByteArray  m_nVCData[8];
 	CUIntArray  m_nAPIDs[2];
 	CTimeKey  m_tMCFrameCount;
 	BOOL  m_bFECWChecksum;
 	BOOL  m_bFECW;
-private:
-	WORD  m_wTCPacketCRC16Table[256];
 
 	// Operations
 public:
@@ -2699,7 +2698,7 @@ public:
 	virtual BOOL AllocateTMProcessInfo(CTMEnvironment *pTMEnvironment) CONST;
 	virtual BOOL FreeTMProcessInfo(CTMEnvironment *pTMEnvironment) CONST;
 
-private:
+protected:
 	BOOL CheckTMTransferFrame(CONST CTMTransferUnit *pTMTransferUnit, CTMTransferFrame *pTMTransferFrame);
 	BOOL CheckTMPacket(CONST CTMTransferFrame *pTMTransferFrame, CTMPacket *pTMPacket) CONST;
 	BOOL CheckTMPacket(CONST CTMPacket *pTMPacket) CONST;
@@ -2736,11 +2735,11 @@ public:
 	~CSCOS2000TCProcessInfo();
 
 	// Attributes
-private:
+protected:
 	BOOL  m_bOBRT;
 	UINT  m_nOBRT;
 	TIMETAG  m_tOBRT[2];
-private:
+protected:
 	BYTE  m_nFSN;
 	CUIntArray  m_nAPIDPSCs[2];
 private:
@@ -2767,7 +2766,7 @@ public:
 
 	virtual VOID Reset();
 
-private:
+protected:
 	INT DetermineAPIDToPSCIndex(INT nAPID);
 };
 
@@ -2794,14 +2793,14 @@ protected:
 	BYTE  m_nTCTransferFrameSequenceNumber;
 	BOOL  m_bTCTransferFrameSequenceNumber;
 	BOOL  m_bTCTransferFrameExpeditedMode;
-	UINT  m_nNISThrowEventCounter;
-	UINT  m_nSLEThrowEventCounter;
-	BOOL  m_bDebugging;
-private:
 	CTimeSpan  m_tTCFunctionExecutionTimeOffset[2];
 	CTimeSpan  m_tTCFunctionParameterTimeOffset[2];
-private:
 	WORD  m_wTCPacketCRC16Table[256];
+protected:
+	UINT  m_nNISThrowEventCounter;
+	UINT  m_nSLEThrowEventCounter;
+protected:
+	BOOL  m_bDebugging;
 
 	// Operations
 public:
@@ -2894,7 +2893,7 @@ public:
 	virtual BOOL AllocateTCProcessInfo(CTCEnvironment *pTCEnvironment) CONST;
 	virtual BOOL FreeTCProcessInfo(CTCEnvironment *pTCEnvironment) CONST;
 
-private:
+protected:
 	BOOL CheckTCFunctionExecutionVerificationPackets(CONST CDatabaseEngine *pDatabase, CONST CTMEnvironment *pTMEnvironment, CONST CDatabaseTCExeVerGroupParameter *pDatabaseTCExeVerGroupParameter, CONST CTimeTag &tStageStart) CONST;
 	VOID CheckTCFunctionPreexecutionParameterValues(CONST CDatabaseEngine *pDatabase, CONST CDatabaseTCPreExeGroupParameter *pDatabaseTCPreExeGroupParameter, CONST CTMParameter *pTMParameter, CStringArray &szParameters) CONST;
 	BOOL CheckTCFunctionExecutionParameterValues(CONST CDatabaseEngine *pDatabase, CONST CDatabaseTCExeVerGroupParameter *pDatabaseTCExeVerGroupParameter, CTMParameter *pTMParameter, CStringArray &szParameters, BOOL bInInterval) CONST;
@@ -2931,7 +2930,7 @@ class AFX_EXT_CLASS CSCOS2000LibraryApp : public CLibraryApp
 public:
 
 	// Attributes
-public:
+private:
 	CSCOS2000DatabaseEngine  m_cDatabaseEngine;
 	CSCOS2000TMProcessEngine  m_cTMProcessEngine;
 	CSCOS2000TCProcessEngine  m_cTCProcessEngine;
@@ -2941,14 +2940,14 @@ public:
 
 	// Operations
 public:
-	CDatabaseEngine *GetDatabaseEngine() CONST;
-	CTMProcessEngine *GetTMProcessEngine() CONST;
-	CTCProcessEngine *GetTCProcessEngine() CONST;
-	CMemoryDumpsServiceEngine *GetMemoryDumpsServiceEngine() CONST;
-	CTPEPServiceEngine *GetTPEPServiceEngine() CONST;
-	CPFLPServiceEngine *GetPFLPServiceEngine() CONST;
+	virtual CSCOS2000DatabaseEngine* GetDatabaseEngine() CONST;
+	virtual CSCOS2000TMProcessEngine* GetTMProcessEngine() CONST;
+	virtual CSCOS2000TCProcessEngine* GetTCProcessEngine() CONST;
+	virtual CSCOS2000MemoryDumpsServiceEngine* GetMemoryDumpsServiceEngine() CONST;
+	virtual CSCOS2000TPEPServiceEngine* GetTPEPServiceEngine() CONST;
+	virtual CSCOS2000PFLPServiceEngine* GetPFLPServiceEngine() CONST;
 
-	static CSCOS2000LibraryApp *GetLibraryApp();
+	static CSCOS2000LibraryApp* GetLibraryApp();
 
 	// Overrides
 	// ClassWizard generated virtual function overrides
@@ -2971,27 +2970,27 @@ protected:
 
 // Specify the associated inline definitions
 #ifdef SCOS2000ENVIRONMENT
-inline CDatabaseEngine *GetDatabaseEngine()
+inline CSCOS2000DatabaseEngine* GetDatabaseEngine()
 {
 	return(CSCOS2000LibraryApp::GetLibraryApp()->GetDatabaseEngine());
 }
-inline CTMProcessEngine *GetTMProcessEngine()
+inline CSCOS2000TMProcessEngine* GetTMProcessEngine()
 {
 	return(CSCOS2000LibraryApp::GetLibraryApp()->GetTMProcessEngine());
 }
-inline CTCProcessEngine *GetTCProcessEngine()
+inline CSCOS2000TCProcessEngine* GetTCProcessEngine()
 {
 	return(CSCOS2000LibraryApp::GetLibraryApp()->GetTCProcessEngine());
 }
-inline CMemoryDumpsServiceEngine *GetMemoryDumpsServiceEngine()
+inline CSCOS2000MemoryDumpsServiceEngine* GetMemoryDumpsServiceEngine()
 {
 	return(CSCOS2000LibraryApp::GetLibraryApp()->GetMemoryDumpsServiceEngine());
 }
-inline CTPEPServiceEngine *GetTPEPServiceEngine()
+inline CSCOS2000TPEPServiceEngine* GetTPEPServiceEngine()
 {
 	return(CSCOS2000LibraryApp::GetLibraryApp()->GetTPEPServiceEngine());
 }
-inline CPFLPServiceEngine *GetPFLPServiceEngine()
+inline CSCOS2000PFLPServiceEngine* GetPFLPServiceEngine()
 {
 	return(CSCOS2000LibraryApp::GetLibraryApp()->GetPFLPServiceEngine());
 }
@@ -3012,12 +3011,6 @@ inline HINSTANCE GetLibraryInstance()
 	return(CSCOS2000LibraryApp::GetLibraryApp()->GetLibraryInstance());
 }
 #endif
-
-// Specify the associated export definitions
-extern "C"
-{
-	__declspec(dllexport) CDatabaseEngine *GetStandardDatabaseEngineProc();
-}
 
 /////////////////////////////////////////////////////////////////////////////
 
