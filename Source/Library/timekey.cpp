@@ -460,7 +460,7 @@ TIMEKEY CTimeKey::ParseTime(LPCTSTR pszTimeKey, LPCTSTR pszFormat, BOOL bUTC, BO
 				{
 					for (nTimeSubkey = 0, nTimeSubkeys = EnumSubFormatLimits(nSubFormatID, szTimeSubkeyNames, TRUE); nTimeSubkey < nTimeSubkeys; nTimeSubkey++)
 					{
-						if (szTimeKey.Left(szTimeSubkeyNames.GetAt(nTimeSubkey).GetLength()) == szTimeSubkeyNames.GetAt(nTimeSubkey))
+						if (!szTimeKey.Left(szTimeSubkeyNames.GetAt(nTimeSubkey).GetLength()).CompareNoCase(szTimeSubkeyNames.GetAt(nTimeSubkey)))
 						{
 							szTimeKey = szTimeKey.Mid(szTimeSubkeyNames.GetAt(nTimeSubkey).GetLength());
 							szTimeKeyFormat = szTimeKeyFormat.Mid(lstrlen(STRING(nSubFormatID)));
@@ -1058,7 +1058,7 @@ TIMETAG CTimeTag::ParseTime(LPCTSTR pszTimeTag, LPCTSTR pszFormat, BOOL bUTC) CO
 				{
 					for (nTimeSubkey = 0, nTimeSubkeys = EnumSubFormatLimits(nSubFormatID, szTimeSubkeyNames, TRUE); nTimeSubkey < nTimeSubkeys; nTimeSubkey++)
 					{
-						if (szTimeKey.Left(szTimeSubkeyNames.GetAt(nTimeSubkey).GetLength()) == szTimeSubkeyNames.GetAt(nTimeSubkey))
+						if (!szTimeKey.Left(szTimeSubkeyNames.GetAt(nTimeSubkey).GetLength()).CompareNoCase(szTimeSubkeyNames.GetAt(nTimeSubkey)))
 						{
 							szTimeKey = szTimeKey.Mid(szTimeSubkeyNames.GetAt(nTimeSubkey).GetLength());
 							szTimeKeyFormat = szTimeKeyFormat.Mid(lstrlen(STRING(nSubFormatID)));
