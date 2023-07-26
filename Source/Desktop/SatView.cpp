@@ -2158,7 +2158,6 @@ BOOL CMainWnd::Create()
 	if (LoadFrame(IDR_MAINFRAME, WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_HSCROLL | WS_VSCROLL))
 	{
 		ShowMessage(IDS_STATUSBAR_INITIALIZING);
-		//ShowWindow(SW_SHOWNORMAL);
 		UpdateWindow();
 		UpdateTitle();
 		UpdateMenus();
