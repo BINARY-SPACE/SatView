@@ -25,7 +25,7 @@ Read the [SatView™ Brochure](/Brochures/SatView™%20Brochure.pdf) to learn mo
 #### Software:
 - Microsoft® Windows® 10 Professional/Enterprise or Microsoft® Server® 2019
 - Microsoft® SQL Server® 2022
-- Microsoft® Visual Studio® 2022 (Version 17.5.4 or later)
+- Microsoft® Visual Studio® 2022 (Version 17.6.5 or later)
 
 ### Installation<br />
 Follow this [installation guide](/Documents/Installation.md) in order to get the development environment downloaded and set-up.
