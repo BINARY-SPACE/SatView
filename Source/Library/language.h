@@ -437,6 +437,9 @@ public:
 	virtual int ExitInstance();
 public:
 	virtual BOOL IsIdleMessage(MSG *pMsg);
+protected:
+	virtual BOOL StoreWindowPlacement(const CRect& rectNormalPosition, int nFlags, int nShowCmd);
+	virtual BOOL LoadWindowPlacement(CRect& rectNormalPosition, int& nFlags, int& nShowCmd);
 	//}}AFX_VIRTUAL
 
 	// Implementation

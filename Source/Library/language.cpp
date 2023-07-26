@@ -1939,6 +1939,16 @@ BOOL CALLBACK CLocaleApp::EnumLocaleStrings(HINSTANCE hModule, LPCTSTR pszType, 
 	return FALSE;
 }
 
+BOOL CLocaleApp::StoreWindowPlacement(const CRect& rectNormalPosition, int nFlags, int nShowCmd)
+{
+	return FALSE;
+}
+
+BOOL CLocaleApp::LoadWindowPlacement(CRect& rectNormalPosition, int& nFlags, int& nShowCmd)
+{
+	return FALSE;
+}
+
 BOOL CLocaleApp::IsIdleMessage(MSG *pMsg)
 {
 	return((CWinAppEx::IsIdleMessage(pMsg) && pMsg->message != WM_TIMER) ? TRUE : FALSE);
