@@ -14632,7 +14632,6 @@ BOOL CMainWnd::LoadFrame(UINT nResourceID, DWORD dwDefaultStyle)
 	if (CLocaleMDIFrameWnd::LoadFrame(nResourceID, dwDefaultStyle))
 	{
 		ShowBarMessage(IDS_STATUSBAR_INITIALIZING);
-		ShowWindow(SW_SHOWNORMAL);
 		UpdateWindow();
 		UpdateMenus();
 		return TRUE;
@@ -14671,7 +14670,6 @@ VOID CMainWnd::LoadEnvironment()
 	LoadProfiles();
 	LoadMRULists();
 	LoadDisplayWindows();
-	CreateZoomWindow();
 	StartAssistant();
 	ShowBarMessage(IDS_STATUSBAR_READY);
 }
@@ -16312,7 +16310,7 @@ VOID CMainWnd::LoadDisplayWindows()
 					{
 						for (; pGRDWnd->Load(nDisplay - 1) < 0; )
 						{
-							delete pANDWnd;
+							delete pGRDWnd;
 							break;
 						}
 					}
@@ -16323,7 +16321,7 @@ VOID CMainWnd::LoadDisplayWindows()
 					{
 						for (; pMMDWnd->Load(nDisplay - 1) < 0; )
 						{
-							delete pGRDWnd;
+							delete pMMDWnd;
 							break;
 						}
 					}
@@ -16358,7 +16356,10 @@ VOID CMainWnd::LoadDisplayWindows()
 			break;
 		}
 	}
-	if ((pZoomWnd = GetMainWnd()->GetZoomWindow())) pZoomWnd->Connect();
+	if ((pZoomWnd = GetMainWnd()->GetZoomWindow()))
+	{
+		pZoomWnd->Connect();
+	}
 }
 
 INT CMainWnd::EnumDisplayWindows() CONST
@@ -17005,25 +17006,28 @@ VOID CMainWnd::UpdateMenus(CDisplayWnd *pDisplayWnd)
 			}
 			break;
 		}
-		if ((pSeparator = new CMFCRibbonSeparator(TRUE)))
+		for (nItem = 1, nItems = EnumDisplayWindows(pDisplays), nItems = min(IDM_LASTDISPLAYWINDOWS - IDM_FIRSTDISPLAYWINDOWS + 1, nItems), nID = IDM_FIRSTDISPLAYWINDOW; nItem <= nItems; nItem++)
 		{
-			for (pButton[0]->AddSubItem(pSeparator), nID = IDM_FIRSTDISPLAYWINDOW; ; )
+			if ((pDisplayWnd = (CDisplayWnd*)pDisplays.GetAt(nItem - 1)) != (CDisplayWnd*)NULL)
 			{
-				for (nItem = 1, nItems = EnumDisplayWindows(pDisplays), nItems = min(IDM_LASTDISPLAYWINDOWS - IDM_FIRSTDISPLAYWINDOWS + 1, nItems); nItem <= nItems; nItem++)
+				for (pDisplayWnd->GetWindowText(szItem[0]), szItem[1].Format((nItem < 10) ? STRING(IDS_WINDOW_MENUITEM) : STRING(IDS_WINDOW_EXTENDEDMENUITEM), nItem, (LPCTSTR)szItem[0]); (pButton[1] = new CMainRibbonButton(nID, szItem[1])); )
 				{
-					if ((pDisplayWnd = (CDisplayWnd *)pDisplays.GetAt(nItem - 1)) != (CDisplayWnd *)NULL)
+					if (nID == IDM_FIRSTDISPLAYWINDOW)
 					{
-						for (pDisplayWnd->GetWindowText(szItem[0]), szItem[1].Format((nItem < 10) ? STRING(IDS_WINDOW_MENUITEM) : STRING(IDS_WINDOW_EXTENDEDMENUITEM), nItem, (LPCTSTR)szItem[0]); (pButton[1] = new CMainRibbonButton(nID, szItem[1])); )
+						if ((pSeparator = new CMFCRibbonSeparator(TRUE)))
 						{
-							pButton[0]->AddSubItem(pButton[1]);
-							nID++;
-							break;
+							pButton[0]->AddSubItem(pSeparator);
 						}
 					}
+					pButton[0]->AddSubItem(pButton[1]);
+					nID++;
+					break;
 				}
-				if ((pButton[1] = (nItems > 0) ? new CMainRibbonButton(IDM_DISPLAYWINDOWS, STRING(IDS_WINDOW_MOREMENUITEM)) : (CMFCRibbonButton *)NULL)) pButton[0]->AddSubItem(pButton[1]);
-				break;
 			}
+		}
+		if ((pButton[1] = (nItems > 0) ? new CMainRibbonButton(IDM_DISPLAYWINDOWS, STRING(IDS_WINDOW_MOREMENUITEM)) : (CMFCRibbonButton*)NULL))
+		{
+			pButton[0]->AddSubItem(pButton[1]);
 		}
 	}
 }
@@ -17033,11 +17037,10 @@ VOID CMainWnd::UpdateLayout()
 	UINT  nShow;
 	CSize  size;
 	CRect  rPosition;
-	CUIntArray  nPaneIDs;
 	APPBARDATA  sBarData;
 	CProfile  cProfile;
 
-	for (GetEditorApp()->LoadState(GetAccountUserName() + STRING(IDS_REG_SUBKEYPART_DELIMITER) + STRING(IDS_REG_SUBKEYPART_WORKSPACE), &m_Impl); cProfile.GetState(nShow) && cProfile.GetPosition(rPosition); )
+	if (cProfile.GetState(nShow) && cProfile.GetPosition(rPosition))
 	{
 		for (sBarData.cbSize = sizeof(sBarData), SHAppBarMessage(ABM_GETTASKBARPOS, &sBarData), size.cx = GetSystemMetrics(SM_CXVIRTUALSCREEN), size.cy = GetSystemMetrics(SM_CYVIRTUALSCREEN) - (sBarData.rc.bottom - sBarData.rc.top); rPosition.left < 0 || rPosition.top < 0 || (rPosition.top >= sBarData.rc.top && rPosition.top <= sBarData.rc.bottom) || rPosition.right > GetSystemMetrics(SM_CXVIRTUALSCREEN) || rPosition.bottom > GetSystemMetrics(SM_CYVIRTUALSCREEN) || (rPosition.bottom >= sBarData.rc.top && rPosition.bottom <= sBarData.rc.bottom) || rPosition.Width() > size.cx || rPosition.Height() > size.cy; )
 		{
@@ -17049,13 +17052,9 @@ VOID CMainWnd::UpdateLayout()
 			ShowWindow(nShow);
 			break;
 		}
-		break;
+		return;
 	}
-	if (CreateWorkspaceWindow() && CreateOutputWindow())
-	{
-		UpdateWorkspaceWindow();
-		UpdateOutputWindow();
-	}
+	ShowWindow(SW_SHOWNORMAL);
 }
 
 VOID CMainWnd::AddMRUMenuItem(LPCTSTR pszName, LPCTSTR pszTitle, ULONGLONG nType)
@@ -18149,11 +18148,11 @@ BEGIN_MESSAGE_MAP(CMainWnd, CLocaleMDIFrameWnd)
 	ON_COMMAND(IDM_USERS, OnUsers)
 	ON_COMMAND(IDM_PRIVILEGES, OnPrivileges)
 	ON_COMMAND(IDM_VALIDITY, OnValidity)
+	ON_COMMAND(IDM_WINDOWS, OnWindows)
 	ON_COMMAND(IDM_NEXTWINDOW, OnNextWindow)
 	ON_COMMAND(IDM_PREVIOUSWINDOW, OnPreviousWindow)
 	ON_COMMAND(IDM_CLOSEWINDOW, OnCloseWindow)
 	ON_COMMAND(IDM_CLOSEALLWINDOWS, OnCloseAllWindows)
-	ON_COMMAND(IDM_WINDOWS, OnWindows)
 	ON_COMMAND(IDM_ASSISTANTSUPPORTDATECONVERSIONS, OnAssistantSupportDateConversions)
 	ON_COMMAND(IDM_ASSISTANTLISTEN, OnAssistantListen)
 	ON_COMMAND(IDM_ABOUT, OnAbout)
@@ -18364,11 +18363,11 @@ BEGIN_MESSAGE_MAP(CMainWnd, CLocaleMDIFrameWnd)
 	ON_UPDATE_COMMAND_UI(IDM_USERS, OnUpdateUsers)
 	ON_UPDATE_COMMAND_UI(IDM_PRIVILEGES, OnUpdatePrivileges)
 	ON_UPDATE_COMMAND_UI(IDM_VALIDITY, OnUpdateValidity)
+	ON_UPDATE_COMMAND_UI(IDM_WINDOWS, OnUpdateWindows)
 	ON_UPDATE_COMMAND_UI(IDM_NEXTWINDOW, OnUpdateNextWindow)
 	ON_UPDATE_COMMAND_UI(IDM_PREVIOUSWINDOW, OnUpdatePreviousWindow)
 	ON_UPDATE_COMMAND_UI(IDM_CLOSEWINDOW, OnUpdateCloseWindow)
 	ON_UPDATE_COMMAND_UI(IDM_CLOSEALLWINDOWS, OnUpdateCloseAllWindows)
-	ON_UPDATE_COMMAND_UI(IDM_WINDOWS, OnUpdateWindows)
 	ON_UPDATE_COMMAND_UI(IDM_ASSISTANTSUPPORTDATECONVERSIONS, OnUpdateAssistantSupportDateConversions)
 	ON_UPDATE_COMMAND_UI(IDM_ASSISTANTLISTEN, OnUpdateAssistantListen)
 	ON_UPDATE_COMMAND_UI(ID_STATUSBAR_SERVERPANE, OnUpdateStatusBarServerPane)
@@ -18397,7 +18396,20 @@ END_MESSAGE_MAP()
 
 int CMainWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-	return((CLocaleMDIFrameWnd::OnCreate(lpCreateStruct) != -1 && CreateToolBars() && CreateRibbonBar() && CreateStatusBar()) ? 0 : -1);
+	if (CLocaleMDIFrameWnd::OnCreate(lpCreateStruct) != -1)
+	{
+		if (CreateToolBars() && CreateRibbonBar() && CreateStatusBar())
+		{
+			if (CreateWorkspaceWindow() && CreateOutputWindow())
+			{
+				UpdateWorkspaceWindow();
+				UpdateOutputWindow();
+				CreateZoomWindow();
+				return 0;
+			}
+		}
+	}
+	return -1;
 }
 
 BOOL CMainWnd::OnCreateClient(LPCREATESTRUCT pcs, CCreateContext *pContext)
@@ -20677,6 +20689,13 @@ void CMainWnd::OnValidity()
 	m_dlgDatabaseValidity.DoModal();
 }
 
+void CMainWnd::OnWindows()
+{
+	CHourglassCursor  cCursor;
+
+	m_dlgDisplayWindows.DoModal();
+}
+
 void CMainWnd::OnNextWindow()
 {
 	ActivateWindow(TRUE);
@@ -20695,13 +20714,6 @@ void CMainWnd::OnCloseWindow()
 void CMainWnd::OnCloseAllWindows()
 {
 	CloseAllWindows();
-}
-
-void CMainWnd::OnWindows()
-{
-	CHourglassCursor  cCursor;
-
-	m_dlgDisplayWindows.DoModal();
 }
 
 void CMainWnd::OnAssistantSupportDateConversions()
@@ -22582,14 +22594,19 @@ void CMainWnd::OnUpdateValidity(CCmdUI *pCmdUI)
 	pCmdUI->SetCheck(IsWindow(m_dlgDatabaseValidity.GetSafeHwnd()));
 }
 
+void CMainWnd::OnUpdateWindows(CCmdUI* pCmdUI)
+{
+	pCmdUI->Enable();
+}
+
 void CMainWnd::OnUpdateNextWindow(CCmdUI *pCmdUI)
 {
-	pCmdUI->Enable((MDIGetActive()) ? TRUE : FALSE);
+	pCmdUI->Enable((MDIGetActive()) ? (EnumDisplayWindows() > 1) : FALSE);
 }
 
 void CMainWnd::OnUpdatePreviousWindow(CCmdUI *pCmdUI)
 {
-	pCmdUI->Enable((MDIGetActive()) ? TRUE : FALSE);
+	pCmdUI->Enable((MDIGetActive()) ? (EnumDisplayWindows() > 1) : FALSE);
 }
 
 void CMainWnd::OnUpdateCloseWindow(CCmdUI *pCmdUI)
@@ -22598,11 +22615,6 @@ void CMainWnd::OnUpdateCloseWindow(CCmdUI *pCmdUI)
 }
 
 void CMainWnd::OnUpdateCloseAllWindows(CCmdUI *pCmdUI)
-{
-	pCmdUI->Enable((EnumDisplayWindows() > 0) ? TRUE : FALSE);
-}
-
-void CMainWnd::OnUpdateWindows(CCmdUI *pCmdUI)
 {
 	pCmdUI->Enable((EnumDisplayWindows() > 0) ? TRUE : FALSE);
 }
@@ -23595,7 +23607,7 @@ BOOL CEditorApp::RunAccount(CONST CEditorAppCommandLineInfo &cStartupInfo)
 {
 	CLoginDialog  cLoginDialog;
 
-	if (cStartupInfo.IsValid())
+	for (GetMainWnd()->UpdateLayout(); cStartupInfo.IsValid();)
 	{
 		if (EvaluateAccount(cStartupInfo))
 		{

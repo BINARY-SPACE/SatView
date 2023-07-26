@@ -637,6 +637,7 @@ public:
 	virtual BOOL UpdateLinkInformation();
 	virtual BOOL IsUpdatingLinkInformation() CONST;
 	virtual BOOL HasLinkInformation() CONST;
+	virtual BOOL CanShowOnWindowsList() { return FALSE; }
 	virtual BOOL CheckTableDropTarget(LPCTSTR pszTable, ULONGLONG nComponent, CONST POINT &point) CONST;
 	virtual BOOL DropOnTableTarget(LPCTSTR pszTable, ULONGLONG nComponent, CONST POINT &point);
 	virtual VOID UpdateAllPanes(LPCTSTR pszMessage, LPCTSTR pszFlag, LPCTSTR pszType);

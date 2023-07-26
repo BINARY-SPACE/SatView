@@ -2766,11 +2766,11 @@ protected:
 	afx_msg void OnUsers();
 	afx_msg void OnPrivileges();
 	afx_msg void OnValidity();
+	afx_msg void OnWindows();
 	afx_msg void OnNextWindow();
 	afx_msg void OnPreviousWindow();
 	afx_msg void OnCloseWindow();
 	afx_msg void OnCloseAllWindows();
-	afx_msg void OnWindows();
 	afx_msg void OnAssistantSupportDateConversions();
 	afx_msg void OnAssistantListen();
 	afx_msg void OnMRUDocument(UINT nID);
@@ -2982,11 +2982,11 @@ protected:
 	afx_msg void OnUpdateUsers(CCmdUI *pCmdUI);
 	afx_msg void OnUpdatePrivileges(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateValidity(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateWindows(CCmdUI* pCmdUI);
 	afx_msg void OnUpdateNextWindow(CCmdUI *pCmdUI);
 	afx_msg void OnUpdatePreviousWindow(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateCloseWindow(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateCloseAllWindows(CCmdUI *pCmdUI);
-	afx_msg void OnUpdateWindows(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateDisplayWindows(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateDisplayWindow(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateAssistantSupportDateConversions(CCmdUI *pCmdUI);
