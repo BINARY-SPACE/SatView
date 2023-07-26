@@ -1380,6 +1380,16 @@ BOOL CSimulatorApp::IsHelpAvailable() CONST
 	return FALSE;
 }
 
+BOOL CSimulatorApp::SaveState(LPCTSTR lpszSectionName, CFrameImpl* pFrameImpl)
+{
+	return TRUE;
+}
+
+BOOL CSimulatorApp::LoadState(LPCTSTR lpszSectionName, CFrameImpl* pFrameImpl)
+{
+	return TRUE;
+}
+
 CMainWnd *CSimulatorApp::GetMainWnd() CONST
 {
 	return((CMainWnd *)m_pMainWnd);

@@ -308,6 +308,8 @@ public:
 	//{{AFX_VIRTUAL(CSimulatorApp)
 public:
 	virtual BOOL InitInstance();
+	virtual BOOL SaveState(LPCTSTR lpszSectionName = (LPCTSTR)NULL, CFrameImpl* pFrameImpl = (CFrameImpl*)NULL);
+	virtual BOOL LoadState(LPCTSTR lpszSectionName = (LPCTSTR)NULL, CFrameImpl* pFrameImpl = (CFrameImpl*)NULL);
 	//}}AFX_VIRTUAL
 
 	// Implementation
