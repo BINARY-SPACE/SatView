@@ -741,6 +741,7 @@ protected:
 	afx_msg void OnPrintUserAddressBook();
 	afx_msg void OnDisplayReduceFonts();
 	afx_msg void OnDisplayRestoreFonts();
+	afx_msg void OnWindows();
 	afx_msg void OnNextWindow();
 	afx_msg void OnPreviousWindow();
 	afx_msg void OnCloseWindow();

@@ -607,6 +607,7 @@ public:
 	virtual void RecalcLayout(CDisplayToolBar *pToolBar);
 	virtual void RecalcLayout(BOOL bNotify = TRUE);
 	virtual void ActivateFrame(int nCmdShow = -1);
+	virtual BOOL CanShowOnWindowsList() { return FALSE; }
 public:
 	virtual BOOL Start();
 	virtual BOOL Prepare(BOOL bDialog);

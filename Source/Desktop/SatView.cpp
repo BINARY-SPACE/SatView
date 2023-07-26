@@ -2158,7 +2158,7 @@ BOOL CMainWnd::Create()
 	if (LoadFrame(IDR_MAINFRAME, WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_HSCROLL | WS_VSCROLL))
 	{
 		ShowMessage(IDS_STATUSBAR_INITIALIZING);
-		ShowWindow(SW_SHOWNORMAL);
+		//ShowWindow(SW_SHOWNORMAL);
 		UpdateWindow();
 		UpdateTitle();
 		UpdateMenus();
@@ -2308,7 +2308,7 @@ VOID CMainWnd::UpdateLayout()
 	APPBARDATA  sBarData;
 	CProfile  cProfile;
 
-	for (GetDesktopApp()->LoadState(GetAccountUserName() + STRING(IDS_REG_SUBKEYPART_DELIMITER) + STRING(IDS_REG_SUBKEYPART_WORKSPACE), &m_Impl); cProfile.GetState(nShow) && cProfile.GetPosition(rPosition); )
+	if (cProfile.GetState(nShow) && cProfile.GetPosition(rPosition))
 	{
 		for (sBarData.cbSize = sizeof(sBarData), SHAppBarMessage(ABM_GETTASKBARPOS, &sBarData), size.cx = GetSystemMetrics(SM_CXVIRTUALSCREEN), size.cy = GetSystemMetrics(SM_CYVIRTUALSCREEN) - (sBarData.rc.bottom - sBarData.rc.top); rPosition.left < 0 || rPosition.top < 0 || (rPosition.top >= sBarData.rc.top && rPosition.top <= sBarData.rc.bottom) || rPosition.right > GetSystemMetrics(SM_CXVIRTUALSCREEN) || rPosition.bottom > GetSystemMetrics(SM_CYVIRTUALSCREEN) || (rPosition.bottom >= sBarData.rc.top && rPosition.bottom <= sBarData.rc.bottom) || rPosition.Width() > size.cx || rPosition.Height() > size.cy; )
 		{
@@ -2320,9 +2320,15 @@ VOID CMainWnd::UpdateLayout()
 			ShowWindow(nShow);
 			break;
 		}
-		break;
 	}
-	if (!cProfile.GetStatusBarState(nPaneIDs)) nPaneIDs.RemoveAll();
+	else
+	{
+		ShowWindow(SW_SHOWNORMAL);
+	}
+	if (!cProfile.GetStatusBarState(nPaneIDs))
+	{
+		nPaneIDs.RemoveAll();
+	}
 	m_wndStatusBar.SetIndicators(nPaneIDs);
 }
 
@@ -2352,6 +2358,7 @@ VOID CMainWnd::UpdateMenus()
 	INT  nElement;
 	INT  nElements;
 	UINT  nMenuID;
+	BOOL  bPage;
 	CMenu  *pMenu;
 	CString  szPage;
 	CString  szItem[2];
@@ -2456,65 +2463,83 @@ VOID CMainWnd::UpdateMenus()
 			}
 			break;
 		}
-		if ((pSeparator = new CMFCRibbonSeparator(TRUE)))
+		for (nID = IDM_FIRSTDISPLAYWINDOW; GetDisplayArea()->GetType() == DISPLAYAREA_TYPE_STANDARD; )
 		{
-			for (pButton[0]->AddSubItem(pSeparator), nID = IDM_FIRSTDISPLAYWINDOW; GetDisplayArea()->GetType() == DISPLAYAREA_TYPE_STANDARD; )
+			for (nItem = 1, nItems = GetDisplayArea()->EnumDisplays(pDisplays, TRUE), nItems = min(IDM_LASTDISPLAYWINDOWS - IDM_FIRSTDISPLAYWINDOWS + 1, nItems); nItem <= nItems; nItem++)
 			{
-				for (nItem = 1, nItems = GetDisplayArea()->EnumDisplays(pDisplays, TRUE), nItems = min(IDM_LASTDISPLAYWINDOWS - IDM_FIRSTDISPLAYWINDOWS + 1, nItems); nItem <= nItems; nItem++)
+				if ((pDisplayWnd = (CDisplayWnd*)pDisplays.GetAt(nItem - 1)))
 				{
-					if ((pDisplayWnd = (CDisplayWnd *)pDisplays.GetAt(nItem - 1)))
+					for (szItem[0].Empty(); pDisplayWnd->Check(); )
 					{
-						for (szItem[0].Empty(); pDisplayWnd->Check(); )
-						{
-							pDisplayWnd->GetWindowText(szItem[0]);
-							szItem[1].Format((nItem < 10) ? STRING(IDS_WINDOW_MENUITEM) : STRING(IDS_WINDOW_EXTENDEDMENUITEM), nItem, (LPCTSTR)szItem[0]);
-							break;
-						}
-						if ((pButton[1] = (!szItem[0].IsEmpty()) ? new CMainRibbonButton(nID, szItem[1]) : (CMFCRibbonButton *)NULL))
-						{
-							pButton[0]->AddSubItem(pButton[1]);
-							nID = nID + 1;
-							continue;
-						}
+						pDisplayWnd->GetWindowText(szItem[0]);
+						szItem[1].Format((nItem < 10) ? STRING(IDS_WINDOW_MENUITEM) : STRING(IDS_WINDOW_EXTENDEDMENUITEM), nItem, (LPCTSTR)szItem[0]);
+						break;
 					}
-				}
-				if ((pButton[1] = (nItems > 0) ? new CMainRibbonButton(IDM_DISPLAYWINDOWS, STRING(IDS_WINDOW_MENUITEM_WINDOWS)) : (CMFCRibbonButton *)NULL)) pButton[0]->AddSubItem(pButton[1]);
-				break;
-			}
-			if (GetDisplayArea()->GetType() == DISPLAYAREA_TYPE_FOLDER)
-			{
-				for (nPage = 1, nPages = GetDisplayArea()->EnumPages(szPages), nPages = min(IDM_LASTDISPLAYPAGE - IDM_FIRSTDISPLAYPAGE + 1, nPages); nPage <= nPages; nPage++)
-				{
-					szPage.Format((nPage < 10) ? STRING(IDS_WINDOW_MENUITEM) : STRING(IDS_WINDOW_EXTENDEDMENUITEM), nPage, (LPCTSTR)szPages.GetAt(nPage - 1));
-					if ((pButton[1] = (!szPages.GetAt(nPage - 1).IsEmpty()) ? new CMainRibbonButton(0, szPage) : (CMFCRibbonButton *)NULL) != (CMFCRibbonButton *)NULL)
+					if ((pButton[1] = (!szItem[0].IsEmpty()) ? new CMainRibbonButton(nID, szItem[1]) : (CMFCRibbonButton*)NULL))
 					{
-						for (nItem = 1, nItems = GetDisplayArea()->EnumDisplays(nPage - 1, pDisplays, TRUE), nItems = min(IDM_LASTDISPLAYWINDOWS - IDM_FIRSTDISPLAYWINDOWS + 1, nItems); nItem <= nItems; nItem++)
+						if (nID == IDM_FIRSTDISPLAYWINDOW)
 						{
-							if ((pDisplayWnd = (CDisplayWnd *)pDisplays.GetAt(nItem - 1)))
+							if ((pSeparator = new CMFCRibbonSeparator(TRUE)))
 							{
-								for (szItem[0].Empty(); pDisplayWnd->Check(); )
-								{
-									pDisplayWnd->GetWindowText(szItem[0]);
-									szItem[1].Format((nItem < 10) ? STRING(IDS_WINDOW_MENUITEM) : STRING(IDS_WINDOW_EXTENDEDMENUITEM), nItem, (LPCTSTR)szItem[0]);
-									break;
-								}
-								if ((pButton[2] = (!szItem[0].IsEmpty()) ? new CMainRibbonButton(nID, szItem[1]) : (CMFCRibbonButton *)NULL))
-								{
-									pButton[1]->AddSubItem(pButton[2]);
-									nID = nID + 1;
-									continue;
-								}
+								pButton[0]->AddSubItem(pSeparator);
 							}
 						}
-						for (nID += (INT)(pDisplays.GetSize() - nItems); (pButton[2] = new CMainRibbonButton(IDM_DISPLAYWINDOWS + nPage - 1, STRING(IDS_WINDOW_MENUITEM_WINDOWS))); )
-						{
-							pButton[1]->AddSubItem(pButton[2]);
-							break;
-						}
 						pButton[0]->AddSubItem(pButton[1]);
+						nID = nID + 1;
+						continue;
 					}
 				}
-				if ((pButton[1] = (nPages > 0) ? new CMainRibbonButton(IDM_DISPLAYPAGES, STRING(IDS_WINDOW_MENUITEM_PAGES)) : (CMFCRibbonButton *)NULL)) pButton[0]->AddSubItem(pButton[1]);
+			}
+			if ((pButton[1] = (nItems > 0) ? new CMainRibbonButton(IDM_DISPLAYWINDOWS, STRING(IDS_WINDOW_MENUITEM_WINDOWS)) : (CMFCRibbonButton*)NULL))
+			{
+				pButton[0]->AddSubItem(pButton[1]);
+			}
+			break;
+		}
+		if (GetDisplayArea()->GetType() == DISPLAYAREA_TYPE_FOLDER)
+		{
+			for (nPage = 1, nPages = GetDisplayArea()->EnumPages(szPages), nPages = min(IDM_LASTDISPLAYPAGE - IDM_FIRSTDISPLAYPAGE + 1, nPages), bPage = FALSE; nPage <= nPages; nPage++)
+			{
+				szPage.Format((nPage < 10) ? STRING(IDS_WINDOW_MENUITEM) : STRING(IDS_WINDOW_EXTENDEDMENUITEM), nPage, (LPCTSTR)szPages.GetAt(nPage - 1));
+				if ((pButton[1] = (!szPages.GetAt(nPage - 1).IsEmpty()) ? new CMainRibbonButton(0, szPage) : (CMFCRibbonButton*)NULL) != (CMFCRibbonButton*)NULL)
+				{
+					for (nItem = 1, nItems = GetDisplayArea()->EnumDisplays(nPage - 1, pDisplays, TRUE), nItems = min(IDM_LASTDISPLAYWINDOWS - IDM_FIRSTDISPLAYWINDOWS + 1, nItems); nItem <= nItems; nItem++)
+					{
+						if ((pDisplayWnd = (CDisplayWnd*)pDisplays.GetAt(nItem - 1)))
+						{
+							for (szItem[0].Empty(); pDisplayWnd->Check(); )
+							{
+								pDisplayWnd->GetWindowText(szItem[0]);
+								szItem[1].Format((nItem < 10) ? STRING(IDS_WINDOW_MENUITEM) : STRING(IDS_WINDOW_EXTENDEDMENUITEM), nItem, (LPCTSTR)szItem[0]);
+								break;
+							}
+							if ((pButton[2] = (!szItem[0].IsEmpty()) ? new CMainRibbonButton(nID, szItem[1]) : (CMFCRibbonButton*)NULL))
+							{
+								pButton[1]->AddSubItem(pButton[2]);
+								nID = nID + 1;
+								continue;
+							}
+						}
+					}
+					for (nID += (INT)(pDisplays.GetSize() - nItems); (pButton[2] = new CMainRibbonButton(IDM_DISPLAYWINDOWS + nPage - 1, STRING(IDS_WINDOW_MENUITEM_WINDOWS))); )
+					{
+						pButton[1]->AddSubItem(pButton[2]);
+						break;
+					}
+					if (!bPage)
+					{
+						if ((pSeparator = new CMFCRibbonSeparator(TRUE)))
+						{
+							pButton[0]->AddSubItem(pSeparator);
+						}
+						bPage = TRUE;
+					}
+					pButton[0]->AddSubItem(pButton[1]);
+				}
+			}
+			if ((pButton[1] = (nPages > 0) ? new CMainRibbonButton(IDM_DISPLAYPAGES, STRING(IDS_WINDOW_MENUITEM_PAGES)) : (CMFCRibbonButton*)NULL))
+			{
+				pButton[0]->AddSubItem(pButton[1]);
 			}
 		}
 	}
@@ -4300,6 +4325,7 @@ BEGIN_MESSAGE_MAP(CMainWnd, CLocaleMDIFrameWnd)
 	ON_COMMAND(IDM_PRINTUSERADDRESSBOOK, OnPrintUserAddressBook)
 	ON_COMMAND(IDM_DISPLAYREDUCEFONTS, OnDisplayReduceFonts)
 	ON_COMMAND(IDM_DISPLAYRESTOREFONTS, OnDisplayRestoreFonts)
+	ON_COMMAND(IDM_WINDOWS, OnWindows)
 	ON_COMMAND(IDM_NEXTWINDOW, OnNextWindow)
 	ON_COMMAND(IDM_PREVIOUSWINDOW, OnPreviousWindow)
 	ON_COMMAND(IDM_CLOSEWINDOW, OnCloseWindow)
@@ -5164,6 +5190,18 @@ void CMainWnd::OnDisplayRestoreFonts()
 	if ((pDisplayWnd = GetActiveDisplay()))
 	{
 		pDisplayWnd->ReduceFonts(TRUE);
+	}
+}
+
+void CMainWnd::OnWindows()
+{
+	CHourglassCursor  cCursor;
+
+	if (GetDisplayArea()->GetType() == DISPLAYAREA_TYPE_FOLDER)
+	{
+		CDisplayPagesDialog  cDisplayPagesDialog;
+
+		cDisplayPagesDialog.DoModal();
 	}
 }
 
@@ -6163,7 +6201,7 @@ BOOL CDesktopApp::StartAccount(CONST CDesktopAppCommandLineInfo &cStartupInfo)
 	CLoginDialog  cLoginDialog;
 	CAccountToken  cAccountToken;
 
-	if (cStartupInfo.IsValid())
+	for (GetMainWnd()->UpdateLayout(); cStartupInfo.IsValid(); )
 	{
 		for (ShowWaitCursor(); EvaluateAccount(cStartupInfo, &cAccountToken); )
 		{
