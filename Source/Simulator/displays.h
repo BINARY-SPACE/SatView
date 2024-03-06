@@ -457,22 +457,20 @@ public:
 
 	// Attributes
 private:
-	CSimulatorMessagesConsoleView  *m_pwndView;
+	CSimulatorMessagesConsoleView  *m_pWndView;
 	CStatusBar  m_wndStatusBar;
 
 	// Operations
 public:
-	VOID ShowMessage(LPCTSTR pszMessage);
-	VOID ShowMessage(LPCTSTR pszType, LPCTSTR pszMessage);
-	VOID ShowMessage(LPCTSTR pszType, LPCTSTR pszSource, LPCTSTR pszMessage);
+	BOOL ShowMessage(LPCTSTR pszMessage);
+	BOOL ShowMessage(LPCTSTR pszType, LPCTSTR pszMessage);
+	BOOL ShowMessage(LPCTSTR pszType, LPCTSTR pszSource, LPCTSTR pszMessage);
 
 	INT GetMessageCount() CONST;
 
 	// Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CSimulatorMessagesConsoleWnd)
-public:
-	virtual BOOL PreCreateWindow(CREATESTRUCT &cs);
 	//}}AFX_VIRTUAL
 
 	// Generated message map functions

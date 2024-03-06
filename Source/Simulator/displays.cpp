@@ -1835,43 +1835,52 @@ IMPLEMENT_DYNCREATE(CSimulatorMessagesConsoleWnd, CDisplayWnd)
 
 CSimulatorMessagesConsoleWnd::CSimulatorMessagesConsoleWnd() : CDisplayWnd()
 {
-	return;
+	m_pWndView = (CSimulatorMessagesConsoleView*)NULL;
 }
 
-VOID CSimulatorMessagesConsoleWnd::ShowMessage(LPCTSTR pszMessage)
+BOOL CSimulatorMessagesConsoleWnd::ShowMessage(LPCTSTR pszMessage)
 {
 	CString  szMessage;
 
-	m_pwndView->ShowMessage(pszMessage);
-	szMessage.Format(STRING(IDS_STATUSBAR_MESSAGECOUNT), GetMessageCount());
-	m_wndStatusBar.SetPaneText(0, szMessage);
+	if (m_pWndView)
+	{
+		m_pWndView->ShowMessage(pszMessage);
+		szMessage.Format(STRING(IDS_STATUSBAR_MESSAGECOUNT), GetMessageCount());
+		m_wndStatusBar.SetPaneText(0, szMessage);
+		return TRUE;
+	}
+	return FALSE;
 }
-VOID CSimulatorMessagesConsoleWnd::ShowMessage(LPCTSTR pszType, LPCTSTR pszMessage)
+BOOL CSimulatorMessagesConsoleWnd::ShowMessage(LPCTSTR pszType, LPCTSTR pszMessage)
 {
 	CString  szMessage;
 
-	m_pwndView->ShowMessage(pszType, pszMessage);
-	szMessage.Format(STRING(IDS_STATUSBAR_MESSAGECOUNT), GetMessageCount());
-	m_wndStatusBar.SetPaneText(0, szMessage);
+	if (m_pWndView)
+	{
+		m_pWndView->ShowMessage(pszType, pszMessage);
+		szMessage.Format(STRING(IDS_STATUSBAR_MESSAGECOUNT), GetMessageCount());
+		m_wndStatusBar.SetPaneText(0, szMessage);
+		return TRUE;
+	}
+	return FALSE;
 }
-VOID CSimulatorMessagesConsoleWnd::ShowMessage(LPCTSTR pszType, LPCTSTR pszSource, LPCTSTR pszMessage)
+BOOL CSimulatorMessagesConsoleWnd::ShowMessage(LPCTSTR pszType, LPCTSTR pszSource, LPCTSTR pszMessage)
 {
 	CString  szMessage;
 
-	m_pwndView->ShowMessage(pszType, pszSource, pszMessage);
-	szMessage.Format(STRING(IDS_STATUSBAR_MESSAGECOUNT), GetMessageCount());
-	m_wndStatusBar.SetPaneText(0, szMessage);
+	if (m_pWndView)
+	{
+		m_pWndView->ShowMessage(pszType, pszSource, pszMessage);
+		szMessage.Format(STRING(IDS_STATUSBAR_MESSAGECOUNT), GetMessageCount());
+		m_wndStatusBar.SetPaneText(0, szMessage);
+		return TRUE;
+	}
+	return FALSE;
 }
 
 INT CSimulatorMessagesConsoleWnd::GetMessageCount() CONST
 {
-	return m_pwndView->GetMessageCount();
-}
-
-BOOL CSimulatorMessagesConsoleWnd::PreCreateWindow(CREATESTRUCT &cs)
-{
-	cs.dwExStyle |= WS_EX_TOOLWINDOW;
-	return CDisplayWnd::PreCreateWindow(cs);
+	return((m_pWndView) ? m_pWndView->GetMessageCount() : 0);
 }
 
 BEGIN_MESSAGE_MAP(CSimulatorMessagesConsoleWnd, CDisplayWnd)
@@ -1893,10 +1902,15 @@ int CSimulatorMessagesConsoleWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	{
 		if (m_wndStatusBar.Create(this, CBRS_BOTTOM | WS_CHILD | WS_CLIPSIBLINGS | WS_VISIBLE))
 		{
-			for (m_wndStatusBar.SetIndicators(nMessageConsoleWndIndicators, sizeof(nMessageConsoleWndIndicators) / sizeof(UINT)), m_wndStatusBar.SetPaneStyle(0, SBPS_NOBORDERS), cContext.m_pCurrentDoc = new CSimulatorMessagesConsoleDocument; (m_pwndView = new CSimulatorMessagesConsoleView); )
+			for (m_wndStatusBar.SetIndicators(nMessageConsoleWndIndicators, sizeof(nMessageConsoleWndIndicators) / sizeof(UINT)), m_wndStatusBar.SetPaneStyle(0, SBPS_NOBORDERS), cContext.m_pCurrentDoc = new CSimulatorMessagesConsoleDocument; (m_pWndView = new CSimulatorMessagesConsoleView); )
 			{
-				if (m_pwndView->Create((LPCTSTR)NULL, EMPTYSTRING, WS_CHILD | WS_CLIPSIBLINGS | WS_VISIBLE, CRect(lpCreateStruct->x, lpCreateStruct->y, lpCreateStruct->cx, lpCreateStruct->cy), this, 0, &cContext)) return 0;
-				delete m_pwndView;
+				if (m_pWndView->Create((LPCTSTR)NULL, EMPTYSTRING, WS_CHILD | WS_CLIPSIBLINGS | WS_VISIBLE, CRect(lpCreateStruct->x, lpCreateStruct->y, lpCreateStruct->cx, lpCreateStruct->cy), this, 0, &cContext))
+				{
+					SetIcon(LoadIcon(GetModuleHandle((LPCTSTR)NULL), MAKEINTRESOURCE(IDR_MESSAGESCONSOLE)), FALSE);
+					RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, 0);
+					return 0;
+				}
+				delete m_pWndView;
 				break;
 			}
 		}
@@ -1908,13 +1922,20 @@ void CSimulatorMessagesConsoleWnd::OnSize(UINT nType, int cx, int cy)
 {
 	CRect  rStatusBar;
 
-	m_wndStatusBar.GetWindowRect(rStatusBar);
-	m_pwndView->MoveWindow(0, 0, cx, cy - rStatusBar.Height());
+	if (m_pWndView)
+	{
+		m_wndStatusBar.GetWindowRect(rStatusBar);
+		m_pWndView->MoveWindow(0, 0, cx, cy - rStatusBar.Height());
+	}
+	RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, 0);
 	CDisplayWnd::OnSize(nType, cx, cy);
 }
 
 void CSimulatorMessagesConsoleWnd::OnDestroy()
 {
-	m_pwndView->DestroyWindow();
+	if (m_pWndView)
+	{
+		m_pWndView->DestroyWindow();
+	}
 	CDisplayWnd::OnDestroy();
 }

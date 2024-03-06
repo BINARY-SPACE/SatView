@@ -5,9 +5,10 @@
 #define IDR_MAINFRAME                   101
 #define IDR_IODEVICETOOLBAR             102
 #define IDR_SIMULATORDATACONSOLE        103
-#define IDB_MAINFRAMELARGEIMAGES        104
-#define IDB_MAINFRAMESMALLIMAGES        105
-#define IDD_ABOUTBOX                    106
+#define IDR_MESSAGESCONSOLE             104
+#define IDB_MAINFRAMELARGEIMAGES        105
+#define IDB_MAINFRAMESMALLIMAGES        106
+#define IDD_ABOUTBOX                    107
 #define IDM_IODEVICELABEL               40000
 #define IDM_IODEVICE                    40001
 #define IDM_FIRSTIODEVICE               40002
@@ -25,7 +26,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        107
+#define _APS_NEXT_RESOURCE_VALUE        108
 #define _APS_NEXT_COMMAND_VALUE         40110
 #define _APS_NEXT_CONTROL_VALUE         10000
 #define _APS_NEXT_SYMED_VALUE           101
