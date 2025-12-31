@@ -1,5 +1,5 @@
 # SatView™
-## Satellite Monitoring &amp; Control System for Microsoft® Windows® 10
+## Satellite Monitoring &amp; Control System for Microsoft® Windows® 10/11
 
 SatView™ is an advanced 'Satellite Monitoring & Control System' (MCS) that has been developed by BINARY SPACE and was used many years by multiple ESA projects (e.g. for the geo-stationary telecommunications satellite called ARTEMIS) or by other customers like EADS Astrium. Its main focus is to support mission operations by providing a rich set of features highly automating all involved processes required to control a satellite.
 It is compliant with the CCSDS Packet Telemetry/Telecommand Standard (CCSDS 102.0-B-2 el al.) but can be adapted to other (older) standards by some coding effort. Futhermore, through the generic driver-based I/O interface, it can also be re-configured for the 'Assembly, Integration & Test' (AIT) and 'In-orbit Test' (IOT) life-cycle phases of a satellite.
@@ -23,9 +23,9 @@ Read the [SatView™ Brochure](/Brochures/SatView™%20Brochure.pdf) to learn mo
 - 10+ Mbps Internet
 
 #### Software:
-- Microsoft® Windows® 10 Professional/Enterprise or Microsoft® Server® 2019
+- Microsoft® Windows® 10/11 Professional
+- Microsoft® Visual Studio® 2026 (Version 18.1.1 or later)
 - Microsoft® SQL Server® 2022
-- Microsoft® Visual Studio® 2022 (Version 17.6.5 or later)
 
 ### Installation<br />
 Follow this [installation guide](/Documents/Installation.md) in order to get the development environment downloaded and set-up.
