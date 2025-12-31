@@ -507,7 +507,7 @@ BOOL CSatelliteTrackingToolWnd::CalculateSpacecraftOrbit(CSpacecraft *pSpacecraf
 
 BOOL CSatelliteTrackingToolWnd::CalculateSpacecraftState(CONST CSpacecraft *pSpacecraft, CONST CTimeKey &tTime, StateVector &sState) CONST
 {
-	return m_pwndSceneView->CalculateSpacecraftState(pSpacecraft, tTime, sState);
+	return m_pwndSceneView->CalculateSpacecraftOrbit(pSpacecraft, tTime, sState);
 }
 
 BOOL CSatelliteTrackingToolWnd::SaveInfo(INT nPage, INT nDisplay, LPCTSTR pszTitle, CONST PDISPLAYINFO pDisplayInfo)
@@ -545,11 +545,6 @@ BOOL CSatelliteTrackingToolWnd::QueryDefaultMenu(CLocaleMenu &cMenu, CImageList 
 	return TRUE;
 }
 
-VOID CSatelliteTrackingToolWnd::ShowSideBars(BOOL bShow)
-{
-	m_pwndSceneView->ShowSideBars(IsWindowVisible() && bShow);
-}
-
 BOOL CSatelliteTrackingToolWnd::ShowMessage(LPCTSTR pszMessage, UINT nType, CMFCCaptionBar::BarElementAlignment nAlignment, BOOL bSound)
 {
 	if (nType != (UINT)-1)
@@ -569,18 +564,18 @@ BOOL CSatelliteTrackingToolWnd::ShowProgress(LPCTSTR pszAction, INT nProgress)
 	return TRUE;
 }
 
-BOOL CALLBACK CSatelliteTrackingToolWnd::ShowMessageProc(LPCTSTR pszMessage, UINT nType, CMFCCaptionBar::BarElementAlignment nAlignment, BOOL bSound)
+BOOL CALLBACK CSatelliteTrackingToolWnd::ShowMessageProc(CONST CView* pView, Message::Type nType, LPCTSTR pszText, BOOL bSound)
 {
 	CSatelliteTrackingToolWnd  *pSatelliteTrackingToolWnd;
 
-	return(((pSatelliteTrackingToolWnd = (CSatelliteTrackingToolWnd *)GetMainWnd()->GetGlobalDisplay())) ? pSatelliteTrackingToolWnd->ShowMessage(pszMessage, nType, nAlignment, bSound) : FALSE);
+	return(((pSatelliteTrackingToolWnd = (CSatelliteTrackingToolWnd *)GetMainWnd()->GetGlobalDisplay())) ? pSatelliteTrackingToolWnd->ShowMessage(pszText, nType, CMFCCaptionBar::ALIGN_CENTER, bSound) : FALSE);
 }
 
-BOOL CALLBACK CSatelliteTrackingToolWnd::ShowProgressProc(LPCTSTR pszMessage, INT nProgress)
+BOOL CALLBACK CSatelliteTrackingToolWnd::ShowProgressProc(CONST CView*, LPCTSTR pszAction, INT nProgress)
 {
 	CSatelliteTrackingToolWnd  *pSatelliteTrackingToolWnd;
 
-	return(((pSatelliteTrackingToolWnd = (CSatelliteTrackingToolWnd *)GetMainWnd()->GetGlobalDisplay())) ? pSatelliteTrackingToolWnd->ShowProgress(pszMessage, nProgress) : FALSE);
+	return(((pSatelliteTrackingToolWnd = (CSatelliteTrackingToolWnd *)GetMainWnd()->GetGlobalDisplay())) ? pSatelliteTrackingToolWnd->ShowProgress(pszAction, nProgress) : FALSE);
 }
 
 CString CSatelliteTrackingToolWnd::ConstructConfiguratonFileName() CONST
@@ -607,7 +602,7 @@ VOID CSatelliteTrackingToolWnd::Enable(BOOL bEnable)
 	{
 		if (bEnable)
 		{
-			if (m_pwndSceneView->Start(FALSE))
+			if (m_pwndSceneView->Start())
 			{
 				m_bEnabled = TRUE;
 				return;
@@ -654,10 +649,8 @@ BEGIN_MESSAGE_MAP(CSatelliteTrackingToolWnd, CDisplayWnd)
 	//{{AFX_MSG_MAP(CSatelliteTrackingToolWnd)
 	ON_WM_CREATE()
 	ON_WM_NCHITTEST()
-	ON_WM_SHOWWINDOW()
 	ON_WM_GETMINMAXINFO()
 	ON_WM_SIZE()
-	ON_WM_MOVE()
 	ON_WM_ERASEBKGND()
 	ON_WM_INITMENU()
 	ON_WM_SYSCOMMAND()
@@ -672,10 +665,15 @@ END_MESSAGE_MAP()
 
 int CSatelliteTrackingToolWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
+	INT  nIndex;
+	INT  nCount;
 	INT  nItem[2];
 	INT  nItems[2];
+	UINT  nType;
 	CMenu  *pMenu;
+	CString  szMessages;
 	CString  szMenuItem;
+	Messages  cMessages;
 	CLocaleMenu  cMenu;
 
 	if (CDisplayWnd::OnCreate(lpCreateStruct) != -1)
@@ -703,9 +701,41 @@ int CSatelliteTrackingToolWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		{
 			if ((m_pwndSceneView = new CSpaceSceneView))
 			{
-				if (m_pwndSceneView->Create(AfxRegisterWndClass(CS_HREDRAW | CS_VREDRAW | CS_NOCLOSE, LoadCursor((HINSTANCE)NULL, IDC_ARROW), (HBRUSH)NULL), (LPCTSTR)NULL, WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | WS_VISIBLE, CRect(0, 0, lpCreateStruct->cx, lpCreateStruct->cy), this, 0))
+				if (m_pwndSceneView->Create(AfxRegisterWndClass(CS_DBLCLKS | CS_HREDRAW | CS_VREDRAW | CS_NOCLOSE, LoadCursor((HINSTANCE)NULL, IDC_ARROW), (HBRUSH)NULL), (LPCTSTR)NULL, WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | WS_VISIBLE, CRect(0, 0, lpCreateStruct->cx, lpCreateStruct->cy), this, 0))
 				{
-					m_bInitialized = m_pwndSceneView->Initialize(EMPTYSTRING, GetConfigurationFileName(), GetHelpFileName(), ShowMessageProc, ShowProgressProc);
+					for (nIndex = 0, m_bInitialized = m_pwndSceneView->Initialize(GetConfigurationFileName(), EMPTYSTRING, GetHelpFileName(), FALSE, cMessages, ShowMessageProc, ShowProgressProc), nCount = (INT)cMessages.GetSize(), nType = Message::Type::None; nIndex < nCount; nIndex++)
+					{
+						nType = max((UINT)cMessages.GetAt(nIndex).GetType(), nType);
+						szMessages += (!szMessages.IsEmpty()) ? (CString(CR) + EOL + CString(cMessages.GetAt(nIndex).GetText())) : CString(cMessages.GetAt(nIndex).GetText());
+					}
+					switch (nType)
+					{
+					case Message::Type::News:
+					{
+						ShowMessage(szMessages, MB_NEWS, CMFCCaptionBar::ALIGN_CENTER, FALSE);
+						break;
+					}
+					case Message::Type::Informational:
+					{
+						ShowMessage(szMessages, MB_ICONINFORMATION, CMFCCaptionBar::ALIGN_CENTER, FALSE);
+						break;
+					}
+					case Message::Type::Warning:
+					{
+						ShowMessage(szMessages, MB_ICONWARNING, CMFCCaptionBar::ALIGN_CENTER, FALSE);
+						break;
+					}
+					case Message::Type::Error:
+					{
+						ShowMessage(szMessages, MB_ICONERROR, CMFCCaptionBar::ALIGN_CENTER, FALSE);
+						break;
+					}
+					default:
+					{
+						ShowMessage(szMessages, -1, CMFCCaptionBar::ALIGN_CENTER, FALSE);
+						break;
+					}
+					}
 					LoadAccelTable(IDR_SATELLITETRACKINGTOOLFRAME);
 					return 0;
 				}
@@ -748,15 +778,6 @@ LRESULT CSatelliteTrackingToolWnd::OnNcHitTest(CPoint point)
 	return lResult;
 }
 
-void CSatelliteTrackingToolWnd::OnShowWindow(BOOL bShow, UINT nStatus)
-{
-	if (IsWindow(m_pwndSceneView->GetSafeHwnd()))
-	{
-		m_pwndSceneView->ShowSideBars(bShow);
-	}
-	CDisplayWnd::OnShowWindow(bShow, nStatus);
-}
-
 void CSatelliteTrackingToolWnd::OnGetMinMaxInfo(MINMAXINFO *lpMMI)
 {
 	lpMMI->ptMinTrackSize.x = 2 * GetSystemMetrics(SM_CXFRAME) + SATELLITETRACKINGTOOL_MIN_WIDTH;
@@ -771,15 +792,6 @@ void CSatelliteTrackingToolWnd::OnSize(UINT nType, int cx, int cy)
 		RecalcLayout();
 	}
 	CDisplayWnd::OnSize(nType, cx, cy);
-}
-
-void CSatelliteTrackingToolWnd::OnMove(int x, int y)
-{
-	if (IsWindow(m_pwndSceneView->GetSafeHwnd()))
-	{
-		m_pwndSceneView->AdjustSideBars();
-	}
-	CDisplayWnd::OnMove(x, y);
 }
 
 BOOL CSatelliteTrackingToolWnd::OnEraseBkgnd(CDC *pDC)
@@ -876,7 +888,7 @@ void CSatelliteTrackingToolWnd::OnUpdateMenuID(CCmdUI *pCmdUI)
 {
 	if (IsWindow(m_pwndSceneView->GetSafeHwnd()))
 	{
-		for (m_pwndSceneView->OnUpdateMenuID(pCmdUI); pCmdUI->m_nID == IDM_MULTIMEDIA_VIDEO_SETTINGS; )
+		for (m_pwndSceneView->OnUpdateMenuID(pCmdUI); pCmdUI->m_nID == IDM_MULTIMEDIA_VIDEO_SAVETOFILE; )
 		{
 			if (m_wndMessageBar.IsVisible())
 			{

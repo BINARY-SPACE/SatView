@@ -2057,7 +2057,6 @@ BEGIN_MESSAGE_MAP(CDisplayWnd, CLocaleMDIChildWnd)
 	//{{AFX_MSG_MAP(CDisplayWnd)
 	ON_WM_CREATE()
 	ON_WM_SHOWWINDOW()
-	ON_WM_WINDOWPOSCHANGING()
 	ON_WM_MDIACTIVATE()
 	ON_WM_SYSCOMMAND()
 	ON_WM_MOVING()
@@ -2101,17 +2100,6 @@ void CDisplayWnd::OnShowWindow(BOOL bShow, UINT nStatus)
 		}
 	}
 	CLocaleMDIChildWnd::OnShowWindow(bShow, nStatus);
-}
-
-void CDisplayWnd::OnWindowPosChanging(WINDOWPOS *lpwndpos)
-{
-	CSatelliteTrackingToolWnd  *pSatelliteTrackingToolWnd;
-
-	if ((pSatelliteTrackingToolWnd = (CSatelliteTrackingToolWnd *)GetParent()->GetGlobalDisplay(DISPLAY_TYPE_SATELLITETRACKINGTOOL)))
-	{
-		pSatelliteTrackingToolWnd->ShowSideBars(GetMDIFrame()->MDIGetActive() == pSatelliteTrackingToolWnd);
-	}
-	CLocaleMDIChildWnd::OnWindowPosChanging(lpwndpos);
 }
 
 void CDisplayWnd::OnMDIActivate(BOOL bActivate, CWnd *pActivateWnd, CWnd *pDeactivateWnd)

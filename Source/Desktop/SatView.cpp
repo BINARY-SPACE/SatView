@@ -2301,34 +2301,57 @@ VOID CMainWnd::UpdateTitle()
 VOID CMainWnd::UpdateLayout()
 {
 	UINT  nShow;
-	CSize  size;
+	BOOL  bProfile;
+	CSize  sizeWnd;
+	CRect  rScreen;
 	CRect  rPosition;
 	CUIntArray  nPaneIDs;
 	APPBARDATA  sBarData;
 	CProfile  cProfile;
 
-	if (cProfile.GetState(nShow) && cProfile.GetPosition(rPosition))
+	if ((bProfile = (cProfile.GetState(nShow) && cProfile.GetPosition(rPosition))))
 	{
-		for (sBarData.cbSize = sizeof(sBarData), SHAppBarMessage(ABM_GETTASKBARPOS, &sBarData), size.cx = GetSystemMetrics(SM_CXVIRTUALSCREEN), size.cy = GetSystemMetrics(SM_CYVIRTUALSCREEN) - (sBarData.rc.bottom - sBarData.rc.top); rPosition.left < 0 || rPosition.top < 0 || (rPosition.top >= sBarData.rc.top && rPosition.top <= sBarData.rc.bottom) || rPosition.right > GetSystemMetrics(SM_CXVIRTUALSCREEN) || rPosition.bottom > GetSystemMetrics(SM_CYVIRTUALSCREEN) || (rPosition.bottom >= sBarData.rc.top && rPosition.bottom <= sBarData.rc.bottom) || rPosition.Width() > size.cx || rPosition.Height() > size.cy; )
+		for (sBarData.cbSize = sizeof(sBarData), SHAppBarMessage(ABM_GETTASKBARPOS, &sBarData), sizeWnd.cx = GetSystemMetrics(SM_CXVIRTUALSCREEN), sizeWnd.cy = GetSystemMetrics(SM_CYVIRTUALSCREEN), rScreen = rPosition; sBarData.rc.left == 0 && sBarData.rc.right == sizeWnd.cx;)
 		{
-			rPosition.SetRect(0, (sBarData.rc.top <= 0) ? (sBarData.rc.bottom + 1) : 0, size.cx, (sBarData.rc.top <= 0) ? (sBarData.rc.bottom + size.cy) : size.cy);
+			if (sBarData.rc.bottom == sizeWnd.cy)
+			{
+				rScreen.SetRect(0, 0, sizeWnd.cx, sizeWnd.cy - sBarData.rc.bottom + sBarData.rc.top);
+				break;
+			}
+			rScreen.SetRect(0, sBarData.rc.bottom - sBarData.rc.top, sizeWnd.cx, sizeWnd.cy);
 			break;
 		}
-		for (SetWindowPos((CONST CWnd *) NULL, rPosition.left, rPosition.top, rPosition.Width(), rPosition.Height(), SWP_SHOWWINDOW | SWP_NOZORDER); nShow != SW_SHOWMINIMIZED; )
+		if (sBarData.rc.top == 0 && sBarData.rc.bottom == sizeWnd.cy)
 		{
-			ShowWindow(nShow);
-			break;
+			if (sBarData.rc.right == sizeWnd.cx)
+			{
+				rScreen.SetRect(0, 0, sizeWnd.cx - sBarData.rc.right + sBarData.rc.left, sizeWnd.cy);
+			}
+			else
+			{
+				rScreen.SetRect(sBarData.rc.right - sBarData.rc.left, 0, sizeWnd.cx, sizeWnd.cy);
+			}
 		}
-	}
-	else
-	{
-		ShowWindow(SW_SHOWNORMAL);
+		if (rPosition.left < rScreen.left || rPosition.top < rScreen.top || rPosition.right > rScreen.right || rPosition.bottom > rScreen.bottom)
+		{
+			rPosition = rScreen;
+		}
+		if (nShow <= SW_MAX)
+		{
+			SetWindowPos((CONST CWnd*)NULL, rPosition.left, rPosition.top, rPosition.Width(), rPosition.Height(), SWP_NOZORDER);
+		}
+		else
+		{
+			ShowFullScreen();
+		}
 	}
 	if (!cProfile.GetStatusBarState(nPaneIDs))
 	{
 		nPaneIDs.RemoveAll();
 	}
+	ShowWindow((bProfile) ? ((nShow <= SW_MAX) ? nShow : SW_SHOW) : SW_SHOWNORMAL);
 	m_wndStatusBar.SetIndicators(nPaneIDs);
+	UpdateStatusBar();
 }
 
 VOID CMainWnd::UpdateStatusBar()
@@ -8672,7 +8695,7 @@ INT CDesktopApp::RegisterApp()
 	CMFCToolTipInfo  cToolTipInfo;
 	CWelcomeDialog  cWelcomeDialog;
 
-	for (CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows7)), InitCommonControls(), InitContextMenuManager(), InitKeyboardManager(), InitTooltipManager(), AfxOleInit(), AfxSocketInit(), AfxInitRichEdit(), AfxEnableControlContainer(), EnableTaskbarInteraction(FALSE), EnableHtmlHelp(), cToolTipInfo.m_bVislManagerTheme = TRUE, GetTooltipManager()->SetTooltipParams(AFX_TOOLTIP_TYPE_ALL, RUNTIME_CLASS(CMFCToolTipCtrl), &cToolTipInfo); !(hMutex = CreateMutex((LPSECURITY_ATTRIBUTES)NULL, FALSE, cVersionInfo.QueryFileDescription())) || GetLastError() == ERROR_ALREADY_EXISTS; )
+	for (CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows7)), InitCommonControls(), InitContextMenuManager(), InitKeyboardManager(), InitTooltipManager(), AfxOleInit(), AfxSocketInit(), AfxInitRichEdit(), AfxEnableControlContainer(), EnableTaskbarInteraction(FALSE), EnableHtmlHelp(), InitializeSpeech(), cToolTipInfo.m_bVislManagerTheme = TRUE, GetTooltipManager()->SetTooltipParams(AFX_TOOLTIP_TYPE_ALL, RUNTIME_CLASS(CMFCToolTipCtrl), &cToolTipInfo); !(hMutex = CreateMutex((LPSECURITY_ATTRIBUTES)NULL, FALSE, cVersionInfo.QueryFileDescription())) || GetLastError() == ERROR_ALREADY_EXISTS; )
 	{
 		for (EnumWindows(EnumTopLevelWindows, (LPARAM)(LPCTSTR)GetAppTitle()); hMutex != (HANDLE)NULL; )
 		{
@@ -8703,6 +8726,7 @@ INT CDesktopApp::RegisterApp()
 BOOL CDesktopApp::UnregisterApp()
 {
 	SetLoginData();
+	UninitializeSpeech();
 	UnregisterCustomControls();
 	m_cEventLog.UnregisterSource(EVENTLOG_CATEGORY_ALL, FALSE);
 	return CAccountsApp::UnregisterApp();
@@ -9311,6 +9335,18 @@ VOID CDesktopApp::StopAssistant()
 {
 	GetMainWnd()->StopAssistant();
 }
+
+#ifndef SATELLITETRACKING
+BOOL CDesktopApp::InitializeSpeech()
+{
+	return FALSE;
+}
+
+BOOL CDesktopApp::UninitializeSpeech()
+{
+	return FALSE;
+}
+#endif
 
 VOID CDesktopApp::ShowWaitCursor()
 {

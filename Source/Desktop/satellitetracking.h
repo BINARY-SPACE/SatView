@@ -19,14 +19,30 @@
 #define __SATELLITETRACKING_H__
 
 #ifdef SATELLITETRACKING
-#include "Space.h"
+#include <map>
+#include <set>
+#include <deque>
+#include <string>
+#include <random>
+#include <unordered_map>
 
-#ifndef min
-#define min(a,b)   (((a) < (b)) ? (a) : (b))
-#endif
-#ifndef max
-#define max(a,b)   (((a) > (b)) ? (a) : (b))
-#endif
+#include <..\..\SpaceTraveller\SpaceEngine\Eigen\Core>
+#include <..\..\SpaceTraveller\SpaceEngine\Eigen\Geometry>
+#include <..\..\SpaceTraveller\SpaceEngine\Eigen\Eigenvalues>
+
+#include "..\..\SpaceTraveller\SpaceEngine\resource.h"
+
+#include "SPICE\SpiceUsr.h"
+
+#include "Declarations.h"
+
+#include "SpaceUtilities.h"
+
+#include "Body.h"
+#include "Missions.h"
+#include "Spacecraft.h"
+#include "SpaceScene.h"
+#include "SpaceView.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -173,8 +189,6 @@ public:
 	BOOL CalculateSpacecraftOrbit(CSpacecraft *pSpacecraft, CONST CTimeKey &tTime) CONST;
 	BOOL CalculateSpacecraftState(CONST CSpacecraft *pSpacecraft, CONST CTimeKey &tTime, StateVector &sState) CONST;
 
-	VOID ShowSideBars(BOOL bShow = TRUE);
-
 	BOOL ShowMessage(LPCTSTR pszMessage, UINT nType = -1, CMFCCaptionBar::BarElementAlignment nAlignment = CMFCCaptionBar::ALIGN_CENTER, BOOL bSound = TRUE);
 	BOOL ShowProgress(LPCTSTR pszAction, INT nProgress = 0);
 
@@ -186,8 +200,8 @@ private:
 	CString ConstructHelpFileName() CONST;
 
 public:
-	static BOOL CALLBACK ShowMessageProc(LPCTSTR pszMessage, UINT nType = -1, CMFCCaptionBar::BarElementAlignment nAlignment = CMFCCaptionBar::ALIGN_CENTER, BOOL bSound = TRUE);
-	static BOOL CALLBACK ShowProgressProc(LPCTSTR pszMessage, INT nProgress = 0);
+	static BOOL CALLBACK ShowMessageProc(CONST CView* pView, Message::Type nType, LPCTSTR pszText, BOOL bSound);
+	static BOOL CALLBACK ShowProgressProc(CONST CView*, LPCTSTR pszAction, INT nProgress = 0);
 
 	// Overrides
 	// ClassWizard generated virtual function overrides
@@ -218,10 +232,8 @@ protected:
 	//{{AFX_MSG(CSatelliteTrackingToolWnd)
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg LRESULT OnNcHitTest(CPoint point);
-	afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
 	afx_msg void OnGetMinMaxInfo(MINMAXINFO *lpMMI);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg void OnMove(int x, int y);
 	afx_msg BOOL OnEraseBkgnd(CDC *pDC);
 	afx_msg void OnInitMenu(CMenu *pMenu);
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);

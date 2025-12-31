@@ -659,7 +659,6 @@ protected:
 	//{{AFX_MSG(CDisplayWnd)
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
-	afx_msg void OnWindowPosChanging(WINDOWPOS *lpwndpos);
 	afx_msg void OnMDIActivate(BOOL bActivate, CWnd *pActivateWnd, CWnd *pDeactivateWnd);
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg void OnMoving(UINT nSide, LPRECT lpRect);

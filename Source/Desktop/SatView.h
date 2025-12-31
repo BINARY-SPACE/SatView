@@ -115,6 +115,10 @@
 #include "tcprocedures.h"
 
 #include "MimicsCtlEnum.h"
+
+#ifdef SATELLITETRACKING
+#include "Speech.h"
+#endif
 #endif
 
 #include "resource.h"		// main symbols
@@ -1201,6 +1205,11 @@ private:
 	VOID StopDisplays();
 	VOID StartAssistant();
 	VOID StopAssistant();
+
+#ifndef SATELLITETRACKING
+	BOOL InitializeSpeech();
+	BOOL UninitializeSpeech();
+#endif
 
 public:
 	VOID ShowWaitCursor();
