@@ -1,7 +1,7 @@
 // REGISTRY.CPP : Registry Related Interface Definition.
 //
 // This is a part of the SatView(TM) spacecraft operating system.
-// Copyright© 1992-2016 by BINARY SPACE, Switzerland.
+// Copyright© 1992-2025 by BINARY SPACE, Switzerland.
 // All rights reserved.
 //
 // This source code contains the definition of the registry related
@@ -36,42 +36,42 @@ CRegistry::CRegistry(LPCTSTR pszComputerName) : CComputerToken(pszComputerName)
 	return;
 }
 
-INT CRegistry::EnumClassesSubKeys(LPCTSTR pszSubKey, CStringArray &szSubKeys) CONST
+INT CRegistry::EnumClassesSubKeys(LPCTSTR pszSubKey, CStringArray& szSubKeys) CONST
 {
 	return EnumSubKeys(HKEY_CLASSES_ROOT, pszSubKey, szSubKeys);
 }
 
-INT CRegistry::EnumClassesSubKeyValueNames(LPCTSTR pszSubKey, CStringArray &szValueNames) CONST
+INT CRegistry::EnumClassesSubKeyValueNames(LPCTSTR pszSubKey, CStringArray& szValueNames) CONST
 {
 	return EnumValueNames(HKEY_CLASSES_ROOT, pszSubKey, szValueNames);
 }
 
-INT CRegistry::EnumMachineSubKeys(LPCTSTR pszSubKey, CStringArray &szSubKeys) CONST
+INT CRegistry::EnumMachineSubKeys(LPCTSTR pszSubKey, CStringArray& szSubKeys) CONST
 {
 	return EnumSubKeys(HKEY_LOCAL_MACHINE, pszSubKey, szSubKeys);
 }
 
-INT CRegistry::EnumMachineSubKeyValueNames(LPCTSTR pszSubKey, CStringArray &szValueNames) CONST
+INT CRegistry::EnumMachineSubKeyValueNames(LPCTSTR pszSubKey, CStringArray& szValueNames) CONST
 {
 	return EnumValueNames(HKEY_LOCAL_MACHINE, pszSubKey, szValueNames);
 }
 
-INT CRegistry::EnumUsersSubKeys(LPCTSTR pszSubKey, CStringArray &szSubKeys) CONST
+INT CRegistry::EnumUsersSubKeys(LPCTSTR pszSubKey, CStringArray& szSubKeys) CONST
 {
 	return EnumSubKeys(HKEY_USERS, pszSubKey, szSubKeys);
 }
 
-INT CRegistry::EnumUsersSubKeyValueNames(LPCTSTR pszSubKey, CStringArray &szValueNames) CONST
+INT CRegistry::EnumUsersSubKeyValueNames(LPCTSTR pszSubKey, CStringArray& szValueNames) CONST
 {
 	return EnumValueNames(HKEY_USERS, pszSubKey, szValueNames);
 }
 
-INT CRegistry::EnumUserSubKeys(LPCTSTR pszSubKey, CStringArray &szSubKeys) CONST
+INT CRegistry::EnumUserSubKeys(LPCTSTR pszSubKey, CStringArray& szSubKeys) CONST
 {
 	return EnumSubKeys(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), szSubKeys);
 }
 
-INT CRegistry::EnumUserSubKeyValueNames(LPCTSTR pszSubKey, CStringArray &szValueNames) CONST
+INT CRegistry::EnumUserSubKeyValueNames(LPCTSTR pszSubKey, CStringArray& szValueNames) CONST
 {
 	return EnumValueNames(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), szValueNames);
 }
@@ -80,18 +80,27 @@ BOOL CRegistry::SetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName)
 {
 	return SetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName);
 }
-
+BOOL CRegistry::SetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, BOOL bInfo)
+{
+	return SetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, REG_DWORD, (CONST BYTE*)&bInfo, sizeof(bInfo));
+}
 BOOL CRegistry::SetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwInfo)
 {
-	return SetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, REG_DWORD, (CONST BYTE *) &dwInfo, sizeof(dwInfo));
+	return SetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, REG_DWORD, (CONST BYTE*)&dwInfo, sizeof(dwInfo));
 }
-
+BOOL CRegistry::SetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, unsigned int nInfo)
+{
+	return SetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, REG_DWORD, (CONST BYTE*)&nInfo, sizeof(nInfo));
+}
+BOOL CRegistry::SetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, double fInfo)
+{
+	return SetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, REG_BINARY, (CONST BYTE*) & fInfo, sizeof(fInfo));
+}
 BOOL CRegistry::SetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, LPCTSTR pszInfo)
 {
-	return SetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, REG_SZ, (CONST BYTE *) pszInfo, (lstrlen(pszInfo) + 1) * sizeof(TCHAR));
+	return SetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, REG_SZ, (CONST BYTE*)pszInfo, (lstrlen(pszInfo) + 1) * sizeof(TCHAR));
 }
-
-BOOL CRegistry::SetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CONST CStringArray &szInfo)
+BOOL CRegistry::SetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CONST CStringArray& szInfo)
 {
 	INT  nString;
 	INT  nStrings;
@@ -110,29 +119,45 @@ BOOL CRegistry::SetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CONST CS
 		}
 		break;
 	}
-	return((nString == nStrings) ? SetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, REG_MULTI_SZ, (CONST BYTE *) (LPCTSTR) szStrings, (cbStrings + 1) * sizeof(TCHAR)) : FALSE);
+	return((nString == nStrings) ? SetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, REG_MULTI_SZ, (CONST BYTE*)(LPCTSTR)szStrings, (cbStrings + 1) * sizeof(TCHAR)) : FALSE);
 }
-
-BOOL CRegistry::SetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwType, CONST BYTE *pInfo, INT cbInfo)
+BOOL CRegistry::SetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwType, CONST BYTE* pInfo, INT cbInfo)
 {
 	return SetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, dwType, pInfo, cbInfo);
 }
 
-BOOL CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD &dwInfo) CONST
+BOOL CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, BOOL& bInfo) CONST
 {
 	DWORD  dwType;
 
-	return((GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_DWORD  &&  GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType, (BYTE *)&dwInfo, sizeof(DWORD)) == sizeof(DWORD)) ? TRUE : FALSE);
+	return((GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_DWORD && GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType, (BYTE*)&bInfo, sizeof(bInfo)) == sizeof(bInfo)) ? TRUE : FALSE);
 }
+BOOL CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD& dwInfo) CONST
+{
+	DWORD  dwType;
 
-BOOL CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CString &szInfo) CONST
+	return((GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_DWORD && GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType, (BYTE*)&dwInfo, sizeof(dwInfo)) == sizeof(dwInfo)) ? TRUE : FALSE);
+}
+BOOL CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, unsigned int& nInfo) CONST
+{
+	DWORD  dwType;
+
+	return((GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_DWORD && GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType, (BYTE*)&nInfo, sizeof(nInfo)) == sizeof(nInfo)) ? TRUE : FALSE);
+}
+BOOL CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, double& fInfo) CONST
+{
+	DWORD  dwType;
+
+	return((GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_BINARY && GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType, (BYTE*)&fInfo, sizeof(fInfo)) == sizeof(fInfo)) ? TRUE : FALSE);
+}
+BOOL CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CString& szInfo) CONST
 {
 	INT  cbString;
 	DWORD  dwType;
 
 	if ((cbString = GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType)) > 0 && (dwType == REG_SZ || dwType == REG_EXPAND_SZ))
 	{
-		if (GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType, (BYTE *)szInfo.GetBufferSetLength(cbString / sizeof(TCHAR)), cbString) == cbString)
+		if (GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType, (BYTE*)szInfo.GetBufferSetLength(cbString / sizeof(TCHAR)), cbString) == cbString)
 		{
 			szInfo.ReleaseBuffer();
 			return TRUE;
@@ -141,8 +166,7 @@ BOOL CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CString 
 	}
 	return FALSE;
 }
-
-INT CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringArray &szInfo) CONST
+INT CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringArray& szInfo) CONST
 {
 	INT  nString;
 	INT  nStrings;
@@ -153,9 +177,9 @@ INT CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringAr
 
 	for (szInfo.RemoveAll(); (cbStrings = GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType)) > 0 && dwType == REG_MULTI_SZ; )
 	{
-		if (GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType, (BYTE *)(pszStrings = szStrings.GetBufferSetLength(cbStrings / sizeof(TCHAR) - 1)), cbStrings) == cbStrings)
+		if (GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, &dwType, (BYTE*)(pszStrings = szStrings.GetBufferSetLength(cbStrings / sizeof(TCHAR) - 1)), cbStrings) == cbStrings)
 		{
-			for (nString = nStrings = 0; nStrings < cbStrings / (INT) sizeof(TCHAR) - 1; nStrings += lstrlen(&pszStrings[nStrings]) + 1)
+			for (nString = nStrings = 0; nStrings < cbStrings / (INT)sizeof(TCHAR) - 1; nStrings += lstrlen(&pszStrings[nStrings]) + 1)
 			{
 				szInfo.Add(&pszStrings[nStrings]);
 				continue;
@@ -166,8 +190,7 @@ INT CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringAr
 	}
 	return((INT)szInfo.GetSize());
 }
-
-INT CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, LPDWORD pdwType, BYTE *pInfo, INT cbInfo) CONST
+INT CRegistry::GetClassesInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, LPDWORD pdwType, BYTE* pInfo, INT cbInfo) CONST
 {
 	return GetInfo(HKEY_CLASSES_ROOT, pszSubKey, pszValueName, pdwType, pInfo, cbInfo);
 }
@@ -176,18 +199,27 @@ BOOL CRegistry::SetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName)
 {
 	return SetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName);
 }
-
+BOOL CRegistry::SetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, BOOL bInfo)
+{
+	return SetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, REG_DWORD, (CONST BYTE*)&bInfo, sizeof(bInfo));
+}
 BOOL CRegistry::SetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwInfo)
 {
-	return SetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, REG_DWORD, (CONST BYTE *) &dwInfo, sizeof(dwInfo));
+	return SetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, REG_DWORD, (CONST BYTE*)&dwInfo, sizeof(dwInfo));
 }
-
+BOOL CRegistry::SetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, unsigned int nInfo)
+{
+	return SetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, REG_DWORD, (CONST BYTE*)&nInfo, sizeof(nInfo));
+}
+BOOL CRegistry::SetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, double fInfo)
+{
+	return SetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, REG_BINARY, (CONST BYTE*)&fInfo, sizeof(fInfo));
+}
 BOOL CRegistry::SetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, LPCTSTR pszInfo)
 {
-	return SetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, REG_SZ, (CONST BYTE *) pszInfo, (lstrlen(pszInfo) + 1) * sizeof(TCHAR));
+	return SetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, REG_SZ, (CONST BYTE*)pszInfo, (lstrlen(pszInfo) + 1) * sizeof(TCHAR));
 }
-
-BOOL CRegistry::SetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CONST CStringArray &szInfo)
+BOOL CRegistry::SetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CONST CStringArray& szInfo)
 {
 	INT  nString;
 	INT  nStrings;
@@ -206,29 +238,45 @@ BOOL CRegistry::SetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CONST CS
 		}
 		break;
 	}
-	return((nString == nStrings) ? SetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, REG_MULTI_SZ, (CONST BYTE *) (LPCTSTR) szStrings, (cbStrings + 1) * sizeof(TCHAR)) : FALSE);
+	return((nString == nStrings) ? SetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, REG_MULTI_SZ, (CONST BYTE*)(LPCTSTR)szStrings, (cbStrings + 1) * sizeof(TCHAR)) : FALSE);
 }
-
-BOOL CRegistry::SetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwType, CONST BYTE *pInfo, INT cbInfo)
+BOOL CRegistry::SetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwType, CONST BYTE* pInfo, INT cbInfo)
 {
 	return SetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, dwType, pInfo, cbInfo);
 }
 
-BOOL CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD &dwInfo) CONST
+BOOL CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, BOOL& bInfo) CONST
 {
 	DWORD  dwType;
 
-	return((GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_DWORD  &&  GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType, (BYTE *)&dwInfo, sizeof(DWORD)) == sizeof(DWORD)) ? TRUE : FALSE);
+	return((GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_DWORD && GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType, (BYTE*)&bInfo, sizeof(bInfo)) == sizeof(bInfo)) ? TRUE : FALSE);
 }
+BOOL CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD& dwInfo) CONST
+{
+	DWORD  dwType;
 
-BOOL CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CString &szInfo) CONST
+	return((GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_DWORD && GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType, (BYTE*)&dwInfo, sizeof(dwInfo)) == sizeof(dwInfo)) ? TRUE : FALSE);
+}
+BOOL CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, unsigned int& nInfo) CONST
+{
+	DWORD  dwType;
+
+	return((GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_DWORD && GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType, (BYTE*)&nInfo, sizeof(&nInfo)) == sizeof(&nInfo)) ? TRUE : FALSE);
+}
+BOOL CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, double& fInfo) CONST
+{
+	DWORD  dwType;
+
+	return((GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_BINARY && GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType, (BYTE*)&fInfo, sizeof(&fInfo)) == sizeof(&fInfo)) ? TRUE : FALSE);
+}
+BOOL CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CString& szInfo) CONST
 {
 	INT  cbString;
 	DWORD  dwType;
 
 	if ((cbString = GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType)) > 0 && (dwType == REG_SZ || dwType == REG_EXPAND_SZ))
 	{
-		if (GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType, (BYTE *)szInfo.GetBufferSetLength(cbString / sizeof(TCHAR)), cbString) == cbString)
+		if (GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType, (BYTE*)szInfo.GetBufferSetLength(cbString / sizeof(TCHAR)), cbString) == cbString)
 		{
 			szInfo.ReleaseBuffer();
 			return TRUE;
@@ -237,8 +285,7 @@ BOOL CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CString 
 	}
 	return FALSE;
 }
-
-INT CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringArray &szInfo) CONST
+INT CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringArray& szInfo) CONST
 {
 	INT  nString;
 	INT  nStrings;
@@ -249,9 +296,9 @@ INT CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringAr
 
 	for (szInfo.RemoveAll(); (cbStrings = GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType)) > 0 && dwType == REG_MULTI_SZ; )
 	{
-		if (GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType, (BYTE *)(pszStrings = szStrings.GetBufferSetLength(cbStrings / sizeof(TCHAR) - 1)), cbStrings) == cbStrings)
+		if (GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, &dwType, (BYTE*)(pszStrings = szStrings.GetBufferSetLength(cbStrings / sizeof(TCHAR) - 1)), cbStrings) == cbStrings)
 		{
-			for (nString = nStrings = 0; nStrings < cbStrings / (INT) sizeof(TCHAR) - 1; nStrings += lstrlen(&pszStrings[nStrings]) + 1)
+			for (nString = nStrings = 0; nStrings < cbStrings / (INT)sizeof(TCHAR) - 1; nStrings += lstrlen(&pszStrings[nStrings]) + 1)
 			{
 				szInfo.Add(&pszStrings[nStrings]);
 				continue;
@@ -262,8 +309,7 @@ INT CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringAr
 	}
 	return((INT)szInfo.GetSize());
 }
-
-INT CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, LPDWORD pdwType, BYTE *pInfo, INT cbInfo) CONST
+INT CRegistry::GetMachineInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, LPDWORD pdwType, BYTE* pInfo, INT cbInfo) CONST
 {
 	return GetInfo(HKEY_LOCAL_MACHINE, pszSubKey, pszValueName, pdwType, pInfo, cbInfo);
 }
@@ -272,18 +318,27 @@ BOOL CRegistry::SetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName)
 {
 	return SetInfo(HKEY_USERS, pszSubKey, pszValueName);
 }
-
+BOOL CRegistry::SetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, BOOL bInfo)
+{
+	return SetInfo(HKEY_USERS, pszSubKey, pszValueName, REG_DWORD, (CONST BYTE*)&bInfo, sizeof(bInfo));
+}
 BOOL CRegistry::SetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwInfo)
 {
-	return SetInfo(HKEY_USERS, pszSubKey, pszValueName, REG_DWORD, (CONST BYTE *) &dwInfo, sizeof(dwInfo));
+	return SetInfo(HKEY_USERS, pszSubKey, pszValueName, REG_DWORD, (CONST BYTE*)&dwInfo, sizeof(dwInfo));
 }
-
+BOOL CRegistry::SetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, unsigned int nInfo)
+{
+	return SetInfo(HKEY_USERS, pszSubKey, pszValueName, REG_DWORD, (CONST BYTE*)&nInfo, sizeof(nInfo));
+}
+BOOL CRegistry::SetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, double fInfo)
+{
+	return SetInfo(HKEY_USERS, pszSubKey, pszValueName, REG_BINARY, (CONST BYTE*)&fInfo, sizeof(fInfo));
+}
 BOOL CRegistry::SetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, LPCTSTR pszInfo)
 {
-	return SetInfo(HKEY_USERS, pszSubKey, pszValueName, REG_SZ, (CONST BYTE *) pszInfo, (lstrlen(pszInfo) + 1) * sizeof(TCHAR));
+	return SetInfo(HKEY_USERS, pszSubKey, pszValueName, REG_SZ, (CONST BYTE*)pszInfo, (lstrlen(pszInfo) + 1) * sizeof(TCHAR));
 }
-
-BOOL CRegistry::SetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CONST CStringArray &szInfo)
+BOOL CRegistry::SetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CONST CStringArray& szInfo)
 {
 	INT  nString;
 	INT  nStrings;
@@ -302,29 +357,45 @@ BOOL CRegistry::SetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CONST CStr
 		}
 		break;
 	}
-	return((nString == nStrings) ? SetInfo(HKEY_USERS, pszSubKey, pszValueName, REG_MULTI_SZ, (CONST BYTE *) (LPCTSTR) szStrings, (cbStrings + 1) * sizeof(TCHAR)) : FALSE);
+	return((nString == nStrings) ? SetInfo(HKEY_USERS, pszSubKey, pszValueName, REG_MULTI_SZ, (CONST BYTE*)(LPCTSTR)szStrings, (cbStrings + 1) * sizeof(TCHAR)) : FALSE);
 }
-
-BOOL CRegistry::SetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwType, CONST BYTE *pInfo, INT cbInfo)
+BOOL CRegistry::SetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwType, CONST BYTE* pInfo, INT cbInfo)
 {
 	return SetInfo(HKEY_USERS, pszSubKey, pszValueName, dwType, pInfo, cbInfo);
 }
 
-BOOL CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD &dwInfo) CONST
+BOOL CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, BOOL& bInfo) CONST
 {
 	DWORD  dwType;
 
-	return((GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_DWORD  &&  GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType, (BYTE *)&dwInfo, sizeof(DWORD)) == sizeof(DWORD)) ? TRUE : FALSE);
+	return((GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_DWORD && GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType, (BYTE*)&bInfo, sizeof(bInfo)) == sizeof(bInfo)) ? TRUE : FALSE);
 }
+BOOL CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD& dwInfo) CONST
+{
+	DWORD  dwType;
 
-BOOL CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CString &szInfo) CONST
+	return((GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_DWORD && GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType, (BYTE*)&dwInfo, sizeof(dwInfo)) == sizeof(dwInfo)) ? TRUE : FALSE);
+}
+BOOL CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, unsigned int& nInfo) CONST
+{
+	DWORD  dwType;
+
+	return((GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_DWORD && GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType, (BYTE*)&nInfo, sizeof(nInfo)) == sizeof(nInfo)) ? TRUE : FALSE);
+}
+BOOL CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, double& fInfo) CONST
+{
+	DWORD  dwType;
+
+	return((GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType) > 0 && dwType == REG_BINARY && GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType, (BYTE*)&fInfo, sizeof(fInfo)) == sizeof(fInfo)) ? TRUE : FALSE);
+}
+BOOL CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CString& szInfo) CONST
 {
 	INT  cbString;
 	DWORD  dwType;
 
 	if ((cbString = GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType)) > 0 && (dwType == REG_SZ || dwType == REG_EXPAND_SZ))
 	{
-		if (GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType, (BYTE *)szInfo.GetBufferSetLength(cbString / sizeof(TCHAR)), cbString) == cbString)
+		if (GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType, (BYTE*)szInfo.GetBufferSetLength(cbString / sizeof(TCHAR)), cbString) == cbString)
 		{
 			szInfo.ReleaseBuffer();
 			return TRUE;
@@ -333,8 +404,7 @@ BOOL CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CString &s
 	}
 	return FALSE;
 }
-
-INT CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringArray &szInfo) CONST
+INT CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringArray& szInfo) CONST
 {
 	INT  nString;
 	INT  nStrings;
@@ -345,9 +415,9 @@ INT CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringArra
 
 	for (szInfo.RemoveAll(); (cbStrings = GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType)) > 0 && dwType == REG_MULTI_SZ; )
 	{
-		if (GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType, (BYTE *)(pszStrings = szStrings.GetBufferSetLength(cbStrings / sizeof(TCHAR) - 1)), cbStrings) == cbStrings)
+		if (GetInfo(HKEY_USERS, pszSubKey, pszValueName, &dwType, (BYTE*)(pszStrings = szStrings.GetBufferSetLength(cbStrings / sizeof(TCHAR) - 1)), cbStrings) == cbStrings)
 		{
-			for (nString = nStrings = 0; nStrings < cbStrings / (INT) sizeof(TCHAR) - 1; nStrings += lstrlen(&pszStrings[nStrings]) + 1)
+			for (nString = nStrings = 0; nStrings < cbStrings / (INT)sizeof(TCHAR) - 1; nStrings += lstrlen(&pszStrings[nStrings]) + 1)
 			{
 				szInfo.Add(&pszStrings[nStrings]);
 				continue;
@@ -358,8 +428,7 @@ INT CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringArra
 	}
 	return((INT)szInfo.GetSize());
 }
-
-INT CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, LPDWORD pdwType, BYTE *pInfo, INT cbInfo) CONST
+INT CRegistry::GetUsersInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, LPDWORD pdwType, BYTE* pInfo, INT cbInfo) CONST
 {
 	return GetInfo(HKEY_USERS, pszSubKey, pszValueName, pdwType, pInfo, cbInfo);
 }
@@ -368,18 +437,27 @@ BOOL CRegistry::SetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName)
 {
 	return SetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName);
 }
-
+BOOL CRegistry::SetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, BOOL bInfo)
+{
+	return SetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, REG_DWORD, (CONST BYTE*)&bInfo, sizeof(bInfo));
+}
 BOOL CRegistry::SetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwInfo)
 {
-	return SetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, REG_DWORD, (CONST BYTE *) &dwInfo, sizeof(dwInfo));
+	return SetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, REG_DWORD, (CONST BYTE*)&dwInfo, sizeof(dwInfo));
 }
-
+BOOL CRegistry::SetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, unsigned int nInfo)
+{
+	return SetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, REG_DWORD, (CONST BYTE*)&nInfo, sizeof(nInfo));
+}
+BOOL CRegistry::SetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, double fInfo)
+{
+	return SetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, REG_BINARY, (CONST BYTE*)&fInfo, sizeof(fInfo));
+}
 BOOL CRegistry::SetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, LPCTSTR pszInfo)
 {
-	return SetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, REG_SZ, (CONST BYTE *) pszInfo, (lstrlen(pszInfo) + 1) * sizeof(TCHAR));
+	return SetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, REG_SZ, (CONST BYTE*)pszInfo, (lstrlen(pszInfo) + 1) * sizeof(TCHAR));
 }
-
-BOOL CRegistry::SetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CONST CStringArray &szInfo)
+BOOL CRegistry::SetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CONST CStringArray& szInfo)
 {
 	INT  nString;
 	INT  nStrings;
@@ -398,29 +476,45 @@ BOOL CRegistry::SetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CONST CStri
 		}
 		break;
 	}
-	return((nString == nStrings) ? SetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, REG_MULTI_SZ, (CONST BYTE *) (LPCTSTR) szStrings, (cbStrings + 1) * sizeof(TCHAR)) : FALSE);
+	return((nString == nStrings) ? SetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, REG_MULTI_SZ, (CONST BYTE*)(LPCTSTR)szStrings, (cbStrings + 1) * sizeof(TCHAR)) : FALSE);
 }
-
-BOOL CRegistry::SetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwType, CONST BYTE *pInfo, INT cbInfo)
+BOOL CRegistry::SetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwType, CONST BYTE* pInfo, INT cbInfo)
 {
 	return SetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, dwType, pInfo, cbInfo);
 }
 
-BOOL CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD &dwInfo) CONST
+BOOL CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, BOOL& bInfo) CONST
 {
 	DWORD  dwType;
 
-	return((GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType) > 0 && dwType == REG_DWORD  &&  GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType, (BYTE *)&dwInfo, sizeof(DWORD)) == sizeof(DWORD)) ? TRUE : FALSE);
+	return((GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType) > 0 && dwType == REG_DWORD && GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType, (BYTE*)&bInfo, sizeof(bInfo)) == sizeof(bInfo)) ? TRUE : FALSE);
 }
+BOOL CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD& dwInfo) CONST
+{
+	DWORD  dwType;
 
-BOOL CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CString &szInfo) CONST
+	return((GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType) > 0 && dwType == REG_DWORD && GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType, (BYTE*)&dwInfo, sizeof(dwInfo)) == sizeof(dwInfo)) ? TRUE : FALSE);
+}
+BOOL CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, unsigned int& nInfo) CONST
+{
+	DWORD  dwType;
+
+	return((GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType) > 0 && dwType == REG_DWORD && GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType, (BYTE*)&nInfo, sizeof(nInfo)) == sizeof(nInfo)) ? TRUE : FALSE);
+}
+BOOL CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, double& fInfo) CONST
+{
+	DWORD  dwType;
+
+	return((GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType) > 0 && dwType == REG_BINARY && GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType, (BYTE*)&fInfo, sizeof(fInfo)) == sizeof(fInfo)) ? TRUE : FALSE);
+}
+BOOL CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CString& szInfo) CONST
 {
 	INT  cbString;
 	DWORD  dwType;
 
 	if ((cbString = GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType)) > 0 && (dwType == REG_SZ || dwType == REG_EXPAND_SZ))
 	{
-		if (GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType, (BYTE *)szInfo.GetBufferSetLength(cbString / sizeof(TCHAR)), cbString) == cbString)
+		if (GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType, (BYTE*)szInfo.GetBufferSetLength(cbString / sizeof(TCHAR)), cbString) == cbString)
 		{
 			szInfo.ReleaseBuffer();
 			return TRUE;
@@ -429,8 +523,7 @@ BOOL CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CString &sz
 	}
 	return FALSE;
 }
-
-INT CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringArray &szInfo) CONST
+INT CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringArray& szInfo) CONST
 {
 	INT  nString;
 	INT  nStrings;
@@ -441,9 +534,9 @@ INT CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringArray
 
 	for (szInfo.RemoveAll(); (cbStrings = GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType)) > 0 && dwType == REG_MULTI_SZ; )
 	{
-		if (GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType, (BYTE *)(pszStrings = szStrings.GetBufferSetLength(cbStrings / sizeof(TCHAR) - 1)), cbStrings) == cbStrings)
+		if (GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, &dwType, (BYTE*)(pszStrings = szStrings.GetBufferSetLength(cbStrings / sizeof(TCHAR) - 1)), cbStrings) == cbStrings)
 		{
-			for (nString = nStrings = 0; nStrings < cbStrings / (INT) sizeof(TCHAR) - 1; nStrings += lstrlen(&pszStrings[nStrings]) + 1)
+			for (nString = nStrings = 0; nStrings < cbStrings / (INT)sizeof(TCHAR) - 1; nStrings += lstrlen(&pszStrings[nStrings]) + 1)
 			{
 				szInfo.Add(&pszStrings[nStrings]);
 				continue;
@@ -454,53 +547,52 @@ INT CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, CStringArray
 	}
 	return((INT)szInfo.GetSize());
 }
-
-INT CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, LPDWORD pdwType, BYTE *pInfo, INT cbInfo) CONST
+INT CRegistry::GetUserInfo(LPCTSTR pszSubKey, LPCTSTR pszValueName, LPDWORD pdwType, BYTE* pInfo, INT cbInfo) CONST
 {
 	return GetInfo(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), pszValueName, pdwType, pInfo, cbInfo);
 }
 
-BOOL CRegistry::SetClassesSecurity(LPCTSTR pszSubKey, CONST CSecurityDescriptor &cSecurityDescriptor)
+BOOL CRegistry::SetClassesSecurity(LPCTSTR pszSubKey, CONST CSecurityDescriptor& cSecurityDescriptor)
 {
 	return SetSecurity(HKEY_CLASSES_ROOT, pszSubKey, cSecurityDescriptor);
 }
 
-BOOL CRegistry::GetClassesSecurity(LPCTSTR pszSubKey, CSecurityDescriptor &cSecurityDescriptor) CONST
+BOOL CRegistry::GetClassesSecurity(LPCTSTR pszSubKey, CSecurityDescriptor& cSecurityDescriptor) CONST
 {
 	return GetSecurity(HKEY_CLASSES_ROOT, pszSubKey, cSecurityDescriptor);
 }
 
-BOOL CRegistry::SetMachineSecurity(LPCTSTR pszSubKey, CONST CSecurityDescriptor &cSecurityDescriptor)
+BOOL CRegistry::SetMachineSecurity(LPCTSTR pszSubKey, CONST CSecurityDescriptor& cSecurityDescriptor)
 {
 	return SetSecurity(HKEY_LOCAL_MACHINE, pszSubKey, cSecurityDescriptor);
 }
 
-BOOL CRegistry::GetMachineSecurity(LPCTSTR pszSubKey, CSecurityDescriptor &cSecurityDescriptor) CONST
+BOOL CRegistry::GetMachineSecurity(LPCTSTR pszSubKey, CSecurityDescriptor& cSecurityDescriptor) CONST
 {
 	return GetSecurity(HKEY_LOCAL_MACHINE, pszSubKey, cSecurityDescriptor);
 }
 
-BOOL CRegistry::SetUsersSecurity(LPCTSTR pszSubKey, CONST CSecurityDescriptor &cSecurityDescriptor)
+BOOL CRegistry::SetUsersSecurity(LPCTSTR pszSubKey, CONST CSecurityDescriptor& cSecurityDescriptor)
 {
 	return SetSecurity(HKEY_USERS, pszSubKey, cSecurityDescriptor);
 }
 
-BOOL CRegistry::GetUsersSecurity(LPCTSTR pszSubKey, CSecurityDescriptor &cSecurityDescriptor) CONST
+BOOL CRegistry::GetUsersSecurity(LPCTSTR pszSubKey, CSecurityDescriptor& cSecurityDescriptor) CONST
 {
 	return GetSecurity(HKEY_USERS, pszSubKey, cSecurityDescriptor);
 }
 
-BOOL CRegistry::SetUserSecurity(LPCTSTR pszSubKey, CONST CSecurityDescriptor &cSecurityDescriptor)
+BOOL CRegistry::SetUserSecurity(LPCTSTR pszSubKey, CONST CSecurityDescriptor& cSecurityDescriptor)
 {
 	return SetSecurity(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), cSecurityDescriptor);
 }
 
-BOOL CRegistry::GetUserSecurity(LPCTSTR pszSubKey, CSecurityDescriptor &cSecurityDescriptor) CONST
+BOOL CRegistry::GetUserSecurity(LPCTSTR pszSubKey, CSecurityDescriptor& cSecurityDescriptor) CONST
 {
 	return GetSecurity(HKEY_USERS, ConstructQualifiedSubKey(pszSubKey), cSecurityDescriptor);
 }
 
-INT CRegistry::EnumSubKeys(HKEY hKey, LPCTSTR pszSubKey, CStringArray &szSubKeys) CONST
+INT CRegistry::EnumSubKeys(HKEY hKey, LPCTSTR pszSubKey, CStringArray& szSubKeys) CONST
 {
 	HKEY  hRegKey;
 	HKEY  hRegSubKey;
@@ -543,7 +635,7 @@ INT CRegistry::EnumSubKeys(HKEY hKey, LPCTSTR pszSubKey, CStringArray &szSubKeys
 	return -1;
 }
 
-INT CRegistry::EnumValueNames(HKEY hKey, LPCTSTR pszSubKey, CStringArray &szValueNames) CONST
+INT CRegistry::EnumValueNames(HKEY hKey, LPCTSTR pszSubKey, CStringArray& szValueNames) CONST
 {
 	HKEY  hRegKey;
 	HKEY  hRegSubKey;
@@ -585,14 +677,14 @@ INT CRegistry::EnumValueNames(HKEY hKey, LPCTSTR pszSubKey, CStringArray &szValu
 	return -1;
 }
 
-BOOL CRegistry::SetInfo(HKEY hKey, LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwType, CONST BYTE *pInfo, INT cbInfo)
+BOOL CRegistry::SetInfo(HKEY hKey, LPCTSTR pszSubKey, LPCTSTR pszValueName, DWORD dwType, CONST BYTE* pInfo, INT cbInfo)
 {
 	HKEY  hRegKey;
 	HKEY  hRegSubKey;
 	LONG  lRegKeyCode;
 	DWORD  dwKeyStatus;
 
-	if (RegConnectRegistry(GetComputerUNCName(), hKey, &hRegKey) == ERROR_SUCCESS)
+	for (hRegKey = hRegSubKey = (HKEY)NULL; RegConnectRegistry(GetComputerUNCName(), hKey, &hRegKey) == ERROR_SUCCESS;)
 	{
 		if ((AfxIsValidString(pszValueName) && RegCreateKeyEx(hRegKey, pszSubKey, 0, (LPTSTR)NULL, REG_OPTION_NON_VOLATILE, CheckSAM(KEY_WRITE), (LPSECURITY_ATTRIBUTES)NULL, &hRegSubKey, &dwKeyStatus) == ERROR_SUCCESS) || (!AfxIsValidString(pszValueName) && ((lRegKeyCode = RegDeleteKey(hRegKey, pszSubKey)) == ERROR_SUCCESS || lRegKeyCode == ERROR_FILE_NOT_FOUND)))
 		{
@@ -605,11 +697,12 @@ BOOL CRegistry::SetInfo(HKEY hKey, LPCTSTR pszSubKey, LPCTSTR pszValueName, DWOR
 			if (AfxIsValidString(pszValueName)) RegCloseKey(hRegSubKey);
 		}
 		RegCloseKey(hRegKey);
+		break;
 	}
 	return FALSE;
 }
 
-INT CRegistry::GetInfo(HKEY hKey, LPCTSTR pszSubKey, LPCTSTR pszValueName, LPDWORD pdwType, BYTE *pInfo, INT cbInfo) CONST
+INT CRegistry::GetInfo(HKEY hKey, LPCTSTR pszSubKey, LPCTSTR pszValueName, LPDWORD pdwType, BYTE* pInfo, INT cbInfo) CONST
 {
 	HKEY  hRegKey;
 	HKEY  hRegSubKey;
@@ -634,7 +727,7 @@ INT CRegistry::GetInfo(HKEY hKey, LPCTSTR pszSubKey, LPCTSTR pszValueName, LPDWO
 	return -1;
 }
 
-BOOL CRegistry::SetSecurity(HKEY hKey, LPCTSTR pszSubKey, CONST CSecurityDescriptor &cSecurityDescriptor)
+BOOL CRegistry::SetSecurity(HKEY hKey, LPCTSTR pszSubKey, CONST CSecurityDescriptor& cSecurityDescriptor)
 {
 	HKEY  hRegKey;
 	HKEY  hRegSubKey;
@@ -656,7 +749,7 @@ BOOL CRegistry::SetSecurity(HKEY hKey, LPCTSTR pszSubKey, CONST CSecurityDescrip
 	return FALSE;
 }
 
-BOOL CRegistry::GetSecurity(HKEY hKey, LPCTSTR pszSubKey, CSecurityDescriptor &cSecurityDescriptor) CONST
+BOOL CRegistry::GetSecurity(HKEY hKey, LPCTSTR pszSubKey, CSecurityDescriptor& cSecurityDescriptor) CONST
 {
 	HKEY  hRegKey;
 	HKEY  hRegSubKey;

@@ -50,18 +50,15 @@ public:
 	CWnd *GetParent() CONST;
 
 protected:
-	BOOL AccessControl(UINT nCtrlID, BOOL bAccess, BOOL bVisible = TRUE, BOOL bSelections = TRUE);
-
-	HGLOBAL LoadLocaleDialogTemplate(UINT nDialogID) CONST;
-	HGLOBAL LoadLocaleDialogTemplate(LPCTSTR pszDialogName) CONST;
-
 	BOOL SetChildSheet(CMFCPropertySheet *pSheet, CWnd *pItem);
 	CMFCPropertySheet *GetChildSheet() CONST;
 
-private:
-	BOOL IsControlOfType(CWnd *pCtrl, CRuntimeClass *pClass) CONST;
+	BOOL AccessControl(UINT nCtrlID, BOOL bAccess, BOOL bVisible = TRUE, BOOL bSelections = TRUE);
 
-	VOID UpdateControlContents(CWnd *pCtrl, CComboBox *pComboBox);
+private:
+	VOID UpdateControlContents(CWnd* pCtrl, CComboBox* pComboBox);
+
+	BOOL IsControlOfType(CWnd *pCtrl, CRuntimeClass *pClass) CONST;
 
 	// Overrides
 	// ClassWizard generated virtual function overrides
@@ -70,6 +67,9 @@ public:
 	virtual BOOL Initialize();
 	virtual BOOL IsModified() CONST;
 	virtual BOOL Check(BOOL bModified = TRUE) CONST;
+protected:
+	virtual HGLOBAL LoadLocaleDialogTemplate(UINT nDialogID) CONST;
+	virtual HGLOBAL LoadLocaleDialogTemplate(LPCTSTR pszDialogName) CONST;
 protected:
 	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	virtual void DoDataExchange(CDataExchange *pDX);    // DDX/DDV support
@@ -176,18 +176,15 @@ public:
 	CLocalePropertySheetDialog *GetParent() CONST;
 
 protected:
+	BOOL SetChildSheet(CMFCPropertySheet* pSheet, CWnd* pItem);
+	CMFCPropertySheet* GetChildSheet() CONST;
+
 	BOOL AccessControl(UINT nCtrlID, BOOL bAccess, BOOL bVisible = TRUE, BOOL bSelections = TRUE);
 
-	HGLOBAL LoadLocalePropertyPageTemplate(UINT nPropertyPageID) CONST;
-	HGLOBAL LoadLocalePropertyPageTemplate(LPCTSTR pszPropertyPageName) CONST;
-
-	BOOL SetChildSheet(CMFCPropertySheet *pSheet, CWnd *pItem);
-	CMFCPropertySheet *GetChildSheet() CONST;
-
 private:
-	BOOL IsControlOfType(CWnd *pCtrl, CRuntimeClass *pClass) CONST;
-
 	VOID UpdateControlContents(CWnd *pCtrl, CComboBox *pComboBox);
+
+	BOOL IsControlOfType(CWnd* pCtrl, CRuntimeClass* pClass) CONST;
 
 	// Overrides
 	// ClassWizard generate virtual function overrides
@@ -196,6 +193,9 @@ public:
 	virtual BOOL Initialize();
 	virtual BOOL IsModified(BOOL bAll = TRUE) CONST;
 	virtual BOOL Check(BOOL bAll = TRUE) CONST;
+protected:
+	virtual HGLOBAL LoadLocalePropertyPageTemplate(UINT nPropertyPageID) CONST;
+	virtual HGLOBAL LoadLocalePropertyPageTemplate(LPCTSTR pszPropertyPageName) CONST;
 protected:
 	virtual BOOL PreTranslateMessage(MSG *pMsg);
 	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);

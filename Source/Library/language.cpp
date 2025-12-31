@@ -79,6 +79,22 @@ CWnd *CLocaleDialog::GetParent() CONST
 	return m_pParentWnd;
 }
 
+BOOL CLocaleDialog::SetChildSheet(CMFCPropertySheet* pSheet, CWnd* pItem)
+{
+	if (IsChild(pSheet))
+	{
+		pSheet->SetWindowPos(pItem, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
+		m_hChildSheet = pSheet->GetSafeHwnd();
+		return TRUE;
+	}
+	return FALSE;
+}
+
+CMFCPropertySheet* CLocaleDialog::GetChildSheet() CONST
+{
+	return((CMFCPropertySheet*)CWnd::FromHandle(m_hChildSheet));
+}
+
 BOOL CLocaleDialog::AccessControl(UINT nCtrlID, BOOL bAccess, BOOL bVisible, BOOL bSelections)
 {
 	INT  nCtrl;
@@ -253,35 +269,22 @@ BOOL CLocaleDialog::AccessControl(UINT nCtrlID, BOOL bAccess, BOOL bVisible, BOO
 	return TRUE;
 }
 
-HGLOBAL CLocaleDialog::LoadLocaleDialogTemplate(UINT nDialogID) CONST
+VOID CLocaleDialog::UpdateControlContents(CWnd *pCtrl, CComboBox *pComboBox)
 {
-	return LoadLocaleDialogTemplate(MAKEINTRESOURCE(nDialogID));
-}
-HGLOBAL CLocaleDialog::LoadLocaleDialogTemplate(LPCTSTR pszDialogName) CONST
-{
-	HMODULE  hModule;
-	HRSRC  hDialogTemplate;
+	INT  nItem;
+	INT  nItems;
+	INT  nIndex;
+	CString  szItem;
 
-	return(((hDialogTemplate = FindResourceEx((hModule = GetModuleHandle((LPCTSTR)NULL)), RT_DIALOG, pszDialogName, GetLanguageID())) || (hDialogTemplate = FindResourceEx(hModule, RT_DIALOG, pszDialogName, MAKELANGID(LANG_NEUTRAL, SUBLANG_NEUTRAL))) || (hDialogTemplate = FindResourceEx(hModule, RT_DIALOG, pszDialogName, MAKELANGID(LANG_ENGLISH, SUBLANG_ENGLISH_US)))) ? LoadResource(hModule, hDialogTemplate) : (LPVOID)NULL);
-}
-
-BOOL CLocaleDialog::SetChildSheet(CMFCPropertySheet *pSheet, CWnd *pItem)
-{
-	if (IsChild(pSheet))
+	for (nItem = 0, nItems = (INT)pCtrl->SendMessage(CB_GETCOUNT), nIndex = (INT)pCtrl->SendMessage(CB_GETCURSEL), pComboBox->SetFont(GetFont()), pComboBox->ResetContent(); nItem < nItems; nItem++)
 	{
-		pSheet->SetWindowPos(pItem, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
-		m_hChildSheet = pSheet->GetSafeHwnd();
-		return TRUE;
+		szItem = Combobox_GetText(pCtrl, nItem);
+		pComboBox->InsertString(-1, szItem);
 	}
-	return FALSE;
+	pComboBox->SetCurSel(nIndex);
 }
 
-CMFCPropertySheet *CLocaleDialog::GetChildSheet() CONST
-{
-	return((CMFCPropertySheet *)CWnd::FromHandle(m_hChildSheet));
-}
-
-BOOL CLocaleDialog::IsControlOfType(CWnd *pCtrl, CRuntimeClass *pClass) CONST
+BOOL CLocaleDialog::IsControlOfType(CWnd* pCtrl, CRuntimeClass* pClass) CONST
 {
 	TCHAR  szClassName[2][256];
 
@@ -299,21 +302,6 @@ BOOL CLocaleDialog::IsControlOfType(CWnd *pCtrl, CRuntimeClass *pClass) CONST
 		return FALSE;
 	}
 	return TRUE;
-}
-
-VOID CLocaleDialog::UpdateControlContents(CWnd *pCtrl, CComboBox *pComboBox)
-{
-	INT  nItem;
-	INT  nItems;
-	INT  nIndex;
-	CString  szItem;
-
-	for (nItem = 0, nItems = (INT)pCtrl->SendMessage(CB_GETCOUNT), nIndex = (INT)pCtrl->SendMessage(CB_GETCURSEL), pComboBox->SetFont(GetFont()), pComboBox->ResetContent(); nItem < nItems; nItem++)
-	{
-		szItem = Combobox_GetText(pCtrl, nItem);
-		pComboBox->InsertString(-1, szItem);
-	}
-	pComboBox->SetCurSel(nIndex);
 }
 
 LRESULT CLocaleDialog::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
@@ -435,6 +423,18 @@ BOOL CLocaleDialog::IsModified() CONST
 BOOL CLocaleDialog::Check(BOOL bModified) CONST
 {
 	return((bModified) ? IsModified() : TRUE);
+}
+
+HGLOBAL CLocaleDialog::LoadLocaleDialogTemplate(UINT nDialogID) CONST
+{
+	return LoadLocaleDialogTemplate(MAKEINTRESOURCE(nDialogID));
+}
+HGLOBAL CLocaleDialog::LoadLocaleDialogTemplate(LPCTSTR pszDialogName) CONST
+{
+	HMODULE  hModule;
+	HRSRC  hDialogTemplate;
+
+	return(((hDialogTemplate = FindResourceEx((hModule = GetModuleHandle((LPCTSTR)NULL)), RT_DIALOG, pszDialogName, GetLanguageID())) || (hDialogTemplate = FindResourceEx(hModule, RT_DIALOG, pszDialogName, MAKELANGID(LANG_NEUTRAL, SUBLANG_NEUTRAL))) || (hDialogTemplate = FindResourceEx(hModule, RT_DIALOG, pszDialogName, MAKELANGID(LANG_ENGLISH, SUBLANG_ENGLISH_US)))) ? LoadResource(hModule, hDialogTemplate) : (LPVOID)NULL);
 }
 
 void CLocaleDialog::DoDataExchange(CDataExchange *pDX)
@@ -754,6 +754,22 @@ CLocalePropertySheetDialog *CLocalePropertyPage::GetParent() CONST
 	return((CLocalePropertySheetDialog *)m_pParentWnd);
 }
 
+BOOL CLocalePropertyPage::SetChildSheet(CMFCPropertySheet* pSheet, CWnd* pItem)
+{
+	if (IsChild(pSheet))
+	{
+		pSheet->SetWindowPos(pItem, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
+		m_hChildSheet = pSheet->GetSafeHwnd();
+		return TRUE;
+	}
+	return FALSE;
+}
+
+CMFCPropertySheet* CLocalePropertyPage::GetChildSheet() CONST
+{
+	return((CMFCPropertySheet*)CWnd::FromHandle(m_hChildSheet));
+}
+
 BOOL CLocalePropertyPage::AccessControl(UINT nCtrlID, BOOL bAccess, BOOL bVisible, BOOL bSelections)
 {
 	INT  nCtrl;
@@ -928,35 +944,22 @@ BOOL CLocalePropertyPage::AccessControl(UINT nCtrlID, BOOL bAccess, BOOL bVisibl
 	return TRUE;
 }
 
-HGLOBAL CLocalePropertyPage::LoadLocalePropertyPageTemplate(UINT nPropertyPageID) CONST
+VOID CLocalePropertyPage::UpdateControlContents(CWnd *pCtrl, CComboBox *pComboBox)
 {
-	return LoadLocalePropertyPageTemplate(MAKEINTRESOURCE(nPropertyPageID));
-}
-HGLOBAL CLocalePropertyPage::LoadLocalePropertyPageTemplate(LPCTSTR pszPropertyPageName) CONST
-{
-	HMODULE  hModule;
-	HRSRC  hPropertyPageTemplate;
+	INT  nItem;
+	INT  nItems;
+	INT  nIndex;
+	CString  szItem;
 
-	return(((hPropertyPageTemplate = FindResourceEx((hModule = GetModuleHandle((LPCTSTR)NULL)), RT_DIALOG, pszPropertyPageName, GetLanguageID())) || (hPropertyPageTemplate = FindResourceEx(hModule, RT_DIALOG, pszPropertyPageName, MAKELANGID(LANG_NEUTRAL, SUBLANG_NEUTRAL))) || (hPropertyPageTemplate = FindResourceEx(hModule, RT_DIALOG, pszPropertyPageName, MAKELANGID(LANG_ENGLISH, SUBLANG_ENGLISH_US)))) ? LoadResource(hModule, hPropertyPageTemplate) : (LPVOID)NULL);
-}
-
-BOOL CLocalePropertyPage::SetChildSheet(CMFCPropertySheet *pSheet, CWnd *pItem)
-{
-	if (IsChild(pSheet))
+	for (nItem = 0, nItems = (INT)pCtrl->SendMessage(CB_GETCOUNT), nIndex = (INT)pCtrl->SendMessage(CB_GETCURSEL), pComboBox->SetFont(GetFont()), pComboBox->ResetContent(); nItem < nItems; nItem++)
 	{
-		pSheet->SetWindowPos(pItem, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
-		m_hChildSheet = pSheet->GetSafeHwnd();
-		return TRUE;
+		szItem = Combobox_GetText(pCtrl, nItem);
+		pComboBox->InsertString(-1, szItem);
 	}
-	return FALSE;
+	pComboBox->SetCurSel(nIndex);
 }
 
-CMFCPropertySheet *CLocalePropertyPage::GetChildSheet() CONST
-{
-	return((CMFCPropertySheet *)CWnd::FromHandle(m_hChildSheet));
-}
-
-BOOL CLocalePropertyPage::IsControlOfType(CWnd *pCtrl, CRuntimeClass *pClass) CONST
+BOOL CLocalePropertyPage::IsControlOfType(CWnd* pCtrl, CRuntimeClass* pClass) CONST
 {
 	TCHAR  szClassName[2][256];
 
@@ -974,21 +977,6 @@ BOOL CLocalePropertyPage::IsControlOfType(CWnd *pCtrl, CRuntimeClass *pClass) CO
 		return FALSE;
 	}
 	return TRUE;
-}
-
-VOID CLocalePropertyPage::UpdateControlContents(CWnd *pCtrl, CComboBox *pComboBox)
-{
-	INT  nItem;
-	INT  nItems;
-	INT  nIndex;
-	CString  szItem;
-
-	for (nItem = 0, nItems = (INT)pCtrl->SendMessage(CB_GETCOUNT), nIndex = (INT)pCtrl->SendMessage(CB_GETCURSEL), pComboBox->SetFont(GetFont()), pComboBox->ResetContent(); nItem < nItems; nItem++)
-	{
-		szItem = Combobox_GetText(pCtrl, nItem);
-		pComboBox->InsertString(-1, szItem);
-	}
-	pComboBox->SetCurSel(nIndex);
 }
 
 BOOL CLocalePropertyPage::PreTranslateMessage(MSG *pMsg)
@@ -1155,6 +1143,18 @@ BOOL CLocalePropertyPage::IsModified(BOOL bAll) CONST
 BOOL CLocalePropertyPage::Check(BOOL bAll) CONST
 {
 	return((IsWindow(GetSafeHwnd()) && bAll) ? GetParent()->Check() : TRUE);
+}
+
+HGLOBAL CLocalePropertyPage::LoadLocalePropertyPageTemplate(UINT nPropertyPageID) CONST
+{
+	return LoadLocalePropertyPageTemplate(MAKEINTRESOURCE(nPropertyPageID));
+}
+HGLOBAL CLocalePropertyPage::LoadLocalePropertyPageTemplate(LPCTSTR pszPropertyPageName) CONST
+{
+	HMODULE  hModule;
+	HRSRC  hPropertyPageTemplate;
+
+	return(((hPropertyPageTemplate = FindResourceEx((hModule = GetModuleHandle((LPCTSTR)NULL)), RT_DIALOG, pszPropertyPageName, GetLanguageID())) || (hPropertyPageTemplate = FindResourceEx(hModule, RT_DIALOG, pszPropertyPageName, MAKELANGID(LANG_NEUTRAL, SUBLANG_NEUTRAL))) || (hPropertyPageTemplate = FindResourceEx(hModule, RT_DIALOG, pszPropertyPageName, MAKELANGID(LANG_ENGLISH, SUBLANG_ENGLISH_US)))) ? LoadResource(hModule, hPropertyPageTemplate) : (LPVOID)NULL);
 }
 
 void CLocalePropertyPage::DoDataExchange(CDataExchange *pDX)

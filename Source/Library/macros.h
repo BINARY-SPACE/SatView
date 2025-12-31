@@ -48,42 +48,18 @@ inline INT STRINGCHARS(INT cb) { return max(cb / (INT) sizeof(TCHAR) - 1, 0); }
 inline INT STRINGBYTES(INT cb) { return max(cb - (INT) sizeof(TCHAR), 0); }
 
 // Specify the string and character related macros
-#ifndef EMPTYSTRING
-#define EMPTYSTRING   ((LPCTSTR) TEXT(""))
-#endif
-#ifndef SPACE
-#define SPACE   ((LPCTSTR) TEXT(" "))
-#endif
-#ifndef SINGLEQUOTE
-#define SINGLEQUOTE   ((TCHAR) TEXT('\''))
-#endif
-#ifndef DOUBLEQUOTE
-#define DOUBLEQUOTE   ((TCHAR) TEXT('"'))
-#endif
-#ifndef PLUS
-#define PLUS   ((TCHAR) TEXT('+'))
-#endif
-#ifndef MINUS
-#define MINUS   ((TCHAR) TEXT('-'))
-#endif
-#ifndef BOLD
-#define BOLD   ((TCHAR) TEXT('\b'))
-#endif
-#ifndef TAB
-#define TAB   ((TCHAR) TEXT('\t'))
-#endif
-#ifndef EOL
-#define EOL   ((TCHAR) TEXT('\n'))
-#endif
-#ifndef EOS
-#define EOS   ((TCHAR) TEXT('\0'))
-#endif
-#ifndef CR
-#define CR   ((TCHAR) TEXT('\r'))
-#endif
-#ifndef FF
-#define FF   ((TCHAR) TEXT('\f'))
-#endif
+constexpr LPCTSTR  EMPTYSTRING = TEXT("");
+constexpr LPCTSTR  SPACE = TEXT(" ");
+constexpr TCHAR  SINGLEQUOTE = TEXT('\'');
+constexpr TCHAR  DOUBLEQUOTE = TEXT('"');
+constexpr TCHAR  PLUS = TEXT('+');
+constexpr TCHAR  MINUS = TEXT('-');
+constexpr TCHAR  BOLD = TEXT('\b');
+constexpr TCHAR  TAB = TEXT('\t');
+constexpr TCHAR  EOL = TEXT('\n');
+constexpr TCHAR  EOS = TEXT('\0');
+constexpr TCHAR  CR = TEXT('\r');
+constexpr TCHAR  FF = TEXT('\f');
 
 // Specify some code page identifiers
 #define US_ASCII   20127
