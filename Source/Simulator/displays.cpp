@@ -145,7 +145,10 @@ void CDisplayWnd::OnMDIActivate(BOOL bActivate, CWnd *pActivateWnd, CWnd *pDeact
 {
 	CDocument  *pDocument;
 
-	if (bActivate) GetParent()->UpdateTitle(((pDocument = GetActiveDocument())) ? pDocument->GetTitle() : EMPTYSTRING);
+	if (bActivate)
+	{
+		GetParent()->UpdateTitle(((pDocument = GetActiveDocument())) ? pDocument->GetTitle() : EMPTYSTRING);
+	}
 	CLocaleMDIChildWnd::OnMDIActivate(bActivate, pActivateWnd, pDeactivateWnd);
 }
 
@@ -1742,6 +1745,7 @@ CSize CSimulatorMessagesConsoleView::CalcColumnExtent(LPCTSTR pszColumn)
 	INT  nDevice;
 	INT  nDevices;
 	CSize  size;
+	CRect  rView;
 	CStringArray  szDevices;
 
 	if ((pDC = GetDC()))
@@ -1764,6 +1768,14 @@ CSize CSimulatorMessagesConsoleView::CalcColumnExtent(LPCTSTR pszColumn)
 			{
 				size.cx = max(pDC->GetTextExtent(szDevices.GetAt(nDevice)).cx, size.cx);
 				continue;
+			}
+		}
+		if (!lstrcmp(pszColumn, STRING(IDS_MESSAGESWINDOW_TITLEITEM_MESSAGE)))
+		{
+			for (GetClientRect(rView); rView.Width() > 0; )
+			{
+				size.cx = rView.Width() - CalcColumnExtent(STRING(IDS_MESSAGESWINDOW_TITLEITEM_TIME)).cx - CalcColumnExtent(STRING(IDS_MESSAGESWINDOW_TITLEITEM_TYPE)).cx - CalcColumnExtent(STRING(IDS_MESSAGESWINDOW_TITLEITEM_SOURCE)).cx - 6 * pDC->GetTextExtent(SPACE).cx;
+				break;
 			}
 		}
 		size.cy = 2 * GetSystemMetrics(SM_CYBORDER) + pDC->GetTextExtent(SPACE).cy;

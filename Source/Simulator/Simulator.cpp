@@ -381,6 +381,7 @@ BOOL CMainWnd::LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd *pParentWn
 {
 	INT  nIndex;
 	INT  nCount;
+	CImage  cImage;
 	CMFCToolBarImages  *pImages;
 	CByteArray  nDevicesData;
 	CProfile  cProfile;
@@ -396,15 +397,19 @@ BOOL CMainWnd::LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd *pParentWn
 		{
 			if (m_pwndMessages->Create(AfxRegisterWndClass(CS_NOCLOSE | CS_DBLCLKS | CS_HREDRAW | CS_VREDRAW), STRING(IDS_MESSAGESWINDOW_TITLE), WS_CHILD | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME | WS_VISIBLE, rectDefault, this))
 			{
-				if ((pImages = CMFCToolBar::GetImages()) && pImages->Load(IDB_MAINFRAMESMALLIMAGES, (HINSTANCE)NULL, TRUE))
+				if ((pImages = CMFCToolBar::GetImages()))
 				{
-					for (nIndex = 0, nCount = sizeof(nMenuIDs) / sizeof(UINT); nIndex < nCount; nIndex++)
+					for (cImage.LoadFromResource(GetModuleHandle((LPCTSTR)NULL), IDB_MAINFRAMESMALLIMAGES), pImages->SetImageSize(CSize(cImage.GetWidth() / (sizeof(nMenuIDs) / sizeof(UINT)), cImage.GetHeight())); pImages->Load(IDB_MAINFRAMESMALLIMAGES, (HINSTANCE)NULL, TRUE);)
 					{
-						GetCmdMgr()->SetCmdImage(nMenuIDs[nIndex], pImages->GetCount() - nCount + nIndex, FALSE);
-						continue;
+						for (nIndex = 0, nCount = sizeof(nMenuIDs) / sizeof(UINT); nIndex < nCount; nIndex++)
+						{
+							GetCmdMgr()->SetCmdImage(nMenuIDs[nIndex], pImages->GetCount() - nCount + nIndex, FALSE);
+							continue;
+						}
+						break;
 					}
+					return TRUE;
 				}
-				return TRUE;
 			}
 			delete m_pwndMessages;
 			break;
