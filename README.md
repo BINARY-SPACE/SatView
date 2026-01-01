@@ -1,18 +1,19 @@
 # SatView™
 ## Satellite Monitoring &amp; Control System for Microsoft® Windows® 10/11
 
-SatView™ is an advanced 'Satellite Monitoring & Control System' (MCS) that has been developed by BINARY SPACE and was used many years by multiple ESA projects (e.g. for the geo-stationary telecommunications satellite called ARTEMIS) or by other customers like EADS Astrium. Its main focus is to support mission operations by providing a rich set of features highly automating all involved processes required to control a satellite.
-It is compliant with the CCSDS Packet Telemetry/Telecommand Standard (CCSDS 102.0-B-2 el al.) but can be adapted to other (older) standards by some coding effort. Futhermore, through the generic driver-based I/O interface, it can also be re-configured for the 'Assembly, Integration & Test' (AIT) and 'In-orbit Test' (IOT) life-cycle phases of a satellite.
+SatView™ is an advanced 'Satellite Monitoring & Control System' (MCS) developed by BINARY SPACE and used for many years in multiple ESA projects (e.g., for the geostationary telecommunications satellite called ARTEMIS) as well as by other customers like EADS Astrium. Its main focus is to support mission operations by providing a rich set of features that highly automate all processes involved in controlling a satellite.<br />
+It is compliant with the CCSDS Packet Telemetry/Telecommand Standard (CCSDS 102.0-B-2 et al.) but can be adapted to other (older) standards through some coding effort. Furthermore, through the generic driver-based I/O interface, it can also be reconfigured for the 'Assembly, Integration & Test' (AIT) and 'In-orbit Test' (IOT) life-cycle phases of a satellite.
 
-Currently, Satview™ bases on Microsoft® Windows® 10/11 and is designed to depend solely on Microsoft® software. This ensures a fast and seamless upgrade process. As a consequence of this, it runs on any commercially available hardware hosting the above mentioned OS.
+Currently, SatView™ is based on Microsoft® Windows® 10/11 and is designed to depend solely on Microsoft® software. This ensures a fast and seamless upgrade process. As a consequence, it runs on any commercially available hardware hosting the above-mentioned operating system.<br />
+
 ![Alt text](/Images/SatView™%20Desktop.png?raw=true "SatView™ Desktop")
+
 ![Alt text](/Images/SatView™%20Editor.png?raw=true "SatView™ Editor")
 
-Interested hardware integrators as well as those already operating satellites in orbit are most welcome to join this project and to help migrating SatView™ to many more projects.
-<br />  
-<br />  
+Interested hardware integrators, as well as those already operating satellites in orbit, are most welcome to join this project and to help migrate SatView™ to many more projects.
+<br /> 
 ### Overview<br />
-SatView™ is designed to allow adoption to different ground segments as well as to various satellites. This is achieved by a kernel-based approach where the invariant code is encapsulated and separated from the remaining code.<br />
+SatView™ is designed to allow adaptation to different ground segments as well as to various satellites. This is achieved by a kernel-based approach where the invariant code is encapsulated and separated from the remaining code.<br />
 Read the [SatView™ Brochure](/Brochures/SatView™%20Brochure.pdf) to learn more about its design and the components the product consists of.
 <br />  
 ### Pre-Requisites<br />
