@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Desktop", "Desktop\Desktop (GitHub).vcxproj", "{E7F6903E-391A-4167-AA3D-8859BD1FBA7A}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -44,7 +44,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Simulator", "Simulator\Simu
 		{65C70D60-54F7-4A9E-B426-20C7EC5C5F82} = {65C70D60-54F7-4A9E-B426-20C7EC5C5F82}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALTEL", "ALTEL\ALTEL.vcxproj", "{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALTEL", "ALTEL\ALTEL.vcxproj", "{8877B76C-A78E-46B4-9330-37E672ED7A75}"
 	ProjectSection(ProjectDependencies) = postProject
 		{65C70D60-54F7-4A9E-B426-20C7EC5C5F82} = {65C70D60-54F7-4A9E-B426-20C7EC5C5F82}
 	EndProjectSection
@@ -52,7 +52,7 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Satellite (ALTEL)", "Satellite_ALTEL\Satellite (ALTEL).vcxproj", "{2F308187-D52F-4FAE-B598-4A3B8D500E2B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{65C70D60-54F7-4A9E-B426-20C7EC5C5F82} = {65C70D60-54F7-4A9E-B426-20C7EC5C5F82}
-		{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC} = {DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}
+		{8877B76C-A78E-46B4-9330-37E672ED7A75} = {8877B76C-A78E-46B4-9330-37E672ED7A75}
 	EndProjectSection
 EndProject
 Global
@@ -168,18 +168,18 @@ Global
 		{26B0EFAD-F18F-4B37-A0E8-5EAA3E384B2A}.Template|Win32.Build.0 = Template|Win32
 		{26B0EFAD-F18F-4B37-A0E8-5EAA3E384B2A}.Template|x64.ActiveCfg = Template|x64
 		{26B0EFAD-F18F-4B37-A0E8-5EAA3E384B2A}.Template|x64.Build.0 = Template|x64
-		{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}.Debug|Win32.ActiveCfg = Debug|Win32
-		{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}.Debug|Win32.Build.0 = Debug|Win32
-		{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}.Debug|x64.ActiveCfg = Debug|x64
-		{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}.Debug|x64.Build.0 = Debug|x64
-		{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}.Release|Win32.ActiveCfg = Release|Win32
-		{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}.Release|Win32.Build.0 = Release|Win32
-		{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}.Release|x64.ActiveCfg = Release|x64
-		{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}.Release|x64.Build.0 = Release|x64
-		{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}.Template|Win32.ActiveCfg = Release|Win32
-		{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}.Template|Win32.Build.0 = Release|Win32
-		{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}.Template|x64.ActiveCfg = Release|x64
-		{DE8A92B9-8E84-49F4-888B-DD6F943AC2AC}.Template|x64.Build.0 = Release|x64
+		{8877B76C-A78E-46B4-9330-37E672ED7A75}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8877B76C-A78E-46B4-9330-37E672ED7A75}.Debug|Win32.Build.0 = Debug|Win32
+		{8877B76C-A78E-46B4-9330-37E672ED7A75}.Debug|x64.ActiveCfg = Debug|x64
+		{8877B76C-A78E-46B4-9330-37E672ED7A75}.Debug|x64.Build.0 = Debug|x64
+		{8877B76C-A78E-46B4-9330-37E672ED7A75}.Release|Win32.ActiveCfg = Release|Win32
+		{8877B76C-A78E-46B4-9330-37E672ED7A75}.Release|Win32.Build.0 = Release|Win32
+		{8877B76C-A78E-46B4-9330-37E672ED7A75}.Release|x64.ActiveCfg = Release|x64
+		{8877B76C-A78E-46B4-9330-37E672ED7A75}.Release|x64.Build.0 = Release|x64
+		{8877B76C-A78E-46B4-9330-37E672ED7A75}.Template|Win32.ActiveCfg = Release|Win32
+		{8877B76C-A78E-46B4-9330-37E672ED7A75}.Template|Win32.Build.0 = Release|Win32
+		{8877B76C-A78E-46B4-9330-37E672ED7A75}.Template|x64.ActiveCfg = Release|x64
+		{8877B76C-A78E-46B4-9330-37E672ED7A75}.Template|x64.Build.0 = Release|x64
 		{2F308187-D52F-4FAE-B598-4A3B8D500E2B}.Debug|Win32.ActiveCfg = Debug|Win32
 		{2F308187-D52F-4FAE-B598-4A3B8D500E2B}.Debug|Win32.Build.0 = Debug|Win32
 		{2F308187-D52F-4FAE-B598-4A3B8D500E2B}.Debug|x64.ActiveCfg = Debug|x64
@@ -198,5 +198,6 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		DPBuild = 5
+		SolutionGuid = {E05693F6-976E-4DDF-8CAB-7820A9DBB286}
 	EndGlobalSection
 EndGlobal
