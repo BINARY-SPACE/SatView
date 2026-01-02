@@ -32,14 +32,14 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -47,7 +47,7 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -55,7 +55,7 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -75,31 +75,27 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>Debug\</OutDir>
-    <IntDir>Debug\</IntDir>
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
     <IncludePath>$(IncludePath);$(VCInstallDir)atlmfc\include;$(DXSDK_DIR)Include</IncludePath>
-    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>x64\Debug\</OutDir>
-    <IntDir>x64\Debug\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <IncludePath>$(IncludePath);$(VCInstallDir)atlmfc\include;$(DXSDK_DIR)Include</IncludePath>
-    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>Release\</OutDir>
-    <IntDir>Release\</IntDir>
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
     <IncludePath>$(IncludePath);$(VCInstallDir)atlmfc\include;$(DXSDK_DIR)Include</IncludePath>
-    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>x64\Release\</OutDir>
-    <IntDir>x64\Release\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <IncludePath>$(IncludePath);$(VCInstallDir)atlmfc\include;$(DXSDK_DIR)Include</IncludePath>
-    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -117,8 +113,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <ModuleDefinitionFile>Satellite (SCOS-2000).def</ModuleDefinitionFile>
-      <OutputFile>$(OutDir)Satellite (SCOS-2000).dll</OutputFile>
-      <AdditionalLibraryDirectories>..\SCOS-2000\Debug;..\Library\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\SCOS-2000\$(Configuration);..\Library\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SatView.lib;SCOS-2000.lib</AdditionalDependencies>
       <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
       <GenerateMapFile>false</GenerateMapFile>
@@ -166,9 +161,8 @@ echo No or not all files have been copied.
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <ModuleDefinitionFile>Satellite (SCOS-2000).def</ModuleDefinitionFile>
-      <OutputFile>$(OutDir)Satellite (SCOS-2000).dll</OutputFile>
       <AdditionalDependencies>SatView.lib;SCOS-2000.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\SCOS-2000\x64\Debug;..\Library\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\SCOS-2000\$(Platform)\$(Configuration);..\Library\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
       <GenerateMapFile>false</GenerateMapFile>
       <MapFileName>
@@ -223,9 +217,8 @@ echo No or not all files have been copied.
       <OptimizeReferences>
       </OptimizeReferences>
       <ModuleDefinitionFile>Satellite (SCOS-2000).def</ModuleDefinitionFile>
-      <OutputFile>$(OutDir)Satellite (SCOS-2000).dll</OutputFile>
       <AdditionalDependencies>SatView.lib;SCOS-2000.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\SCOS-2000\Release;..\Library\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\SCOS-2000\$(Configuration);..\Library\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
       <GenerateMapFile>true</GenerateMapFile>
       <ImportLibrary>$(OutDir)Satellite (SCOS-2000).lib</ImportLibrary>
@@ -280,9 +273,8 @@ echo No or not all files have been copied.
       <OptimizeReferences>
       </OptimizeReferences>
       <ModuleDefinitionFile>Satellite (SCOS-2000).def</ModuleDefinitionFile>
-      <OutputFile>$(OutDir)Satellite (SCOS-2000).dll</OutputFile>
       <AdditionalDependencies>SatView.lib;SCOS-2000.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\SCOS-2000\x64\Release;..\Library\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\SCOS-2000\$(Platform)\$(Configuration);..\Library\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
       <GenerateMapFile>true</GenerateMapFile>
       <ImportLibrary>$(OutDir)Satellite (SCOS-2000).lib</ImportLibrary>
